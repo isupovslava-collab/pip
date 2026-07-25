@@ -3,14 +3,14 @@ import type { ContentTypeId, DesignDna, GoalId, PersonaId, ScenarioId, StyleId }
 export type Option<T extends string> = { id: T; label: string; description: string }
 
 export const scenarios: Option<ScenarioId>[] = [
-  { id: 'budget_defense', label: 'Защита бюджета', description: 'Обосновать расходы и получить решение' },
-  { id: 'training', label: 'Обучение', description: 'Передать знания и закрепить материал' },
-  { id: 'report', label: 'Отчет', description: 'Показать результаты и выводы' },
-  { id: 'meeting', label: 'Совещание', description: 'Сфокусировать обсуждение и договориться' },
-  { id: 'project', label: 'Защита проекта', description: 'Представить подход, ценность и план' },
-  { id: 'strategy', label: 'Стратегия', description: 'Обозначить направление и приоритеты' },
+  { id: 'sales', label: 'Продажа', description: 'Продать продукт, услугу или решение клиенту' },
   { id: 'speech', label: 'Выступление', description: 'Удержать внимание и донести идею' },
-  { id: 'idea_pitch', label: 'Продажа идеи', description: 'Убедить аудиторию поддержать предложение' },
+  { id: 'project', label: 'Защита проекта', description: 'Представить проект и убедить поддержать идею' },
+  { id: 'meeting', label: 'Совещание', description: 'Сфокусировать обсуждение и договориться' },
+  { id: 'report', label: 'Отчёт', description: 'Показать результаты и выводы' },
+  { id: 'training', label: 'Обучение', description: 'Передать знания и закрепить материал' },
+  { id: 'strategy', label: 'Стратегия', description: 'Обозначить направление и приоритеты' },
+  { id: 'budget_defense', label: 'Защита бюджета', description: 'Обосновать расходы и получить решение' },
 ]
 
 export const personas: Option<PersonaId>[] = [

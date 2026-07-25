@@ -17,7 +17,7 @@
       "sourceLabel": { "const": "Демонстрационный референс PIP" },
       "sourceUrl": { "type": "null" },
       "previewPath": { "type": "string", "pattern": "^previews/REF-[0-9]{6}\\.svg$" },
-      "scenarioIds": { "$ref": "#/$defs/nonEmptyStrings" },
+      "scenarioIds": { "$ref": "#/$defs/scenarioIds" },
       "personaIds": { "$ref": "#/$defs/nonEmptyStrings" },
       "goalIds": { "$ref": "#/$defs/nonEmptyStrings" },
       "styleIds": { "$ref": "#/$defs/nonEmptyStrings" },
@@ -41,6 +41,12 @@
   },
   "$defs": {
     "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "scenarioIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["sales", "speech", "project", "meeting", "report", "training", "strategy", "budget_defense"] }
+    },
     "nonEmptyStrings": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
   }
 }

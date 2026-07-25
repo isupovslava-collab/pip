@@ -1,4 +1,4 @@
-export const scenarioIds = ['budget_defense', 'training', 'report', 'meeting', 'project', 'strategy', 'speech', 'idea_pitch'] as const
+export const scenarioIds = ['sales', 'speech', 'project', 'meeting', 'report', 'training', 'strategy', 'budget_defense'] as const
 export const personaIds = ['ceo', 'cfo', 'board', 'manager', 'employees', 'technical_experts', 'team', 'client'] as const
 export const goalIds = ['approve', 'decide', 'align', 'explain_results', 'teach', 'explain_problem', 'compare_options', 'inspire'] as const
 export const styleIds = ['executive', 'corporate', 'consulting', 'modern', 'industrial', 'minimal'] as const

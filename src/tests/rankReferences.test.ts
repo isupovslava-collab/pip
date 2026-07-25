@@ -14,6 +14,16 @@ describe('rankReferences', () => {
     expect(result[0].reasons).toHaveLength(5)
   })
 
+  it('выдает логичный полный результат для сценария продаж', () => {
+    const salesQuery: SearchQuery = {
+      scenarioId: 'sales', personaId: 'client', goalId: 'approve', styleId: 'consulting', contentTypeId: 'comparison',
+    }
+    const result = rankReferences(references as Reference[], salesQuery)
+
+    expect(result[0]).toMatchObject({ id: 'REF-000004', score: 100 })
+    expect(result[0].reasons).toHaveLength(5)
+  })
+
   it('сортирует результаты по убыванию баллов', () => {
     const scores = rankReferences(references as Reference[], controlQuery).map(({ score }) => score)
     expect(scores).toEqual([...scores].sort((a, b) => b - a))

@@ -4,6 +4,16 @@ import { describe, expect, it, vi } from 'vitest'
 import { SearchWizard } from '../components/SearchWizard'
 
 describe('SearchWizard', () => {
+  it('показывает обновленные сценарии в заданном порядке', () => {
+    render(<SearchWizard onSearch={vi.fn()} />)
+    const values = screen.getAllByRole('radio').map((radio) => (radio as HTMLInputElement).value)
+
+    expect(values).toEqual(['sales', 'speech', 'project', 'meeting', 'report', 'training', 'strategy', 'budget_defense'])
+    expect(screen.getByText('Продать продукт, услугу или решение клиенту')).toBeInTheDocument()
+    expect(screen.getByText('Представить проект и убедить поддержать идею')).toBeInTheDocument()
+    expect(screen.queryByText('Продажа идеи')).not.toBeInTheDocument()
+  })
+
   it('проводит пользователя через пять шагов и запускает рекомендации', async () => {
     const user = userEvent.setup()
     const onSearch = vi.fn()

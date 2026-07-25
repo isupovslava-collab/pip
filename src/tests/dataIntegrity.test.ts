@@ -34,4 +34,10 @@ describe('целостность библиотеки', () => {
       reference.contentTypeIds.forEach((id) => expect(contentTypeIds).toContain(id))
     })
   })
+
+  it('не использует устаревший сценарий idea_pitch и поддерживает продажи', () => {
+    const salesReferences = (references as Reference[]).filter(({ scenarioIds: ids }) => ids.includes('sales'))
+    expect(salesReferences).toHaveLength(3)
+    ;(references as Reference[]).forEach(({ scenarioIds: ids }) => expect(ids).not.toContain('idea_pitch'))
+  })
 })
