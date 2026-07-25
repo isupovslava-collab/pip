@@ -3,8 +3,8 @@
   "$id": "https://isupovslava-collab.github.io/pip/reference.schema.json",
   "title": "PIP Reference Library",
   "type": "array",
-  "minItems": 12,
-  "maxItems": 12,
+  "minItems": 100,
+  "maxItems": 100,
   "items": {
     "type": "object",
     "additionalProperties": false,
@@ -18,10 +18,10 @@
       "sourceUrl": { "type": "null" },
       "previewPath": { "type": "string", "pattern": "^previews/REF-[0-9]{6}\\.svg$" },
       "scenarioIds": { "$ref": "#/$defs/scenarioIds" },
-      "personaIds": { "$ref": "#/$defs/nonEmptyStrings" },
-      "goalIds": { "$ref": "#/$defs/nonEmptyStrings" },
-      "styleIds": { "$ref": "#/$defs/nonEmptyStrings" },
-      "contentTypeIds": { "$ref": "#/$defs/nonEmptyStrings" },
+      "personaIds": { "$ref": "#/$defs/personaIds" },
+      "goalIds": { "$ref": "#/$defs/goalIds" },
+      "styleIds": { "$ref": "#/$defs/styleIds" },
+      "contentTypeIds": { "$ref": "#/$defs/contentTypeIds" },
       "category": { "type": "string", "minLength": 1 },
       "tags": { "$ref": "#/$defs/nonEmptyStrings" },
       "useWhen": { "$ref": "#/$defs/nonEmptyStrings" },
@@ -46,6 +46,22 @@
       "minItems": 1,
       "uniqueItems": true,
       "items": { "enum": ["sales", "speech", "project", "meeting", "report", "training", "strategy", "budget_defense"] }
+    },
+    "personaIds": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "enum": ["ceo", "cfo", "board", "manager", "employees", "technical_experts", "team", "client"] }
+    },
+    "goalIds": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "enum": ["approve", "decide", "align", "explain_results", "teach", "explain_problem", "compare_options", "inspire"] }
+    },
+    "styleIds": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "enum": ["executive", "corporate", "consulting", "modern", "industrial", "minimal"] }
+    },
+    "contentTypeIds": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "enum": ["kpi", "comparison", "timeline", "process", "dashboard", "cover", "story", "table"] }
     },
     "nonEmptyStrings": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
   }

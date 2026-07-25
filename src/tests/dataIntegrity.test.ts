@@ -3,11 +3,11 @@ import references from '../../public/data/references.json'
 import { contentTypeIds, goalIds, personaIds, scenarioIds, styleIds, type Reference } from '../types/reference'
 
 describe('целостность библиотеки', () => {
-  it('содержит ровно 12 референсов с уникальными корректными ID', () => {
-    expect(references).toHaveLength(12)
+  it('содержит ровно 100 референсов с последовательными уникальными ID', () => {
+    expect(references).toHaveLength(100)
     const ids = references.map(({ id }) => id)
-    expect(new Set(ids).size).toBe(12)
-    ids.forEach((id) => expect(id).toMatch(/^REF-\d{6}$/))
+    expect(new Set(ids).size).toBe(100)
+    expect(ids).toEqual(Array.from({ length: 100 }, (_, index) => `REF-${String(index + 1).padStart(6, '0')}`))
   })
 
   it('содержит заполненные превью и обязательные массивы', () => {
@@ -37,7 +37,7 @@ describe('целостность библиотеки', () => {
 
   it('не использует устаревший сценарий idea_pitch и поддерживает продажи', () => {
     const salesReferences = (references as Reference[]).filter(({ scenarioIds: ids }) => ids.includes('sales'))
-    expect(salesReferences).toHaveLength(3)
+    expect(salesReferences.length).toBeGreaterThanOrEqual(20)
     ;(references as Reference[]).forEach(({ scenarioIds: ids }) => expect(ids).not.toContain('idea_pitch'))
   })
 })

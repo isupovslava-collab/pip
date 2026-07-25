@@ -6,6 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "generate:library": "node scripts/generate-library.mjs",
+    "generate:previews": "node scripts/generate-library.mjs --previews-only",
+    "validate:data": "node scripts/library-quality.mjs validate",
+    "report:coverage": "node scripts/library-quality.mjs coverage",
+    "check:duplicates": "node scripts/library-quality.mjs duplicates",
     "lint": "eslint .",
     "test": "vitest run"
   },

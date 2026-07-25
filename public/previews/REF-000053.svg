@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Решение руководства: управление изменениями</title><desc id="description">Синтетическое превью hero-number для Решение для руководства</desc>
+  <rect width="1600" height="900" fill="#F4F7FB"/><rect width="1600" height="165" fill="#082F49"/>
+  <text x="90" y="78" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="3" fill="#0369A1">REF-000053 · HERO-NUMBER</text>
+  <text x="90" y="132" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700" fill="#FFFFFF">Решение руководства: управление изменениями</text>
+  <rect x="90" y="250" width="690" height="500" rx="24" fill="#FFFFFF" stroke="#D8E2EC" stroke-width="3"/><text x="145" y="430" font-size="150" font-weight="800" fill="#0369A1">68%</text><path d="M150 560 C300 530, 470 626, 700 490" fill="none" stroke="#0369A1" stroke-width="18"/><circle cx="700" cy="490" r="18" fill="#0369A1"/><rect x="830" y="250" width="680" height="230" rx="24" fill="#FFFFFF" stroke="#D8E2EC" stroke-width="3"/><rect x="830" y="520" width="680" height="230" rx="24" fill="#FFFFFF" stroke="#D8E2EC" stroke-width="3"/>
+  <text x="90" y="835" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="600" fill="#52677A">Решение для руководства</text>
+  <rect x="1410" y="800" width="100" height="38" rx="19" fill="#0369A1"/><text x="1460" y="827" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">PIP</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Защита бюджета: защита расходов по статьям</title><desc id="description">Синтетическое превью table для Ценностное предложение</desc>
+  <rect width="1600" height="900" fill="#F4F7FB"/><rect width="1600" height="165" fill="#082F49"/>
+  <text x="90" y="78" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="3" fill="#C2410C">REF-000034 · TABLE</text>
+  <text x="90" y="132" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700" fill="#FFFFFF">Защита бюджета: защита расходов по статьям</text>
+  <rect x="90" y="230" width="1420" height="520" rx="24" fill="#FFFFFF" stroke="#D8E2EC" stroke-width="3"/><rect x="90" y="230" width="1420" height="95" rx="24" fill="#C2410C"/><path d="M90 334H1510" stroke="#D8E2EC" stroke-width="3"/><path d="M90 438H1510" stroke="#D8E2EC" stroke-width="3"/><path d="M90 542H1510" stroke="#D8E2EC" stroke-width="3"/><path d="M90 646H1510" stroke="#D8E2EC" stroke-width="3"/><path d="M445 230V750" stroke="#D8E2EC" stroke-width="3"/><path d="M800 230V750" stroke="#D8E2EC" stroke-width="3"/><path d="M1155 230V750" stroke="#D8E2EC" stroke-width="3"/><rect x="490" y="455" width="190" height="22" rx="11" fill="#C2410C" opacity="0.35"/><rect x="845" y="550" width="190" height="22" rx="11" fill="#C2410C" opacity="0.55"/><rect x="1200" y="645" width="190" height="22" rx="11" fill="#C2410C" opacity="0.75"/>
+  <text x="90" y="835" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="600" fill="#52677A">Ценностное предложение</text>
+  <rect x="1410" y="800" width="100" height="38" rx="19" fill="#C2410C"/><text x="1460" y="827" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">PIP</text>
+</svg>

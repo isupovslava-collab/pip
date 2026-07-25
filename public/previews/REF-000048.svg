@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Карта рисков: логистика</title><desc id="description">Синтетическое превью risk-map для Риски и ограничения</desc>
+  <rect width="1600" height="900" fill="#F4F7FB"/><rect width="1600" height="165" fill="#082F49"/>
+  <text x="90" y="78" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="3" fill="#B45309">REF-000048 · RISK-MAP</text>
+  <text x="90" y="132" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700" fill="#FFFFFF">Карта рисков: логистика</text>
+  <rect x="140" y="230" width="960" height="520" rx="24" fill="#FFFFFF" stroke="#D8E2EC" stroke-width="3"/><rect x="170" y="260" width="280" height="460" fill="#DCFCE7" opacity=".9"/><rect x="470" y="260" width="280" height="460" fill="#FEF3C7" opacity=".9"/><rect x="770" y="260" width="280" height="460" fill="#FEE2E2" opacity=".9"/><circle cx="900" cy="350" r="25" fill="#B45309" opacity="0.45"/><circle cx="300" cy="435" r="30" fill="#B45309" opacity="0.5700000000000001"/><circle cx="600" cy="520" r="35" fill="#B45309" opacity="0.69"/><circle cx="900" cy="605" r="40" fill="#B45309" opacity="0.81"/><rect x="1160" y="230" width="340" height="520" rx="24" fill="#FFFFFF" stroke="#D8E2EC" stroke-width="3"/>
+  <text x="90" y="835" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="600" fill="#52677A">Риски и ограничения</text>
+  <rect x="1410" y="800" width="100" height="38" rx="19" fill="#B45309"/><text x="1460" y="827" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">PIP</text>
+</svg>

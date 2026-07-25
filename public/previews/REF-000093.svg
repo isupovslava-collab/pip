@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Решение руководства: единый стандарт</title><desc id="description">Синтетическое превью before-after для Решение для руководства</desc>
+  <rect width="1600" height="900" fill="#F4F7FB"/><rect width="1600" height="165" fill="#082F49"/>
+  <text x="90" y="78" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="3" fill="#7C3AED">REF-000093 · BEFORE-AFTER</text>
+  <text x="90" y="132" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700" fill="#FFFFFF">Решение руководства: единый стандарт</text>
+  <rect x="90" y="250" width="570" height="470" rx="24" fill="#FFFFFF" stroke="#D8E2EC" stroke-width="3"/><rect x="940" y="250" width="570" height="470" rx="24" fill="#FFFFFF" stroke="#D8E2EC" stroke-width="3"/><rect x="90" y="250" width="570" height="85" rx="24" fill="#E5E7EB"/><rect x="940" y="250" width="570" height="85" rx="24" fill="#EDE9FE"/><path d="M705 470h190l-48-48m48 48-48 48" stroke="#7C3AED" stroke-width="18" fill="none"/><rect x="150" y="390" width="280" height="24" rx="12" fill="#9AA9B8"/><rect x="1000" y="390" width="390" height="24" rx="12" fill="#7C3AED" opacity="0.5"/><rect x="150" y="480" width="315" height="24" rx="12" fill="#9AA9B8"/><rect x="1000" y="480" width="415" height="24" rx="12" fill="#7C3AED" opacity="0.6799999999999999"/><rect x="150" y="570" width="350" height="24" rx="12" fill="#9AA9B8"/><rect x="1000" y="570" width="440" height="24" rx="12" fill="#7C3AED" opacity="0.86"/>
+  <text x="90" y="835" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="600" fill="#52677A">Решение для руководства</text>
+  <rect x="1410" y="800" width="100" height="38" rx="19" fill="#7C3AED"/><text x="1460" y="827" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">PIP</text>
+</svg>

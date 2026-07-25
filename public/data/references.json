@@ -7,16 +7,51 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000001.svg",
-    "scenarioIds": ["budget_defense"],
-    "personaIds": ["ceo", "board"],
-    "goalIds": ["approve", "decide"],
-    "styleIds": ["executive", "minimal"],
-    "contentTypeIds": ["kpi", "dashboard"],
+    "scenarioIds": [
+      "budget_defense"
+    ],
+    "personaIds": [
+      "ceo",
+      "board"
+    ],
+    "goalIds": [
+      "approve",
+      "decide"
+    ],
+    "styleIds": [
+      "executive",
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "kpi",
+      "dashboard"
+    ],
     "category": "Управленческое решение",
-    "tags": ["бюджет", "KPI", "решение", "руководитель"],
-    "useWhen": ["Нужно быстро показать запрашиваемую сумму и ожидаемый эффект", "Решение принимает руководитель или правление", "Главные аргументы можно выразить несколькими метриками"],
-    "avoidWhen": ["Требуется подробная финансовая таблица", "Нужно объяснить сложную методологию расчета"],
-    "designDna": { "minimalism": 86, "corporate": 88, "executive": 96, "modern": 62, "whitespace": 82, "dataDensity": 62, "formality": 92, "visualComplexity": 36 }
+    "tags": [
+      "бюджет",
+      "KPI",
+      "решение",
+      "руководитель"
+    ],
+    "useWhen": [
+      "Нужно быстро показать запрашиваемую сумму и ожидаемый эффект",
+      "Решение принимает руководитель или правление",
+      "Главные аргументы можно выразить несколькими метриками"
+    ],
+    "avoidWhen": [
+      "Требуется подробная финансовая таблица",
+      "Нужно объяснить сложную методологию расчета"
+    ],
+    "designDna": {
+      "minimalism": 86,
+      "corporate": 88,
+      "executive": 96,
+      "modern": 62,
+      "whitespace": 82,
+      "dataDensity": 62,
+      "formality": 92,
+      "visualComplexity": 36
+    }
   },
   {
     "id": "REF-000002",
@@ -26,16 +61,51 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000002.svg",
-    "scenarioIds": ["budget_defense"],
-    "personaIds": ["cfo", "board"],
-    "goalIds": ["decide", "compare_options"],
-    "styleIds": ["corporate", "executive"],
-    "contentTypeIds": ["comparison", "table"],
+    "scenarioIds": [
+      "budget_defense"
+    ],
+    "personaIds": [
+      "cfo",
+      "board"
+    ],
+    "goalIds": [
+      "decide",
+      "compare_options"
+    ],
+    "styleIds": [
+      "corporate",
+      "executive"
+    ],
+    "contentTypeIds": [
+      "comparison",
+      "table"
+    ],
     "category": "Финансовое сравнение",
-    "tags": ["риски", "ограничения", "финансы", "сравнение"],
-    "useWhen": ["Есть несколько финансовых сценариев", "Важно раскрыть допущения и ограничения", "Аудитория ожидает точных сравнений"],
-    "avoidWhen": ["Нужен вдохновляющий рассказ", "Данных недостаточно для честного сравнения"],
-    "designDna": { "minimalism": 48, "corporate": 95, "executive": 90, "modern": 42, "whitespace": 50, "dataDensity": 91, "formality": 96, "visualComplexity": 72 }
+    "tags": [
+      "риски",
+      "ограничения",
+      "финансы",
+      "сравнение"
+    ],
+    "useWhen": [
+      "Есть несколько финансовых сценариев",
+      "Важно раскрыть допущения и ограничения",
+      "Аудитория ожидает точных сравнений"
+    ],
+    "avoidWhen": [
+      "Нужен вдохновляющий рассказ",
+      "Данных недостаточно для честного сравнения"
+    ],
+    "designDna": {
+      "minimalism": 48,
+      "corporate": 95,
+      "executive": 90,
+      "modern": 42,
+      "whitespace": 50,
+      "dataDensity": 91,
+      "formality": 96,
+      "visualComplexity": 72
+    }
   },
   {
     "id": "REF-000003",
@@ -45,16 +115,51 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000003.svg",
-    "scenarioIds": ["strategy"],
-    "personaIds": ["ceo", "board"],
-    "goalIds": ["align", "decide"],
-    "styleIds": ["consulting", "minimal"],
-    "contentTypeIds": ["timeline", "story"],
+    "scenarioIds": [
+      "strategy"
+    ],
+    "personaIds": [
+      "ceo",
+      "board"
+    ],
+    "goalIds": [
+      "align",
+      "decide"
+    ],
+    "styleIds": [
+      "consulting",
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "timeline",
+      "story"
+    ],
     "category": "Стратегическая карта",
-    "tags": ["стратегия", "приоритеты", "дорожная карта", "фокус"],
-    "useWhen": ["Нужно синхронизировать руководителей вокруг общей картины", "Стратегия укладывается в несколько приоритетов", "Важно связать настоящее состояние с целевым"],
-    "avoidWhen": ["Нужна детализация каждого проекта", "Этапы еще не согласованы"],
-    "designDna": { "minimalism": 80, "corporate": 70, "executive": 86, "modern": 72, "whitespace": 79, "dataDensity": 55, "formality": 82, "visualComplexity": 52 }
+    "tags": [
+      "стратегия",
+      "приоритеты",
+      "дорожная карта",
+      "фокус"
+    ],
+    "useWhen": [
+      "Нужно синхронизировать руководителей вокруг общей картины",
+      "Стратегия укладывается в несколько приоритетов",
+      "Важно связать настоящее состояние с целевым"
+    ],
+    "avoidWhen": [
+      "Нужна детализация каждого проекта",
+      "Этапы еще не согласованы"
+    ],
+    "designDna": {
+      "minimalism": 80,
+      "corporate": 70,
+      "executive": 86,
+      "modern": 72,
+      "whitespace": 79,
+      "dataDensity": 55,
+      "formality": 82,
+      "visualComplexity": 52
+    }
   },
   {
     "id": "REF-000004",
@@ -64,16 +169,52 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000004.svg",
-    "scenarioIds": ["project", "sales"],
-    "personaIds": ["board", "client"],
-    "goalIds": ["approve", "compare_options"],
-    "styleIds": ["consulting", "executive"],
-    "contentTypeIds": ["comparison", "story"],
+    "scenarioIds": [
+      "project",
+      "sales"
+    ],
+    "personaIds": [
+      "board",
+      "client"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "consulting",
+      "executive"
+    ],
+    "contentTypeIds": [
+      "comparison",
+      "story"
+    ],
     "category": "Защита инициативы",
-    "tags": ["проект", "бизнес-логика", "ценность", "выбор"],
-    "useWhen": ["Проект конкурирует с другими инициативами", "Нужно показать причинно-следственную логику", "Есть ясные критерии выбора"],
-    "avoidWhen": ["Решение уже принято и нужен только план", "Аудитории требуется техническая детализация"],
-    "designDna": { "minimalism": 62, "corporate": 76, "executive": 89, "modern": 66, "whitespace": 68, "dataDensity": 69, "formality": 87, "visualComplexity": 64 }
+    "tags": [
+      "проект",
+      "бизнес-логика",
+      "ценность",
+      "выбор"
+    ],
+    "useWhen": [
+      "Проект конкурирует с другими инициативами",
+      "Нужно показать причинно-следственную логику",
+      "Есть ясные критерии выбора"
+    ],
+    "avoidWhen": [
+      "Решение уже принято и нужен только план",
+      "Аудитории требуется техническая детализация"
+    ],
+    "designDna": {
+      "minimalism": 62,
+      "corporate": 76,
+      "executive": 89,
+      "modern": 66,
+      "whitespace": 68,
+      "dataDensity": 69,
+      "formality": 87,
+      "visualComplexity": 64
+    }
   },
   {
     "id": "REF-000005",
@@ -83,16 +224,51 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000005.svg",
-    "scenarioIds": ["report"],
-    "personaIds": ["manager", "ceo"],
-    "goalIds": ["explain_results", "decide"],
-    "styleIds": ["corporate", "executive"],
-    "contentTypeIds": ["kpi", "dashboard"],
+    "scenarioIds": [
+      "report"
+    ],
+    "personaIds": [
+      "manager",
+      "ceo"
+    ],
+    "goalIds": [
+      "explain_results",
+      "decide"
+    ],
+    "styleIds": [
+      "corporate",
+      "executive"
+    ],
+    "contentTypeIds": [
+      "kpi",
+      "dashboard"
+    ],
     "category": "Управленческая отчетность",
-    "tags": ["KPI", "результаты", "динамика", "дашборд"],
-    "useWhen": ["Нужно показать состояние бизнеса на одном экране", "Есть плановые и фактические показатели", "По итогам отчета ожидаются действия"],
-    "avoidWhen": ["Показатели требуют длинных пояснений", "Нет единой базы сравнения"],
-    "designDna": { "minimalism": 58, "corporate": 94, "executive": 91, "modern": 55, "whitespace": 55, "dataDensity": 88, "formality": 91, "visualComplexity": 67 }
+    "tags": [
+      "KPI",
+      "результаты",
+      "динамика",
+      "дашборд"
+    ],
+    "useWhen": [
+      "Нужно показать состояние бизнеса на одном экране",
+      "Есть плановые и фактические показатели",
+      "По итогам отчета ожидаются действия"
+    ],
+    "avoidWhen": [
+      "Показатели требуют длинных пояснений",
+      "Нет единой базы сравнения"
+    ],
+    "designDna": {
+      "minimalism": 58,
+      "corporate": 94,
+      "executive": 91,
+      "modern": 55,
+      "whitespace": 55,
+      "dataDensity": 88,
+      "formality": 91,
+      "visualComplexity": 67
+    }
   },
   {
     "id": "REF-000006",
@@ -102,16 +278,51 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000006.svg",
-    "scenarioIds": ["training"],
-    "personaIds": ["employees", "team"],
-    "goalIds": ["teach", "inspire"],
-    "styleIds": ["modern", "minimal"],
-    "contentTypeIds": ["process", "timeline"],
+    "scenarioIds": [
+      "training"
+    ],
+    "personaIds": [
+      "employees",
+      "team"
+    ],
+    "goalIds": [
+      "teach",
+      "inspire"
+    ],
+    "styleIds": [
+      "modern",
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "process",
+      "timeline"
+    ],
     "category": "Образовательный маршрут",
-    "tags": ["обучение", "путь", "этапы", "прогресс"],
-    "useWhen": ["Программа состоит из последовательных модулей", "Важно показать участнику весь путь", "У каждого этапа есть понятный результат"],
-    "avoidWhen": ["Материал нелинейный", "Нужно поместить много теории на один слайд"],
-    "designDna": { "minimalism": 82, "corporate": 48, "executive": 35, "modern": 92, "whitespace": 84, "dataDensity": 38, "formality": 46, "visualComplexity": 45 }
+    "tags": [
+      "обучение",
+      "путь",
+      "этапы",
+      "прогресс"
+    ],
+    "useWhen": [
+      "Программа состоит из последовательных модулей",
+      "Важно показать участнику весь путь",
+      "У каждого этапа есть понятный результат"
+    ],
+    "avoidWhen": [
+      "Материал нелинейный",
+      "Нужно поместить много теории на один слайд"
+    ],
+    "designDna": {
+      "minimalism": 82,
+      "corporate": 48,
+      "executive": 35,
+      "modern": 92,
+      "whitespace": 84,
+      "dataDensity": 38,
+      "formality": 46,
+      "visualComplexity": 45
+    }
   },
   {
     "id": "REF-000007",
@@ -121,16 +332,51 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000007.svg",
-    "scenarioIds": ["meeting"],
-    "personaIds": ["team", "manager"],
-    "goalIds": ["align", "decide"],
-    "styleIds": ["modern", "corporate"],
-    "contentTypeIds": ["process", "comparison"],
+    "scenarioIds": [
+      "meeting"
+    ],
+    "personaIds": [
+      "team",
+      "manager"
+    ],
+    "goalIds": [
+      "align",
+      "decide"
+    ],
+    "styleIds": [
+      "modern",
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "process",
+      "comparison"
+    ],
     "category": "Рабочее решение",
-    "tags": ["совещание", "проблема", "варианты", "решение"],
-    "useWhen": ["Команде нужно принять решение на встрече", "Есть несколько реалистичных действий", "Важно зафиксировать общую логику"],
-    "avoidWhen": ["Нужно представить подробный отчет", "Решение зависит от отсутствующих данных"],
-    "designDna": { "minimalism": 66, "corporate": 74, "executive": 61, "modern": 83, "whitespace": 68, "dataDensity": 57, "formality": 65, "visualComplexity": 58 }
+    "tags": [
+      "совещание",
+      "проблема",
+      "варианты",
+      "решение"
+    ],
+    "useWhen": [
+      "Команде нужно принять решение на встрече",
+      "Есть несколько реалистичных действий",
+      "Важно зафиксировать общую логику"
+    ],
+    "avoidWhen": [
+      "Нужно представить подробный отчет",
+      "Решение зависит от отсутствующих данных"
+    ],
+    "designDna": {
+      "minimalism": 66,
+      "corporate": 74,
+      "executive": 61,
+      "modern": 83,
+      "whitespace": 68,
+      "dataDensity": 57,
+      "formality": 65,
+      "visualComplexity": 58
+    }
   },
   {
     "id": "REF-000008",
@@ -140,16 +386,52 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000008.svg",
-    "scenarioIds": ["report", "meeting"],
-    "personaIds": ["technical_experts", "manager"],
-    "goalIds": ["explain_problem", "decide"],
-    "styleIds": ["industrial", "corporate"],
-    "contentTypeIds": ["process", "timeline"],
+    "scenarioIds": [
+      "report",
+      "meeting"
+    ],
+    "personaIds": [
+      "technical_experts",
+      "manager"
+    ],
+    "goalIds": [
+      "explain_problem",
+      "decide"
+    ],
+    "styleIds": [
+      "industrial",
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "process",
+      "timeline"
+    ],
     "category": "Технический разбор",
-    "tags": ["причины", "действия", "техника", "сроки"],
-    "useWhen": ["Нужно объяснить корневую причину сбоя", "Меры имеют владельцев и сроки", "Аудитория понимает предметную область"],
-    "avoidWhen": ["Нужен только общий статус", "Причина пока не подтверждена"],
-    "designDna": { "minimalism": 43, "corporate": 77, "executive": 59, "modern": 52, "whitespace": 44, "dataDensity": 82, "formality": 78, "visualComplexity": 84 }
+    "tags": [
+      "причины",
+      "действия",
+      "техника",
+      "сроки"
+    ],
+    "useWhen": [
+      "Нужно объяснить корневую причину сбоя",
+      "Меры имеют владельцев и сроки",
+      "Аудитория понимает предметную область"
+    ],
+    "avoidWhen": [
+      "Нужен только общий статус",
+      "Причина пока не подтверждена"
+    ],
+    "designDna": {
+      "minimalism": 43,
+      "corporate": 77,
+      "executive": 59,
+      "modern": 52,
+      "whitespace": 44,
+      "dataDensity": 82,
+      "formality": 78,
+      "visualComplexity": 84
+    }
   },
   {
     "id": "REF-000009",
@@ -159,16 +441,51 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000009.svg",
-    "scenarioIds": ["speech", "training"],
-    "personaIds": ["employees"],
-    "goalIds": ["inspire", "align"],
-    "styleIds": ["modern", "minimal"],
-    "contentTypeIds": ["story", "cover"],
+    "scenarioIds": [
+      "speech",
+      "training"
+    ],
+    "personaIds": [
+      "employees"
+    ],
+    "goalIds": [
+      "inspire",
+      "align"
+    ],
+    "styleIds": [
+      "modern",
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "story",
+      "cover"
+    ],
     "category": "История изменений",
-    "tags": ["изменения", "история", "смысл", "вовлечение"],
-    "useWhen": ["Изменения требуют эмоционального принятия", "Есть ясный образ будущего", "Выступление должно запомниться"],
-    "avoidWhen": ["Нужно утвердить детальный бюджет", "Аудитория ожидает полный набор метрик"],
-    "designDna": { "minimalism": 90, "corporate": 40, "executive": 38, "modern": 95, "whitespace": 92, "dataDensity": 22, "formality": 38, "visualComplexity": 40 }
+    "tags": [
+      "изменения",
+      "история",
+      "смысл",
+      "вовлечение"
+    ],
+    "useWhen": [
+      "Изменения требуют эмоционального принятия",
+      "Есть ясный образ будущего",
+      "Выступление должно запомниться"
+    ],
+    "avoidWhen": [
+      "Нужно утвердить детальный бюджет",
+      "Аудитория ожидает полный набор метрик"
+    ],
+    "designDna": {
+      "minimalism": 90,
+      "corporate": 40,
+      "executive": 38,
+      "modern": 95,
+      "whitespace": 92,
+      "dataDensity": 22,
+      "formality": 38,
+      "visualComplexity": 40
+    }
   },
   {
     "id": "REF-000010",
@@ -178,16 +495,52 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000010.svg",
-    "scenarioIds": ["strategy", "project"],
-    "personaIds": ["board", "manager"],
-    "goalIds": ["decide", "align"],
-    "styleIds": ["executive", "corporate"],
-    "contentTypeIds": ["timeline", "table"],
+    "scenarioIds": [
+      "strategy",
+      "project"
+    ],
+    "personaIds": [
+      "board",
+      "manager"
+    ],
+    "goalIds": [
+      "decide",
+      "align"
+    ],
+    "styleIds": [
+      "executive",
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "timeline",
+      "table"
+    ],
     "category": "План реализации",
-    "tags": ["план", "этапы", "ответственные", "контроль"],
-    "useWhen": ["Нужно согласовать последовательность реализации", "Есть контрольные точки и владельцы", "Руководителям важен контроль исполнения"],
-    "avoidWhen": ["Проект находится на стадии идеи", "Нужно вдохновить широкую аудиторию"],
-    "designDna": { "minimalism": 55, "corporate": 92, "executive": 93, "modern": 48, "whitespace": 54, "dataDensity": 79, "formality": 94, "visualComplexity": 65 }
+    "tags": [
+      "план",
+      "этапы",
+      "ответственные",
+      "контроль"
+    ],
+    "useWhen": [
+      "Нужно согласовать последовательность реализации",
+      "Есть контрольные точки и владельцы",
+      "Руководителям важен контроль исполнения"
+    ],
+    "avoidWhen": [
+      "Проект находится на стадии идеи",
+      "Нужно вдохновить широкую аудиторию"
+    ],
+    "designDna": {
+      "minimalism": 55,
+      "corporate": 92,
+      "executive": 93,
+      "modern": 48,
+      "whitespace": 54,
+      "dataDensity": 79,
+      "formality": 94,
+      "visualComplexity": 65
+    }
   },
   {
     "id": "REF-000011",
@@ -197,16 +550,53 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000011.svg",
-    "scenarioIds": ["report", "project", "sales"],
-    "personaIds": ["cfo", "client"],
-    "goalIds": ["compare_options", "decide"],
-    "styleIds": ["consulting", "corporate"],
-    "contentTypeIds": ["comparison", "table"],
+    "scenarioIds": [
+      "report",
+      "project",
+      "sales"
+    ],
+    "personaIds": [
+      "cfo",
+      "client"
+    ],
+    "goalIds": [
+      "compare_options",
+      "decide"
+    ],
+    "styleIds": [
+      "consulting",
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "comparison",
+      "table"
+    ],
     "category": "Матрица выбора",
-    "tags": ["варианты", "критерии", "матрица", "выбор"],
-    "useWhen": ["Варианты сравниваются по одинаковым критериям", "Нужно обосновать рекомендацию", "Аудитория хочет видеть детали выбора"],
-    "avoidWhen": ["Есть только один реалистичный вариант", "Критерии невозможно измерить"],
-    "designDna": { "minimalism": 52, "corporate": 84, "executive": 78, "modern": 58, "whitespace": 53, "dataDensity": 86, "formality": 88, "visualComplexity": 70 }
+    "tags": [
+      "варианты",
+      "критерии",
+      "матрица",
+      "выбор"
+    ],
+    "useWhen": [
+      "Варианты сравниваются по одинаковым критериям",
+      "Нужно обосновать рекомендацию",
+      "Аудитория хочет видеть детали выбора"
+    ],
+    "avoidWhen": [
+      "Есть только один реалистичный вариант",
+      "Критерии невозможно измерить"
+    ],
+    "designDna": {
+      "minimalism": 52,
+      "corporate": 84,
+      "executive": 78,
+      "modern": 58,
+      "whitespace": 53,
+      "dataDensity": 86,
+      "formality": 88,
+      "visualComplexity": 70
+    }
   },
   {
     "id": "REF-000012",
@@ -216,15 +606,4759 @@
     "sourceLabel": "Демонстрационный референс PIP",
     "sourceUrl": null,
     "previewPath": "previews/REF-000012.svg",
-    "scenarioIds": ["meeting", "speech", "report", "sales"],
-    "personaIds": ["employees", "manager", "client"],
-    "goalIds": ["explain_results", "inspire"],
-    "styleIds": ["corporate", "minimal"],
-    "contentTypeIds": ["cover"],
+    "scenarioIds": [
+      "meeting",
+      "speech",
+      "report",
+      "sales"
+    ],
+    "personaIds": [
+      "employees",
+      "manager",
+      "client"
+    ],
+    "goalIds": [
+      "explain_results",
+      "inspire"
+    ],
+    "styleIds": [
+      "corporate",
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "cover"
+    ],
     "category": "Титульная композиция",
-    "tags": ["обложка", "типографика", "корпоративный", "минимализм"],
-    "useWhen": ["Нужно задать профессиональный тон презентации", "Важны тема, автор и контекст встречи", "Нет подходящего собственного изображения"],
-    "avoidWhen": ["На первом слайде нужно сразу показать данные", "Требуется сложная сюжетная иллюстрация"],
-    "designDna": { "minimalism": 96, "corporate": 87, "executive": 68, "modern": 78, "whitespace": 95, "dataDensity": 12, "formality": 82, "visualComplexity": 20 }
+    "tags": [
+      "обложка",
+      "типографика",
+      "корпоративный",
+      "минимализм"
+    ],
+    "useWhen": [
+      "Нужно задать профессиональный тон презентации",
+      "Важны тема, автор и контекст встречи",
+      "Нет подходящего собственного изображения"
+    ],
+    "avoidWhen": [
+      "На первом слайде нужно сразу показать данные",
+      "Требуется сложная сюжетная иллюстрация"
+    ],
+    "designDna": {
+      "minimalism": 96,
+      "corporate": 87,
+      "executive": 68,
+      "modern": 78,
+      "whitespace": 95,
+      "dataDensity": 12,
+      "formality": 82,
+      "visualComplexity": 20
+    }
+  },
+  {
+    "id": "REF-000013",
+    "title": "Продажа: обоснованный выбор клиента",
+    "summary": "Варианты сопоставлены по единым критериям, а рекомендация отделена от исходных данных. Этот референс соединяет задачу «Продажа» с целью «получить одобрение» для заказчика.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000013.svg",
+    "scenarioIds": [
+      "sales",
+      "speech"
+    ],
+    "personaIds": [
+      "client"
+    ],
+    "goalIds": [
+      "approve"
+    ],
+    "styleIds": [
+      "modern"
+    ],
+    "contentTypeIds": [
+      "comparison",
+      "kpi"
+    ],
+    "category": "Сравнение вариантов",
+    "tags": [
+      "продажа",
+      "сравнение вариантов",
+      "обоснованный выбор клиента"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «обоснованный выбор клиента» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «обоснованный выбор клиента» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «обоснованный выбор клиента» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 59,
+      "corporate": 60,
+      "executive": 57,
+      "modern": 96,
+      "whitespace": 58,
+      "dataDensity": 56,
+      "formality": 55,
+      "visualComplexity": 63
+    }
+  },
+  {
+    "id": "REF-000014",
+    "title": "Продажа: решение через экономический эффект",
+    "summary": "Обещание ценности раскрыто через результат для аудитории, отличие и подтверждение эффекта. Этот референс соединяет задачу «Продажа» с целью «помочь принять решение» для руководителя компании.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000014.svg",
+    "scenarioIds": [
+      "sales",
+      "meeting"
+    ],
+    "personaIds": [
+      "ceo"
+    ],
+    "goalIds": [
+      "decide",
+      "explain_results"
+    ],
+    "styleIds": [
+      "executive",
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "kpi",
+      "process"
+    ],
+    "category": "Ценностное предложение",
+    "tags": [
+      "продажа",
+      "kpi и ключевые цифры",
+      "ценностное предложение",
+      "решение через экономический эффект"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «решение через экономический эффект» для руководителя компании на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «решение через экономический эффект» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «решение через экономический эффект» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «KPI и ключевые цифры»."
+    ],
+    "designDna": {
+      "minimalism": 58,
+      "corporate": 58,
+      "executive": 90,
+      "modern": 61,
+      "whitespace": 72,
+      "dataDensity": 69,
+      "formality": 81,
+      "visualComplexity": 72
+    }
+  },
+  {
+    "id": "REF-000015",
+    "title": "Продажа: история ценности предложения",
+    "summary": "Сложное устройство объясняется через уровни, связи и проверяемые технические параметры. Этот референс соединяет задачу «Продажа» с целью «сравнить варианты» для заказчика.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000015.svg",
+    "scenarioIds": [
+      "sales",
+      "report"
+    ],
+    "personaIds": [
+      "client"
+    ],
+    "goalIds": [
+      "compare_options",
+      "explain_results"
+    ],
+    "styleIds": [
+      "modern",
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "story",
+      "kpi"
+    ],
+    "category": "Техническое объяснение",
+    "tags": [
+      "продажа",
+      "история и аргументация",
+      "техническое объяснение",
+      "история ценности предложения"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «история ценности предложения» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь сравнить варианты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «история ценности предложения» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «история ценности предложения» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 61,
+      "corporate": 64,
+      "executive": 85,
+      "modern": 87,
+      "whitespace": 68,
+      "dataDensity": 68,
+      "formality": 50,
+      "visualComplexity": 60
+    }
+  },
+  {
+    "id": "REF-000016",
+    "title": "Выступление: энергия общего движения",
+    "summary": "Структурированная матрица помогает увидеть приоритет, компромисс и основание выбора. Этот референс соединяет задачу «Выступление» с целью «вовлечь и вдохновить» для работников.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000016.svg",
+    "scenarioIds": [
+      "speech",
+      "sales"
+    ],
+    "personaIds": [
+      "employees"
+    ],
+    "goalIds": [
+      "inspire"
+    ],
+    "styleIds": [
+      "modern",
+      "minimal",
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "story",
+      "kpi"
+    ],
+    "category": "Таблицы и матрицы",
+    "tags": [
+      "выступление",
+      "история и аргументация",
+      "таблицы и матрицы",
+      "энергия общего движения"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «энергия общего движения» для работников на одном содержательном экране.",
+      "Композиция должна помочь вовлечь и вдохновить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «энергия общего движения» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «энергия общего движения» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 84,
+      "corporate": 70,
+      "executive": 75,
+      "modern": 96,
+      "whitespace": 86,
+      "dataDensity": 67,
+      "formality": 52,
+      "visualComplexity": 65
+    }
+  },
+  {
+    "id": "REF-000017",
+    "title": "Выступление: единый образ будущего",
+    "summary": "Вероятность, влияние и ответные меры делают ограничения прозрачными до принятия решения. Этот референс соединяет задачу «Выступление» с целью «согласовать позиции» для правления.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000017.svg",
+    "scenarioIds": [
+      "speech",
+      "sales"
+    ],
+    "personaIds": [
+      "board"
+    ],
+    "goalIds": [
+      "align"
+    ],
+    "styleIds": [
+      "minimal",
+      "modern",
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "cover"
+    ],
+    "category": "Риски и ограничения",
+    "tags": [
+      "выступление",
+      "титульный слайд",
+      "риски и ограничения",
+      "единый образ будущего"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «единый образ будущего» для правления на одном содержательном экране.",
+      "Композиция должна помочь согласовать позиции и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «единый образ будущего» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «единый образ будущего» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «титульный слайд»."
+    ],
+    "designDna": {
+      "minimalism": 83,
+      "corporate": 68,
+      "executive": 72,
+      "modern": 95,
+      "whitespace": 81,
+      "dataDensity": 25,
+      "formality": 64,
+      "visualComplexity": 29
+    }
+  },
+  {
+    "id": "REF-000018",
+    "title": "Выступление: доверие через понятный сюжет",
+    "summary": "Контраст текущего и целевого состояния показывает изменение в опыте, метриках и поведении. Этот референс соединяет задачу «Выступление» с целью «вовлечь и вдохновить» для заказчика.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000018.svg",
+    "scenarioIds": [
+      "speech",
+      "training"
+    ],
+    "personaIds": [
+      "client"
+    ],
+    "goalIds": [
+      "inspire",
+      "teach"
+    ],
+    "styleIds": [
+      "corporate",
+      "modern",
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "story",
+      "process"
+    ],
+    "category": "До/после",
+    "tags": [
+      "выступление",
+      "история и аргументация",
+      "до/после",
+      "доверие через понятный сюжет"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «доверие через понятный сюжет» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь вовлечь и вдохновить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «доверие через понятный сюжет» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «доверие через понятный сюжет» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 66,
+      "corporate": 82,
+      "executive": 81,
+      "modern": 88,
+      "whitespace": 74,
+      "dataDensity": 60,
+      "formality": 80,
+      "visualComplexity": 79
+    }
+  },
+  {
+    "id": "REF-000019",
+    "title": "Защита проекта: выбор проекта для правления",
+    "summary": "Этапы движения связаны с контрольными точками, результатами и переходом к следующей фазе. Этот референс соединяет задачу «Защита проекта» с целью «получить одобрение» для правления.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000019.svg",
+    "scenarioIds": [
+      "project",
+      "training"
+    ],
+    "personaIds": [
+      "board"
+    ],
+    "goalIds": [
+      "approve"
+    ],
+    "styleIds": [
+      "executive",
+      "modern",
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "comparison",
+      "cover"
+    ],
+    "category": "Timeline и дорожные карты",
+    "tags": [
+      "защита проекта",
+      "сравнение вариантов",
+      "timeline и дорожные карты",
+      "выбор проекта для правления"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «выбор проекта для правления» для правления на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «выбор проекта для правления» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «выбор проекта для правления» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 69,
+      "corporate": 61,
+      "executive": 85,
+      "modern": 96,
+      "whitespace": 70,
+      "dataDensity": 23,
+      "formality": 82,
+      "visualComplexity": 39
+    }
+  },
+  {
+    "id": "REF-000020",
+    "title": "Защита проекта: разбор технической причины",
+    "summary": "Пакеты работ, владельцы и контрольные точки превращают решение в исполнимый план. Этот референс соединяет задачу «Защита проекта» с целью «объяснить проблему» для технических специалистов.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000020.svg",
+    "scenarioIds": [
+      "project",
+      "training"
+    ],
+    "personaIds": [
+      "technical_experts"
+    ],
+    "goalIds": [
+      "explain_problem"
+    ],
+    "styleIds": [
+      "industrial",
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "process",
+      "cover"
+    ],
+    "category": "План реализации",
+    "tags": [
+      "защита проекта",
+      "процесс или алгоритм",
+      "план реализации",
+      "разбор технической причины"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «разбор технической причины» для технических специалистов на одном содержательном экране.",
+      "Композиция должна помочь объяснить проблему и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «разбор технической причины» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «разбор технической причины» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 88,
+      "corporate": 70,
+      "executive": 46,
+      "modern": 83,
+      "whitespace": 87,
+      "dataDensity": 17,
+      "formality": 84,
+      "visualComplexity": 76
+    }
+  },
+  {
+    "id": "REF-000021",
+    "title": "Защита проекта: маршрут управленческого решения",
+    "summary": "Вывод, основание и следующий шаг собраны в завершение, которое помогает перейти к действию. Этот референс соединяет задачу «Защита проекта» с целью «помочь принять решение» для руководителей подразделений.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000021.svg",
+    "scenarioIds": [
+      "project",
+      "strategy"
+    ],
+    "personaIds": [
+      "manager"
+    ],
+    "goalIds": [
+      "decide"
+    ],
+    "styleIds": [
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "timeline",
+      "dashboard"
+    ],
+    "category": "Рекомендация и следующий шаг",
+    "tags": [
+      "защита проекта",
+      "сроки и этапы",
+      "рекомендация и следующий шаг",
+      "маршрут управленческого решения"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «маршрут управленческого решения» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «маршрут управленческого решения» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «маршрут управленческого решения» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 71,
+      "corporate": 65,
+      "executive": 77,
+      "modern": 56,
+      "whitespace": 46,
+      "dataDensity": 78,
+      "formality": 63,
+      "visualComplexity": 81
+    }
+  },
+  {
+    "id": "REF-000022",
+    "title": "Совещание: согласование рабочего процесса",
+    "summary": "Последовательность действий показывает входы, решения, ответственных и ожидаемый результат. Этот референс соединяет задачу «Совещание» с целью «согласовать позиции» для проектной команды.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000022.svg",
+    "scenarioIds": [
+      "meeting",
+      "budget_defense"
+    ],
+    "personaIds": [
+      "team"
+    ],
+    "goalIds": [
+      "align"
+    ],
+    "styleIds": [
+      "modern"
+    ],
+    "contentTypeIds": [
+      "process",
+      "table"
+    ],
+    "category": "Процессы и алгоритмы",
+    "tags": [
+      "совещание",
+      "процесс или алгоритм",
+      "процессы и алгоритмы",
+      "согласование рабочего процесса"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «согласование рабочего процесса» для проектной команды на одном содержательном экране.",
+      "Композиция должна помочь согласовать позиции и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «согласование рабочего процесса» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «согласование рабочего процесса» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 39,
+      "corporate": 52,
+      "executive": 45,
+      "modern": 82,
+      "whitespace": 57,
+      "dataDensity": 77,
+      "formality": 46,
+      "visualComplexity": 67
+    }
+  },
+  {
+    "id": "REF-000023",
+    "title": "Совещание: решение по сигналам команды",
+    "summary": "Факт, план, динамика и выводы периода формируют компактную основу для обсуждения. Этот референс соединяет задачу «Совещание» с целью «помочь принять решение» для руководителей подразделений.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000023.svg",
+    "scenarioIds": [
+      "meeting"
+    ],
+    "personaIds": [
+      "manager"
+    ],
+    "goalIds": [
+      "decide"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "dashboard"
+    ],
+    "category": "Итоги периода",
+    "tags": [
+      "совещание",
+      "сводная панель",
+      "итоги периода",
+      "решение по сигналам команды"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «решение по сигналам команды» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «решение по сигналам команды» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «решение по сигналам команды» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сводная панель»."
+    ],
+    "designDna": {
+      "minimalism": 58,
+      "corporate": 85,
+      "executive": 54,
+      "modern": 61,
+      "whitespace": 57,
+      "dataDensity": 95,
+      "formality": 81,
+      "visualComplexity": 72
+    }
+  },
+  {
+    "id": "REF-000024",
+    "title": "Совещание: единая техническая позиция",
+    "summary": "Сильный первый экран задаёт тему, масштаб и эмоциональный тон разговора. Этот референс соединяет задачу «Совещание» с целью «согласовать позиции» для технических специалистов.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000024.svg",
+    "scenarioIds": [
+      "meeting"
+    ],
+    "personaIds": [
+      "technical_experts"
+    ],
+    "goalIds": [
+      "align"
+    ],
+    "styleIds": [
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "table"
+    ],
+    "category": "Титульные и имиджевые слайды",
+    "tags": [
+      "совещание",
+      "табличные данные",
+      "титульные и имиджевые слайды",
+      "единая техническая позиция"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «единая техническая позиция» для технических специалистов на одном содержательном экране.",
+      "Композиция должна помочь согласовать позиции и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «единая техническая позиция» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «единая техническая позиция» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «табличные данные»."
+    ],
+    "designDna": {
+      "minimalism": 41,
+      "corporate": 67,
+      "executive": 51,
+      "modern": 57,
+      "whitespace": 67,
+      "dataDensity": 89,
+      "formality": 83,
+      "visualComplexity": 66
+    }
+  },
+  {
+    "id": "REF-000025",
+    "title": "Отчёт: итоги подразделения в цифрах",
+    "summary": "Симптомы, корневые причины и меры собраны в единую причинно-следственную конструкцию. Этот референс соединяет задачу «Отчёт» с целью «объяснить результаты» для руководителей подразделений.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000025.svg",
+    "scenarioIds": [
+      "report"
+    ],
+    "personaIds": [
+      "manager"
+    ],
+    "goalIds": [
+      "explain_results"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "kpi",
+      "cover"
+    ],
+    "category": "Причины проблемы и план действий",
+    "tags": [
+      "отчёт",
+      "kpi и ключевые цифры",
+      "причины проблемы и план действий",
+      "итоги подразделения в цифрах"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «итоги подразделения в цифрах» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «итоги подразделения в цифрах» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «итоги подразделения в цифрах» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «KPI и ключевые цифры»."
+    ],
+    "designDna": {
+      "minimalism": 60,
+      "corporate": 89,
+      "executive": 60,
+      "modern": 50,
+      "whitespace": 63,
+      "dataDensity": 26,
+      "formality": 95,
+      "visualComplexity": 24
+    }
+  },
+  {
+    "id": "REF-000026",
+    "title": "Отчёт: финансовая панель периода",
+    "summary": "Материал разбит на понятные шаги с практикой, проверкой понимания и итоговым навыком. Этот референс соединяет задачу «Отчёт» с целью «объяснить результаты» для финансового руководителя.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000026.svg",
+    "scenarioIds": [
+      "report"
+    ],
+    "personaIds": [
+      "cfo"
+    ],
+    "goalIds": [
+      "explain_results"
+    ],
+    "styleIds": [
+      "executive"
+    ],
+    "contentTypeIds": [
+      "dashboard",
+      "cover"
+    ],
+    "category": "Обучающий маршрут",
+    "tags": [
+      "отчёт",
+      "сводная панель",
+      "обучающий маршрут",
+      "финансовая панель периода"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «финансовая панель периода» для финансового руководителя на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «финансовая панель периода» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «финансовая панель периода» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сводная панель»."
+    ],
+    "designDna": {
+      "minimalism": 63,
+      "corporate": 68,
+      "executive": 86,
+      "modern": 62,
+      "whitespace": 44,
+      "dataDensity": 87,
+      "formality": 96,
+      "visualComplexity": 74
+    }
+  },
+  {
+    "id": "REF-000027",
+    "title": "Отчёт: таблица причин отклонения",
+    "summary": "Главная цифра подкреплена динамикой, контекстом и коротким управленческим выводом. Этот референс соединяет задачу «Отчёт» с целью «объяснить проблему» для технических специалистов.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000027.svg",
+    "scenarioIds": [
+      "report"
+    ],
+    "personaIds": [
+      "technical_experts"
+    ],
+    "goalIds": [
+      "explain_problem"
+    ],
+    "styleIds": [
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "table",
+      "cover"
+    ],
+    "category": "KPI и ключевые цифры",
+    "tags": [
+      "отчёт",
+      "табличные данные",
+      "kpi и ключевые цифры",
+      "таблица причин отклонения"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «таблица причин отклонения» для технических специалистов на одном содержательном экране.",
+      "Композиция должна помочь объяснить проблему и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «таблица причин отклонения» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «таблица причин отклонения» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «табличные данные»."
+    ],
+    "designDna": {
+      "minimalism": 46,
+      "corporate": 77,
+      "executive": 47,
+      "modern": 58,
+      "whitespace": 73,
+      "dataDensity": 81,
+      "formality": 80,
+      "visualComplexity": 40
+    }
+  },
+  {
+    "id": "REF-000028",
+    "title": "Обучение: практический алгоритм для работников",
+    "summary": "Повествование связывает исходную ситуацию, поворотный момент и образ нового состояния. Этот референс соединяет задачу «Обучение» с целью «научить» для работников.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000028.svg",
+    "scenarioIds": [
+      "training"
+    ],
+    "personaIds": [
+      "employees"
+    ],
+    "goalIds": [
+      "teach"
+    ],
+    "styleIds": [
+      "modern"
+    ],
+    "contentTypeIds": [
+      "process"
+    ],
+    "category": "История изменений",
+    "tags": [
+      "обучение",
+      "процесс или алгоритм",
+      "история изменений",
+      "практический алгоритм для работников"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «практический алгоритм для работников» для работников на одном содержательном экране.",
+      "Композиция должна помочь научить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «практический алгоритм для работников» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «практический алгоритм для работников» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 65,
+      "corporate": 53,
+      "executive": 56,
+      "modern": 84,
+      "whitespace": 69,
+      "dataDensity": 54,
+      "formality": 59,
+      "visualComplexity": 71
+    }
+  },
+  {
+    "id": "REF-000029",
+    "title": "Обучение: карта освоения навыка",
+    "summary": "Амбиция, приоритеты и инициативы соединены в карту движения к целевому состоянию. Этот референс соединяет задачу «Обучение» с целью «научить» для проектной команды.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000029.svg",
+    "scenarioIds": [
+      "training"
+    ],
+    "personaIds": [
+      "team"
+    ],
+    "goalIds": [
+      "teach"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "timeline"
+    ],
+    "category": "Стратегическая карта",
+    "tags": [
+      "обучение",
+      "сроки и этапы",
+      "стратегическая карта",
+      "карта освоения навыка"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «карта освоения навыка» для проектной команды на одном содержательном экране.",
+      "Композиция должна помочь научить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «карта освоения навыка» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «карта освоения навыка» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 68,
+      "corporate": 86,
+      "executive": 46,
+      "modern": 63,
+      "whitespace": 65,
+      "dataDensity": 53,
+      "formality": 94,
+      "visualComplexity": 59
+    }
+  },
+  {
+    "id": "REF-000030",
+    "title": "Обучение: объяснение сложного через историю",
+    "summary": "Несколько связанных метрик собраны в обзор состояния с ясными сигналами внимания. Этот референс соединяет задачу «Обучение» с целью «объяснить проблему» для технических специалистов.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000030.svg",
+    "scenarioIds": [
+      "training"
+    ],
+    "personaIds": [
+      "technical_experts"
+    ],
+    "goalIds": [
+      "explain_problem"
+    ],
+    "styleIds": [
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "story"
+    ],
+    "category": "Управленческие dashboards",
+    "tags": [
+      "обучение",
+      "история и аргументация",
+      "управленческие dashboards",
+      "объяснение сложного через историю"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «объяснение сложного через историю» для технических специалистов на одном содержательном экране.",
+      "Композиция должна помочь объяснить проблему и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «объяснение сложного через историю» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «объяснение сложного через историю» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 87,
+      "corporate": 57,
+      "executive": 62,
+      "modern": 79,
+      "whitespace": 82,
+      "dataDensity": 66,
+      "formality": 54,
+      "visualComplexity": 51
+    }
+  },
+  {
+    "id": "REF-000031",
+    "title": "Стратегия: дорожная карта выбора",
+    "summary": "Аргументы ведут от потребности клиента к доказательству ценности и конкретному предложению. Этот референс соединяет задачу «Стратегия» с целью «помочь принять решение» для руководителя компании.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000031.svg",
+    "scenarioIds": [
+      "strategy"
+    ],
+    "personaIds": [
+      "ceo"
+    ],
+    "goalIds": [
+      "decide"
+    ],
+    "styleIds": [
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "timeline"
+    ],
+    "category": "Аргументация продажи",
+    "tags": [
+      "стратегия",
+      "сроки и этапы",
+      "аргументация продажи",
+      "дорожная карта выбора"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «дорожная карта выбора» для руководителя компании на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «дорожная карта выбора» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «дорожная карта выбора» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 70,
+      "corporate": 63,
+      "executive": 74,
+      "modern": 52,
+      "whitespace": 75,
+      "dataDensity": 65,
+      "formality": 56,
+      "visualComplexity": 56
+    }
+  },
+  {
+    "id": "REF-000032",
+    "title": "Стратегия: приоритеты для правления",
+    "summary": "Короткая записка на одном экране формулирует решение, эффект, риски и требуемый шаг. Этот референс соединяет задачу «Стратегия» с целью «согласовать позиции» для правления.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000032.svg",
+    "scenarioIds": [
+      "strategy"
+    ],
+    "personaIds": [
+      "board"
+    ],
+    "goalIds": [
+      "align"
+    ],
+    "styleIds": [
+      "executive"
+    ],
+    "contentTypeIds": [
+      "timeline"
+    ],
+    "category": "Решение для руководства",
+    "tags": [
+      "стратегия",
+      "сроки и этапы",
+      "решение для руководства",
+      "приоритеты для правления"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «приоритеты для правления» для правления на одном содержательном экране.",
+      "Композиция должна помочь согласовать позиции и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «приоритеты для правления» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «приоритеты для правления» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 73,
+      "corporate": 69,
+      "executive": 96,
+      "modern": 64,
+      "whitespace": 71,
+      "dataDensity": 64,
+      "formality": 91,
+      "visualComplexity": 61
+    }
+  },
+  {
+    "id": "REF-000033",
+    "title": "Стратегия: сравнение стратегических направлений",
+    "summary": "Варианты сопоставлены по единым критериям, а рекомендация отделена от исходных данных. Этот референс соединяет задачу «Стратегия» с целью «сравнить варианты» для руководителей подразделений.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000033.svg",
+    "scenarioIds": [
+      "strategy"
+    ],
+    "personaIds": [
+      "manager"
+    ],
+    "goalIds": [
+      "compare_options"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "comparison"
+    ],
+    "category": "Сравнение вариантов",
+    "tags": [
+      "стратегия",
+      "сравнение вариантов",
+      "сравнение стратегических направлений"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «сравнение стратегических направлений» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь сравнить варианты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «сравнение стратегических направлений» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «сравнение стратегических направлений» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 57,
+      "corporate": 83,
+      "executive": 51,
+      "modern": 57,
+      "whitespace": 67,
+      "dataDensity": 63,
+      "formality": 93,
+      "visualComplexity": 66
+    }
+  },
+  {
+    "id": "REF-000034",
+    "title": "Защита бюджета: защита расходов по статьям",
+    "summary": "Обещание ценности раскрыто через результат для аудитории, отличие и подтверждение эффекта. Этот референс соединяет задачу «Защита бюджета» с целью «получить одобрение» для финансового руководителя.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000034.svg",
+    "scenarioIds": [
+      "budget_defense"
+    ],
+    "personaIds": [
+      "cfo"
+    ],
+    "goalIds": [
+      "approve"
+    ],
+    "styleIds": [
+      "executive"
+    ],
+    "contentTypeIds": [
+      "table"
+    ],
+    "category": "Ценностное предложение",
+    "tags": [
+      "защита бюджета",
+      "табличные данные",
+      "ценностное предложение",
+      "защита расходов по статьям"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «защита расходов по статьям» для финансового руководителя на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «защита расходов по статьям» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «защита расходов по статьям» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «табличные данные»."
+    ],
+    "designDna": {
+      "minimalism": 40,
+      "corporate": 54,
+      "executive": 84,
+      "modern": 53,
+      "whitespace": 62,
+      "dataDensity": 83,
+      "formality": 86,
+      "visualComplexity": 58
+    }
+  },
+  {
+    "id": "REF-000035",
+    "title": "Защита бюджета: баланс эффекта и ограничений",
+    "summary": "Сложное устройство объясняется через уровни, связи и проверяемые технические параметры. Этот референс соединяет задачу «Защита бюджета» с целью «помочь принять решение» для правления.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000035.svg",
+    "scenarioIds": [
+      "budget_defense"
+    ],
+    "personaIds": [
+      "board"
+    ],
+    "goalIds": [
+      "decide"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "comparison"
+    ],
+    "category": "Техническое объяснение",
+    "tags": [
+      "защита бюджета",
+      "сравнение вариантов",
+      "техническое объяснение",
+      "баланс эффекта и ограничений"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «баланс эффекта и ограничений» для правления на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «баланс эффекта и ограничений» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «баланс эффекта и ограничений» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 59,
+      "corporate": 87,
+      "executive": 57,
+      "modern": 65,
+      "whitespace": 58,
+      "dataDensity": 56,
+      "formality": 88,
+      "visualComplexity": 63
+    }
+  },
+  {
+    "id": "REF-000036",
+    "title": "Защита бюджета: инвестиционный тезис в цифрах",
+    "summary": "Структурированная матрица помогает увидеть приоритет, компромисс и основание выбора. Этот референс соединяет задачу «Защита бюджета» с целью «получить одобрение» для руководителя компании.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000036.svg",
+    "scenarioIds": [
+      "budget_defense"
+    ],
+    "personaIds": [
+      "ceo"
+    ],
+    "goalIds": [
+      "approve"
+    ],
+    "styleIds": [
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "kpi"
+    ],
+    "category": "Таблицы и матрицы",
+    "tags": [
+      "защита бюджета",
+      "kpi и ключевые цифры",
+      "таблицы и матрицы",
+      "инвестиционный тезис в цифрах"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «инвестиционный тезис в цифрах» для руководителя компании на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «инвестиционный тезис в цифрах» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «инвестиционный тезис в цифрах» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «KPI и ключевые цифры»."
+    ],
+    "designDna": {
+      "minimalism": 62,
+      "corporate": 66,
+      "executive": 69,
+      "modern": 58,
+      "whitespace": 73,
+      "dataDensity": 55,
+      "formality": 57,
+      "visualComplexity": 68
+    }
+  },
+  {
+    "id": "REF-000037",
+    "title": "Титульная идея: рост выручки",
+    "summary": "Сильный первый экран задаёт тему, масштаб и эмоциональный тон разговора. В центре решения — рост выручки, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000037.svg",
+    "scenarioIds": [
+      "speech",
+      "sales"
+    ],
+    "personaIds": [
+      "employees",
+      "client",
+      "ceo"
+    ],
+    "goalIds": [
+      "inspire",
+      "align",
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "minimal",
+      "modern",
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "cover",
+      "story"
+    ],
+    "category": "Титульные и имиджевые слайды",
+    "tags": [
+      "выступление",
+      "титульный слайд",
+      "титульные и имиджевые слайды",
+      "рост выручки"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «рост выручки» для работников на одном содержательном экране.",
+      "Композиция должна помочь вовлечь и вдохновить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «рост выручки» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «рост выручки» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «титульный слайд»."
+    ],
+    "designDna": {
+      "minimalism": 81,
+      "corporate": 75,
+      "executive": 63,
+      "modern": 87,
+      "whitespace": 90,
+      "dataDensity": 32,
+      "formality": 73,
+      "visualComplexity": 32
+    }
+  },
+  {
+    "id": "REF-000038",
+    "title": "Ключевой показатель: запуск продукта",
+    "summary": "Главная цифра подкреплена динамикой, контекстом и коротким управленческим выводом. В центре решения — запуск продукта, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000038.svg",
+    "scenarioIds": [
+      "report",
+      "budget_defense"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo",
+      "board"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem",
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "executive",
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "kpi",
+      "dashboard"
+    ],
+    "category": "KPI и ключевые цифры",
+    "tags": [
+      "отчёт",
+      "kpi и ключевые цифры",
+      "запуск продукта"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «запуск продукта» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «запуск продукта» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «запуск продукта» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «KPI и ключевые цифры»."
+    ],
+    "designDna": {
+      "minimalism": 64,
+      "corporate": 96,
+      "executive": 89,
+      "modern": 66,
+      "whitespace": 49,
+      "dataDensity": 93,
+      "formality": 85,
+      "visualComplexity": 82
+    }
+  },
+  {
+    "id": "REF-000039",
+    "title": "Панель управления: качество сервиса",
+    "summary": "Несколько связанных метрик собраны в обзор состояния с ясными сигналами внимания. В центре решения — качество сервиса, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000039.svg",
+    "scenarioIds": [
+      "report",
+      "meeting"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo",
+      "team"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem",
+      "align",
+      "decide"
+    ],
+    "styleIds": [
+      "corporate",
+      "executive"
+    ],
+    "contentTypeIds": [
+      "dashboard",
+      "kpi"
+    ],
+    "category": "Управленческие dashboards",
+    "tags": [
+      "отчёт",
+      "сводная панель",
+      "управленческие dashboards",
+      "качество сервиса"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «качество сервиса» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «качество сервиса» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «качество сервиса» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сводная панель»."
+    ],
+    "designDna": {
+      "minimalism": 67,
+      "corporate": 84,
+      "executive": 96,
+      "modern": 59,
+      "whitespace": 45,
+      "dataDensity": 92,
+      "formality": 87,
+      "visualComplexity": 68
+    }
+  },
+  {
+    "id": "REF-000040",
+    "title": "Выбор решения: производственная безопасность",
+    "summary": "Варианты сопоставлены по единым критериям, а рекомендация отделена от исходных данных. В центре решения — производственная безопасность, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000040.svg",
+    "scenarioIds": [
+      "sales",
+      "project"
+    ],
+    "personaIds": [
+      "client",
+      "ceo",
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options",
+      "decide"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "comparison",
+      "table"
+    ],
+    "category": "Сравнение вариантов",
+    "tags": [
+      "продажа",
+      "сравнение вариантов",
+      "производственная безопасность"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «производственная безопасность» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «производственная безопасность» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «производственная безопасность» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 50,
+      "corporate": 82,
+      "executive": 59,
+      "modern": 55,
+      "whitespace": 74,
+      "dataDensity": 86,
+      "formality": 80,
+      "visualComplexity": 62
+    }
+  },
+  {
+    "id": "REF-000041",
+    "title": "Матрица приоритетов: цифровая трансформация",
+    "summary": "Структурированная матрица помогает увидеть приоритет, компромисс и основание выбора. В центре решения — цифровая трансформация, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000041.svg",
+    "scenarioIds": [
+      "project",
+      "budget_defense"
+    ],
+    "personaIds": [
+      "board",
+      "technical_experts",
+      "cfo"
+    ],
+    "goalIds": [
+      "approve",
+      "decide",
+      "compare_options"
+    ],
+    "styleIds": [
+      "corporate",
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "table",
+      "comparison"
+    ],
+    "category": "Таблицы и матрицы",
+    "tags": [
+      "защита проекта",
+      "табличные данные",
+      "таблицы и матрицы",
+      "цифровая трансформация"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «цифровая трансформация» для правления на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «цифровая трансформация» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «цифровая трансформация» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «табличные данные»."
+    ],
+    "designDna": {
+      "minimalism": 53,
+      "corporate": 88,
+      "executive": 71,
+      "modern": 67,
+      "whitespace": 70,
+      "dataDensity": 85,
+      "formality": 82,
+      "visualComplexity": 67
+    }
+  },
+  {
+    "id": "REF-000042",
+    "title": "Маршрут развития: развитие команды",
+    "summary": "Этапы движения связаны с контрольными точками, результатами и переходом к следующей фазе. В центре решения — развитие команды, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000042.svg",
+    "scenarioIds": [
+      "strategy",
+      "project"
+    ],
+    "personaIds": [
+      "ceo",
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "decide",
+      "align",
+      "approve"
+    ],
+    "styleIds": [
+      "consulting",
+      "modern"
+    ],
+    "contentTypeIds": [
+      "timeline",
+      "story"
+    ],
+    "category": "Timeline и дорожные карты",
+    "tags": [
+      "стратегия",
+      "сроки и этапы",
+      "timeline и дорожные карты",
+      "развитие команды"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «развитие команды» для руководителя компании на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «развитие команды» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «развитие команды» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 72,
+      "corporate": 67,
+      "executive": 80,
+      "modern": 93,
+      "whitespace": 66,
+      "dataDensity": 58,
+      "formality": 51,
+      "visualComplexity": 53
+    }
+  },
+  {
+    "id": "REF-000043",
+    "title": "Логика процесса: клиентский опыт",
+    "summary": "Последовательность действий показывает входы, решения, ответственных и ожидаемый результат. В центре решения — клиентский опыт, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000043.svg",
+    "scenarioIds": [
+      "meeting",
+      "training"
+    ],
+    "personaIds": [
+      "team",
+      "manager",
+      "employees"
+    ],
+    "goalIds": [
+      "align",
+      "decide",
+      "teach",
+      "inspire"
+    ],
+    "styleIds": [
+      "modern",
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "process",
+      "timeline"
+    ],
+    "category": "Процессы и алгоритмы",
+    "tags": [
+      "совещание",
+      "процесс или алгоритм",
+      "процессы и алгоритмы",
+      "клиентский опыт"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «клиентский опыт» для проектной команды на одном содержательном экране.",
+      "Композиция должна помочь согласовать позиции и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «клиентский опыт» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «клиентский опыт» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 56,
+      "corporate": 81,
+      "executive": 48,
+      "modern": 86,
+      "whitespace": 62,
+      "dataDensity": 57,
+      "formality": 86,
+      "visualComplexity": 75
+    }
+  },
+  {
+    "id": "REF-000044",
+    "title": "Причины и действия: эффективность продаж",
+    "summary": "Симптомы, корневые причины и меры собраны в единую причинно-следственную конструкцию. В центре решения — эффективность продаж, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000044.svg",
+    "scenarioIds": [
+      "report",
+      "meeting"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo",
+      "team"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem",
+      "align",
+      "decide"
+    ],
+    "styleIds": [
+      "industrial",
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "process",
+      "story"
+    ],
+    "category": "Причины проблемы и план действий",
+    "tags": [
+      "отчёт",
+      "процесс или алгоритм",
+      "причины проблемы и план действий",
+      "эффективность продаж"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «эффективность продаж» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «эффективность продаж» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «эффективность продаж» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 55,
+      "corporate": 79,
+      "executive": 45,
+      "modern": 49,
+      "whitespace": 57,
+      "dataDensity": 51,
+      "formality": 79,
+      "visualComplexity": 67
+    }
+  },
+  {
+    "id": "REF-000045",
+    "title": "История перемен: портфель проектов",
+    "summary": "Повествование связывает исходную ситуацию, поворотный момент и образ нового состояния. В центре решения — портфель проектов, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000045.svg",
+    "scenarioIds": [
+      "speech",
+      "training"
+    ],
+    "personaIds": [
+      "employees",
+      "client",
+      "team"
+    ],
+    "goalIds": [
+      "inspire",
+      "align",
+      "teach"
+    ],
+    "styleIds": [
+      "modern",
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "story",
+      "cover"
+    ],
+    "category": "История изменений",
+    "tags": [
+      "выступление",
+      "история и аргументация",
+      "история изменений",
+      "портфель проектов"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «портфель проектов» для работников на одном содержательном экране.",
+      "Композиция должна помочь вовлечь и вдохновить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «портфель проектов» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «портфель проектов» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 78,
+      "corporate": 58,
+      "executive": 54,
+      "modern": 94,
+      "whitespace": 94,
+      "dataDensity": 33,
+      "formality": 48,
+      "visualComplexity": 27
+    }
+  },
+  {
+    "id": "REF-000046",
+    "title": "Аргумент продажи: финансовая устойчивость",
+    "summary": "Аргументы ведут от потребности клиента к доказательству ценности и конкретному предложению. В центре решения — финансовая устойчивость, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000046.svg",
+    "scenarioIds": [
+      "sales",
+      "project"
+    ],
+    "personaIds": [
+      "client",
+      "ceo",
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options",
+      "decide"
+    ],
+    "styleIds": [
+      "modern"
+    ],
+    "contentTypeIds": [
+      "story",
+      "comparison"
+    ],
+    "category": "Аргументация продажи",
+    "tags": [
+      "продажа",
+      "история и аргументация",
+      "аргументация продажи",
+      "финансовая устойчивость"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «финансовая устойчивость» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «финансовая устойчивость» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «финансовая устойчивость» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 61,
+      "corporate": 64,
+      "executive": 63,
+      "modern": 87,
+      "whitespace": 68,
+      "dataDensity": 68,
+      "formality": 50,
+      "visualComplexity": 60
+    }
+  },
+  {
+    "id": "REF-000047",
+    "title": "Ценность решения: операционные риски",
+    "summary": "Обещание ценности раскрыто через результат для аудитории, отличие и подтверждение эффекта. В центре решения — операционные риски, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000047.svg",
+    "scenarioIds": [
+      "sales",
+      "strategy"
+    ],
+    "personaIds": [
+      "client",
+      "ceo",
+      "board"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options",
+      "decide",
+      "align"
+    ],
+    "styleIds": [
+      "modern",
+      "minimal",
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "cover",
+      "story"
+    ],
+    "category": "Ценностное предложение",
+    "tags": [
+      "продажа",
+      "титульный слайд",
+      "ценностное предложение",
+      "операционные риски"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «операционные риски» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «операционные риски» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «операционные риски» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «титульный слайд»."
+    ],
+    "designDna": {
+      "minimalism": 80,
+      "corporate": 73,
+      "executive": 60,
+      "modern": 83,
+      "whitespace": 85,
+      "dataDensity": 26,
+      "formality": 85,
+      "visualComplexity": 24
+    }
+  },
+  {
+    "id": "REF-000048",
+    "title": "Карта рисков: логистика",
+    "summary": "Вероятность, влияние и ответные меры делают ограничения прозрачными до принятия решения. В центре решения — логистика, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000048.svg",
+    "scenarioIds": [
+      "budget_defense",
+      "project"
+    ],
+    "personaIds": [
+      "cfo",
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options",
+      "decide"
+    ],
+    "styleIds": [
+      "executive",
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "table",
+      "comparison"
+    ],
+    "category": "Риски и ограничения",
+    "tags": [
+      "защита бюджета",
+      "табличные данные",
+      "риски и ограничения",
+      "логистика"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «логистика» для финансового руководителя на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «логистика» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «логистика» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «табличные данные»."
+    ],
+    "designDna": {
+      "minimalism": 47,
+      "corporate": 79,
+      "executive": 86,
+      "modern": 62,
+      "whitespace": 59,
+      "dataDensity": 87,
+      "formality": 96,
+      "visualComplexity": 57
+    }
+  },
+  {
+    "id": "REF-000049",
+    "title": "План реализации: энергоэффективность",
+    "summary": "Пакеты работ, владельцы и контрольные точки превращают решение в исполнимый план. В центре решения — энергоэффективность, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000049.svg",
+    "scenarioIds": [
+      "project",
+      "meeting"
+    ],
+    "personaIds": [
+      "board",
+      "technical_experts",
+      "team",
+      "manager"
+    ],
+    "goalIds": [
+      "approve",
+      "decide",
+      "align"
+    ],
+    "styleIds": [
+      "corporate",
+      "executive"
+    ],
+    "contentTypeIds": [
+      "timeline",
+      "process"
+    ],
+    "category": "План реализации",
+    "tags": [
+      "защита проекта",
+      "сроки и этапы",
+      "план реализации",
+      "энергоэффективность"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «энергоэффективность» для правления на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «энергоэффективность» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «энергоэффективность» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 66,
+      "corporate": 82,
+      "executive": 95,
+      "modern": 55,
+      "whitespace": 74,
+      "dataDensity": 60,
+      "formality": 80,
+      "visualComplexity": 79
+    }
+  },
+  {
+    "id": "REF-000050",
+    "title": "Итоги периода: автоматизация процессов",
+    "summary": "Факт, план, динамика и выводы периода формируют компактную основу для обсуждения. В центре решения — автоматизация процессов, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000050.svg",
+    "scenarioIds": [
+      "report",
+      "strategy"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo",
+      "ceo",
+      "board"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem",
+      "decide",
+      "align"
+    ],
+    "styleIds": [
+      "corporate",
+      "executive"
+    ],
+    "contentTypeIds": [
+      "kpi",
+      "dashboard"
+    ],
+    "category": "Итоги периода",
+    "tags": [
+      "отчёт",
+      "kpi и ключевые цифры",
+      "итоги периода",
+      "автоматизация процессов"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «автоматизация процессов» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «автоматизация процессов» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «автоматизация процессов» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «KPI и ключевые цифры»."
+    ],
+    "designDna": {
+      "minimalism": 65,
+      "corporate": 80,
+      "executive": 92,
+      "modern": 51,
+      "whitespace": 54,
+      "dataDensity": 80,
+      "formality": 92,
+      "visualComplexity": 71
+    }
+  },
+  {
+    "id": "REF-000051",
+    "title": "Обучающий маршрут: удержание клиентов",
+    "summary": "Материал разбит на понятные шаги с практикой, проверкой понимания и итоговым навыком. В центре решения — удержание клиентов, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000051.svg",
+    "scenarioIds": [
+      "training",
+      "speech"
+    ],
+    "personaIds": [
+      "employees",
+      "team",
+      "client"
+    ],
+    "goalIds": [
+      "teach",
+      "inspire",
+      "align"
+    ],
+    "styleIds": [
+      "modern",
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "process",
+      "timeline"
+    ],
+    "category": "Обучающий маршрут",
+    "tags": [
+      "обучение",
+      "процесс или алгоритм",
+      "обучающий маршрут",
+      "удержание клиентов"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «удержание клиентов» для работников на одном содержательном экране.",
+      "Композиция должна помочь научить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «удержание клиентов» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «удержание клиентов» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 88,
+      "corporate": 59,
+      "executive": 46,
+      "modern": 96,
+      "whitespace": 87,
+      "dataDensity": 53,
+      "formality": 61,
+      "visualComplexity": 76
+    }
+  },
+  {
+    "id": "REF-000052",
+    "title": "Стратегическая карта: выход на рынок",
+    "summary": "Амбиция, приоритеты и инициативы соединены в карту движения к целевому состоянию. В центре решения — выход на рынок, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000052.svg",
+    "scenarioIds": [
+      "strategy",
+      "project"
+    ],
+    "personaIds": [
+      "ceo",
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "decide",
+      "align",
+      "approve"
+    ],
+    "styleIds": [
+      "consulting",
+      "executive"
+    ],
+    "contentTypeIds": [
+      "timeline",
+      "dashboard"
+    ],
+    "category": "Стратегическая карта",
+    "tags": [
+      "стратегия",
+      "сроки и этапы",
+      "стратегическая карта",
+      "выход на рынок"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «выход на рынок» для руководителя компании на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «выход на рынок» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «выход на рынок» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 71,
+      "corporate": 65,
+      "executive": 91,
+      "modern": 56,
+      "whitespace": 46,
+      "dataDensity": 78,
+      "formality": 96,
+      "visualComplexity": 81
+    }
+  },
+  {
+    "id": "REF-000053",
+    "title": "Решение руководства: управление изменениями",
+    "summary": "Короткая записка на одном экране формулирует решение, эффект, риски и требуемый шаг. В центре решения — управление изменениями, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000053.svg",
+    "scenarioIds": [
+      "budget_defense",
+      "strategy"
+    ],
+    "personaIds": [
+      "cfo",
+      "board",
+      "ceo"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options",
+      "decide",
+      "align"
+    ],
+    "styleIds": [
+      "executive",
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "kpi",
+      "comparison"
+    ],
+    "category": "Решение для руководства",
+    "tags": [
+      "защита бюджета",
+      "kpi и ключевые цифры",
+      "решение для руководства",
+      "управление изменениями"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «управление изменениями» для финансового руководителя на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «управление изменениями» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «управление изменениями» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «KPI и ключевые цифры»."
+    ],
+    "designDna": {
+      "minimalism": 55,
+      "corporate": 79,
+      "executive": 81,
+      "modern": 49,
+      "whitespace": 57,
+      "dataDensity": 51,
+      "formality": 79,
+      "visualComplexity": 50
+    }
+  },
+  {
+    "id": "REF-000054",
+    "title": "Техническая логика: инновационная программа",
+    "summary": "Сложное устройство объясняется через уровни, связи и проверяемые технические параметры. В центре решения — инновационная программа, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000054.svg",
+    "scenarioIds": [
+      "report",
+      "training"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo",
+      "employees",
+      "team"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem",
+      "teach",
+      "inspire"
+    ],
+    "styleIds": [
+      "industrial",
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "process",
+      "table"
+    ],
+    "category": "Техническое объяснение",
+    "tags": [
+      "отчёт",
+      "процесс или алгоритм",
+      "техническое объяснение",
+      "инновационная программа"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «инновационная программа» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «инновационная программа» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «инновационная программа» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 57,
+      "corporate": 96,
+      "executive": 61,
+      "modern": 64,
+      "whitespace": 71,
+      "dataDensity": 90,
+      "formality": 91,
+      "visualComplexity": 78
+    }
+  },
+  {
+    "id": "REF-000055",
+    "title": "Переход к новому состоянию: модернизация инфраструктуры",
+    "summary": "Контраст текущего и целевого состояния показывает изменение в опыте, метриках и поведении. В центре решения — модернизация инфраструктуры, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000055.svg",
+    "scenarioIds": [
+      "speech",
+      "sales"
+    ],
+    "personaIds": [
+      "employees",
+      "client",
+      "ceo"
+    ],
+    "goalIds": [
+      "inspire",
+      "align",
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "modern",
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "comparison",
+      "story"
+    ],
+    "category": "До/после",
+    "tags": [
+      "выступление",
+      "сравнение вариантов",
+      "до/после",
+      "модернизация инфраструктуры"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «модернизация инфраструктуры» для работников на одном содержательном экране.",
+      "Композиция должна помочь вовлечь и вдохновить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «модернизация инфраструктуры» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «модернизация инфраструктуры» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 77,
+      "corporate": 56,
+      "executive": 51,
+      "modern": 90,
+      "whitespace": 89,
+      "dataDensity": 63,
+      "formality": 60,
+      "visualComplexity": 66
+    }
+  },
+  {
+    "id": "REF-000056",
+    "title": "Рекомендация к действию: программа качества",
+    "summary": "Вывод, основание и следующий шаг собраны в завершение, которое помогает перейти к действию. В центре решения — программа качества, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000056.svg",
+    "scenarioIds": [
+      "meeting",
+      "strategy"
+    ],
+    "personaIds": [
+      "team",
+      "manager",
+      "ceo",
+      "board"
+    ],
+    "goalIds": [
+      "align",
+      "decide"
+    ],
+    "styleIds": [
+      "consulting",
+      "executive"
+    ],
+    "contentTypeIds": [
+      "story",
+      "table"
+    ],
+    "category": "Рекомендация и следующий шаг",
+    "tags": [
+      "совещание",
+      "история и аргументация",
+      "рекомендация и следующий шаг",
+      "программа качества"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «программа качества» для проектной команды на одном содержательном экране.",
+      "Композиция должна помочь согласовать позиции и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «программа качества» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «программа качества» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 44,
+      "corporate": 62,
+      "executive": 96,
+      "modern": 50,
+      "whitespace": 63,
+      "dataDensity": 88,
+      "formality": 95,
+      "visualComplexity": 52
+    }
+  },
+  {
+    "id": "REF-000057",
+    "title": "Титульная идея: план закупок",
+    "summary": "Сильный первый экран задаёт тему, масштаб и эмоциональный тон разговора. В центре решения — план закупок, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000057.svg",
+    "scenarioIds": [
+      "speech"
+    ],
+    "personaIds": [
+      "employees",
+      "client"
+    ],
+    "goalIds": [
+      "inspire",
+      "align"
+    ],
+    "styleIds": [
+      "minimal",
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "cover"
+    ],
+    "category": "Титульные и имиджевые слайды",
+    "tags": [
+      "выступление",
+      "титульный слайд",
+      "титульные и имиджевые слайды",
+      "план закупок"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «план закупок» для работников на одном содержательном экране.",
+      "Композиция должна помочь вовлечь и вдохновить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «план закупок» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «план закупок» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «титульный слайд»."
+    ],
+    "designDna": {
+      "minimalism": 79,
+      "corporate": 71,
+      "executive": 57,
+      "modern": 85,
+      "whitespace": 80,
+      "dataDensity": 20,
+      "formality": 78,
+      "visualComplexity": 35
+    }
+  },
+  {
+    "id": "REF-000058",
+    "title": "Ключевой показатель: инвестиционный портфель",
+    "summary": "Главная цифра подкреплена динамикой, контекстом и коротким управленческим выводом. В центре решения — инвестиционный портфель, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000058.svg",
+    "scenarioIds": [
+      "report"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem"
+    ],
+    "styleIds": [
+      "executive"
+    ],
+    "contentTypeIds": [
+      "kpi"
+    ],
+    "category": "KPI и ключевые цифры",
+    "tags": [
+      "отчёт",
+      "kpi и ключевые цифры",
+      "инвестиционный портфель"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «инвестиционный портфель» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «инвестиционный портфель» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «инвестиционный портфель» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «KPI и ключевые цифры»."
+    ],
+    "designDna": {
+      "minimalism": 62,
+      "corporate": 66,
+      "executive": 83,
+      "modern": 58,
+      "whitespace": 73,
+      "dataDensity": 55,
+      "formality": 90,
+      "visualComplexity": 68
+    }
+  },
+  {
+    "id": "REF-000059",
+    "title": "Панель управления: продуктовая стратегия",
+    "summary": "Несколько связанных метрик собраны в обзор состояния с ясными сигналами внимания. В центре решения — продуктовая стратегия, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000059.svg",
+    "scenarioIds": [
+      "report"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "dashboard"
+    ],
+    "category": "Управленческие dashboards",
+    "tags": [
+      "отчёт",
+      "сводная панель",
+      "управленческие dashboards",
+      "продуктовая стратегия"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «продуктовая стратегия» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «продуктовая стратегия» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «продуктовая стратегия» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сводная панель»."
+    ],
+    "designDna": {
+      "minimalism": 65,
+      "corporate": 80,
+      "executive": 56,
+      "modern": 51,
+      "whitespace": 54,
+      "dataDensity": 80,
+      "formality": 92,
+      "visualComplexity": 71
+    }
+  },
+  {
+    "id": "REF-000060",
+    "title": "Выбор решения: развитие партнёрств",
+    "summary": "Варианты сопоставлены по единым критериям, а рекомендация отделена от исходных данных. В центре решения — развитие партнёрств, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000060.svg",
+    "scenarioIds": [
+      "sales"
+    ],
+    "personaIds": [
+      "client",
+      "ceo"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "comparison"
+    ],
+    "category": "Сравнение вариантов",
+    "tags": [
+      "продажа",
+      "сравнение вариантов",
+      "развитие партнёрств"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «развитие партнёрств» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «развитие партнёрств» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «развитие партнёрств» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 64,
+      "corporate": 96,
+      "executive": 53,
+      "modern": 66,
+      "whitespace": 64,
+      "dataDensity": 67,
+      "formality": 85,
+      "visualComplexity": 65
+    }
+  },
+  {
+    "id": "REF-000061",
+    "title": "Матрица приоритетов: оптимизация затрат",
+    "summary": "Структурированная матрица помогает увидеть приоритет, компромисс и основание выбора. В центре решения — оптимизация затрат, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000061.svg",
+    "scenarioIds": [
+      "project"
+    ],
+    "personaIds": [
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "approve",
+      "decide"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "table"
+    ],
+    "category": "Таблицы и матрицы",
+    "tags": [
+      "защита проекта",
+      "табличные данные",
+      "таблицы и матрицы",
+      "оптимизация затрат"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «оптимизация затрат» для правления на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «оптимизация затрат» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «оптимизация затрат» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «табличные данные»."
+    ],
+    "designDna": {
+      "minimalism": 51,
+      "corporate": 84,
+      "executive": 62,
+      "modern": 59,
+      "whitespace": 60,
+      "dataDensity": 92,
+      "formality": 87,
+      "visualComplexity": 51
+    }
+  },
+  {
+    "id": "REF-000062",
+    "title": "Маршрут развития: надёжность оборудования",
+    "summary": "Этапы движения связаны с контрольными точками, результатами и переходом к следующей фазе. В центре решения — надёжность оборудования, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000062.svg",
+    "scenarioIds": [
+      "strategy"
+    ],
+    "personaIds": [
+      "ceo",
+      "board"
+    ],
+    "goalIds": [
+      "decide",
+      "align"
+    ],
+    "styleIds": [
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "timeline"
+    ],
+    "category": "Timeline и дорожные карты",
+    "tags": [
+      "стратегия",
+      "сроки и этапы",
+      "timeline и дорожные карты",
+      "надёжность оборудования"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «надёжность оборудования» для руководителя компании на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «надёжность оборудования» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «надёжность оборудования» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 70,
+      "corporate": 63,
+      "executive": 74,
+      "modern": 52,
+      "whitespace": 75,
+      "dataDensity": 65,
+      "formality": 56,
+      "visualComplexity": 56
+    }
+  },
+  {
+    "id": "REF-000063",
+    "title": "Логика процесса: скорость поставки",
+    "summary": "Последовательность действий показывает входы, решения, ответственных и ожидаемый результат. В центре решения — скорость поставки, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000063.svg",
+    "scenarioIds": [
+      "meeting"
+    ],
+    "personaIds": [
+      "team",
+      "manager"
+    ],
+    "goalIds": [
+      "align",
+      "decide"
+    ],
+    "styleIds": [
+      "modern"
+    ],
+    "contentTypeIds": [
+      "process"
+    ],
+    "category": "Процессы и алгоритмы",
+    "tags": [
+      "совещание",
+      "процесс или алгоритм",
+      "процессы и алгоритмы",
+      "скорость поставки"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «скорость поставки» для проектной команды на одном содержательном экране.",
+      "Композиция должна помочь согласовать позиции и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «скорость поставки» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «скорость поставки» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 69,
+      "corporate": 61,
+      "executive": 49,
+      "modern": 96,
+      "whitespace": 70,
+      "dataDensity": 59,
+      "formality": 49,
+      "visualComplexity": 84
+    }
+  },
+  {
+    "id": "REF-000064",
+    "title": "Причины и действия: управление знаниями",
+    "summary": "Симптомы, корневые причины и меры собраны в единую причинно-следственную конструкцию. В центре решения — управление знаниями, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000064.svg",
+    "scenarioIds": [
+      "report"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem"
+    ],
+    "styleIds": [
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "process"
+    ],
+    "category": "Причины проблемы и план действий",
+    "tags": [
+      "отчёт",
+      "процесс или алгоритм",
+      "причины проблемы и план действий",
+      "управление знаниями"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «управление знаниями» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «управление знаниями» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «управление знаниями» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 72,
+      "corporate": 78,
+      "executive": 58,
+      "modern": 60,
+      "whitespace": 66,
+      "dataDensity": 58,
+      "formality": 74,
+      "visualComplexity": 70
+    }
+  },
+  {
+    "id": "REF-000065",
+    "title": "История перемен: культура безопасности",
+    "summary": "Повествование связывает исходную ситуацию, поворотный момент и образ нового состояния. В центре решения — культура безопасности, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000065.svg",
+    "scenarioIds": [
+      "speech"
+    ],
+    "personaIds": [
+      "employees",
+      "client"
+    ],
+    "goalIds": [
+      "inspire",
+      "align"
+    ],
+    "styleIds": [
+      "modern"
+    ],
+    "contentTypeIds": [
+      "story"
+    ],
+    "category": "История изменений",
+    "tags": [
+      "выступление",
+      "история и аргументация",
+      "история изменений",
+      "культура безопасности"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «культура безопасности» для работников на одном содержательном экране.",
+      "Композиция должна помочь вовлечь и вдохновить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «культура безопасности» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «культура безопасности» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 56,
+      "corporate": 54,
+      "executive": 48,
+      "modern": 86,
+      "whitespace": 62,
+      "dataDensity": 57,
+      "formality": 53,
+      "visualComplexity": 58
+    }
+  },
+  {
+    "id": "REF-000066",
+    "title": "Аргумент продажи: сервисная модель",
+    "summary": "Аргументы ведут от потребности клиента к доказательству ценности и конкретному предложению. В центре решения — сервисная модель, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000066.svg",
+    "scenarioIds": [
+      "sales"
+    ],
+    "personaIds": [
+      "client",
+      "ceo"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "story"
+    ],
+    "category": "Аргументация продажи",
+    "tags": [
+      "продажа",
+      "история и аргументация",
+      "аргументация продажи",
+      "сервисная модель"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «сервисная модель» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «сервисная модель» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «сервисная модель» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 59,
+      "corporate": 60,
+      "executive": 79,
+      "modern": 65,
+      "whitespace": 58,
+      "dataDensity": 56,
+      "formality": 55,
+      "visualComplexity": 63
+    }
+  },
+  {
+    "id": "REF-000067",
+    "title": "Ценность решения: программа обучения",
+    "summary": "Обещание ценности раскрыто через результат для аудитории, отличие и подтверждение эффекта. В центре решения — программа обучения, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000067.svg",
+    "scenarioIds": [
+      "sales"
+    ],
+    "personaIds": [
+      "client",
+      "ceo"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "modern",
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "cover"
+    ],
+    "category": "Ценностное предложение",
+    "tags": [
+      "продажа",
+      "титульный слайд",
+      "ценностное предложение",
+      "программа обучения"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «программа обучения» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «программа обучения» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «программа обучения» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «титульный слайд»."
+    ],
+    "designDna": {
+      "minimalism": 58,
+      "corporate": 69,
+      "executive": 54,
+      "modern": 94,
+      "whitespace": 72,
+      "dataDensity": 33,
+      "formality": 71,
+      "visualComplexity": 27
+    }
+  },
+  {
+    "id": "REF-000068",
+    "title": "Карта рисков: стандартизация процессов",
+    "summary": "Вероятность, влияние и ответные меры делают ограничения прозрачными до принятия решения. В центре решения — стандартизация процессов, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000068.svg",
+    "scenarioIds": [
+      "budget_defense"
+    ],
+    "personaIds": [
+      "cfo",
+      "board"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "executive"
+    ],
+    "contentTypeIds": [
+      "table"
+    ],
+    "category": "Риски и ограничения",
+    "tags": [
+      "защита бюджета",
+      "табличные данные",
+      "риски и ограничения",
+      "стандартизация процессов"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «стандартизация процессов» для финансового руководителя на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «стандартизация процессов» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «стандартизация процессов» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «табличные данные»."
+    ],
+    "designDna": {
+      "minimalism": 45,
+      "corporate": 64,
+      "executive": 96,
+      "modern": 54,
+      "whitespace": 68,
+      "dataDensity": 94,
+      "formality": 83,
+      "visualComplexity": 60
+    }
+  },
+  {
+    "id": "REF-000069",
+    "title": "План реализации: устойчивый рост",
+    "summary": "Пакеты работ, владельцы и контрольные точки превращают решение в исполнимый план. В центре решения — устойчивый рост, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000069.svg",
+    "scenarioIds": [
+      "project"
+    ],
+    "personaIds": [
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "approve",
+      "decide"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "timeline"
+    ],
+    "category": "План реализации",
+    "tags": [
+      "защита проекта",
+      "сроки и этапы",
+      "план реализации",
+      "устойчивый рост"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «устойчивый рост» для правления на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «устойчивый рост» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «устойчивый рост» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 64,
+      "corporate": 96,
+      "executive": 53,
+      "modern": 66,
+      "whitespace": 64,
+      "dataDensity": 67,
+      "formality": 85,
+      "visualComplexity": 65
+    }
+  },
+  {
+    "id": "REF-000070",
+    "title": "Итоги периода: экспортное направление",
+    "summary": "Факт, план, динамика и выводы периода формируют компактную основу для обсуждения. В центре решения — экспортное направление, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000070.svg",
+    "scenarioIds": [
+      "report"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "kpi"
+    ],
+    "category": "Итоги периода",
+    "tags": [
+      "отчёт",
+      "kpi и ключевые цифры",
+      "итоги периода",
+      "экспортное направление"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «экспортное направление» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «экспортное направление» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «экспортное направление» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «KPI и ключевые цифры»."
+    ],
+    "designDna": {
+      "minimalism": 63,
+      "corporate": 95,
+      "executive": 50,
+      "modern": 62,
+      "whitespace": 59,
+      "dataDensity": 61,
+      "formality": 96,
+      "visualComplexity": 57
+    }
+  },
+  {
+    "id": "REF-000071",
+    "title": "Обучающий маршрут: корпоративная культура",
+    "summary": "Материал разбит на понятные шаги с практикой, проверкой понимания и итоговым навыком. В центре решения — корпоративная культура, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000071.svg",
+    "scenarioIds": [
+      "training"
+    ],
+    "personaIds": [
+      "employees",
+      "team"
+    ],
+    "goalIds": [
+      "teach",
+      "inspire"
+    ],
+    "styleIds": [
+      "modern"
+    ],
+    "contentTypeIds": [
+      "process"
+    ],
+    "category": "Обучающий маршрут",
+    "tags": [
+      "обучение",
+      "процесс или алгоритм",
+      "обучающий маршрут",
+      "корпоративная культура"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «корпоративная культура» для работников на одном содержательном экране.",
+      "Композиция должна помочь научить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «корпоративная культура» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «корпоративная культура» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 66,
+      "corporate": 55,
+      "executive": 59,
+      "modern": 88,
+      "whitespace": 74,
+      "dataDensity": 60,
+      "formality": 47,
+      "visualComplexity": 79
+    }
+  },
+  {
+    "id": "REF-000072",
+    "title": "Стратегическая карта: трансформация функций",
+    "summary": "Амбиция, приоритеты и инициативы соединены в карту движения к целевому состоянию. В центре решения — трансформация функций, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000072.svg",
+    "scenarioIds": [
+      "strategy"
+    ],
+    "personaIds": [
+      "ceo",
+      "board"
+    ],
+    "goalIds": [
+      "decide",
+      "align"
+    ],
+    "styleIds": [
+      "consulting",
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "timeline"
+    ],
+    "category": "Стратегическая карта",
+    "tags": [
+      "стратегия",
+      "сроки и этапы",
+      "стратегическая карта",
+      "трансформация функций"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «трансформация функций» для руководителя компании на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «трансформация функций» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «трансформация функций» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 89,
+      "corporate": 61,
+      "executive": 71,
+      "modern": 87,
+      "whitespace": 92,
+      "dataDensity": 59,
+      "formality": 49,
+      "visualComplexity": 67
+    }
+  },
+  {
+    "id": "REF-000073",
+    "title": "Решение руководства: аналитическая платформа",
+    "summary": "Короткая записка на одном экране формулирует решение, эффект, риски и требуемый шаг. В центре решения — аналитическая платформа, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000073.svg",
+    "scenarioIds": [
+      "budget_defense"
+    ],
+    "personaIds": [
+      "cfo",
+      "board"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "executive"
+    ],
+    "contentTypeIds": [
+      "kpi"
+    ],
+    "category": "Решение для руководства",
+    "tags": [
+      "защита бюджета",
+      "kpi и ключевые цифры",
+      "решение для руководства",
+      "аналитическая платформа"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «аналитическая платформа» для финансового руководителя на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «аналитическая платформа» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «аналитическая платформа» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «KPI и ключевые цифры»."
+    ],
+    "designDna": {
+      "minimalism": 68,
+      "corporate": 59,
+      "executive": 82,
+      "modern": 63,
+      "whitespace": 65,
+      "dataDensity": 53,
+      "formality": 94,
+      "visualComplexity": 59
+    }
+  },
+  {
+    "id": "REF-000074",
+    "title": "Техническая логика: проектный офис",
+    "summary": "Сложное устройство объясняется через уровни, связи и проверяемые технические параметры. В центре решения — проектный офис, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000074.svg",
+    "scenarioIds": [
+      "report"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem"
+    ],
+    "styleIds": [
+      "industrial",
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "process"
+    ],
+    "category": "Техническое объяснение",
+    "tags": [
+      "отчёт",
+      "процесс или алгоритм",
+      "техническое объяснение",
+      "проектный офис"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «проектный офис» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «проектный офис» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «проектный офис» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 71,
+      "corporate": 92,
+      "executive": 55,
+      "modern": 56,
+      "whitespace": 61,
+      "dataDensity": 52,
+      "formality": 96,
+      "visualComplexity": 81
+    }
+  },
+  {
+    "id": "REF-000075",
+    "title": "Переход к новому состоянию: технический долг",
+    "summary": "Контраст текущего и целевого состояния показывает изменение в опыте, метриках и поведении. В центре решения — технический долг, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000075.svg",
+    "scenarioIds": [
+      "speech"
+    ],
+    "personaIds": [
+      "employees",
+      "client"
+    ],
+    "goalIds": [
+      "inspire",
+      "align"
+    ],
+    "styleIds": [
+      "modern"
+    ],
+    "contentTypeIds": [
+      "comparison"
+    ],
+    "category": "До/после",
+    "tags": [
+      "выступление",
+      "сравнение вариантов",
+      "до/после",
+      "технический долг"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «технический долг» для работников на одном содержательном экране.",
+      "Композиция должна помочь вовлечь и вдохновить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «технический долг» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «технический долг» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 55,
+      "corporate": 52,
+      "executive": 45,
+      "modern": 82,
+      "whitespace": 57,
+      "dataDensity": 51,
+      "formality": 46,
+      "visualComplexity": 50
+    }
+  },
+  {
+    "id": "REF-000076",
+    "title": "Рекомендация к действию: развитие бренда",
+    "summary": "Вывод, основание и следующий шаг собраны в завершение, которое помогает перейти к действию. В центре решения — развитие бренда, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000076.svg",
+    "scenarioIds": [
+      "meeting"
+    ],
+    "personaIds": [
+      "team",
+      "manager"
+    ],
+    "goalIds": [
+      "align",
+      "decide"
+    ],
+    "styleIds": [
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "story"
+    ],
+    "category": "Рекомендация и следующий шаг",
+    "tags": [
+      "совещание",
+      "история и аргументация",
+      "рекомендация и следующий шаг",
+      "развитие бренда"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «развитие бренда» для проектной команды на одном содержательном экране.",
+      "Композиция должна помочь согласовать позиции и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «развитие бренда» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «развитие бренда» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 58,
+      "corporate": 58,
+      "executive": 76,
+      "modern": 61,
+      "whitespace": 72,
+      "dataDensity": 69,
+      "formality": 48,
+      "visualComplexity": 55
+    }
+  },
+  {
+    "id": "REF-000077",
+    "title": "Титульная идея: сезонная кампания",
+    "summary": "Сильный первый экран задаёт тему, масштаб и эмоциональный тон разговора. В центре решения — сезонная кампания, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000077.svg",
+    "scenarioIds": [
+      "sales"
+    ],
+    "personaIds": [
+      "client",
+      "ceo"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "modern",
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "story"
+    ],
+    "category": "Титульные и имиджевые слайды",
+    "tags": [
+      "продажа",
+      "история и аргументация",
+      "титульные и имиджевые слайды",
+      "сезонная кампания"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «сезонная кампания» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «сезонная кампания» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «сезонная кампания» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 57,
+      "corporate": 67,
+      "executive": 51,
+      "modern": 90,
+      "whitespace": 67,
+      "dataDensity": 63,
+      "formality": 83,
+      "visualComplexity": 66
+    }
+  },
+  {
+    "id": "REF-000078",
+    "title": "Ключевой показатель: обновление линейки",
+    "summary": "Главная цифра подкреплена динамикой, контекстом и коротким управленческим выводом. В центре решения — обновление линейки, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000078.svg",
+    "scenarioIds": [
+      "budget_defense"
+    ],
+    "personaIds": [
+      "cfo",
+      "board"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "dashboard"
+    ],
+    "category": "KPI и ключевые цифры",
+    "tags": [
+      "защита бюджета",
+      "сводная панель",
+      "kpi и ключевые цифры",
+      "обновление линейки"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «обновление линейки» для финансового руководителя на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «обновление линейки» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «обновление линейки» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сводная панель»."
+    ],
+    "designDna": {
+      "minimalism": 60,
+      "corporate": 89,
+      "executive": 60,
+      "modern": 50,
+      "whitespace": 48,
+      "dataDensity": 88,
+      "formality": 95,
+      "visualComplexity": 69
+    }
+  },
+  {
+    "id": "REF-000079",
+    "title": "Панель управления: контроль исполнения",
+    "summary": "Несколько связанных метрик собраны в обзор состояния с ясными сигналами внимания. В центре решения — контроль исполнения, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000079.svg",
+    "scenarioIds": [
+      "meeting"
+    ],
+    "personaIds": [
+      "team",
+      "manager"
+    ],
+    "goalIds": [
+      "align",
+      "decide"
+    ],
+    "styleIds": [
+      "executive"
+    ],
+    "contentTypeIds": [
+      "kpi"
+    ],
+    "category": "Управленческие dashboards",
+    "tags": [
+      "совещание",
+      "kpi и ключевые цифры",
+      "управленческие dashboards",
+      "контроль исполнения"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «контроль исполнения» для проектной команды на одном содержательном экране.",
+      "Композиция должна помочь согласовать позиции и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «контроль исполнения» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «контроль исполнения» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «KPI и ключевые цифры»."
+    ],
+    "designDna": {
+      "minimalism": 63,
+      "corporate": 68,
+      "executive": 86,
+      "modern": 62,
+      "whitespace": 59,
+      "dataDensity": 61,
+      "formality": 96,
+      "visualComplexity": 57
+    }
+  },
+  {
+    "id": "REF-000080",
+    "title": "Выбор решения: производительность команды",
+    "summary": "Варианты сопоставлены по единым критериям, а рекомендация отделена от исходных данных. В центре решения — производительность команды, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000080.svg",
+    "scenarioIds": [
+      "project"
+    ],
+    "personaIds": [
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "approve",
+      "decide"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "table",
+      "timeline"
+    ],
+    "category": "Сравнение вариантов",
+    "tags": [
+      "защита проекта",
+      "табличные данные",
+      "сравнение вариантов",
+      "производительность команды"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «производительность команды» для правления на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «производительность команды» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «производительность команды» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «табличные данные»."
+    ],
+    "designDna": {
+      "minimalism": 46,
+      "corporate": 93,
+      "executive": 47,
+      "modern": 58,
+      "whitespace": 73,
+      "dataDensity": 81,
+      "formality": 90,
+      "visualComplexity": 68
+    }
+  },
+  {
+    "id": "REF-000081",
+    "title": "Матрица приоритетов: качество данных",
+    "summary": "Структурированная матрица помогает увидеть приоритет, компромисс и основание выбора. В центре решения — качество данных, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000081.svg",
+    "scenarioIds": [
+      "budget_defense"
+    ],
+    "personaIds": [
+      "cfo",
+      "board"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "comparison"
+    ],
+    "category": "Таблицы и матрицы",
+    "tags": [
+      "защита бюджета",
+      "сравнение вариантов",
+      "таблицы и матрицы",
+      "качество данных"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «качество данных» для финансового руководителя на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «качество данных» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «качество данных» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 65,
+      "corporate": 53,
+      "executive": 78,
+      "modern": 51,
+      "whitespace": 69,
+      "dataDensity": 54,
+      "formality": 59,
+      "visualComplexity": 54
+    }
+  },
+  {
+    "id": "REF-000082",
+    "title": "Маршрут развития: коммерческое предложение",
+    "summary": "Этапы движения связаны с контрольными точками, результатами и переходом к следующей фазе. В центре решения — коммерческое предложение, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000082.svg",
+    "scenarioIds": [
+      "project"
+    ],
+    "personaIds": [
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "approve",
+      "decide"
+    ],
+    "styleIds": [
+      "modern"
+    ],
+    "contentTypeIds": [
+      "story"
+    ],
+    "category": "Timeline и дорожные карты",
+    "tags": [
+      "защита проекта",
+      "история и аргументация",
+      "timeline и дорожные карты",
+      "коммерческое предложение"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «коммерческое предложение» для правления на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «коммерческое предложение» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «коммерческое предложение» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 68,
+      "corporate": 59,
+      "executive": 46,
+      "modern": 96,
+      "whitespace": 65,
+      "dataDensity": 53,
+      "formality": 61,
+      "visualComplexity": 59
+    }
+  },
+  {
+    "id": "REF-000083",
+    "title": "Логика процесса: ресурсный план",
+    "summary": "Последовательность действий показывает входы, решения, ответственных и ожидаемый результат. В центре решения — ресурсный план, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000083.svg",
+    "scenarioIds": [
+      "training"
+    ],
+    "personaIds": [
+      "employees",
+      "team"
+    ],
+    "goalIds": [
+      "teach",
+      "inspire"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "timeline"
+    ],
+    "category": "Процессы и алгоритмы",
+    "tags": [
+      "обучение",
+      "сроки и этапы",
+      "процессы и алгоритмы",
+      "ресурсный план"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «ресурсный план» для работников на одном содержательном экране.",
+      "Композиция должна помочь научить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «ресурсный план» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «ресурсный план» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 67,
+      "corporate": 84,
+      "executive": 62,
+      "modern": 59,
+      "whitespace": 60,
+      "dataDensity": 66,
+      "formality": 87,
+      "visualComplexity": 51
+    }
+  },
+  {
+    "id": "REF-000084",
+    "title": "Причины и действия: сценарное планирование",
+    "summary": "Симптомы, корневые причины и меры собраны в единую причинно-следственную конструкцию. В центре решения — сценарное планирование, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000084.svg",
+    "scenarioIds": [
+      "meeting"
+    ],
+    "personaIds": [
+      "team",
+      "manager"
+    ],
+    "goalIds": [
+      "align",
+      "decide"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "story"
+    ],
+    "category": "Причины проблемы и план действий",
+    "tags": [
+      "совещание",
+      "история и аргументация",
+      "причины проблемы и план действий",
+      "сценарное планирование"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «сценарное планирование» для проектной команды на одном содержательном экране.",
+      "Композиция должна помочь согласовать позиции и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «сценарное планирование» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «сценарное планирование» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 70,
+      "corporate": 90,
+      "executive": 52,
+      "modern": 52,
+      "whitespace": 75,
+      "dataDensity": 65,
+      "formality": 89,
+      "visualComplexity": 56
+    }
+  },
+  {
+    "id": "REF-000085",
+    "title": "История перемен: программа лояльности",
+    "summary": "Повествование связывает исходную ситуацию, поворотный момент и образ нового состояния. В центре решения — программа лояльности, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000085.svg",
+    "scenarioIds": [
+      "training"
+    ],
+    "personaIds": [
+      "employees",
+      "team"
+    ],
+    "goalIds": [
+      "teach",
+      "inspire"
+    ],
+    "styleIds": [
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "cover"
+    ],
+    "category": "История изменений",
+    "tags": [
+      "обучение",
+      "титульный слайд",
+      "история изменений",
+      "программа лояльности"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «программа лояльности» для работников на одном содержательном экране.",
+      "Композиция должна помочь научить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «программа лояльности» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «программа лояльности» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «титульный слайд»."
+    ],
+    "designDna": {
+      "minimalism": 93,
+      "corporate": 69,
+      "executive": 61,
+      "modern": 84,
+      "whitespace": 93,
+      "dataDensity": 28,
+      "formality": 58,
+      "visualComplexity": 33
+    }
+  },
+  {
+    "id": "REF-000086",
+    "title": "Аргумент продажи: управление мощностями",
+    "summary": "Аргументы ведут от потребности клиента к доказательству ценности и конкретному предложению. В центре решения — управление мощностями, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000086.svg",
+    "scenarioIds": [
+      "project"
+    ],
+    "personaIds": [
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "approve",
+      "decide"
+    ],
+    "styleIds": [
+      "modern"
+    ],
+    "contentTypeIds": [
+      "comparison"
+    ],
+    "category": "Аргументация продажи",
+    "tags": [
+      "защита проекта",
+      "сравнение вариантов",
+      "аргументация продажи",
+      "управление мощностями"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «управление мощностями» для правления на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «управление мощностями» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «управление мощностями» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 57,
+      "corporate": 56,
+      "executive": 51,
+      "modern": 90,
+      "whitespace": 67,
+      "dataDensity": 63,
+      "formality": 60,
+      "visualComplexity": 66
+    }
+  },
+  {
+    "id": "REF-000087",
+    "title": "Ценность решения: внедрение системы",
+    "summary": "Обещание ценности раскрыто через результат для аудитории, отличие и подтверждение эффекта. В центре решения — внедрение системы, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000087.svg",
+    "scenarioIds": [
+      "strategy"
+    ],
+    "personaIds": [
+      "ceo",
+      "board"
+    ],
+    "goalIds": [
+      "decide",
+      "align"
+    ],
+    "styleIds": [
+      "minimal",
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "story"
+    ],
+    "category": "Ценностное предложение",
+    "tags": [
+      "стратегия",
+      "история и аргументация",
+      "ценностное предложение",
+      "внедрение системы"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «внедрение системы» для руководителя компании на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «внедрение системы» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «внедрение системы» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 76,
+      "corporate": 65,
+      "executive": 48,
+      "modern": 73,
+      "whitespace": 84,
+      "dataDensity": 57,
+      "formality": 76,
+      "visualComplexity": 58
+    }
+  },
+  {
+    "id": "REF-000088",
+    "title": "Карта рисков: изменение регламента",
+    "summary": "Вероятность, влияние и ответные меры делают ограничения прозрачными до принятия решения. В центре решения — изменение регламента, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000088.svg",
+    "scenarioIds": [
+      "project"
+    ],
+    "personaIds": [
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "approve",
+      "decide"
+    ],
+    "styleIds": [
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "comparison"
+    ],
+    "category": "Риски и ограничения",
+    "tags": [
+      "защита проекта",
+      "сравнение вариантов",
+      "риски и ограничения",
+      "изменение регламента"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «изменение регламента» для правления на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «изменение регламента» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «изменение регламента» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 59,
+      "corporate": 71,
+      "executive": 57,
+      "modern": 65,
+      "whitespace": 58,
+      "dataDensity": 56,
+      "formality": 78,
+      "visualComplexity": 63
+    }
+  },
+  {
+    "id": "REF-000089",
+    "title": "План реализации: запуск филиала",
+    "summary": "Пакеты работ, владельцы и контрольные точки превращают решение в исполнимый план. В центре решения — запуск филиала, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000089.svg",
+    "scenarioIds": [
+      "meeting"
+    ],
+    "personaIds": [
+      "team",
+      "manager"
+    ],
+    "goalIds": [
+      "align",
+      "decide"
+    ],
+    "styleIds": [
+      "executive"
+    ],
+    "contentTypeIds": [
+      "process"
+    ],
+    "category": "План реализации",
+    "tags": [
+      "совещание",
+      "процесс или алгоритм",
+      "план реализации",
+      "запуск филиала"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «запуск филиала» для проектной команды на одном содержательном экране.",
+      "Композиция должна помочь согласовать позиции и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «запуск филиала» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «запуск филиала» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «процесс или алгоритм»."
+    ],
+    "designDna": {
+      "minimalism": 62,
+      "corporate": 66,
+      "executive": 83,
+      "modern": 58,
+      "whitespace": 73,
+      "dataDensity": 55,
+      "formality": 90,
+      "visualComplexity": 85
+    }
+  },
+  {
+    "id": "REF-000090",
+    "title": "Итоги периода: улучшение продукта",
+    "summary": "Факт, план, динамика и выводы периода формируют компактную основу для обсуждения. В центре решения — улучшение продукта, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000090.svg",
+    "scenarioIds": [
+      "strategy"
+    ],
+    "personaIds": [
+      "ceo",
+      "board"
+    ],
+    "goalIds": [
+      "decide",
+      "align"
+    ],
+    "styleIds": [
+      "executive"
+    ],
+    "contentTypeIds": [
+      "dashboard"
+    ],
+    "category": "Итоги периода",
+    "tags": [
+      "стратегия",
+      "сводная панель",
+      "итоги периода",
+      "улучшение продукта"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «улучшение продукта» для руководителя компании на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «улучшение продукта» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «улучшение продукта» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сводная панель»."
+    ],
+    "designDna": {
+      "minimalism": 61,
+      "corporate": 64,
+      "executive": 96,
+      "modern": 54,
+      "whitespace": 53,
+      "dataDensity": 94,
+      "formality": 83,
+      "visualComplexity": 77
+    }
+  },
+  {
+    "id": "REF-000091",
+    "title": "Обучающий маршрут: план коммуникаций",
+    "summary": "Материал разбит на понятные шаги с практикой, проверкой понимания и итоговым навыком. В центре решения — план коммуникаций, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000091.svg",
+    "scenarioIds": [
+      "speech"
+    ],
+    "personaIds": [
+      "employees",
+      "client"
+    ],
+    "goalIds": [
+      "inspire",
+      "align"
+    ],
+    "styleIds": [
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "timeline"
+    ],
+    "category": "Обучающий маршрут",
+    "tags": [
+      "выступление",
+      "сроки и этапы",
+      "обучающий маршрут",
+      "план коммуникаций"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «план коммуникаций» для работников на одном содержательном экране.",
+      "Композиция должна помочь вовлечь и вдохновить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «план коммуникаций» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «план коммуникаций» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сроки и этапы»."
+    ],
+    "designDna": {
+      "minimalism": 84,
+      "corporate": 70,
+      "executive": 53,
+      "modern": 86,
+      "whitespace": 86,
+      "dataDensity": 67,
+      "formality": 52,
+      "visualComplexity": 65
+    }
+  },
+  {
+    "id": "REF-000092",
+    "title": "Стратегическая карта: клиентский портал",
+    "summary": "Амбиция, приоритеты и инициативы соединены в карту движения к целевому состоянию. В центре решения — клиентский портал, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000092.svg",
+    "scenarioIds": [
+      "project"
+    ],
+    "personaIds": [
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "approve",
+      "decide"
+    ],
+    "styleIds": [
+      "executive"
+    ],
+    "contentTypeIds": [
+      "dashboard"
+    ],
+    "category": "Стратегическая карта",
+    "tags": [
+      "защита проекта",
+      "сводная панель",
+      "стратегическая карта",
+      "клиентский портал"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «клиентский портал» для правления на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «клиентский портал» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «клиентский портал» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сводная панель»."
+    ],
+    "designDna": {
+      "minimalism": 67,
+      "corporate": 57,
+      "executive": 96,
+      "modern": 59,
+      "whitespace": 45,
+      "dataDensity": 92,
+      "formality": 87,
+      "visualComplexity": 68
+    }
+  },
+  {
+    "id": "REF-000093",
+    "title": "Решение руководства: единый стандарт",
+    "summary": "Короткая записка на одном экране формулирует решение, эффект, риски и требуемый шаг. В центре решения — единый стандарт, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000093.svg",
+    "scenarioIds": [
+      "strategy"
+    ],
+    "personaIds": [
+      "ceo",
+      "board"
+    ],
+    "goalIds": [
+      "decide",
+      "align"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "comparison"
+    ],
+    "category": "Решение для руководства",
+    "tags": [
+      "стратегия",
+      "сравнение вариантов",
+      "решение для руководства",
+      "единый стандарт"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «единый стандарт» для руководителя компании на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «единый стандарт» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «единый стандарт» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 66,
+      "corporate": 82,
+      "executive": 59,
+      "modern": 55,
+      "whitespace": 74,
+      "dataDensity": 60,
+      "formality": 80,
+      "visualComplexity": 62
+    }
+  },
+  {
+    "id": "REF-000094",
+    "title": "Техническая логика: инвестиционное решение",
+    "summary": "Сложное устройство объясняется через уровни, связи и проверяемые технические параметры. В центре решения — инвестиционное решение, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000094.svg",
+    "scenarioIds": [
+      "training"
+    ],
+    "personaIds": [
+      "employees",
+      "team"
+    ],
+    "goalIds": [
+      "teach",
+      "inspire"
+    ],
+    "styleIds": [
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "table"
+    ],
+    "category": "Техническое объяснение",
+    "tags": [
+      "обучение",
+      "табличные данные",
+      "техническое объяснение",
+      "инвестиционное решение"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «инвестиционное решение» для работников на одном содержательном экране.",
+      "Композиция должна помочь научить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «инвестиционное решение» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «инвестиционное решение» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «табличные данные»."
+    ],
+    "designDna": {
+      "minimalism": 53,
+      "corporate": 88,
+      "executive": 49,
+      "modern": 67,
+      "whitespace": 70,
+      "dataDensity": 85,
+      "formality": 82,
+      "visualComplexity": 67
+    }
+  },
+  {
+    "id": "REF-000095",
+    "title": "Переход к новому состоянию: сервисная поддержка",
+    "summary": "Контраст текущего и целевого состояния показывает изменение в опыте, метриках и поведении. В центре решения — сервисная поддержка, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000095.svg",
+    "scenarioIds": [
+      "sales"
+    ],
+    "personaIds": [
+      "client",
+      "ceo"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "minimal"
+    ],
+    "contentTypeIds": [
+      "story"
+    ],
+    "category": "До/после",
+    "tags": [
+      "продажа",
+      "история и аргументация",
+      "до/после",
+      "сервисная поддержка"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «сервисная поддержка» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «сервисная поддержка» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «сервисная поддержка» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «история и аргументация»."
+    ],
+    "designDna": {
+      "minimalism": 92,
+      "corporate": 67,
+      "executive": 58,
+      "modern": 80,
+      "whitespace": 88,
+      "dataDensity": 58,
+      "formality": 51,
+      "visualComplexity": 53
+    }
+  },
+  {
+    "id": "REF-000096",
+    "title": "Рекомендация к действию: программа адаптации",
+    "summary": "Вывод, основание и следующий шаг собраны в завершение, которое помогает перейти к действию. В центре решения — программа адаптации, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000096.svg",
+    "scenarioIds": [
+      "strategy"
+    ],
+    "personaIds": [
+      "ceo",
+      "board"
+    ],
+    "goalIds": [
+      "decide",
+      "align"
+    ],
+    "styleIds": [
+      "executive"
+    ],
+    "contentTypeIds": [
+      "table"
+    ],
+    "category": "Рекомендация и следующий шаг",
+    "tags": [
+      "стратегия",
+      "табличные данные",
+      "рекомендация и следующий шаг",
+      "программа адаптации"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «программа адаптации» для руководителя компании на одном содержательном экране.",
+      "Композиция должна помочь помочь принять решение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «программа адаптации» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «программа адаптации» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «табличные данные»."
+    ],
+    "designDna": {
+      "minimalism": 40,
+      "corporate": 54,
+      "executive": 84,
+      "modern": 53,
+      "whitespace": 62,
+      "dataDensity": 83,
+      "formality": 86,
+      "visualComplexity": 58
+    }
+  },
+  {
+    "id": "REF-000097",
+    "title": "Титульная идея: цепочка поставок",
+    "summary": "Сильный первый экран задаёт тему, масштаб и эмоциональный тон разговора. В центре решения — цепочка поставок, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000097.svg",
+    "scenarioIds": [
+      "speech",
+      "sales"
+    ],
+    "personaIds": [
+      "employees",
+      "client",
+      "ceo"
+    ],
+    "goalIds": [
+      "inspire",
+      "align",
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "minimal",
+      "modern",
+      "corporate",
+      "industrial"
+    ],
+    "contentTypeIds": [
+      "cover",
+      "story"
+    ],
+    "category": "Титульные и имиджевые слайды",
+    "tags": [
+      "выступление",
+      "титульный слайд",
+      "титульные и имиджевые слайды",
+      "цепочка поставок"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «цепочка поставок» для работников на одном содержательном экране.",
+      "Композиция должна помочь вовлечь и вдохновить и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «цепочка поставок» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «цепочка поставок» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «титульный слайд»."
+    ],
+    "designDna": {
+      "minimalism": 75,
+      "corporate": 79,
+      "executive": 45,
+      "modern": 82,
+      "whitespace": 79,
+      "dataDensity": 15,
+      "formality": 79,
+      "visualComplexity": 22
+    }
+  },
+  {
+    "id": "REF-000098",
+    "title": "Ключевой показатель: модель управления",
+    "summary": "Главная цифра подкреплена динамикой, контекстом и коротким управленческим выводом. В центре решения — модель управления, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000098.svg",
+    "scenarioIds": [
+      "report",
+      "budget_defense",
+      "training"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo",
+      "board"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem",
+      "approve",
+      "compare_options"
+    ],
+    "styleIds": [
+      "executive",
+      "corporate"
+    ],
+    "contentTypeIds": [
+      "kpi",
+      "dashboard"
+    ],
+    "category": "KPI и ключевые цифры",
+    "tags": [
+      "отчёт",
+      "kpi и ключевые цифры",
+      "модель управления"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «модель управления» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «модель управления» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «модель управления» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «KPI и ключевые цифры»."
+    ],
+    "designDna": {
+      "minimalism": 58,
+      "corporate": 85,
+      "executive": 90,
+      "modern": 61,
+      "whitespace": 57,
+      "dataDensity": 95,
+      "formality": 81,
+      "visualComplexity": 72
+    }
+  },
+  {
+    "id": "REF-000099",
+    "title": "Панель управления: рост конверсии",
+    "summary": "Несколько связанных метрик собраны в обзор состояния с ясными сигналами внимания. В центре решения — рост конверсии, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000099.svg",
+    "scenarioIds": [
+      "report",
+      "meeting"
+    ],
+    "personaIds": [
+      "manager",
+      "cfo",
+      "team"
+    ],
+    "goalIds": [
+      "explain_results",
+      "explain_problem",
+      "align",
+      "decide"
+    ],
+    "styleIds": [
+      "corporate",
+      "executive",
+      "consulting"
+    ],
+    "contentTypeIds": [
+      "dashboard",
+      "kpi"
+    ],
+    "category": "Управленческие dashboards",
+    "tags": [
+      "отчёт",
+      "сводная панель",
+      "управленческие dashboards",
+      "рост конверсии"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «рост конверсии» для руководителей подразделений на одном содержательном экране.",
+      "Композиция должна помочь объяснить результаты и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «рост конверсии» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «рост конверсии» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сводная панель»."
+    ],
+    "designDna": {
+      "minimalism": 61,
+      "corporate": 91,
+      "executive": 96,
+      "modern": 54,
+      "whitespace": 53,
+      "dataDensity": 94,
+      "formality": 83,
+      "visualComplexity": 77
+    }
+  },
+  {
+    "id": "REF-000100",
+    "title": "Выбор решения: план восстановления",
+    "summary": "Варианты сопоставлены по единым критериям, а рекомендация отделена от исходных данных. В центре решения — план восстановления, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
+    "sourceType": "synthetic",
+    "sourceLabel": "Демонстрационный референс PIP",
+    "sourceUrl": null,
+    "previewPath": "previews/REF-000100.svg",
+    "scenarioIds": [
+      "sales",
+      "project"
+    ],
+    "personaIds": [
+      "client",
+      "ceo",
+      "board",
+      "technical_experts"
+    ],
+    "goalIds": [
+      "approve",
+      "compare_options",
+      "decide"
+    ],
+    "styleIds": [
+      "corporate",
+      "modern"
+    ],
+    "contentTypeIds": [
+      "comparison",
+      "table"
+    ],
+    "category": "Сравнение вариантов",
+    "tags": [
+      "продажа",
+      "сравнение вариантов",
+      "план восстановления"
+    ],
+    "useWhen": [
+      "Нужно раскрыть тему «план восстановления» для заказчика на одном содержательном экране.",
+      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
+      "Исходные данные по теме «план восстановления» уже проверены и готовы к визуальному обобщению."
+    ],
+    "avoidWhen": [
+      "Не подходит, если по теме «план восстановления» ещё нет согласованных фактов и вывода.",
+      "Не использовать, когда аудитории требуется полный документ, а не формат «сравнение вариантов»."
+    ],
+    "designDna": {
+      "minimalism": 44,
+      "corporate": 89,
+      "executive": 60,
+      "modern": 83,
+      "whitespace": 63,
+      "dataDensity": 88,
+      "formality": 95,
+      "visualComplexity": 52
+    }
   }
 ]

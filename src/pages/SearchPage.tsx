@@ -24,7 +24,7 @@ export function SearchPage({ references, query, setQuery }: SearchPageProps) {
           <div>
             <p className="eyebrow flex items-center gap-2"><Icon name="insight" className="h-4 w-4" />Результаты подбора</p>
             <h1 id="results-title" className="mt-2 text-3xl font-bold tracking-tight text-navy sm:text-4xl">Подходящие решения</h1>
-            <p className="mt-2 text-base leading-7 text-muted">Мы сравнили вашу задачу с 12 демонстрационными референсами и ранжировали лучшие совпадения.</p>
+            <p className="mt-2 text-base leading-7 text-muted">Мы сравнили вашу задачу с {references.length} демонстрационными референсами и ранжировали лучшие совпадения.</p>
           </div>
           <button type="button" onClick={() => setQuery(null)} className="btn-secondary shrink-0"><Icon name="edit" className="h-4 w-4" />Изменить параметры</button>
         </div>
