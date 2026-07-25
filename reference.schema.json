@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://isupovslava-collab.github.io/pip/reference.schema.json",
+  "title": "PIP Reference Library",
+  "type": "array",
+  "minItems": 12,
+  "maxItems": 12,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "title", "summary", "sourceType", "sourceLabel", "sourceUrl", "previewPath", "scenarioIds", "personaIds", "goalIds", "styleIds", "contentTypeIds", "category", "tags", "useWhen", "avoidWhen", "designDna"],
+    "properties": {
+      "id": { "type": "string", "pattern": "^REF-[0-9]{6}$" },
+      "title": { "type": "string", "minLength": 1 },
+      "summary": { "type": "string", "minLength": 1 },
+      "sourceType": { "const": "synthetic" },
+      "sourceLabel": { "const": "Демонстрационный референс PIP" },
+      "sourceUrl": { "type": "null" },
+      "previewPath": { "type": "string", "pattern": "^previews/REF-[0-9]{6}\\.svg$" },
+      "scenarioIds": { "$ref": "#/$defs/nonEmptyStrings" },
+      "personaIds": { "$ref": "#/$defs/nonEmptyStrings" },
+      "goalIds": { "$ref": "#/$defs/nonEmptyStrings" },
+      "styleIds": { "$ref": "#/$defs/nonEmptyStrings" },
+      "contentTypeIds": { "$ref": "#/$defs/nonEmptyStrings" },
+      "category": { "type": "string", "minLength": 1 },
+      "tags": { "$ref": "#/$defs/nonEmptyStrings" },
+      "useWhen": { "$ref": "#/$defs/nonEmptyStrings" },
+      "avoidWhen": { "$ref": "#/$defs/nonEmptyStrings" },
+      "designDna": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["minimalism", "corporate", "executive", "modern", "whitespace", "dataDensity", "formality", "visualComplexity"],
+        "properties": {
+          "minimalism": { "$ref": "#/$defs/score" }, "corporate": { "$ref": "#/$defs/score" },
+          "executive": { "$ref": "#/$defs/score" }, "modern": { "$ref": "#/$defs/score" },
+          "whitespace": { "$ref": "#/$defs/score" }, "dataDensity": { "$ref": "#/$defs/score" },
+          "formality": { "$ref": "#/$defs/score" }, "visualComplexity": { "$ref": "#/$defs/score" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "nonEmptyStrings": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+  }
+}
