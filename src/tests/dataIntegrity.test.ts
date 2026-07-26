@@ -12,7 +12,7 @@ describe('целостность библиотеки', () => {
 
   it('содержит заполненные превью и обязательные массивы', () => {
     ;(references as Reference[]).forEach((reference) => {
-      expect(reference.previewPath).toMatch(/^previews\/REF-\d{6}\.svg$/)
+      expect(reference.previewPath).toMatch(/^previews\/REF-\d{6}\.(svg|png|webp)$/)
       ;[reference.scenarioIds, reference.personaIds, reference.goalIds, reference.styleIds, reference.contentTypeIds, reference.tags, reference.useWhen, reference.avoidWhen].forEach((items) => expect(items.length).toBeGreaterThan(0))
     })
   })

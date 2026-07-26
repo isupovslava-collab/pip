@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { coverageMinimums, taxonomy, themes } from './library-config.mjs'
+import { previewModes, rightsStatuses } from './source-records.mjs'
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url))
 const rootDirectory = path.resolve(scriptDirectory, '..')
@@ -32,8 +33,8 @@ function validateData() {
   if (JSON.stringify(actualIds) !== JSON.stringify(expectedIds)) errors.push('Reference IDs must be continuous and ordered from REF-000001 to REF-000100.')
   if (new Set(actualIds).size !== actualIds.length) errors.push('Reference IDs must be unique.')
 
-  const requiredStrings = ['id', 'title', 'summary', 'previewPath', 'category', 'sourceType', 'sourceLabel']
-  const expectedFields = ['id', 'title', 'summary', 'sourceType', 'sourceLabel', 'sourceUrl', 'previewPath', 'scenarioIds', 'personaIds', 'goalIds', 'styleIds', 'contentTypeIds', 'category', 'tags', 'useWhen', 'avoidWhen', 'designDna'].sort()
+  const requiredStrings = ['id', 'title', 'summary', 'previewPath', 'category', 'sourceType', 'sourceLabel', 'previewMode', 'qualityTier']
+  const expectedFields = ['id', 'title', 'summary', 'sourceType', 'sourceLabel', 'sourceUrl', 'sourceBacked', 'sourceTitle', 'sourceOrganization', 'rightsStatus', 'sourceNotes', 'sourceAccessCheckedAt', 'previewMode', 'qualityTier', 'previewPath', 'scenarioIds', 'personaIds', 'goalIds', 'styleIds', 'contentTypeIds', 'category', 'tags', 'useWhen', 'avoidWhen', 'designDna'].sort()
   const arrayRules = {
     scenarioIds: [taxonomy.scenarios, 1, Number.POSITIVE_INFINITY],
     personaIds: [taxonomy.personas, 1, Number.POSITIVE_INFINITY],
@@ -50,10 +51,23 @@ function validateData() {
     requiredStrings.forEach((field) => {
       if (typeof reference[field] !== 'string' || reference[field].trim() === '') errors.push(`${prefix}: ${field} must be a non-empty string.`)
     })
-    if (reference.sourceType !== 'synthetic') errors.push(`${prefix}: sourceType must be synthetic.`)
-    if (reference.sourceLabel !== 'Демонстрационный референс PIP') errors.push(`${prefix}: invalid sourceLabel.`)
-    if (reference.sourceUrl !== null) errors.push(`${prefix}: sourceUrl must be null.`)
-    if (reference.previewPath !== `previews/${reference.id}.svg`) errors.push(`${prefix}: previewPath does not match its ID.`)
+    if (typeof reference.sourceBacked !== 'boolean') errors.push(`${prefix}: sourceBacked must be boolean.`)
+    if (!previewModes.includes(reference.previewMode)) errors.push(`${prefix}: invalid previewMode.`)
+    if (!['gold', 'standard'].includes(reference.qualityTier)) errors.push(`${prefix}: invalid qualityTier.`)
+    if (!new RegExp(`^previews/${reference.id}\\.(svg|png|webp)$`).test(reference.previewPath)) errors.push(`${prefix}: previewPath does not match its ID.`)
+    if (reference.sourceBacked) {
+      for (const field of ['sourceTitle', 'sourceOrganization', 'sourceUrl', 'rightsStatus', 'sourceNotes', 'sourceAccessCheckedAt']) {
+        if (typeof reference[field] !== 'string' || reference[field].trim() === '') errors.push(`${prefix}: ${field} is required for a source-backed reference.`)
+      }
+      if (!rightsStatuses.includes(reference.rightsStatus)) errors.push(`${prefix}: invalid rightsStatus.`)
+      if (!/^https:\/\//.test(reference.sourceUrl ?? '')) errors.push(`${prefix}: sourceUrl must be HTTPS.`)
+      if (reference.qualityTier !== 'gold') errors.push(`${prefix}: source-backed reference must use the gold tier.`)
+      if (reference.previewMode !== 'original_pip_interpretation') errors.push(`${prefix}: unlicensed source must use an original PIP interpretation.`)
+    } else {
+      if (reference.sourceType !== 'synthetic') errors.push(`${prefix}: standard sourceType must be synthetic.`)
+      if (reference.sourceUrl !== null || reference.sourceTitle !== null || reference.sourceOrganization !== null || reference.rightsStatus !== null || reference.sourceNotes !== null || reference.sourceAccessCheckedAt !== null) errors.push(`${prefix}: standard source metadata must be null.`)
+      if (reference.qualityTier !== 'standard') errors.push(`${prefix}: non-source-backed reference must use the standard tier.`)
+    }
 
     Object.entries(arrayRules).forEach(([field, [allowed, minimum, maximum]]) => {
       const values = reference[field]
@@ -77,15 +91,19 @@ function validateData() {
     if (!fs.existsSync(previewPath)) {
       errors.push(`${prefix}: preview file is missing.`)
     } else {
-      const svg = fs.readFileSync(previewPath, 'utf8')
-      if (!svg.includes('viewBox="0 0 1600 900"')) errors.push(`${prefix}: preview must use viewBox 0 0 1600 900.`)
-      if (/<image\b/i.test(svg) || /(?:href|src)=["']https?:/i.test(svg)) errors.push(`${prefix}: preview contains an external or raster resource.`)
+      if (reference.previewPath.endsWith('.svg')) {
+        const svg = fs.readFileSync(previewPath, 'utf8')
+        if (!svg.includes('viewBox="0 0 1600 900"')) errors.push(`${prefix}: SVG preview must use viewBox 0 0 1600 900.`)
+        if (/<image\b/i.test(svg) || /(?:href|src)=["']https?:/i.test(svg)) errors.push(`${prefix}: preview contains an external or raster resource.`)
+      }
     }
   })
 
-  const previewFiles = fs.readdirSync(previewDirectory).filter((name) => /^REF-\d{6}\.svg$/.test(name)).sort()
-  const expectedFiles = expectedIds.map((id) => `${id}.svg`)
-  if (JSON.stringify(previewFiles) !== JSON.stringify(expectedFiles)) errors.push('public/previews must contain exactly REF-000001.svg through REF-000100.svg.')
+  const previewFiles = fs.readdirSync(previewDirectory).filter((name) => /^REF-\d{6}\.(svg|png|webp)$/.test(name)).sort()
+  const expectedFiles = references.map(({ previewPath }) => path.basename(previewPath)).sort()
+  if (JSON.stringify(previewFiles) !== JSON.stringify(expectedFiles)) errors.push('public/previews must contain exactly the 100 files declared in metadata.')
+  const sourceBacked = references.filter((reference) => reference.sourceBacked)
+  if (sourceBacked.length !== 24) errors.push(`Expected 24 source-backed references, received ${sourceBacked.length}.`)
   uniqueThemeCategories().forEach((category) => {
     const count = references.filter((reference) => reference.category === category).length
     if (count < 2) errors.push(`The thematic group “${category}” must contain at least two references.`)

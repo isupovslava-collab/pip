@@ -3,6 +3,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { controlQueries, goldContent, labels, taxonomy, themes } from './library-config.mjs'
 import { renderGoldSvg } from './gold-previews.mjs'
+import { sourceRecords } from './source-records.mjs'
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url))
 const rootDirectory = path.resolve(scriptDirectory, '..')
@@ -11,6 +12,8 @@ const previewDirectory = path.join(rootDirectory, 'public', 'previews')
 const controlsPath = path.join(rootDirectory, 'src', 'data', 'controlQueries.ts')
 const goldReferencesPath = path.join(rootDirectory, 'src', 'data', 'goldReferences.ts')
 const goldReferenceMapPath = path.join(rootDirectory, 'docs', 'gold-reference-map.md')
+const sourceBackedGoldMapPath = path.join(rootDirectory, 'docs', 'source-backed-gold-map.md')
+const contactSheetPath = path.join(rootDirectory, 'public', 'gold-contact-sheet.html')
 const previewsOnly = process.argv.includes('--previews-only')
 
 const contexts = [
@@ -144,6 +147,14 @@ function makeReference(idNumber, title, summary, theme, metadata, context) {
     sourceType: 'synthetic',
     sourceLabel: 'Демонстрационный референс PIP',
     sourceUrl: null,
+    sourceBacked: false,
+    sourceTitle: null,
+    sourceOrganization: null,
+    rightsStatus: null,
+    sourceNotes: null,
+    sourceAccessCheckedAt: null,
+    previewMode: 'original_pip_interpretation',
+    qualityTier: 'standard',
     previewPath: `previews/${id}.svg`,
     scenarioIds: unique(metadata.scenarioIds),
     personaIds: unique(metadata.personaIds),
@@ -165,24 +176,57 @@ function makeReference(idNumber, title, summary, theme, metadata, context) {
 
 function buildReferences() {
   const existing = JSON.parse(fs.readFileSync(dataPath, 'utf8'))
-  const references = existing.slice(0, 12)
+  const references = existing.slice(0, 12).map((reference) => ({
+    ...reference,
+    sourceType: 'synthetic',
+    sourceLabel: 'Демонстрационный референс PIP',
+    sourceUrl: null,
+    sourceBacked: false,
+    sourceTitle: null,
+    sourceOrganization: null,
+    rightsStatus: null,
+    sourceNotes: null,
+    sourceAccessCheckedAt: null,
+    previewMode: 'original_pip_interpretation',
+    qualityTier: 'standard',
+  }))
 
   for (const [index, query] of controlQueries.entries()) {
     const gold = goldContent[index]
     const theme = themes.find(({ key }) => key === gold.themeKey)
     if (!theme) throw new Error(`Unknown Gold Reference theme: ${gold.themeKey}`)
     const scenario = labels.scenarios[query.scenarioId]
-    references.push(makeReference(
+    const reference = makeReference(
       13 + index,
       gold.title,
-      `${theme.summary} ${gold.focus[0].toLocaleUpperCase('ru')}${gold.focus.slice(1)}. Gold Reference соединяет задачу «${scenario}» с целью «${labels.goals[query.goalId]}» для ${labels.personas[query.personaId]}.`,
+      `${gold.reason} Визуальная логика раскрывает ${gold.focus} и ведёт аудиторию к следующему решению.`,
       theme,
       {
         scenarioIds: [query.scenarioId], personaIds: [query.personaId], goalIds: [query.goalId],
         styleIds: [query.styleId], contentTypeIds: [query.contentTypeId],
       },
       gold.focus,
-    ))
+    )
+    const source = sourceRecords[index]
+    if (!source) throw new Error(`Missing source record for ${query.id}.`)
+    Object.assign(reference, source, {
+      sourceBacked: true,
+      sourceLabel: 'Открытый первоисточник + оригинальная интерпретация PIP',
+      previewMode: 'original_pip_interpretation',
+      qualityTier: 'gold',
+      useWhen: [
+        `Нужно ${labels.goals[query.goalId]} для ${labels.personas[query.personaId]} и вывести главный вывод на первый план.`,
+        `Материал требует композиции «${source.adaptationPrinciple.toLocaleLowerCase('ru')}».`,
+        `Факты и показатели готовы к обсуждению в сценарии «${scenario}».`,
+      ],
+      avoidWhen: [
+        'Решение ещё нельзя подкрепить проверенными фактами или согласованными допущениями.',
+        'Аудитории нужен подробный рабочий документ вместо самостоятельного презентационного слайда.',
+      ],
+    })
+    delete reference.adaptationPrinciple
+    delete reference.originalDifference
+    references.push(reference)
   }
 
   for (let index = 0; index < 64; index += 1) {
@@ -374,10 +418,14 @@ function writeGoldReferences(references) {
       scenarioId: query.scenarioId,
       title: reference.title,
       reason: goldContent[index].reason,
+      sourceUrl: reference.sourceUrl,
+      sourceBacked: reference.sourceBacked,
+      qualityTier: reference.qualityTier,
+      previewMode: reference.previewMode,
     }
   })
   const serialized = mappings.map((mapping) => `  ${JSON.stringify(mapping)},`).join('\n')
-  const source = `import type { ScenarioId } from '../types/reference'\n\nexport interface GoldReferenceMapping {\n  queryId: string\n  referenceId: string\n  scenarioId: ScenarioId\n  title: string\n  reason: string\n}\n\nexport const goldReferences: GoldReferenceMapping[] = [\n${serialized}\n]\n`
+  const source = `import type { PreviewMode, ScenarioId } from '../types/reference'\n\nexport interface GoldReferenceMapping {\n  queryId: string\n  referenceId: string\n  scenarioId: ScenarioId\n  title: string\n  reason: string\n  sourceUrl: string\n  sourceBacked: true\n  qualityTier: 'gold'\n  previewMode: PreviewMode\n}\n\nexport const goldReferences: GoldReferenceMapping[] = [\n${serialized}\n]\n`
   fs.writeFileSync(goldReferencesPath, source, 'utf8')
 
   const rows = mappings.map((mapping) => {
@@ -386,6 +434,23 @@ function writeGoldReferences(references) {
   }).join('\n')
   const markdown = `# Gold Reference Map\n\n24 ключевых референса Sprint 3.1: по три законченных профессиональных слайда для каждого пользовательского сценария. Каждый референс закреплён за одним контрольным запросом и должен получать 100% соответствия.\n\n| Сценарий | Контрольный запрос | Reference ID | Название | Почему это Gold Reference |\n| --- | --- | --- | --- | --- |\n${rows}\n`
   fs.writeFileSync(goldReferenceMapPath, markdown, 'utf8')
+
+  const sourceRows = mappings.map((mapping, index) => {
+    const sourceRecord = sourceRecords[index]
+    return `| \`${mapping.queryId}\` | ${labels.scenarios[mapping.scenarioId]} | \`${mapping.referenceId}\` | ${mapping.title} | ${sourceRecord.sourceTitle} | ${sourceRecord.sourceOrganization} | [Открыть](${sourceRecord.sourceUrl}) | \`${sourceRecord.rightsStatus}\` | ${sourceRecord.sourceNotes} | ${sourceRecord.adaptationPrinciple} | ${sourceRecord.originalDifference} |`
+  }).join('\n')
+  const sourceMarkdown = `# Source-backed Gold Reference Map\n\nПроверено: **2026-07-26**. Все 24 локальных preview — оригинальные PIP-интерпретации с новым текстом, данными и визуальной системой. Внешние слайды, логотипы и фирменная графика в репозитории не хранятся.\n\n| Query ID | Сценарий | Reference ID | Reference Title | Source Title | Source Organization | Source URL | Rights Status | Why this source is useful | What was adapted | How PIP avoids direct copying |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n${sourceRows}\n`
+  fs.writeFileSync(sourceBackedGoldMapPath, sourceMarkdown, 'utf8')
+}
+
+function writeGoldContactSheet(references) {
+  const cards = controlQueries.map((query, index) => {
+    const reference = references.find(({ id }) => id === `REF-${String(13 + index).padStart(6, '0')}`)
+    const source = sourceRecords[index]
+    return `<article><img src="./${reference.previewPath}" alt="${escapeXml(reference.title)}"><div class="meta"><span>${escapeXml(labels.scenarios[query.scenarioId])}</span><b>${reference.id}</b></div><h2>${escapeXml(reference.title)}</h2><p>${escapeXml(source.sourceOrganization)} · ${escapeXml(source.sourceTitle)}</p></article>`
+  }).join('\n')
+  const html = `<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PIP — 24 Gold References</title><style>*{box-sizing:border-box}body{margin:0;background:#eaf0f6;color:#082f49;font-family:Inter,Arial,sans-serif}header{padding:42px 4vw 30px;background:#082f49;color:white}header p{max-width:900px;color:#b9d5e8;line-height:1.6}main{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;padding:30px 4vw 60px}article{overflow:hidden;border:1px solid #d5e1eb;border-radius:16px;background:white;box-shadow:0 8px 24px #16364d12}img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#dfe8ef}.meta{display:flex;justify-content:space-between;gap:12px;padding:16px 18px 0;color:#0879bd;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}h1{margin:0;font-size:34px}h2{margin:9px 18px 0;font-size:16px;line-height:1.3}article p{margin:8px 18px 18px;color:#65798a;font-size:12px;line-height:1.45}@media(max-width:1100px){main{grid-template-columns:repeat(3,1fr)}}@media(max-width:760px){main{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){main{grid-template-columns:1fr}}</style></head><body><header><h1>24 Source-backed Gold References</h1><p>Контактный лист визуального контроля Sprint 4. Все preview — оригинальные PIP-интерпретации с собственным текстом и синтетическими данными. Проверено рядом: 24 законченных слайда, восемь сценариев и заметно различающиеся композиции.</p></header><main>${cards}</main></body></html>`
+  fs.writeFileSync(contactSheetPath, html, 'utf8')
 }
 
 const references = previewsOnly ? JSON.parse(fs.readFileSync(dataPath, 'utf8')) : buildReferences()
@@ -393,6 +458,7 @@ if (!previewsOnly) {
   fs.writeFileSync(dataPath, `${JSON.stringify(references, null, 2)}\n`, 'utf8')
   writeControlQueries()
   writeGoldReferences(references)
+  writeGoldContactSheet(references)
 }
 fs.mkdirSync(previewDirectory, { recursive: true })
 for (const [index, reference] of references.entries()) {

@@ -24,14 +24,14 @@ describe('качество библиотеки из 100 референсов', 
     })
   })
 
-  it('содержит все 100 оригинальных SVG-превью', () => {
+  it('содержит все 100 оригинальных preview', () => {
     const hashes = new Set<string>()
     library.forEach((reference) => {
       const previewPath = path.resolve(process.cwd(), 'public', reference.previewPath)
       expect(fs.existsSync(previewPath), reference.previewPath).toBe(true)
-      const svg = fs.readFileSync(previewPath)
-      expect(svg.toString()).toContain('viewBox="0 0 1600 900"')
-      hashes.add(crypto.createHash('sha256').update(svg).digest('hex'))
+      const preview = fs.readFileSync(previewPath)
+      if (reference.previewPath.endsWith('.svg')) expect(preview.toString()).toContain('viewBox="0 0 1600 900"')
+      hashes.add(crypto.createHash('sha256').update(preview).digest('hex'))
     })
     expect(hashes.size).toBe(100)
   })

@@ -20,7 +20,7 @@ function NewReferenceBoardFixture() {
 describe('интерфейс расширенной библиотеки', () => {
   it('динамически показывает размер библиотеки и сохраняет top-6', () => {
     render(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={query} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
-    expect(screen.getByText(/100 демонстрационными референсами/)).toBeInTheDocument()
+    expect(screen.getByText(/100 референсами/)).toBeInTheDocument()
     expect(screen.getAllByRole('article')).toHaveLength(6)
   })
 

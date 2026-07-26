@@ -9,6 +9,9 @@ export type PersonaId = (typeof personaIds)[number]
 export type GoalId = (typeof goalIds)[number]
 export type StyleId = (typeof styleIds)[number]
 export type ContentTypeId = (typeof contentTypeIds)[number]
+export type RightsStatus = 'public-link-reference-only' | 'licensed-for-reuse' | 'public-domain' | 'cc-licensed' | 'unknown-link-only'
+export type PreviewMode = 'original_pip_interpretation' | 'licensed_original_preview'
+export type QualityTier = 'gold' | 'standard'
 
 export interface SearchQuery {
   scenarioId: ScenarioId
@@ -33,9 +36,17 @@ export interface Reference {
   id: string
   title: string
   summary: string
-  sourceType: 'synthetic'
+  sourceType: string
   sourceLabel: string
-  sourceUrl: null
+  sourceUrl: string | null
+  sourceBacked: boolean
+  sourceTitle: string | null
+  sourceOrganization: string | null
+  rightsStatus: RightsStatus | null
+  sourceNotes: string | null
+  sourceAccessCheckedAt: string | null
+  previewMode: PreviewMode
+  qualityTier: QualityTier
   previewPath: string
   scenarioIds: ScenarioId[]
   personaIds: PersonaId[]
