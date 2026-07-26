@@ -20,7 +20,7 @@ describe('rankReferences', () => {
     }
     const result = rankReferences(references as Reference[], salesQuery)
 
-    expect(result[0]).toMatchObject({ id: 'REF-000004', score: 100 })
+    expect(result[0]).toMatchObject({ id: 'REF-000013', score: 100 })
     expect(result[0].reasons).toHaveLength(5)
   })
 

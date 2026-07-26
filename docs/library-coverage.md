@@ -19,14 +19,14 @@
 
 | ID | Референсов | Минимум | Статус |
 |---|---:|---:|:---:|
-| `ceo` | 29 | 15 | PASS |
-| `cfo` | 23 | 12 | PASS |
-| `board` | 40 | 15 | PASS |
-| `manager` | 29 | 25 | PASS |
-| `employees` | 20 | 15 | PASS |
+| `ceo` | 24 | 15 | PASS |
+| `cfo` | 16 | 12 | PASS |
+| `board` | 34 | 15 | PASS |
+| `manager` | 25 | 25 | PASS |
+| `employees` | 15 | 15 | PASS |
 | `technical_experts` | 20 | 12 | PASS |
-| `team` | 22 | 18 | PASS |
-| `client` | 24 | 20 | PASS |
+| `team` | 18 | 18 | PASS |
+| `client` | 20 | 20 | PASS |
 
 ## Цели — PASS
 
@@ -45,9 +45,9 @@
 
 | ID | Референсов | Минимум | Статус |
 |---|---:|---:|:---:|
-| `executive` | 28 | 25 | PASS |
-| `corporate` | 39 | 35 | PASS |
-| `consulting` | 22 | 22 | PASS |
+| `executive` | 27 | 25 | PASS |
+| `corporate` | 38 | 35 | PASS |
+| `consulting` | 23 | 22 | PASS |
 | `modern` | 29 | 28 | PASS |
 | `industrial` | 17 | 15 | PASS |
 | `minimal` | 21 | 20 | PASS |

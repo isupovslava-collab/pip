@@ -1,13 +1,16 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { controlQueries, labels, taxonomy, themes } from './library-config.mjs'
+import { controlQueries, goldContent, labels, taxonomy, themes } from './library-config.mjs'
+import { renderGoldSvg } from './gold-previews.mjs'
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url))
 const rootDirectory = path.resolve(scriptDirectory, '..')
 const dataPath = path.join(rootDirectory, 'public', 'data', 'references.json')
 const previewDirectory = path.join(rootDirectory, 'public', 'previews')
 const controlsPath = path.join(rootDirectory, 'src', 'data', 'controlQueries.ts')
+const goldReferencesPath = path.join(rootDirectory, 'src', 'data', 'goldReferences.ts')
+const goldReferenceMapPath = path.join(rootDirectory, 'docs', 'gold-reference-map.md')
 const previewsOnly = process.argv.includes('--previews-only')
 
 const contexts = [
@@ -27,17 +30,6 @@ const contexts = [
   'запуск филиала', 'улучшение продукта', 'план коммуникаций', 'клиентский портал',
   'единый стандарт', 'инвестиционное решение', 'сервисная поддержка', 'программа адаптации',
   'цепочка поставок', 'модель управления', 'рост конверсии', 'план восстановления',
-]
-
-const anchorSubjects = [
-  'обоснованный выбор клиента', 'решение через экономический эффект', 'история ценности предложения',
-  'энергия общего движения', 'единый образ будущего', 'доверие через понятный сюжет',
-  'выбор проекта для правления', 'разбор технической причины', 'маршрут управленческого решения',
-  'согласование рабочего процесса', 'решение по сигналам команды', 'единая техническая позиция',
-  'итоги подразделения в цифрах', 'финансовая панель периода', 'таблица причин отклонения',
-  'практический алгоритм для работников', 'карта освоения навыка', 'объяснение сложного через историю',
-  'дорожная карта выбора', 'приоритеты для правления', 'сравнение стратегических направлений',
-  'защита расходов по статьям', 'баланс эффекта и ограничений', 'инвестиционный тезис в цифрах',
 ]
 
 const scenarioPersonas = {
@@ -176,19 +168,20 @@ function buildReferences() {
   const references = existing.slice(0, 12)
 
   for (const [index, query] of controlQueries.entries()) {
-    const theme = themes[(index * 7 + 3) % themes.length]
-    const subject = anchorSubjects[index]
+    const gold = goldContent[index]
+    const theme = themes.find(({ key }) => key === gold.themeKey)
+    if (!theme) throw new Error(`Unknown Gold Reference theme: ${gold.themeKey}`)
     const scenario = labels.scenarios[query.scenarioId]
     references.push(makeReference(
       13 + index,
-      `${scenario}: ${subject}`,
-      `${theme.summary} Этот референс соединяет задачу «${scenario}» с целью «${labels.goals[query.goalId]}» для ${labels.personas[query.personaId]}.`,
+      gold.title,
+      `${theme.summary} ${gold.focus[0].toLocaleUpperCase('ru')}${gold.focus.slice(1)}. Gold Reference соединяет задачу «${scenario}» с целью «${labels.goals[query.goalId]}» для ${labels.personas[query.personaId]}.`,
       theme,
       {
         scenarioIds: [query.scenarioId], personaIds: [query.personaId], goalIds: [query.goalId],
         styleIds: [query.styleId], contentTypeIds: [query.contentTypeId],
       },
-      subject,
+      gold.focus,
     ))
   }
 
@@ -255,28 +248,49 @@ function buildReferences() {
     signatures.add(signature)
   })
 
-  const preservedSalesQuery = controlQueries[0]
-  references.slice(12).forEach((reference) => {
-    const isFullSalesMatch = reference.scenarioIds.includes(preservedSalesQuery.scenarioId)
-      && reference.personaIds.includes(preservedSalesQuery.personaId)
-      && reference.goalIds.includes(preservedSalesQuery.goalId)
-      && reference.styleIds.includes(preservedSalesQuery.styleId)
-      && reference.contentTypeIds.includes(preservedSalesQuery.contentTypeId)
-    if (isFullSalesMatch) {
-      reference.styleIds = reference.styleIds.filter((style) => style !== preservedSalesQuery.styleId)
-      if (reference.styleIds.length === 0) reference.styleIds.push('corporate')
-    }
+  const matchesQuery = (reference, query) => reference.scenarioIds.includes(query.scenarioId)
+    && reference.personaIds.includes(query.personaId)
+    && reference.goalIds.includes(query.goalId)
+    && reference.styleIds.includes(query.styleId)
+    && reference.contentTypeIds.includes(query.contentTypeId)
+  const mappedGoldId = (queryIndex) => `REF-${String(13 + queryIndex).padStart(6, '0')}`
+  const createsUnmappedFullMatch = (reference, field, value) => {
+    const candidate = { ...reference, [field]: unique([...reference[field], value]) }
+    return controlQueries.some((query, queryIndex) => reference.id !== mappedGoldId(queryIndex) && matchesQuery(candidate, query))
+  }
+
+  controlQueries.forEach((query, queryIndex) => {
+    references.forEach((reference) => {
+      if (reference.id === mappedGoldId(queryIndex) || !matchesQuery(reference, query)) return
+      const removableFields = [
+        ['personaIds', query.personaId],
+        ['styleIds', query.styleId],
+        ['scenarioIds', query.scenarioId],
+        ['goalIds', query.goalId],
+        ['contentTypeIds', query.contentTypeId],
+      ]
+      const removable = removableFields.find(([field]) => reference[field].length > 1)
+      if (!removable) throw new Error(`Cannot preserve unique Gold match for ${query.id}.`)
+      const [field, value] = removable
+      reference[field] = reference[field].filter((item) => item !== value)
+    })
   })
-  let consultingCount = references.filter((reference) => reference.styleIds.includes('consulting')).length
-  for (const reference of references.slice(12)) {
-    if (consultingCount >= minimums.styles.consulting) break
-    const wouldReplaceProtectedSalesResult = reference.scenarioIds.includes(preservedSalesQuery.scenarioId)
-      && reference.personaIds.includes(preservedSalesQuery.personaId)
-      && reference.goalIds.includes(preservedSalesQuery.goalId)
-      && reference.contentTypeIds.includes(preservedSalesQuery.contentTypeId)
-    if (!reference.styleIds.includes('consulting') && !wouldReplaceProtectedSalesResult) {
-      reference.styleIds.push('consulting')
-      consultingCount += 1
+
+  for (const [dimension, thresholds] of Object.entries(minimums)) {
+    const field = fieldNames[dimension]
+    for (const [value, minimum] of Object.entries(thresholds)) {
+      let count = references.filter((reference) => reference[field].includes(value)).length
+      while (count < minimum) {
+        const compatibleScenarios = compatibility[dimension]?.[value] ?? taxonomy.scenarios
+        const reference = references.slice(12)
+          .filter((item) => !item[field].includes(value)
+            && item.scenarioIds.some((scenario) => compatibleScenarios.includes(scenario))
+            && !createsUnmappedFullMatch(item, field, value))
+          .sort((a, b) => a[field].length - b[field].length || a.id.localeCompare(b.id))[0]
+        if (!reference) throw new Error(`Unable to restore safe coverage for ${dimension}.${value}.`)
+        reference[field].push(value)
+        count += 1
+      }
     }
   }
 
@@ -351,13 +365,41 @@ function writeControlQueries() {
   fs.writeFileSync(controlsPath, source, 'utf8')
 }
 
+function writeGoldReferences(references) {
+  const mappings = controlQueries.map((query, index) => {
+    const reference = references.find(({ id }) => id === `REF-${String(13 + index).padStart(6, '0')}`)
+    return {
+      queryId: query.id,
+      referenceId: reference.id,
+      scenarioId: query.scenarioId,
+      title: reference.title,
+      reason: goldContent[index].reason,
+    }
+  })
+  const serialized = mappings.map((mapping) => `  ${JSON.stringify(mapping)},`).join('\n')
+  const source = `import type { ScenarioId } from '../types/reference'\n\nexport interface GoldReferenceMapping {\n  queryId: string\n  referenceId: string\n  scenarioId: ScenarioId\n  title: string\n  reason: string\n}\n\nexport const goldReferences: GoldReferenceMapping[] = [\n${serialized}\n]\n`
+  fs.writeFileSync(goldReferencesPath, source, 'utf8')
+
+  const rows = mappings.map((mapping) => {
+    const scenario = labels.scenarios[mapping.scenarioId]
+    return `| ${scenario} | \`${mapping.queryId}\` | \`${mapping.referenceId}\` | ${mapping.title} | ${mapping.reason} |`
+  }).join('\n')
+  const markdown = `# Gold Reference Map\n\n24 ключевых референса Sprint 3.1: по три законченных профессиональных слайда для каждого пользовательского сценария. Каждый референс закреплён за одним контрольным запросом и должен получать 100% соответствия.\n\n| Сценарий | Контрольный запрос | Reference ID | Название | Почему это Gold Reference |\n| --- | --- | --- | --- | --- |\n${rows}\n`
+  fs.writeFileSync(goldReferenceMapPath, markdown, 'utf8')
+}
+
 const references = previewsOnly ? JSON.parse(fs.readFileSync(dataPath, 'utf8')) : buildReferences()
 if (!previewsOnly) {
   fs.writeFileSync(dataPath, `${JSON.stringify(references, null, 2)}\n`, 'utf8')
   writeControlQueries()
+  writeGoldReferences(references)
 }
 fs.mkdirSync(previewDirectory, { recursive: true })
 for (const [index, reference] of references.entries()) {
-  fs.writeFileSync(path.join(previewDirectory, `${reference.id}.svg`), svgFor(reference, index), 'utf8')
+  const numericId = Number(reference.id.slice(4))
+  const svg = numericId >= 13 && numericId <= 36
+    ? renderGoldSvg(reference, numericId - 13)
+    : svgFor(reference, index)
+  fs.writeFileSync(path.join(previewDirectory, `${reference.id}.svg`), svg, 'utf8')
 }
-console.log(`Generated ${references.length} references and ${references.length} deterministic SVG previews.`)
+console.log(`Generated ${references.length} references, 24 Gold mappings, and ${references.length} deterministic SVG previews.`)
