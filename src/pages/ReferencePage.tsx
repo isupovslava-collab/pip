@@ -3,6 +3,7 @@ import { BoardButton } from '../components/BoardButton'
 import { DesignDna } from '../components/DesignDna'
 import { EmptyState } from '../components/EmptyState'
 import { RecommendationReasons } from '../components/RecommendationReasons'
+import { ReferenceFeedbackForm } from '../components/ReferenceFeedbackForm'
 import { Icon } from '../components/Icon'
 import { rankReferences } from '../services/rankReferences'
 import type { Reference, SearchQuery } from '../types/reference'
@@ -22,7 +23,7 @@ export function ReferencePage({ references, query }: ReferencePageProps) {
 
   return (
     <article className="mx-auto max-w-6xl">
-      <Link to={query ? '/' : '/board'} className="btn-ghost -ml-3"><Icon name="arrow-left" className="h-4 w-4" />{query ? 'Вернуться к результатам' : 'Вернуться на доску'}</Link>
+      <Link to={query ? { pathname: location.search ? '/search' : '/', search: location.search } : '/board'} className="btn-ghost -ml-3"><Icon name="arrow-left" className="h-4 w-4" />{query ? 'Вернуться к результатам' : 'Вернуться на доску'}</Link>
       <div className="surface mt-2 overflow-hidden">
         <div className="grid lg:grid-cols-[minmax(0,1.35fr)_minmax(360px,0.65fr)]">
           <div className="relative flex items-center bg-slate-100 lg:border-r lg:border-line">
@@ -45,6 +46,7 @@ export function ReferencePage({ references, query }: ReferencePageProps) {
         <section className="rounded-2xl border border-amber-100 bg-amber-50/60 p-5 sm:p-6"><div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-xl bg-amber-100 text-amber-700"><Icon name="warning" className="h-5 w-5" /></span><h2 className="text-xl font-semibold text-navy">Не лучший выбор, когда</h2></div><ul className="mt-5 space-y-3 text-muted">{reference.avoidWhen.map((item) => <li key={item} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber" /><span>{item}</span></li>)}</ul></section>
       </div>
       <div className="surface mt-6 p-3 sm:p-4"><DesignDna values={reference.designDna} /></div>
+      <ReferenceFeedbackForm referenceId={reference.id} />
       {reference.sourceBacked && reference.sourceUrl ? (
         <section className="surface mt-6 p-5 sm:p-7" aria-labelledby="source-heading">
           <p className="eyebrow">Открытый материал для изучения</p>

@@ -1,9 +1,13 @@
+import { useLocation } from 'react-router-dom'
+import { CollectionFeedback } from '../components/CollectionFeedback'
 import { labels } from '../data/dictionaries'
 import { rankReferences } from '../services/rankReferences'
 import type { Reference, SearchQuery } from '../types/reference'
 import { ResultsGrid } from '../components/ResultsGrid'
 import { SearchWizard } from '../components/SearchWizard'
 import { Icon } from '../components/Icon'
+import { useFeedback } from '../hooks/useFeedback'
+import { isTestMode } from '../utils/testMode'
 
 interface SearchPageProps {
   references: Reference[]
@@ -12,7 +16,14 @@ interface SearchPageProps {
 }
 
 export function SearchPage({ references, query, setQuery }: SearchPageProps) {
-  if (!query) return <SearchWizard onSearch={setQuery} />
+  const feedback = useFeedback()
+  const location = useLocation()
+  const testMode = isTestMode(location.search)
+  if (!query) return <SearchWizard onStart={feedback.startSession} onSearch={(nextQuery) => {
+    const nextResults = rankReferences(references, nextQuery).slice(0, 6)
+    feedback.completeWizard(nextQuery, nextResults)
+    setQuery(nextQuery)
+  }} />
   const results = rankReferences(references, query).slice(0, 6)
   const selectedLabels = [labels.scenario[query.scenarioId], labels.persona[query.personaId], labels.goal[query.goalId], labels.style[query.styleId], labels.contentType[query.contentTypeId]]
 
@@ -32,7 +43,8 @@ export function SearchPage({ references, query, setQuery }: SearchPageProps) {
           {selectedLabels.map((label) => <span key={label} className="chip"><span className="mr-2 h-1.5 w-1.5 rounded-full bg-bright" />{label}</span>)}
         </div>
       </div>
-      <ResultsGrid references={results} />
+      <ResultsGrid references={results} bestReferenceId={feedback.activeSession?.bestReferenceId} onSelectBest={feedback.selectBestReference} />
+      <CollectionFeedback testMode={testMode} />
     </section>
   )
 }

@@ -7,6 +7,7 @@ import { WizardStep } from './WizardStep'
 interface SearchWizardProps {
   initialQuery?: SearchQuery | null
   onSearch: (query: SearchQuery) => void
+  onStart?: () => void
 }
 
 const steps = [
@@ -17,7 +18,7 @@ const steps = [
   { key: 'contentTypeId', title: 'Какой контент будет главным?', options: contentTypes },
 ] as const
 
-export function SearchWizard({ initialQuery, onSearch }: SearchWizardProps) {
+export function SearchWizard({ initialQuery, onSearch, onStart }: SearchWizardProps) {
   const [step, setStep] = useState(0)
   const [query, setQuery] = useState<Partial<SearchQuery>>(initialQuery ?? {})
   const current = steps[step]
@@ -66,7 +67,10 @@ export function SearchWizard({ initialQuery, onSearch }: SearchWizardProps) {
           title={current.title}
           options={current.options}
           selected={selected}
-          onSelect={(id) => setQuery((value) => ({ ...value, [current.key]: id }))}
+          onSelect={(id) => {
+            if (step === 0 && !query.scenarioId) onStart?.()
+            setQuery((value) => ({ ...value, [current.key]: id }))
+          }}
         />
         <div className="mt-8 flex flex-col-reverse items-stretch justify-between gap-3 border-t border-line pt-6 sm:flex-row sm:items-center">
           <button type="button" onClick={reset} className="btn-ghost">Начать заново</button>

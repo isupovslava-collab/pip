@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import type { RankedReference, Reference } from '../types/reference'
 import { BoardButton } from './BoardButton'
 import { Icon } from './Icon'
 import { RecommendationReasons } from './RecommendationReasons'
+import { useFeedback } from '../hooks/useFeedback'
 
-export function ReferenceCard({ reference, rank }: { reference: Reference | RankedReference; rank?: number }) {
+export function ReferenceCard({ reference, rank, best = false, onSelectBest }: { reference: Reference | RankedReference; rank?: number; best?: boolean; onSelectBest?: (referenceId: string) => void }) {
+  const location = useLocation()
+  const feedback = useFeedback()
   const ranked = 'score' in reference
   const rankLabel = rank === 1 ? 'Лучшее совпадение' : rank && rank <= 3 ? `В топ-${rank}` : null
   return (
@@ -25,8 +28,9 @@ export function ReferenceCard({ reference, rank }: { reference: Reference | Rank
         <p className="mt-3 text-sm leading-6 text-muted">{reference.summary}</p>
         <div className="mt-4 flex flex-wrap gap-2">{reference.tags.slice(0, 4).map((tag) => <span key={tag} className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-muted">{tag}</span>)}</div>
         {ranked && <div className="mt-5 border-t border-line/70 pt-5"><RecommendationReasons reasons={reference.reasons} /></div>}
-        <div className="mt-auto grid grid-cols-2 gap-2 pt-6">
-          <Link to={`/reference/${reference.id}`} state={ranked ? { score: reference.score, reasons: reference.reasons } : undefined} className="btn-primary px-3">Подробнее<Icon name="arrow-right" className="h-4 w-4" /></Link>
+        {ranked && onSelectBest && <button type="button" aria-pressed={best} onClick={() => onSelectBest(reference.id)} className={`mt-5 inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border px-3 py-2 text-sm font-semibold transition ${best ? 'border-amber bg-amber-50 text-navy' : 'border-line bg-white text-muted hover:border-amber hover:text-navy'}`}>{best ? '★' : '☆'} Лучший вариант</button>}
+        <div className="mt-auto grid grid-cols-2 gap-2 pt-4">
+          <Link to={{ pathname: `/reference/${reference.id}`, search: location.search }} onClick={() => feedback.logEvent('reference_opened', reference.id)} state={ranked ? { score: reference.score, reasons: reference.reasons } : undefined} className="btn-primary px-3">Подробнее<Icon name="arrow-right" className="h-4 w-4" /></Link>
           <BoardButton id={reference.id} />
         </div>
       </div>
