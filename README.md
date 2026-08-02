@@ -1,14 +1,14 @@
 # PIP — Presentation Intelligence Platform
 
-PIP помогает подобрать визуальное и структурное решение для презентации с учетом задачи, аудитории, ожидаемого результата, визуального направления и основного типа контента.
+PIP помогает подобрать несколько вариантов дизайна для одного конкретного типа слайда с учетом задачи, аудитории, ожидаемого результата и визуального направления.
 
-**Статус:** MVP v0.7 — Hero Integration & Relevance Upgrade
+**Статус:** MVP v0.7.1 — Single Slide Mode
 
 **Сайт:** https://isupovslava-collab.github.io/pip/
 
 **Hero Review Gallery:** https://isupovslava-collab.github.io/pip/hero-reference-review.html
 
-Sprint 7 интегрирует в production шесть одобренных high-fidelity Hero References с сохранением существующих ID: Sales, Speech, Project, Report, Training и Budget Defense. Meeting v2 и Strategy v2 опубликованы только в review gallery со статусом `REVISED — AWAITING PRODUCT OWNER REVIEW` и не участвуют в ranking. Библиотека остаётся равной 100 records.
+Sprint 7.1 однозначно фиксирует текущий режим как подбор одного слайда. Пятый шаг выбирает конкретный тип, exact matches доминируют в Top 6, близкие форматы ограничены и помечены. Библиотека остаётся равной 100 records; шесть approved Hero неизменны, Meeting v2 и Strategy v2 остаются review-only.
 
 ## Что проверяет MVP
 
@@ -17,6 +17,7 @@ Sprint проверяет, может ли пользователь без об�
 ## Возможности MVP
 
 - пошаговый мастер из пяти вопросов;
+- Single Slide Mode с единой матрицей совместимости восьми типов слайдов;
 - детерминированное ранжирование 100 референсов, включая 24 source-backed Gold References;
 - оригинальные high-fidelity preview, созданные PIP после изучения открытых первоисточников;
 - карточка первоисточника с организацией, правовым статусом и внешней ссылкой;
@@ -51,6 +52,7 @@ npm run check:duplicates
 npm run generate:hero-references
 npm run validate:hero-references
 npm run report:diversity
+npm run validate:content-precision
 npm run lint
 npm run test
 npm run build
@@ -66,7 +68,7 @@ Production-сборка создается в папке `dist`.
 
 Текущие квоты опубликованы в `docs/library-coverage.md`, правила сопровождения — в `docs/reference-library-guidelines.md`, карта источников и адаптаций — в `docs/source-backed-gold-map.md`, а контактный лист визуального контроля — в `public/gold-contact-sheet.html`.
 
-Пилот запускается по адресу `#/search?test=1`. Локальный dashboard доступен только по прямому адресу `#/test-feedback` и намеренно не добавлен в навигацию. Инструкция модератора находится в `docs/user-testing-guide.md`, шаблон отчёта — в `docs/user-testing-report-template.md`, журнал гипотез — в `docs/ranking-observations.md`.
+Пилот запускается по адресу `#/search?test=1`. Локальный dashboard доступен только по прямому адресу `#/test-feedback` и намеренно не добавлен в навигацию. Инструкция модератора находится в `docs/user-testing-guide.md`, правила текущего режима — в `docs/single-slide-mode.md`, будущий режим структуры — только в `docs/presentation-structure-mode-roadmap.md`, а замечание к homepage hero — в `docs/product-design-backlog.md`.
 
 Чтобы добавить новый референс:
 

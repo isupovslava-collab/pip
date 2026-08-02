@@ -1,18 +1,18 @@
-# Совместимость типов контента
+# Совместимость типов слайдов
 
-Ranking v2 сначала ищет точный `contentTypeId`, затем разрешённые соседние форматы. Если их недостаточно для шести карточек, добавляется смысловой fallback, и только последним — явно несовместимый fallback с видимой причиной.
+Единственный источник правил — `src/data/contentTypeCompatibility.ts`. Компоненты интерфейса не содержат собственной матрицы.
 
-| Запрос | Совместимый fallback | Hard incompatibility |
+| Выбранный тип | Compatible | Hard incompatible |
 |---|---|---|
-| `kpi` | `dashboard`, `table` | `cover` |
-| `comparison` | `table`, `story` | `cover` |
-| `timeline` | `process`, `story` | `cover` |
-| `process` | `timeline`, `story` | `cover` |
-| `dashboard` | `kpi`, `table` | `cover` |
-| `cover` | `story` | `dashboard` |
-| `story` | `cover`, `comparison` | — |
-| `table` | `dashboard`, `kpi`, `comparison` | `cover`, `timeline` |
+| `kpi` | `dashboard`, `table` | `cover`, `process`, `timeline` |
+| `comparison` | `table`, `story` | `cover`, `dashboard`, `timeline` |
+| `timeline` | `process` | `cover`, `table`, `dashboard`, `kpi` |
+| `process` | `timeline`, `story` | `cover`, `dashboard`, `kpi` |
+| `dashboard` | `kpi`, `table` | `cover`, `story`, `timeline` |
+| `cover` | `story` | `kpi`, `comparison`, `timeline`, `process`, `dashboard`, `table` |
+| `story` | `cover`, `comparison`, `process` | — |
+| `table` | `comparison`, `dashboard`, `kpi` | `cover`, `timeline`, `process` |
 
-Исключение: для `speech + inspire` cover допустим как keynote/story-format, но не поднимается выше точного совпадения. Hard-incompatible карточки не входят в Top 6, пока exact/compatible/semantic-кандидатов достаточно. Если без них невозможно сформировать шесть результатов, карточка маркируется как резервный fallback в «Почему подходит».
+`cover` имеет дополнительный строгий guardrail: в non-cover запросах карточка с cover исключается, даже если её второй tag выглядит совместимым. Единственное исключение — `speech + inspire + story`; там допускается максимум один keynote-like cover, только ниже exact story.
 
-Матрица намеренно мала и основана на подтверждённых проблемах пилота: титульные слайды в запросах на сроки, процессы, таблицы и данные; timeline как ложная замена таблицы; dashboard как ложная замена титульного слайда.
+Compatible карточка получает метку «Близкий формат» и объяснение нехватки exact-вариантов. General fallback получает метку «Дополнительная альтернатива». Incompatible не используется ради заполнения шести мест.

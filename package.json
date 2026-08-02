@@ -15,6 +15,7 @@
     "report:coverage": "node scripts/library-quality.mjs coverage",
     "check:duplicates": "node scripts/library-quality.mjs duplicates",
     "report:diversity": "vitest run src/tests/relevanceDiversity.test.ts --reporter=verbose",
+    "validate:content-precision": "vitest run src/tests/contentPrecision.test.ts --reporter=verbose",
     "lint": "eslint .",
     "test": "vitest run"
   },

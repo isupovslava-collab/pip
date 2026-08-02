@@ -33,9 +33,11 @@ describe('локальное хранение и экспорт feedback', () =>
   it('создаёт корректный JSON export', () => {
     const session = createFeedbackSession('2026-08-01T00:00:00.000Z', 'PIP-TEST-00000002')
     session.noSuitableReference = true
+    session.resultContentMatch = [{ referenceId: 'REF-000013', matchType: 'exact' }, { referenceId: 'REF-000014', matchType: 'compatible' }]
     const exported = exportFeedbackJson([session])
     expect(JSON.parse(exported)).toEqual([session])
     expect(JSON.parse(exported)[0].noSuitableReference).toBe(true)
+    expect(JSON.parse(exported)[0].resultContentMatch).toEqual(session.resultContentMatch)
     expect(exported.endsWith('\n')).toBe(true)
   })
 
@@ -43,10 +45,13 @@ describe('локальное хранение и экспорт feedback', () =>
     const session = createFeedbackSession('2026-08-01T00:00:00.000Z', 'PIP-TEST-00000003')
     session.query = { scenarioId: 'sales', personaId: 'client', goalId: 'approve', styleId: 'consulting', contentTypeId: 'comparison' }
     session.results = Array.from({ length: 6 }, (_, index) => ({ referenceId: `REF-${String(index + 13).padStart(6, '0')}`, rank: index + 1, score: 100 - index * 5 }))
+    session.resultContentMatch = session.results.map(({ referenceId }, index) => ({ referenceId, matchType: index < 4 ? 'exact' : index === 4 ? 'compatible' : 'fallback' }))
     session.collectionComment = 'Полезно, но хочется больше таблиц'
     const csv = exportFeedbackCsv([session])
     expect(csv.startsWith('\uFEFFsessionId,')).toBe(true)
     expect(csv).toContain('result6Id,result6Score')
+    expect(csv).toContain('exactResultCount,compatibleResultCount,fallbackResultCount,fallbackShown')
+    expect(csv).toContain(',4,1,1,true,')
     expect(csv).toContain('bestReferenceId,noSuitableReference')
     expect(csv).toContain('REF-000018,75')
     expect(csv.trim().split('\r\n')).toHaveLength(2)
@@ -82,11 +87,13 @@ describe('локальное хранение и экспорт feedback', () =>
     const legacy = createFeedbackSession('2026-08-01T00:00:00.000Z', 'PIP-TEST-LEGACY01') as Partial<ReturnType<typeof createFeedbackSession>>
     delete legacy.feedbackSchemaVersion
     delete legacy.noSuitableReference
+    delete legacy.resultContentMatch
     localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify([legacy]))
     const restored = readFeedbackSessions()[0]
     expect(restored.sessionId).toBe('PIP-TEST-LEGACY01')
     expect(restored.feedbackSchemaVersion).toBe(2)
     expect(restored.noSuitableReference).toBe(false)
+    expect(restored.resultContentMatch).toEqual([])
     expect(localStorage.getItem(FEEDBACK_STORAGE_KEY)).not.toBeNull()
   })
 

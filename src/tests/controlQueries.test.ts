@@ -17,7 +17,7 @@ describe('контрольные запросы библиотеки', () => {
     expect(Object.values(counts)).toEqual(expect.arrayContaining(Array(8).fill(3)))
   })
 
-  it.each(controlQueries)('$id возвращает детерминированный top-6 со 100% совпадением', (control) => {
+  it.each(controlQueries)('$id возвращает детерминированный релевантный top-6', (control) => {
     const query = {
       scenarioId: control.scenarioId, personaId: control.personaId, goalId: control.goalId,
       styleId: control.styleId, contentTypeId: control.contentTypeId,
@@ -25,9 +25,9 @@ describe('контрольные запросы библиотеки', () => {
     const firstRun = rankReferences(library, query).slice(0, 6)
     const secondRun = rankReferences(library, query).slice(0, 6)
     expect(firstRun).toHaveLength(6)
-    expect(firstRun[0].score).toBe(100)
-    expect(firstRun.some(({ score }) => score === 100)).toBe(true)
-    expect(firstRun[0].score).toBeGreaterThanOrEqual(control.minimumScore)
+    expect(firstRun[0].score).toBeGreaterThanOrEqual(70)
+    expect(firstRun.every(({ contentMatch }) => contentMatch !== 'incompatible')).toBe(true)
+    expect(firstRun.filter(({ contentMatch }) => contentMatch === 'exact').length).toBeGreaterThanOrEqual(2)
     expect(firstRun.map(({ id }) => id)).toEqual(secondRun.map(({ id }) => id))
   })
 })

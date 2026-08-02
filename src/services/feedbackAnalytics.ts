@@ -10,11 +10,20 @@ export function summarizeFeedback(sessions: FeedbackSession[]) {
   const completed = sessions.filter(({ completedAt }) => completedAt)
   const noSuitableCount = sessions.filter(({ noSuitableReference }) => noSuitableReference).length
   const ratingValues = { useful: 2, partially_useful: 1, not_useful: 0 }
+  const precisionSessions = sessions.filter(({ resultContentMatch }) => resultContentMatch.length > 0)
+  const exactCounts = precisionSessions.map(({ resultContentMatch }) => resultContentMatch.filter(({ matchType }) => matchType === 'exact').length)
+  const fallbackSessions = precisionSessions.filter(({ resultContentMatch }) => resultContentMatch.some(({ matchType }) => matchType !== 'exact'))
+  const ratedFallbackSessions = fallbackSessions.filter(({ collectionRating }) => collectionRating)
   return {
     totalSessions: sessions.length,
     completedSessions: completed.length,
     noSuitableCount,
     noSuitableShare: completed.length ? noSuitableCount / completed.length : 0,
+    averageExactResults: exactCounts.length ? exactCounts.reduce((sum, count) => sum + count, 0) / exactCounts.length : null,
+    exactAtLeastFourCount: exactCounts.filter((count) => count >= 4).length,
+    fallbackSessionCount: fallbackSessions.length,
+    fallbackAverageRating: ratedFallbackSessions.length ? ratedFallbackSessions.reduce((sum, session) => sum + ratingValues[session.collectionRating!], 0) / ratedFallbackSessions.length : null,
+    fallbackNoSuitableCount: fallbackSessions.filter(({ noSuitableReference }) => noSuitableReference).length,
     averageRating: rated.length ? rated.reduce((sum, session) => sum + ratingValues[session.collectionRating!], 0) / rated.length : null,
     ratings: {
       useful: sessions.filter(({ collectionRating }) => collectionRating === 'useful').length,

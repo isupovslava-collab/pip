@@ -1,5 +1,6 @@
+import { contentTypeCompatibility, isSpeechStoryCoverException } from '../data/contentTypeCompatibility'
 import { labels } from '../data/dictionaries'
-import type { ContentTypeId, MatchKey, RankedReference, Reference, SearchQuery } from '../types/reference'
+import type { MatchKey, RankedReference, Reference, SearchQuery } from '../types/reference'
 
 export const RANKING_WEIGHTS: Record<MatchKey, number> = {
   scenarioId: 30,
@@ -11,19 +12,9 @@ export const RANKING_WEIGHTS: Record<MatchKey, number> = {
 
 export const HERO_TIE_BREAKER_BONUS = 3
 export const HERO_MIN_BASE_SCORE = 60
-
-export const CONTENT_TYPE_COMPATIBILITY: Record<ContentTypeId, ContentTypeId[]> = {
-  kpi: ['dashboard', 'table'],
-  comparison: ['table', 'story'],
-  timeline: ['process', 'story'],
-  process: ['timeline', 'story'],
-  dashboard: ['kpi', 'table'],
-  cover: ['story'],
-  story: ['cover', 'comparison'],
-  table: ['dashboard', 'kpi', 'comparison'],
-}
-
-const COVER_GUARDRAIL_TYPES = new Set<ContentTypeId>(['timeline', 'process', 'dashboard', 'table', 'kpi', 'comparison'])
+const STRONG_EXACT_MIN_SCORE = 35
+const RESULT_LIMIT = 6
+const MIN_RESULTS = 4
 
 function isMatch(reference: Reference, query: SearchQuery, key: MatchKey): boolean {
   switch (key) {
@@ -35,17 +26,21 @@ function isMatch(reference: Reference, query: SearchQuery, key: MatchKey): boole
   }
 }
 
-export function isHardContentMismatch(reference: Reference, query: SearchQuery): boolean {
-  if (reference.contentTypeIds.includes(query.contentTypeId)) return false
-  if (reference.contentTypeIds.includes('cover') && COVER_GUARDRAIL_TYPES.has(query.contentTypeId)) return true
-  if (query.contentTypeId === 'table' && reference.contentTypeIds.includes('timeline')) return true
-  if (query.contentTypeId === 'cover' && reference.contentTypeIds.includes('dashboard')) return true
-  return false
+export function getContentMatch(reference: Reference, query: SearchQuery): RankedReference['contentMatch'] {
+  const specialCover = isSpeechStoryCoverException(query)
+  if (reference.contentTypeIds.includes('cover') && query.contentTypeId !== 'cover' && !specialCover) return 'incompatible'
+  if (reference.contentTypeIds.includes('cover') && specialCover) return 'compatible'
+  if (reference.contentTypeIds.includes(query.contentTypeId)) return 'exact'
+
+  const rule = contentTypeCompatibility[query.contentTypeId]
+  const compatible = reference.contentTypeIds.some((type) => rule.compatible.includes(type))
+  if (compatible) return 'compatible'
+  if (reference.contentTypeIds.some((type) => rule.hardIncompatible.includes(type))) return 'incompatible'
+  return 'fallback'
 }
 
-function isCompatible(reference: Reference, query: SearchQuery): boolean {
-  return reference.contentTypeIds.some((type) => CONTENT_TYPE_COMPATIBILITY[query.contentTypeId].includes(type))
-    || (query.scenarioId === 'speech' && query.goalId === 'inspire' && reference.contentTypeIds.includes('cover'))
+export function isHardContentMismatch(reference: Reference, query: SearchQuery): boolean {
+  return getContentMatch(reference, query) === 'incompatible'
 }
 
 function semanticPhrase(reference: Reference): string {
@@ -53,14 +48,17 @@ function semanticPhrase(reference: Reference): string {
   return specificTag.replace(/[.]+$/, '')
 }
 
-function buildReasons(reference: Reference, query: SearchQuery, matchedKeys: MatchKey[], contentMatch: RankedReference['contentMatch']): string[] {
+function buildReasons(reference: Reference, query: SearchQuery, matchedKeys: MatchKey[], contentMatch: RankedReference['contentMatch'], heroEligible: boolean): string[] {
   const reasons: string[] = []
-  if (contentMatch === 'exact') reasons.push(`Точно соответствует формату «${labels.contentType[query.contentTypeId]}»: ${semanticPhrase(reference)}.`)
-  if (contentMatch === 'compatible') reasons.push(`Добавлен как близкий формат к «${labels.contentType[query.contentTypeId]}»: ${labels.contentType[reference.contentTypeIds[0]]}.`)
-  if (contentMatch === 'semantic-fallback') reasons.push('Добавлен как смысловой fallback: точных и совместимых форматов недостаточно для полной подборки.')
-  if (contentMatch === 'hard-fallback') reasons.push('Добавлен только как резервный fallback, потому что релевантных форматов недостаточно для шести результатов.')
-  if (reference.qualityTier === 'hero' && reference.productionApproved) reasons.push('Высокая визуальная проработка: одобренный production Hero Reference.')
-  if (matchedKeys.includes('scenarioId')) reasons.push(`Создан для сценария «${labels.scenario[query.scenarioId]}» и раскрывает ${semanticPhrase(reference)}.`)
+  if (contentMatch === 'exact') reasons.push(`Соответствует выбранному типу «${labels.contentType[query.contentTypeId]}».`)
+  if (contentMatch === 'compatible') {
+    reasons.push(`Близкий формат к выбранному типу «${labels.contentType[query.contentTypeId]}»: ${labels.contentType[reference.contentTypeIds[0]]}.`)
+    reasons.push('Добавлен как альтернатива, потому что точных вариантов недостаточно.')
+  }
+  if (contentMatch === 'fallback') reasons.push('Дополнительная альтернатива: точных и совместимых вариантов недостаточно.')
+  if (contentMatch === 'incompatible') reasons.push('Резервная альтернатива: показана только потому, что подходящих форматов меньше четырёх.')
+  if (heroEligible) reasons.push('Высокая визуальная проработка: одобренный production Hero Reference.')
+  if (matchedKeys.includes('scenarioId')) reasons.push(`Подходит для сценария «${labels.scenario[query.scenarioId]}» и раскрывает ${semanticPhrase(reference)}.`)
   if (matchedKeys.includes('goalId')) reasons.push(`Помогает ${labels.goal[query.goalId].toLocaleLowerCase('ru')} через ясный вывод и следующий шаг.`)
   if (matchedKeys.includes('personaId')) reasons.push(`Плотность и аргументация подходят аудитории «${labels.persona[query.personaId]}».`)
   if (matchedKeys.includes('styleId')) reasons.push(`Визуальная подача соответствует направлению «${labels.style[query.styleId]}».`)
@@ -76,21 +74,22 @@ interface Candidate {
   matchedKeys: MatchKey[]
   contentMatch: RankedReference['contentMatch']
   sourceFamily: string
+  heroEligible: boolean
+  strongExact: boolean
 }
 
 function candidateFor(reference: Reference, query: SearchQuery): Candidate {
   const matchedKeys = (Object.keys(RANKING_WEIGHTS) as MatchKey[]).filter((key) => isMatch(reference, query, key))
   const baseScore = matchedKeys.reduce((score, key) => score + RANKING_WEIGHTS[key], 0)
-  const hard = isHardContentMismatch(reference, query)
-  const exact = matchedKeys.includes('contentTypeId')
-  const compatible = !hard && isCompatible(reference, query)
-  const contentMatch: Candidate['contentMatch'] = exact ? 'exact' : compatible ? 'compatible' : hard ? 'hard-fallback' : 'semantic-fallback'
+  const contentMatch = getContentMatch(reference, query)
   const heroEligible = reference.qualityTier === 'hero'
     && reference.productionApproved
     && reference.heroScenarioId === query.scenarioId
-    && (exact || compatible)
-    && !hard
+    && (contentMatch === 'exact' || contentMatch === 'compatible')
     && baseScore >= HERO_MIN_BASE_SCORE
+  const strongExact = contentMatch === 'exact'
+    && baseScore >= STRONG_EXACT_MIN_SCORE
+    && (matchedKeys.includes('scenarioId') || matchedKeys.includes('goalId'))
   return {
     reference,
     baseScore,
@@ -98,11 +97,9 @@ function candidateFor(reference: Reference, query: SearchQuery): Candidate {
     matchedKeys,
     contentMatch,
     sourceFamily: reference.sourceOrganization ?? reference.sourceType,
+    heroEligible,
+    strongExact,
   }
-}
-
-function contentTier(match: Candidate['contentMatch']): number {
-  return match === 'exact' || match === 'compatible' ? 0 : match === 'semantic-fallback' ? 1 : 2
 }
 
 function similarityPenalty(candidate: Candidate, selected: Candidate[]): number {
@@ -118,37 +115,64 @@ function similarityPenalty(candidate: Candidate, selected: Candidate[]): number 
 }
 
 function deterministicCompare(a: Candidate, b: Candidate): number {
-  return contentTier(a.contentMatch) - contentTier(b.contentMatch)
-    || b.rankScore - a.rankScore
+  return b.rankScore - a.rankScore
     || a.reference.title.localeCompare(b.reference.title, 'ru')
     || a.reference.id.localeCompare(b.reference.id)
 }
 
-function selectDiverse(candidates: Candidate[], limit: number): Candidate[] {
+function takeDiverse(candidates: Candidate[], count: number, selected: Candidate[]): Candidate[] {
   const remaining = [...candidates]
-  const selected: Candidate[] = []
-  while (selected.length < limit && remaining.length) {
+  const picked: Candidate[] = []
+  while (picked.length < count && remaining.length) {
+    const context = [...selected, ...picked]
     remaining.sort((a, b) => {
-      const tierDifference = contentTier(a.contentMatch) - contentTier(b.contentMatch)
-      if (tierDifference) return tierDifference
-      const adjustedA = a.rankScore - similarityPenalty(a, selected)
-      const adjustedB = b.rankScore - similarityPenalty(b, selected)
+      const adjustedA = a.rankScore - similarityPenalty(a, context)
+      const adjustedB = b.rankScore - similarityPenalty(b, context)
       return adjustedB - adjustedA || deterministicCompare(a, b)
     })
-    selected.push(remaining.shift()!)
+    picked.push(remaining.shift()!)
   }
-  return selected
+  return picked
+}
+
+function appendFrom(selected: Candidate[], pool: Candidate[], limit = RESULT_LIMIT) {
+  selected.push(...takeDiverse(pool.filter((candidate) => !selected.includes(candidate)), Math.max(0, limit - selected.length), selected))
 }
 
 export function rankReferences(references: Reference[], query: SearchQuery): RankedReference[] {
   const candidates = references.filter(({ productionApproved }) => productionApproved).map((reference) => candidateFor(reference, query))
-  const top = selectDiverse(candidates, Math.min(6, candidates.length))
-  const topIds = new Set(top.map(({ reference }) => reference.id))
-  const rest = candidates.filter(({ reference }) => !topIds.has(reference.id)).sort(deterministicCompare)
-  return [...top, ...rest].map(({ reference, baseScore, matchedKeys, contentMatch }) => ({
+  const strongExact = candidates.filter(({ strongExact }) => strongExact)
+  const weakExact = candidates.filter(({ contentMatch, strongExact: strong }) => contentMatch === 'exact' && !strong)
+  const compatible = candidates.filter(({ contentMatch }) => contentMatch === 'compatible')
+  const fallback = candidates.filter(({ contentMatch }) => contentMatch === 'fallback')
+  const incompatible = candidates.filter(({ contentMatch }) => contentMatch === 'incompatible')
+  const selected: Candidate[] = []
+
+  if (strongExact.length >= RESULT_LIMIT) {
+    appendFrom(selected, strongExact)
+  } else {
+    appendFrom(selected, strongExact)
+    const coverSensitive = query.contentTypeId === 'cover' || isSpeechStoryCoverException(query)
+    if (coverSensitive) appendFrom(selected, weakExact)
+    const compatibleLimit = coverSensitive ? Math.min(RESULT_LIMIT, selected.length + 1) : RESULT_LIMIT
+    appendFrom(selected, compatible, compatibleLimit)
+    if (!coverSensitive) appendFrom(selected, weakExact)
+    appendFrom(selected, fallback)
+    if (selected.length < MIN_RESULTS) appendFrom(selected, incompatible, MIN_RESULTS)
+  }
+
+  return selected.map(({ reference, baseScore, matchedKeys, contentMatch, heroEligible }) => ({
     ...reference,
     score: baseScore,
     contentMatch,
-    reasons: buildReasons(reference, query, matchedKeys, contentMatch),
+    reasons: buildReasons(reference, query, matchedKeys, contentMatch, heroEligible),
   }))
+}
+
+export function summarizeContentMatches(results: RankedReference[]) {
+  return {
+    exactCount: results.filter(({ contentMatch }) => contentMatch === 'exact').length,
+    compatibleCount: results.filter(({ contentMatch }) => contentMatch === 'compatible').length,
+    fallbackCount: results.filter(({ contentMatch }) => contentMatch === 'fallback' || contentMatch === 'incompatible').length,
+  }
 }

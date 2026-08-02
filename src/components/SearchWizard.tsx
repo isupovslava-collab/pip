@@ -15,7 +15,12 @@ const steps = [
   { key: 'personaId', title: 'Кто основная аудитория?', options: personas },
   { key: 'goalId', title: 'Какой результат нужен?', options: goals },
   { key: 'styleId', title: 'Какое визуальное направление ближе?', options: styles },
-  { key: 'contentTypeId', title: 'Какой контент будет главным?', options: contentTypes },
+  {
+    key: 'contentTypeId',
+    title: 'Какой слайд вы хотите подобрать?',
+    description: 'Выберите основной формат. PIP покажет несколько вариантов дизайна именно для такого слайда.',
+    options: contentTypes,
+  },
 ] as const
 
 export function SearchWizard({ initialQuery, onSearch, onStart }: SearchWizardProps) {
@@ -65,6 +70,7 @@ export function SearchWizard({ initialQuery, onSearch, onStart }: SearchWizardPr
         </div>
         <WizardStep
           title={current.title}
+          description={'description' in current ? current.description : undefined}
           options={current.options}
           selected={selected}
           onSelect={(id) => {

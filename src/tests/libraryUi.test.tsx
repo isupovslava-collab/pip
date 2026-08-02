@@ -4,6 +4,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 import references from '../../public/data/references.json'
 import { InspirationBoardProvider } from '../components/InspirationBoardProvider'
+import { ReferenceCard } from '../components/ReferenceCard'
 import { useInspirationBoard } from '../hooks/useInspirationBoard'
 import { ReferencePage } from '../pages/ReferencePage'
 import { SearchPage } from '../pages/SearchPage'
@@ -20,7 +21,8 @@ function NewReferenceBoardFixture() {
 describe('интерфейс расширенной библиотеки', () => {
   it('динамически показывает размер библиотеки и сохраняет top-6', () => {
     render(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={query} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
-    expect(screen.getByText(/100 референсами/)).toBeInTheDocument()
+    expect(screen.getByText('Мы подобрали варианты дизайна для выбранного типа слайда и ранжировали их по соответствию вашей задаче.')).toBeInTheDocument()
+    expect(screen.getByText('Тип слайда: Сравнение вариантов')).toBeInTheDocument()
     expect(screen.getAllByRole('article')).toHaveLength(6)
   })
 
@@ -43,5 +45,14 @@ describe('интерфейс расширенной библиотеки', () =>
     render(<InspirationBoardProvider><NewReferenceBoardFixture /></InspirationBoardProvider>)
     await user.click(screen.getByRole('button', { name: 'Сохранить новый референс' }))
     expect(screen.getByLabelText('Новые сохранённые ID')).toHaveTextContent('REF-000100')
+  })
+
+  it('показывает fallback badge только для неточного content match', () => {
+    const compatible = { ...library[0], score: 80, reasons: ['Подходит по задаче'], contentMatch: 'compatible' as const }
+    const view = render(<MemoryRouter><InspirationBoardProvider><ReferenceCard reference={compatible} /></InspirationBoardProvider></MemoryRouter>)
+    expect(screen.getByText('Близкий формат')).toBeInTheDocument()
+    expect(screen.getByText(/Добавлен как близкий вариант, потому что точных референсов недостаточно/)).toHaveClass('sr-only')
+    view.rerender(<MemoryRouter><InspirationBoardProvider><ReferenceCard reference={{ ...compatible, contentMatch: 'exact' }} /></InspirationBoardProvider></MemoryRouter>)
+    expect(screen.queryByText('Близкий формат')).not.toBeInTheDocument()
   })
 })

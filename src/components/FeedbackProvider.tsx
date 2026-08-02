@@ -2,6 +2,7 @@ import { useMemo, useState, type ReactNode } from 'react'
 import { FeedbackContext, type FeedbackContextValue } from '../hooks/useFeedback'
 import { ACTIVE_SESSION_STORAGE_KEY, clearFeedbackData, createFeedbackSession, readFeedbackSessions, writeFeedbackSessions } from '../services/feedbackStorage'
 import type { FeedbackEventType, FeedbackSession, ReferenceFeedback } from '../types/feedback'
+import { summarizeContentMatches } from '../services/rankReferences'
 
 function appendEvent(session: FeedbackSession, type: FeedbackEventType, referenceId?: string): FeedbackSession {
   const timestamp = new Date().toISOString()
@@ -42,8 +43,28 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
     activeSession: sessions.find(({ sessionId }) => sessionId === activeSessionId) ?? null,
     startSession,
     completeWizard: (query, results) => updateActive((session) => {
-      const completed = { ...session, query, results: results.slice(0, 6).map(({ id, score }, index) => ({ referenceId: id, rank: index + 1, score })) }
-      return appendEvent(appendEvent(completed, 'wizard_completed'), 'results_viewed')
+      const topResults = results.slice(0, 6)
+      const counts = summarizeContentMatches(topResults)
+      const completed = {
+        ...session,
+        query,
+        results: topResults.map(({ id, score }, index) => ({ referenceId: id, rank: index + 1, score })),
+        resultContentMatch: topResults.map(({ id, contentMatch }) => ({
+          referenceId: id,
+          matchType: contentMatch === 'exact' || contentMatch === 'compatible' ? contentMatch : 'fallback' as const,
+        })),
+      }
+      const viewed = appendEvent(appendEvent(completed, 'wizard_completed'), 'results_viewed')
+      if (counts.exactCount >= 4) return viewed
+      return {
+        ...viewed,
+        events: [...viewed.events, {
+          type: 'content_type_fallback_shown',
+          timestamp: new Date().toISOString(),
+          selectedContentTypeId: query.contentTypeId,
+          ...counts,
+        }],
+      }
     }),
     selectBestReference: (referenceId) => updateActive((session) => appendEvent({ ...session, bestReferenceId: referenceId, noSuitableReference: false }, 'best_reference_selected', referenceId)),
     selectNoSuitableReference: () => updateActive((session) => appendEvent({ ...session, bestReferenceId: null, noSuitableReference: true }, 'no_suitable_reference_selected')),

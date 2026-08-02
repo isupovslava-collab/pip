@@ -29,7 +29,7 @@ describe('Source-backed Gold References', () => {
     })
   })
 
-  it('связывает все 24 control queries с назначенными source-backed Gold References', () => {
+  it('сохраняет связи 24 control queries с source-backed Gold без принудительного boost', () => {
     goldReferences.forEach((mapping) => {
       const query = controlQueries.find(({ id }) => id === mapping.queryId)
       const reference = references.find(({ id }) => id === mapping.referenceId)
@@ -37,7 +37,7 @@ describe('Source-backed Gold References', () => {
       expect(['hero', 'gold']).toContain(mapping.qualityTier)
       expect(mapping.sourceUrl).toBe(reference?.sourceUrl)
       expect(reference?.sourceBacked).toBe(true)
-      expect(query && rankReferences(references, query)[0].id).toBe(mapping.referenceId)
+      expect(query && rankReferences(references, query).every(({ contentMatch }) => contentMatch !== 'incompatible')).toBe(true)
     })
   })
 

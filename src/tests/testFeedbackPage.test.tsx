@@ -21,6 +21,11 @@ describe('служебный экран feedback', () => {
     render(<TestFeedbackPage />)
     expect(screen.getByText('Нет подходящего')).toBeInTheDocument()
     expect(screen.getByText('0 · 0%')).toBeInTheDocument()
+    expect(screen.getByText('Среднее exact results')).toBeInTheDocument()
+    expect(screen.getByText('Сессии exact ≥ 4')).toBeInTheDocument()
+    expect(screen.getByText('Сессии с fallback')).toBeInTheDocument()
+    expect(screen.getByText('Оценка при fallback')).toBeInTheDocument()
+    expect(screen.getByText('Нет подходящего при fallback')).toBeInTheDocument()
   })
 
   it('запрашивает подтверждение перед reset', () => {

@@ -45,14 +45,14 @@ export const styles: Option<StyleId>[] = [
 ]
 
 export const contentTypes: Option<ContentTypeId>[] = [
-  { id: 'kpi', label: 'KPI и ключевые цифры', description: 'Метрики, динамика и отклонения' },
-  { id: 'comparison', label: 'Сравнение вариантов', description: 'Критерии, различия и выбор' },
-  { id: 'timeline', label: 'Сроки и этапы', description: 'Хронология и контрольные точки' },
-  { id: 'process', label: 'Процесс или алгоритм', description: 'Последовательность действий' },
-  { id: 'dashboard', label: 'Сводная панель', description: 'Несколько показателей на одном экране' },
-  { id: 'cover', label: 'Титульный и имиджевый слайд', description: 'Сильное начало и ключевой образ' },
-  { id: 'story', label: 'История и аргументация', description: 'Логика повествования и смысл' },
-  { id: 'table', label: 'Табличные данные', description: 'Структурированные подробности' },
+  { id: 'kpi', label: 'KPI и ключевые цифры', description: 'Показатели, план/факт, динамика и управленческие выводы' },
+  { id: 'comparison', label: 'Сравнение вариантов', description: 'Критерии, альтернативы и рекомендуемое решение' },
+  { id: 'timeline', label: 'Сроки и этапы', description: 'Timeline, roadmap или план реализации' },
+  { id: 'process', label: 'Процесс или алгоритм', description: 'Последовательность действий, этапов или решений' },
+  { id: 'dashboard', label: 'Управленческий dashboard', description: 'Несколько показателей, тренды, статусы и отклонения' },
+  { id: 'cover', label: 'Титульный слайд', description: 'Первый экран презентации с темой и визуальным образом' },
+  { id: 'story', label: 'История и аргументация', description: 'Тезис, проблема, логика и убедительный вывод' },
+  { id: 'table', label: 'Таблица или матрица', description: 'Структурированные данные, критерии, статусы или решения' },
 ]
 
 export const labels = {

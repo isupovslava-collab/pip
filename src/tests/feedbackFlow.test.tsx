@@ -10,11 +10,12 @@ import { TestModeBanner } from '../components/TestModeBanner'
 import { useFeedback } from '../hooks/useFeedback'
 import { useInspirationBoard } from '../hooks/useInspirationBoard'
 import { rankReferences } from '../services/rankReferences'
-import type { Reference, SearchQuery } from '../types/reference'
+import type { RankedReference, Reference, SearchQuery } from '../types/reference'
 import { isTestMode } from '../utils/testMode'
 
 const query: SearchQuery = { scenarioId: 'sales', personaId: 'client', goalId: 'approve', styleId: 'consulting', contentTypeId: 'comparison' }
 const results = rankReferences(referencesData as Reference[], query).slice(0, 6)
+const fallbackResults: RankedReference[] = results.slice(0, 4).map((reference, index) => ({ ...reference, contentMatch: index < 2 ? 'exact' : index === 2 ? 'compatible' : 'fallback' }))
 
 function FeedbackFixture() {
   const feedback = useFeedback()
@@ -26,9 +27,12 @@ function FeedbackFixture() {
     <output aria-label="best">{feedback.activeSession?.bestReferenceId ?? ''}</output>
     <output aria-label="no-suitable">{String(feedback.activeSession?.noSuitableReference ?? false)}</output>
     <output aria-label="events">{feedback.activeSession?.events.map(({ type }) => type).join(',') ?? ''}</output>
+    <output aria-label="content-matches">{feedback.activeSession?.resultContentMatch.map(({ matchType }) => matchType).join(',') ?? ''}</output>
+    <output aria-label="fallback-event">{JSON.stringify(feedback.activeSession?.events.find(({ type }) => type === 'content_type_fallback_shown') ?? null)}</output>
     <output aria-label="board">{board.ids.join(',')}</output>
     <button onClick={feedback.startSession}>start</button>
     <button onClick={() => feedback.completeWizard(query, results)}>complete</button>
+    <button onClick={() => feedback.completeWizard(query, fallbackResults)}>complete-fallback</button>
     <button onClick={() => feedback.submitCollectionFeedback('partially_useful', ['Не подходит визуальный стиль'], 'Комментарий', 'probably_yes')}>collection</button>
     <button onClick={() => feedback.submitReferenceFeedback({ referenceId: 'REF-000013', useful: false, issues: ['Слишком простой'], comment: '' })}>reference</button>
     <button onClick={() => feedback.selectBestReference('REF-000013')}>best-13</button>
@@ -57,6 +61,19 @@ describe('feedback session flow', () => {
     expect(screen.getByLabelText('reference-feedback')).toHaveTextContent('1')
     expect(screen.getByLabelText('events')).toHaveTextContent('collection_feedback_submitted')
     expect(screen.getByLabelText('events')).toHaveTextContent('reference_feedback_submitted')
+    expect(screen.getByLabelText('content-matches')).toHaveTextContent('exact')
+  })
+
+  it('сохраняет match types и событие показа fallback при exactCount < 4', async () => {
+    const user = userEvent.setup(); renderFeedback()
+    await user.click(screen.getByRole('button', { name: 'start' }))
+    await user.click(screen.getByRole('button', { name: 'complete-fallback' }))
+    expect(screen.getByLabelText('content-matches')).toHaveTextContent('exact,exact,compatible,fallback')
+    expect(screen.getByLabelText('events')).toHaveTextContent('content_type_fallback_shown')
+    expect(screen.getByLabelText('fallback-event')).toHaveTextContent('"selectedContentTypeId":"comparison"')
+    expect(screen.getByLabelText('fallback-event')).toHaveTextContent('"exactCount":2')
+    expect(screen.getByLabelText('fallback-event')).toHaveTextContent('"compatibleCount":1')
+    expect(screen.getByLabelText('fallback-event')).toHaveTextContent('"fallbackCount":1')
   })
 
   it('хранит только один Best Reference', async () => {

@@ -6,6 +6,7 @@ export const ACTIVE_SESSION_STORAGE_KEY = 'pipFeedbackActiveSessionId'
 const CSV_HEADERS = [
   'sessionId', 'createdAt', 'scenario', 'persona', 'goal', 'style', 'contentType',
   ...Array.from({ length: 6 }, (_, index) => [`result${index + 1}Id`, `result${index + 1}Score`]).flat(),
+  'exactResultCount', 'compatibleResultCount', 'fallbackResultCount', 'fallbackShown',
   'bestReferenceId', 'noSuitableReference', 'collectionRating', 'usableReferenceFound', 'collectionIssues', 'collectionComment',
   'boardAddedCount', 'referencePositiveCount', 'referenceNegativeCount',
 ]
@@ -22,6 +23,7 @@ export function createFeedbackSession(now = new Date().toISOString(), sessionId 
     completedAt: null,
     query: null,
     results: [],
+    resultContentMatch: [],
     bestReferenceId: null,
     noSuitableReference: false,
     collectionRating: null,
@@ -44,6 +46,7 @@ export function readFeedbackSessions(storage: Storage = localStorage): FeedbackS
       ...session,
       feedbackSchemaVersion: session.feedbackSchemaVersion ?? 2,
       noSuitableReference: session.noSuitableReference ?? false,
+      resultContentMatch: session.resultContentMatch ?? [],
     }))
   } catch {
     storage.removeItem(FEEDBACK_STORAGE_KEY)
@@ -70,6 +73,9 @@ export function exportFeedbackCsv(sessions: FeedbackSession[]): string {
     const resultCells = Array.from({ length: 6 }, (_, index) => [session.results[index]?.referenceId ?? '', session.results[index]?.score ?? '']).flat()
     const positive = session.referenceFeedback.filter(({ useful }) => useful).length
     const negative = session.referenceFeedback.length - positive
+    const exactResultCount = session.resultContentMatch.filter(({ matchType }) => matchType === 'exact').length
+    const compatibleResultCount = session.resultContentMatch.filter(({ matchType }) => matchType === 'compatible').length
+    const fallbackResultCount = session.resultContentMatch.filter(({ matchType }) => matchType === 'fallback').length
     return [
       session.sessionId,
       session.createdAt,
@@ -79,6 +85,10 @@ export function exportFeedbackCsv(sessions: FeedbackSession[]): string {
       session.query?.styleId,
       session.query?.contentTypeId,
       ...resultCells,
+      exactResultCount,
+      compatibleResultCount,
+      fallbackResultCount,
+      compatibleResultCount + fallbackResultCount > 0,
       session.bestReferenceId,
       session.noSuitableReference,
       session.collectionRating,

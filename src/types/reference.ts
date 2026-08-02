@@ -70,5 +70,5 @@ export type MatchKey = keyof SearchQuery
 export interface RankedReference extends Reference {
   score: number
   reasons: string[]
-  contentMatch: 'exact' | 'compatible' | 'semantic-fallback' | 'hard-fallback'
+  contentMatch: 'exact' | 'compatible' | 'fallback' | 'incompatible'
 }

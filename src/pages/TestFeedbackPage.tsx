@@ -36,6 +36,16 @@ export function TestFeedbackPage() {
       {[['Total Sessions', summary.totalSessions], ['Completed Sessions', summary.completedSessions], ['Средняя оценка', summary.averageRating === null ? '—' : `${summary.averageRating.toFixed(1)} / 2`], ['Board additions', summary.boardAdditions.reduce((sum, [, count]) => sum + count, 0)], ['Нет подходящего', `${summary.noSuitableCount} · ${Math.round(summary.noSuitableShare * 100)}%`]].map(([label, value]) => <article key={label} className="surface p-5"><p className="text-sm font-semibold text-muted">{label}</p><p className="mt-2 text-3xl font-bold text-navy">{value}</p></article>)}
     </div>
 
+    <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-5" aria-label="Метрики точности типа слайда">
+      {[
+        ['Среднее exact results', summary.averageExactResults === null ? '—' : summary.averageExactResults.toFixed(1)],
+        ['Сессии exact ≥ 4', summary.exactAtLeastFourCount],
+        ['Сессии с fallback', summary.fallbackSessionCount],
+        ['Оценка при fallback', summary.fallbackAverageRating === null ? '—' : `${summary.fallbackAverageRating.toFixed(1)} / 2`],
+        ['Нет подходящего при fallback', summary.fallbackNoSuitableCount],
+      ].map(([label, value]) => <article key={label} className="surface p-5"><p className="text-sm font-semibold text-muted">{label}</p><p className="mt-2 text-3xl font-bold text-navy">{value}</p></article>)}
+    </div>
+
     <div className="mt-6 grid gap-5 lg:grid-cols-2">
       <section className="surface p-5 sm:p-6"><h2 className="text-xl font-semibold text-navy">Collection Ratings</h2><FrequencyList items={[["Полезная", summary.ratings.useful], ["Частично полезная", summary.ratings.partially_useful], ["Не подходит", summary.ratings.not_useful]]} /></section>
       <section className="surface p-5 sm:p-6"><h2 className="text-xl font-semibold text-navy">Usable Reference Found</h2><FrequencyList items={[["Да", summary.usableReferences.yes], ["Скорее да", summary.usableReferences.probably_yes], ["Скорее нет", summary.usableReferences.probably_no], ["Нет", summary.usableReferences.no]]} /></section>

@@ -18,6 +18,14 @@ export type FeedbackEventType =
   | 'no_suitable_reference_selected'
   | 'collection_feedback_submitted'
   | 'reference_feedback_submitted'
+  | 'content_type_fallback_shown'
+
+export type ResultContentMatchType = 'exact' | 'compatible' | 'fallback'
+
+export interface ResultContentMatch {
+  referenceId: string
+  matchType: ResultContentMatchType
+}
 
 export interface FeedbackResult {
   referenceId: string
@@ -36,6 +44,10 @@ export interface FeedbackEvent {
   type: FeedbackEventType
   timestamp: string
   referenceId?: string
+  selectedContentTypeId?: SearchQuery['contentTypeId']
+  exactCount?: number
+  compatibleCount?: number
+  fallbackCount?: number
 }
 
 export interface FeedbackSession {
@@ -45,6 +57,7 @@ export interface FeedbackSession {
   completedAt: string | null
   query: SearchQuery | null
   results: FeedbackResult[]
+  resultContentMatch: ResultContentMatch[]
   bestReferenceId: string | null
   noSuitableReference: boolean
   collectionRating: CollectionRating | null

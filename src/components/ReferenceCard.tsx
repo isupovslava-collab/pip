@@ -9,6 +9,11 @@ export function ReferenceCard({ reference, rank, best = false, onSelectBest }: {
   const location = useLocation()
   const feedback = useFeedback()
   const ranked = 'score' in reference
+  const matchBadge = ranked && reference.contentMatch === 'compatible'
+    ? { label: 'Близкий формат', description: 'Добавлен как близкий вариант, потому что точных референсов недостаточно.' }
+    : ranked && (reference.contentMatch === 'fallback' || reference.contentMatch === 'incompatible')
+      ? { label: 'Дополнительная альтернатива', description: 'Добавлена только при нехватке точных и совместимых вариантов.' }
+      : null
   const rankLabel = rank === 1 ? 'Лучшее совпадение' : rank && rank <= 3 ? `В топ-${rank}` : null
   return (
     <article className={`group flex h-full flex-col overflow-hidden rounded-2xl bg-white transition duration-200 hover:-translate-y-1 hover:shadow-lift ${rank === 1 ? 'border-2 border-sky-300 shadow-lift' : 'border border-line shadow-card'}`}>
@@ -23,6 +28,7 @@ export function ReferenceCard({ reference, rank, best = false, onSelectBest }: {
         <div className="flex flex-wrap items-center gap-2">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue">{reference.category}</p>
           {reference.qualityTier === 'hero' ? <span className="rounded-full bg-sky-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-sky-800">Hero Reference</span> : reference.sourceBacked && <span className="rounded-full bg-amber-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-amber-800">Gold · Source-backed</span>}
+          {matchBadge && <span className="rounded-full border border-amber-300 bg-amber-50 px-2.5 py-1 text-[11px] font-bold text-amber-900">{matchBadge.label}<span className="sr-only">. {matchBadge.description}</span></span>}
         </div>
         <h2 className="mt-2 text-xl font-semibold leading-snug tracking-tight text-navy">{reference.title}</h2>
         <p className="mt-3 text-sm leading-6 text-muted">{reference.summary}</p>

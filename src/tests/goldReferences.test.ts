@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest'
 import referencesData from '../../public/data/references.json'
 import { controlQueries } from '../data/controlQueries'
 import { goldReferences } from '../data/goldReferences'
-import { rankReferences } from '../services/rankReferences'
+import { getContentMatch, rankReferences } from '../services/rankReferences'
 import type { Reference, ScenarioId } from '../types/reference'
 
 const references = referencesData as Reference[]
@@ -67,14 +67,19 @@ describe('Gold Reference Set', () => {
     })
   })
 
-  it('выдаёт назначенный Gold Reference со 100% соответствием для каждого контрольного запроса', () => {
+  it('сохраняет Gold mapping, не позволяя ему обходить content guardrails', () => {
     goldReferences.forEach(({ queryId, referenceId }) => {
       const query = controlQueries.find(({ id }) => id === queryId)
       expect(query).toBeDefined()
       if (!query) return
       const ranked = rankReferences(references, query)
-      expect(ranked.slice(0, 3).some(({ id, score }) => id === referenceId && score === 100)).toBe(true)
-      expect(ranked.slice(0, 6).some(({ id, score }) => id === referenceId && score === 100)).toBe(true)
+      const reference = references.find(({ id }) => id === referenceId)!
+      if (getContentMatch(reference, query) === 'incompatible') {
+        expect(ranked.slice(0, 6).some(({ id }) => id === referenceId)).toBe(false)
+      } else if (getContentMatch(reference, query) === 'exact') {
+        expect(ranked.slice(0, 6).some(({ id }) => id === referenceId)).toBe(true)
+      }
+      expect(ranked.every(({ contentMatch }) => contentMatch !== 'incompatible')).toBe(true)
     })
   })
 })
