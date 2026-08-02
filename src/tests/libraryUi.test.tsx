@@ -34,6 +34,8 @@ describe('интерфейс расширенной библиотеки', () =>
       </MemoryRouter>,
     )
     expect(screen.getByRole('heading', { level: 1, name: reference?.title })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: `Превью слайда: ${reference?.title}` })).toHaveClass('aspect-video', 'max-w-full', 'object-contain')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveClass('break-words')
   })
 
   it('Inspiration Board принимает ID нового референса', async () => {

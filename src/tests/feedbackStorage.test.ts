@@ -49,6 +49,24 @@ describe('локальное хранение и экспорт feedback', () =>
     expect(csv.trim().split('\r\n')).toHaveLength(2)
   })
 
+  it('без потерь сохраняет и экспортирует длинный кириллический комментарий с переносами строк', () => {
+    const paragraph = 'Подбор полезен: нужны более содержательные таблицы, ясные выводы и разные композиции. '
+    const comment = `${paragraph.repeat(18)}\nВторая строка: сценарий проверен, цифры читаются, источник понятен.`
+    expect(comment.length).toBeGreaterThan(1000)
+    expect(comment.length).toBeLessThanOrEqual(4000)
+    const session = createFeedbackSession('2026-08-01T00:00:00.000Z', 'PIP-TEST-LONG0001')
+    session.collectionComment = comment
+    session.referenceFeedback.push({ referenceId: 'REF-000013', useful: true, issues: [], comment })
+    writeFeedbackSessions([session])
+
+    expect(readFeedbackSessions()[0].collectionComment).toBe(comment)
+    expect(readFeedbackSessions()[0].referenceFeedback[0].comment).toBe(comment)
+    expect(JSON.parse(exportFeedbackJson([session]))[0].collectionComment).toBe(comment)
+    const csv = exportFeedbackCsv([session])
+    expect(csv).toContain(`"${comment}"`)
+    expect(csv).toContain('Вторая строка: сценарий проверен')
+  })
+
   it('reset удаляет только testing data и сохраняет Inspiration Board', () => {
     localStorage.setItem(FEEDBACK_STORAGE_KEY, '[]')
     localStorage.setItem(BOARD_STORAGE_KEY, JSON.stringify(['REF-000013']))

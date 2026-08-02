@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useFeedback } from '../hooks/useFeedback'
-import type { CollectionRating, UsableReferenceFound } from '../types/feedback'
+import { FEEDBACK_COMMENT_MAX_LENGTH, type CollectionRating, type UsableReferenceFound } from '../types/feedback'
 
 const ratingOptions: Array<{ value: CollectionRating; label: string }> = [
   { value: 'useful', label: '👍 Полезная' },
@@ -45,8 +45,8 @@ export function CollectionFeedback({ testMode }: { testMode: boolean }) {
         <fieldset className="mt-6"><legend className="font-semibold text-navy">Нашли ли вы среди результатов вариант, который могли бы использовать как референс?</legend><div className="mt-3 flex flex-wrap gap-2">
           {usableOptions.map((option) => <label key={option.value} className={`cursor-pointer rounded-xl border px-4 py-2.5 text-sm font-semibold ${usable === option.value ? 'border-blue bg-sky-50 text-navy' : 'border-line bg-white text-muted'}`}><input type="radio" name="usable-reference" value={option.value} checked={usable === option.value} onChange={() => { setUsable(option.value); setSaved(false) }} className="sr-only" />{option.label}</label>)}
         </div></fieldset>
-        <label className="mt-6 block text-sm font-semibold text-navy">Комментарий (необязательно)<textarea value={comment} onChange={(event) => { setComment(event.target.value); setSaved(false) }} rows={3} maxLength={1000} placeholder="Что особенно помогло или помешало?" className="mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal text-navy" /></label>
-        <p className="mt-2 text-xs text-muted">Не указывайте в комментарии персональные данные.</p>
+        <label className="mt-6 block text-sm font-semibold text-navy">Комментарий (необязательно)<textarea value={comment} onChange={(event) => { setComment(event.target.value); setSaved(false) }} rows={4} maxLength={FEEDBACK_COMMENT_MAX_LENGTH} placeholder="Что особенно помогло или помешало?" className="mt-2 w-full resize-y rounded-xl border border-line bg-white px-4 py-3 font-normal text-navy" /></label>
+        <div className="mt-2 flex justify-between gap-3 text-xs text-muted"><p>Не указывайте в комментарии персональные данные.</p><span aria-live="polite" className="shrink-0 tabular-nums">{comment.length} / {FEEDBACK_COMMENT_MAX_LENGTH}</span></div>
         <div className="mt-5 flex flex-wrap items-center gap-4"><button type="button" disabled={!usable} onClick={() => { if (rating && usable) { submitCollectionFeedback(rating, issues, comment.trim(), usable); setSaved(true) } }} className="btn-primary">Сохранить отзыв</button>{saved && <p role="status" className="text-sm font-semibold text-success">{testMode ? 'Спасибо. Ваш отзыв сохранён на этом устройстве.' : 'Отзыв сохранён на этом устройстве.'}</p>}</div>
       </div>}
     </section>

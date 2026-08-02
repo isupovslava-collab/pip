@@ -1,0 +1,7 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1600px; height: 900px; overflow: hidden; }
+body { font-family: Inter, "Segoe UI", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+.slide { position: relative; width: 1600px; height: 900px; overflow: hidden; }
+.kicker { font-size: 18px; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+.mono { font-variant-numeric: tabular-nums; }
+

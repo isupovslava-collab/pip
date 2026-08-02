@@ -2,9 +2,13 @@
 
 PIP помогает подобрать визуальное и структурное решение для презентации с учетом задачи, аудитории, ожидаемого результата, визуального направления и основного типа контента.
 
-**Статус:** MVP v0.5 — User Testing Ready
+**Статус:** MVP v0.6 — Visual WOW Proof
 
 **Сайт:** https://isupovslava-collab.github.io/pip/
+
+**Hero Review Gallery:** https://isupovslava-collab.github.io/pip/hero-reference-review.html
+
+Sprint 6 добавляет восемь отдельных high-fidelity Hero-кандидатов — по одному на сценарий. Они опубликованы только в review gallery и ожидают решения Product Owner `APPROVE / REVISE / REJECT`. Hero References не входят в production-библиотеку, ranking, словари или карточки результатов; текущая библиотека из 100 референсов остаётся неизменной.
 
 ## Что проверяет MVP
 
@@ -44,12 +48,16 @@ npm run dev
 npm run validate:data
 npm run report:coverage
 npm run check:duplicates
+npm run generate:hero-references
+npm run validate:hero-references
 npm run lint
 npm run test
 npm run build
 ```
 
 Production-сборка создается в папке `dist`.
+
+Исходники восьми Hero-композиций находятся в `tools/hero-references`, финальные PNG — в `public/hero-references`, исследование источников — в `docs/hero-reference-sources.md`, реестр прав — в `docs/reference-rights-ledger.md`, а визуальный self-review — в `docs/hero-reference-visual-review.md`.
 
 ## Структура данных
 

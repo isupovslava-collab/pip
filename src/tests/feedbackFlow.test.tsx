@@ -1,9 +1,10 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter, useLocation } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import referencesData from '../../public/data/references.json'
 import { FeedbackProvider } from '../components/FeedbackProvider'
+import { CollectionFeedback } from '../components/CollectionFeedback'
 import { InspirationBoardProvider } from '../components/InspirationBoardProvider'
 import { TestModeBanner } from '../components/TestModeBanner'
 import { useFeedback } from '../hooks/useFeedback'
@@ -32,6 +33,7 @@ function FeedbackFixture() {
     <button onClick={() => feedback.selectBestReference('REF-000013')}>best-13</button>
     <button onClick={() => feedback.selectBestReference('REF-000014')}>best-14</button>
     <button onClick={() => { board.add('REF-000015'); feedback.recordBoardAction('REF-000015', true) }}>board-add</button>
+    <CollectionFeedback testMode />
   </>
 }
 
@@ -77,6 +79,18 @@ describe('feedback session flow', () => {
     view.unmount(); renderFeedback()
     expect(screen.getByLabelText('session')).toHaveTextContent(sessionId ?? '')
   })
+
+  it('принимает длинный комментарий и показывает лимит 4000 символов', async () => {
+    const user = userEvent.setup(); renderFeedback(); await startCompletedSession(user)
+    await user.click(screen.getByRole('button', { name: /Полезная/ }))
+    const textarea = screen.getByRole('textbox', { name: /Комментарий/ })
+    expect(textarea).toHaveAttribute('maxlength', '4000')
+    const longComment = 'Подробная обратная связь. '.repeat(60)
+    expect(longComment.length).toBeGreaterThan(1000)
+    fireEvent.change(textarea, { target: { value: longComment } })
+    expect(textarea).toHaveValue(longComment)
+    expect(screen.getByText(`${longComment.length} / 4000`)).toBeInTheDocument()
+  })
 })
 
 function TestModeFixture() {
@@ -96,4 +110,3 @@ describe('Test Mode', () => {
     expect(screen.getByText('Обычный режим')).toBeInTheDocument()
   })
 })
-

@@ -1,5 +1,7 @@
 import type { SearchQuery } from './reference'
 
+export const FEEDBACK_COMMENT_MAX_LENGTH = 4000
+
 export const collectionRatings = ['useful', 'partially_useful', 'not_useful'] as const
 export const usableReferenceAnswers = ['yes', 'probably_yes', 'probably_no', 'no'] as const
 
@@ -53,4 +55,3 @@ export interface FeedbackSession {
   }
   events: FeedbackEvent[]
 }
-

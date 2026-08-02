@@ -8,6 +8,8 @@
     "build": "tsc -b && vite build",
     "generate:library": "node scripts/generate-library.mjs",
     "generate:previews": "node scripts/generate-library.mjs --previews-only",
+    "generate:hero-references": "node scripts/generate-hero-references.mjs",
+    "validate:hero-references": "node scripts/validate-hero-references.mjs",
     "validate:data": "node scripts/library-quality.mjs validate",
     "report:coverage": "node scripts/library-quality.mjs coverage",
     "check:duplicates": "node scripts/library-quality.mjs duplicates",
