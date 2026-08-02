@@ -14,7 +14,7 @@ function pngSize(file: string) {
   return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20), hash: crypto.createHash('sha256').update(bytes).digest('hex') }
 }
 
-describe('Sprint 6 Hero Reference stage gate', () => {
+describe('Sprint 7 Hero Reference integration gate', () => {
   it('содержит ровно восемь уникальных сценариев и полные source records', () => {
     expect(manifest).toHaveLength(8)
     expect(manifest.map(({ scenario }) => scenario).sort()).toEqual([...expectedScenarios].sort())
@@ -52,10 +52,9 @@ describe('Sprint 6 Hero Reference stage gate', () => {
 
   it('показывает восемь Hero и решения stage gate в отдельной gallery', () => {
     const gallery = fs.readFileSync(path.join(root, 'public', 'hero-reference-review.html'), 'utf8')
-    expect((gallery.match(/<article class="card"/g) ?? [])).toHaveLength(8)
     manifest.forEach(({ id, preview, sourceUrl }) => {
-      expect(gallery).toContain(`data-id="${id}"`)
-      expect(gallery).toContain(`hero-references/${preview}`)
+      expect(gallery).toContain(`id:'${id}'`)
+      expect(gallery).toContain(`preview:'${preview}'`)
       expect(gallery).toContain(sourceUrl)
     })
     expect(gallery).toContain("['APPROVE','REVISE','REJECT']")
@@ -63,12 +62,13 @@ describe('Sprint 6 Hero Reference stage gate', () => {
     expect(gallery).toContain('AWAITING REVIEW')
   })
 
-  it('не интегрирует Hero ID или preview в production library и ranking', () => {
-    const production = JSON.stringify(references)
-    expect(production).not.toContain('HERO-')
-    expect(production).not.toContain('hero-references')
-    const ranking = fs.readFileSync(path.join(root, 'src', 'services', 'rankReferences.ts'), 'utf8')
-    expect(ranking).not.toContain('HERO-')
+  it('интегрирует только шесть одобренных Hero под существующими reference ID', () => {
+    const productionHeroes = references.filter(({ qualityTier, productionApproved }) => qualityTier === 'hero' && productionApproved)
+    expect(productionHeroes).toHaveLength(6)
+    expect(new Set(productionHeroes.map(({ heroScenarioId }) => heroScenarioId))).toEqual(new Set(['sales', 'speech', 'project', 'report', 'training', 'budget_defense']))
+    expect(productionHeroes.every(({ previewPath }) => previewPath.endsWith('.png'))).toBe(true)
+    expect(manifest.find(({ scenario }) => scenario === 'meeting')).toMatchObject({ productionApproved: false, reviewStatus: 'REVISED — AWAITING PRODUCT OWNER REVIEW' })
+    expect(manifest.find(({ scenario }) => scenario === 'strategy')).toMatchObject({ productionApproved: false, reviewStatus: 'REVISED — AWAITING PRODUCT OWNER REVIEW' })
     expect(references).toHaveLength(100)
   })
 })

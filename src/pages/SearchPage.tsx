@@ -44,6 +44,7 @@ export function SearchPage({ references, query, setQuery }: SearchPageProps) {
         </div>
       </div>
       <ResultsGrid references={results} bestReferenceId={feedback.activeSession?.bestReferenceId} onSelectBest={feedback.selectBestReference} />
+      <div className="mt-6 flex justify-center"><button type="button" aria-pressed={feedback.activeSession?.noSuitableReference ?? false} onClick={feedback.selectNoSuitableReference} className={`inline-flex min-h-11 items-center justify-center rounded-xl border px-5 py-2.5 text-sm font-semibold transition ${feedback.activeSession?.noSuitableReference ? 'border-navy bg-navy text-white' : 'border-line bg-white text-muted hover:border-navy hover:text-navy'}`}>{feedback.activeSession?.noSuitableReference ? '✓ ' : ''}Нет подходящего варианта</button></div>
       <CollectionFeedback testMode={testMode} />
     </section>
   )

@@ -8,7 +8,7 @@
   "items": {
     "type": "object",
     "additionalProperties": false,
-    "required": ["id", "title", "summary", "sourceType", "sourceLabel", "sourceUrl", "sourceBacked", "sourceTitle", "sourceOrganization", "rightsStatus", "sourceNotes", "sourceAccessCheckedAt", "previewMode", "qualityTier", "previewPath", "scenarioIds", "personaIds", "goalIds", "styleIds", "contentTypeIds", "category", "tags", "useWhen", "avoidWhen", "designDna"],
+    "required": ["id", "title", "summary", "sourceType", "sourceLabel", "sourceUrl", "sourceBacked", "sourceTitle", "sourceOrganization", "rightsStatus", "sourceNotes", "sourceAccessCheckedAt", "previewMode", "qualityTier", "productionApproved", "heroScenarioId", "compositionFamily", "visualDirection", "referenceSchemaVersion", "previewPath", "scenarioIds", "personaIds", "goalIds", "styleIds", "contentTypeIds", "category", "tags", "useWhen", "avoidWhen", "designDna"],
     "properties": {
       "id": { "type": "string", "pattern": "^REF-[0-9]{6}$" },
       "title": { "type": "string", "minLength": 1 },
@@ -23,7 +23,12 @@
       "sourceNotes": { "type": ["string", "null"] },
       "sourceAccessCheckedAt": { "type": ["string", "null"], "format": "date" },
       "previewMode": { "enum": ["original_pip_interpretation", "licensed_original_preview"] },
-      "qualityTier": { "enum": ["gold", "standard"] },
+      "qualityTier": { "enum": ["hero", "gold", "standard", "prototype"] },
+      "productionApproved": { "type": "boolean" },
+      "heroScenarioId": { "type": ["string", "null"], "enum": ["sales", "speech", "project", "meeting", "report", "training", "strategy", "budget_defense", null] },
+      "compositionFamily": { "type": "string", "minLength": 1 },
+      "visualDirection": { "type": "string", "minLength": 1 },
+      "referenceSchemaVersion": { "type": "integer", "minimum": 2 },
       "previewPath": { "type": "string", "pattern": "^previews/REF-[0-9]{6}\\.(svg|png|webp)$" },
       "scenarioIds": { "$ref": "#/$defs/scenarioIds" },
       "personaIds": { "$ref": "#/$defs/personaIds" },

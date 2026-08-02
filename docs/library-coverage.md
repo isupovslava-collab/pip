@@ -11,7 +11,7 @@
 | `project` | 21 | 20 | PASS |
 | `meeting` | 18 | 18 | PASS |
 | `report` | 20 | 20 | PASS |
-| `training` | 17 | 16 | PASS |
+| `training` | 16 | 16 | PASS |
 | `strategy` | 18 | 18 | PASS |
 | `budget_defense` | 15 | 15 | PASS |
 
@@ -48,9 +48,9 @@
 | `executive` | 27 | 25 | PASS |
 | `corporate` | 38 | 35 | PASS |
 | `consulting` | 23 | 22 | PASS |
-| `modern` | 29 | 28 | PASS |
+| `modern` | 28 | 28 | PASS |
 | `industrial` | 17 | 15 | PASS |
-| `minimal` | 21 | 20 | PASS |
+| `minimal` | 20 | 20 | PASS |
 
 ## Типы контента — PASS
 
@@ -58,9 +58,9 @@
 |---|---:|---:|:---:|
 | `kpi` | 18 | 18 | PASS |
 | `comparison` | 21 | 20 | PASS |
-| `timeline` | 19 | 18 | PASS |
+| `timeline` | 20 | 18 | PASS |
 | `process` | 18 | 18 | PASS |
-| `dashboard` | 15 | 15 | PASS |
+| `dashboard` | 17 | 15 | PASS |
 | `cover` | 15 | 15 | PASS |
 | `story` | 24 | 20 | PASS |
 | `table` | 18 | 18 | PASS |

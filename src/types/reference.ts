@@ -11,7 +11,7 @@ export type StyleId = (typeof styleIds)[number]
 export type ContentTypeId = (typeof contentTypeIds)[number]
 export type RightsStatus = 'public-link-reference-only' | 'licensed-for-reuse' | 'public-domain' | 'cc-licensed' | 'unknown-link-only'
 export type PreviewMode = 'original_pip_interpretation' | 'licensed_original_preview'
-export type QualityTier = 'gold' | 'standard'
+export type QualityTier = 'hero' | 'gold' | 'standard' | 'prototype'
 
 export interface SearchQuery {
   scenarioId: ScenarioId
@@ -47,6 +47,11 @@ export interface Reference {
   sourceAccessCheckedAt: string | null
   previewMode: PreviewMode
   qualityTier: QualityTier
+  productionApproved: boolean
+  heroScenarioId: ScenarioId | null
+  compositionFamily: string
+  visualDirection: string
+  referenceSchemaVersion: number
   previewPath: string
   scenarioIds: ScenarioId[]
   personaIds: PersonaId[]
@@ -65,4 +70,5 @@ export type MatchKey = keyof SearchQuery
 export interface RankedReference extends Reference {
   score: number
   reasons: string[]
+  contentMatch: 'exact' | 'compatible' | 'semantic-fallback' | 'hard-fallback'
 }

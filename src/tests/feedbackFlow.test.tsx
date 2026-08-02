@@ -24,6 +24,7 @@ function FeedbackFixture() {
     <output aria-label="rating">{feedback.activeSession?.collectionRating ?? ''}</output>
     <output aria-label="reference-feedback">{feedback.activeSession?.referenceFeedback.length ?? 0}</output>
     <output aria-label="best">{feedback.activeSession?.bestReferenceId ?? ''}</output>
+    <output aria-label="no-suitable">{String(feedback.activeSession?.noSuitableReference ?? false)}</output>
     <output aria-label="events">{feedback.activeSession?.events.map(({ type }) => type).join(',') ?? ''}</output>
     <output aria-label="board">{board.ids.join(',')}</output>
     <button onClick={feedback.startSession}>start</button>
@@ -32,6 +33,7 @@ function FeedbackFixture() {
     <button onClick={() => feedback.submitReferenceFeedback({ referenceId: 'REF-000013', useful: false, issues: ['Слишком простой'], comment: '' })}>reference</button>
     <button onClick={() => feedback.selectBestReference('REF-000013')}>best-13</button>
     <button onClick={() => feedback.selectBestReference('REF-000014')}>best-14</button>
+    <button onClick={feedback.selectNoSuitableReference}>no-suitable</button>
     <button onClick={() => { board.add('REF-000015'); feedback.recordBoardAction('REF-000015', true) }}>board-add</button>
     <CollectionFeedback testMode />
   </>
@@ -63,6 +65,18 @@ describe('feedback session flow', () => {
     await user.click(screen.getByRole('button', { name: 'best-14' }))
     expect(screen.getByLabelText('best')).toHaveTextContent('REF-000014')
     expect(screen.getByLabelText('best')).not.toHaveTextContent('REF-000013')
+  })
+
+  it('делает Best Reference и «Нет подходящего варианта» взаимоисключающими', async () => {
+    const user = userEvent.setup(); renderFeedback(); await startCompletedSession(user)
+    await user.click(screen.getByRole('button', { name: 'best-13' }))
+    expect(screen.getByLabelText('no-suitable')).toHaveTextContent('false')
+    await user.click(screen.getByRole('button', { name: 'no-suitable' }))
+    expect(screen.getByLabelText('best')).toBeEmptyDOMElement()
+    expect(screen.getByLabelText('no-suitable')).toHaveTextContent('true')
+    await user.click(screen.getByRole('button', { name: 'best-14' }))
+    expect(screen.getByLabelText('best')).toHaveTextContent('REF-000014')
+    expect(screen.getByLabelText('no-suitable')).toHaveTextContent('false')
   })
 
   it('разделяет Best Reference и Inspiration Board', async () => {

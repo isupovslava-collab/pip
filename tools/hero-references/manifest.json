@@ -13,7 +13,10 @@
     "checkedAt": "2026-08-02",
     "studied": "Иерархия коммерческого тезиса: крупный эффект, доказательства экономики и ясный следующий шаг.",
     "createdByPip": "Новая сравнительная композиция трёх моделей, синтетические цены, эффекты и критерии выбора.",
-    "preview": "HERO-SALES-001.png"
+    "preview": "HERO-SALES-001.png",
+    "productionApproved": true,
+    "productionReferenceId": "REF-000013",
+    "reviewStatus": "IN PRODUCTION"
   },
   {
     "id": "HERO-SPEECH-001",
@@ -29,7 +32,10 @@
     "checkedAt": "2026-08-02",
     "studied": "Одна мысль на экране, сильная пауза и визуальный образ, который поддерживает речь.",
     "createdByPip": "Оригинальная метафора светового моста, новый тезис и самостоятельная keynote-композиция.",
-    "preview": "HERO-SPEECH-001.png"
+    "preview": "HERO-SPEECH-001.png",
+    "productionApproved": true,
+    "productionReferenceId": "REF-000016",
+    "reviewStatus": "IN PRODUCTION"
   },
   {
     "id": "HERO-PROJECT-001",
@@ -45,13 +51,16 @@
     "checkedAt": "2026-08-02",
     "studied": "Связь стратегической необходимости, экономики, реализуемости, рисков и запроса на решение.",
     "createdByPip": "Самостоятельный кейс Phoenix с новой сеткой, сроками и арифметически согласованными метриками.",
-    "preview": "HERO-PROJECT-001.png"
+    "preview": "HERO-PROJECT-001.png",
+    "productionApproved": true,
+    "productionReferenceId": "REF-000019",
+    "reviewStatus": "IN PRODUCTION"
   },
   {
     "id": "HERO-MEETING-001",
     "scenario": "meeting",
-    "title": "Decision room: единая модель запуска",
-    "designDirection": "industrial / technical",
+    "title": "Поэтапный запуск снижает риск миграции в 3 раза",
+    "designDirection": "industrial / technical v2",
     "sourceTitle": "DACI decision-making framework",
     "sourceOrganization": "Atlassian",
     "sourceUrl": "https://www.atlassian.com/team-playbook/plays/daci",
@@ -60,8 +69,11 @@
     "rightsUrl": null,
     "checkedAt": "2026-08-02",
     "studied": "Операционное представление решения через владельца, альтернативы, входные данные и срок фиксации.",
-    "createdByPip": "Новый decision-room с тремя вариантами, конкретными владельцами, сроками и открытыми вопросами.",
-    "preview": "HERO-MEETING-001.png"
+    "createdByPip": "Presentation-first decision slide v2 с доминирующим тезисом, альтернативами, спорными вопросами, владельцем, сроком и следующим шагом.",
+    "preview": "HERO-MEETING-001.png",
+    "productionApproved": false,
+    "productionReferenceId": null,
+    "reviewStatus": "REVISED — AWAITING PRODUCT OWNER REVIEW"
   },
   {
     "id": "HERO-REPORT-001",
@@ -77,7 +89,10 @@
     "checkedAt": "2026-08-02",
     "studied": "Управленческий ритм из ограниченного набора KPI, динамики и короткого объяснения драйверов.",
     "createdByPip": "Оригинальный executive report с синтетической выручкой, EBITDA, NPS и согласованным прогнозом.",
-    "preview": "HERO-REPORT-001.png"
+    "preview": "HERO-REPORT-001.png",
+    "productionApproved": true,
+    "productionReferenceId": "REF-000025",
+    "reviewStatus": "IN PRODUCTION"
   },
   {
     "id": "HERO-TRAINING-001",
@@ -93,13 +108,16 @@
     "checkedAt": "2026-08-02",
     "studied": "Прогрессия от знакомства с принципом к самостоятельному применению и наблюдаемому результату.",
     "createdByPip": "Новый рабочий маршрут из четырёх действий и оригинальная иллюстрация практики на рабочем месте.",
-    "preview": "HERO-TRAINING-001.png"
+    "preview": "HERO-TRAINING-001.png",
+    "productionApproved": true,
+    "productionReferenceId": "REF-000028",
+    "reviewStatus": "IN PRODUCTION"
   },
   {
     "id": "HERO-STRATEGY-001",
     "scenario": "strategy",
-    "title": "Четыре стратегические ставки 2026–2028",
-    "designDirection": "minimalist strategy",
+    "title": "Рост без удвоения сложности",
+    "designDirection": "executive strategy v2",
     "sourceTitle": "NASA Strategic Plan",
     "sourceOrganization": "NASA",
     "sourceUrl": "https://www.nasa.gov/ocfo/strategic-plan/",
@@ -108,8 +126,11 @@
     "rightsUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
     "checkedAt": "2026-08-02",
     "studied": "Иерархия от миссии и приоритетов к инициативам, горизонтам и измеримым результатам.",
-    "createdByPip": "Коммерческая стратегическая карта с новыми приоритетами, горизонтами и метриками без символики NASA.",
-    "preview": "HERO-STRATEGY-001.png"
+    "createdByPip": "Стратегическая композиция v2 с North Star, четырьмя ставками, горизонтами 2026–2028, инициативами и измеримыми outcomes.",
+    "preview": "HERO-STRATEGY-001.png",
+    "productionApproved": false,
+    "productionReferenceId": null,
+    "reviewStatus": "REVISED — AWAITING PRODUCT OWNER REVIEW"
   },
   {
     "id": "HERO-BUDGET-001",
@@ -125,7 +146,9 @@
     "checkedAt": "2026-08-02",
     "studied": "Прозрачное раскрытие базы, изменений, итоговой суммы, сценариев и допущений.",
     "createdByPip": "Новый budget-defense с согласованным waterfall, тремя сценариями, эффектом и рисками.",
-    "preview": "HERO-BUDGET-001.png"
+    "preview": "HERO-BUDGET-001.png",
+    "productionApproved": true,
+    "productionReferenceId": "REF-000034",
+    "reviewStatus": "IN PRODUCTION"
   }
 ]
-

@@ -59,7 +59,12 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "metric-story",
+    "visualDirection": "executive-dark",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000002",
@@ -120,7 +125,12 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "scenario-cards",
+    "visualDirection": "corporate-minimal",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000003",
@@ -181,7 +191,12 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "roadmap",
+    "visualDirection": "consulting-clean",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000004",
@@ -242,7 +257,12 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "decision-matrix",
+    "visualDirection": "consulting-analytical",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000005",
@@ -303,7 +323,12 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "trend-spotlight",
+    "visualDirection": "corporate-minimal",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000006",
@@ -317,7 +342,8 @@
       "training"
     ],
     "personaIds": [
-      "team"
+      "team",
+      "employees"
     ],
     "goalIds": [
       "teach",
@@ -364,7 +390,12 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "process-flow",
+    "visualDirection": "modern-saas",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000007",
@@ -425,7 +456,12 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "operating-model",
+    "visualDirection": "modern-vibrant",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000008",
@@ -488,7 +524,12 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "learning-journey",
+    "visualDirection": "industrial-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000009",
@@ -549,7 +590,12 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "narrative",
+    "visualDirection": "minimalist-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000010",
@@ -611,7 +657,12 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "milestone-path",
+    "visualDirection": "executive-dark",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000011",
@@ -675,7 +726,12 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "scenario-cards",
+    "visualDirection": "consulting-story",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000012",
@@ -740,31 +796,34 @@
     "sourceNotes": null,
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard"
+    "qualityTier": "standard",
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "keynote-cover",
+    "visualDirection": "corporate-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000013",
-    "title": "Коммерческое предложение: выбор формата сотрудничества",
-    "summary": "Реалистичная сравнительная таблица ведёт клиента к обоснованному выбору формата. Визуальная логика раскрывает три формата сотрудничества сопоставлены по результату, сроку, вовлечению и стоимости и ведёт аудиторию к следующему решению.",
+    "title": "Коммерческое предложение: рекомендуемая модель сотрудничества",
+    "summary": "Три модели сотрудничества сопоставлены по стоимости, скорости эффекта и вовлечению команды. Рекомендуемый вариант выделен через экономику решения, ожидаемый результат и конкретный следующий шаг.",
     "sourceType": "investor-presentation",
     "sourceLabel": "Открытый первоисточник + оригинальная интерпретация PIP",
-    "sourceUrl": "https://investor.salesforce.com/events-and-presentations/events/event-details/2022/Salesforce-Investor-Day-2022/default.aspx",
+    "sourceUrl": "https://ir.hubspot.com/static-files/7f47c817-fa7f-4462-a4f3-43515fd0c863",
     "sourceBacked": true,
-    "sourceTitle": "Salesforce Investor Day 2022",
-    "sourceOrganization": "Salesforce",
+    "sourceTitle": "HubSpot Investor Presentation",
+    "sourceOrganization": "HubSpot",
     "rightsStatus": "public-link-reference-only",
-    "sourceNotes": "Публичная investor-презентация показывает, как сравнение вариантов подчиняется одному коммерческому выбору и ясной рекомендации.",
-    "sourceAccessCheckedAt": "2026-07-26",
+    "sourceNotes": "Изучена иерархия коммерческого тезиса: крупный эффект, доказательства экономики и ясный следующий шаг; данные и композиция PIP созданы заново.",
+    "sourceAccessCheckedAt": "2026-08-02",
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "gold",
-    "previewPath": "previews/REF-000013.svg",
+    "qualityTier": "hero",
+    "previewPath": "previews/REF-000013.png",
     "scenarioIds": [
-      "sales",
-      "speech"
+      "sales"
     ],
     "personaIds": [
-      "client",
-      "employees"
+      "client"
     ],
     "goalIds": [
       "approve"
@@ -774,34 +833,39 @@
       "modern"
     ],
     "contentTypeIds": [
-      "comparison",
-      "kpi"
+      "comparison"
     ],
-    "category": "Сравнение вариантов",
+    "category": "Коммерческое сравнение",
     "tags": [
       "продажа",
       "сравнение вариантов",
-      "три формата сотрудничества сопоставлены по результату, сроку, вовлечению и стоимости"
+      "рекомендуемое решение",
+      "экономический эффект"
     ],
     "useWhen": [
-      "Нужно получить одобрение для заказчика и вывести главный вывод на первый план.",
-      "Материал требует композиции «сравнительная логика с выделенным рекомендуемым пакетом и решающими критериями.».",
-      "Факты и показатели готовы к обсуждению в сценарии «Продажа»."
+      "Нужен законченный high-fidelity слайд для сценария «sales».",
+      "Требуется ясный управленческий вывод, реалистичный контент и следующий шаг.",
+      "Смысловые параметры запроса совпадают с назначением композиции."
     ],
     "avoidWhen": [
-      "Решение ещё нельзя подкрепить проверенными фактами или согласованными допущениями.",
-      "Аудитории нужен подробный рабочий документ вместо самостоятельного презентационного слайда."
+      "Тип контента не совпадает и не является совместимым fallback.",
+      "Красивый визуал не должен заменять более точное смысловое решение."
     ],
     "designDna": {
-      "minimalism": 59,
-      "corporate": 60,
-      "executive": 79,
-      "modern": 96,
-      "whitespace": 58,
-      "dataDensity": 56,
-      "formality": 55,
-      "visualComplexity": 63
-    }
+      "minimalism": 72,
+      "corporate": 78,
+      "executive": 86,
+      "modern": 91,
+      "whitespace": 70,
+      "dataDensity": 68,
+      "formality": 78,
+      "visualComplexity": 74
+    },
+    "productionApproved": true,
+    "heroScenarioId": "sales",
+    "compositionFamily": "premium-option-comparison",
+    "visualDirection": "premium-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000014",
@@ -865,7 +929,12 @@
       "dataDensity": 69,
       "formality": 81,
       "visualComplexity": 72
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "trend-spotlight",
+    "visualDirection": "boardroom-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000015",
@@ -928,12 +997,17 @@
       "dataDensity": 68,
       "formality": 50,
       "visualComplexity": 60
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "narrative",
+    "visualDirection": "modern-saas",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000016",
-    "title": "Перемены начинаются с каждого",
-    "summary": "Эмоциональный storyline делает роль каждого сотрудника частью общего изменения. Визуальная логика раскрывает личный вклад сотрудников связан с общей целью и тремя этапами движения и ведёт аудиторию к следующему решению.",
+    "title": "Перемены: переход к будущему",
+    "summary": "Один сильный keynote-тезис превращает изменение в понятный переход от привычного состояния к новой возможности. Оригинальная световая метафора поддерживает выступление и оставляет пространство для голоса спикера.",
     "sourceType": "presentation-guidance",
     "sourceLabel": "Открытый первоисточник + оригинальная интерпретация PIP",
     "sourceUrl": "https://www.ted.com/participate/organize-a-local-tedx-event/tedx-organizer-guide/speakers-program/prepare-your-speaker/create-prepare-slides",
@@ -941,56 +1015,58 @@
     "sourceTitle": "Create + prepare slides",
     "sourceOrganization": "TED",
     "rightsStatus": "public-link-reference-only",
-    "sourceNotes": "Рекомендации TED помогают строить слайд вокруг одной понятной идеи и поддерживать речь визуальным ритмом.",
-    "sourceAccessCheckedAt": "2026-07-26",
+    "sourceNotes": "Изучен принцип одной идеи на экране, эмоциональной паузы и визуального образа, поддерживающего речь; текст и метафора созданы PIP.",
+    "sourceAccessCheckedAt": "2026-08-02",
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "gold",
-    "previewPath": "previews/REF-000016.svg",
+    "qualityTier": "hero",
+    "previewPath": "previews/REF-000016.png",
     "scenarioIds": [
-      "speech",
-      "sales"
+      "speech"
     ],
     "personaIds": [
-      "employees",
-      "client"
+      "employees"
     ],
     "goalIds": [
       "inspire"
     ],
     "styleIds": [
-      "modern",
-      "minimal"
+      "modern"
     ],
     "contentTypeIds": [
       "story",
-      "kpi"
+      "cover"
     ],
-    "category": "История изменений",
+    "category": "Keynote о переменах",
     "tags": [
       "выступление",
-      "история и аргументация",
       "история изменений",
-      "личный вклад сотрудников связан с общей целью и тремя этапами движения"
+      "эмоциональная метафора",
+      "keynote"
     ],
     "useWhen": [
-      "Нужно вовлечь и вдохновить для работников и вывести главный вывод на первый план.",
-      "Материал требует композиции «один сильный тезис, эмоциональная пауза и минимальное количество поддерживающего текста.».",
-      "Факты и показатели готовы к обсуждению в сценарии «Выступление»."
+      "Нужен законченный high-fidelity слайд для сценария «speech».",
+      "Требуется ясный управленческий вывод, реалистичный контент и следующий шаг.",
+      "Смысловые параметры запроса совпадают с назначением композиции."
     ],
     "avoidWhen": [
-      "Решение ещё нельзя подкрепить проверенными фактами или согласованными допущениями.",
-      "Аудитории нужен подробный рабочий документ вместо самостоятельного презентационного слайда."
+      "Тип контента не совпадает и не является совместимым fallback.",
+      "Красивый визуал не должен заменять более точное смысловое решение."
     ],
     "designDna": {
-      "minimalism": 84,
-      "corporate": 70,
-      "executive": 53,
-      "modern": 96,
-      "whitespace": 86,
-      "dataDensity": 67,
-      "formality": 52,
-      "visualComplexity": 65
-    }
+      "minimalism": 94,
+      "corporate": 45,
+      "executive": 68,
+      "modern": 92,
+      "whitespace": 91,
+      "dataDensity": 12,
+      "formality": 54,
+      "visualComplexity": 76
+    },
+    "productionApproved": true,
+    "heroScenarioId": "speech",
+    "compositionFamily": "keynote-metaphor",
+    "visualDirection": "bold-keynote",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000017",
@@ -1052,7 +1128,12 @@
       "dataDensity": 25,
       "formality": 64,
       "visualComplexity": 29
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "statement-slide",
+    "visualDirection": "minimalist-keynote",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000018",
@@ -1072,7 +1153,8 @@
     "previewPath": "previews/REF-000018.svg",
     "scenarioIds": [
       "speech",
-      "training"
+      "training",
+      "sales"
     ],
     "personaIds": [
       "client",
@@ -1115,68 +1197,76 @@
       "dataDensity": 60,
       "formality": 80,
       "visualComplexity": 79
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "narrative",
+    "visualDirection": "corporate-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000019",
-    "title": "Выбор проекта: эффект, риски, реализуемость",
-    "summary": "Матрица решения даёт правлению прозрачное основание для одобрения проекта. Визуальная логика раскрывает три проектных варианта оценены по взвешенным критериям и ведёт аудиторию к следующему решению.",
+    "title": "Business case проекта Phoenix",
+    "summary": "Business case связывает инвестицию 48 млн ₽, годовой эффект 41 млн ₽, окупаемость 14 месяцев и ключевые риски запуска. Слайд объясняет, почему проект нужен сейчас, и формулирует точный запрос на одобрение.",
     "sourceType": "government-guidance",
     "sourceLabel": "Открытый первоисточник + оригинальная интерпретация PIP",
     "sourceUrl": "https://www.gov.uk/government/publications/guidance-on-developing-business-cases",
     "sourceBacked": true,
     "sourceTitle": "Guidance on developing business cases",
     "sourceOrganization": "HM Treasury",
-    "rightsStatus": "licensed-for-reuse",
-    "sourceNotes": "Five Case Model задаёт проверяемую структуру обоснования проекта: стратегический эффект, варианты, реализуемость и риски.",
-    "sourceAccessCheckedAt": "2026-07-26",
+    "rightsStatus": "public-link-reference-only",
+    "sourceNotes": "Изучена связь стратегической необходимости, экономики, реализуемости, рисков и запроса на решение; кейс Phoenix и все показатели оригинальны.",
+    "sourceAccessCheckedAt": "2026-08-02",
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "gold",
-    "previewPath": "previews/REF-000019.svg",
+    "qualityTier": "hero",
+    "previewPath": "previews/REF-000019.png",
     "scenarioIds": [
-      "project",
-      "training"
+      "project"
     ],
     "personaIds": [
-      "board",
-      "employees"
+      "board"
     ],
     "goalIds": [
       "approve"
     ],
     "styleIds": [
-      "executive",
-      "modern"
+      "executive"
     ],
     "contentTypeIds": [
       "comparison",
-      "cover"
+      "kpi"
     ],
-    "category": "Сравнение вариантов",
+    "category": "Business case проекта",
     "tags": [
       "защита проекта",
-      "сравнение вариантов",
-      "три проектных варианта оценены по взвешенным критериям"
+      "business case",
+      "инвестиция и эффект",
+      "риски реализации"
     ],
     "useWhen": [
-      "Нужно получить одобрение для правления и вывести главный вывод на первый план.",
-      "Материал требует композиции «взвешенная матрица решения и видимая связь критериев с рекомендацией.».",
-      "Факты и показатели готовы к обсуждению в сценарии «Защита проекта»."
+      "Нужен законченный high-fidelity слайд для сценария «project».",
+      "Требуется ясный управленческий вывод, реалистичный контент и следующий шаг.",
+      "Смысловые параметры запроса совпадают с назначением композиции."
     ],
     "avoidWhen": [
-      "Решение ещё нельзя подкрепить проверенными фактами или согласованными допущениями.",
-      "Аудитории нужен подробный рабочий документ вместо самостоятельного презентационного слайда."
+      "Тип контента не совпадает и не является совместимым fallback.",
+      "Красивый визуал не должен заменять более точное смысловое решение."
     ],
     "designDna": {
-      "minimalism": 69,
-      "corporate": 61,
-      "executive": 85,
-      "modern": 96,
-      "whitespace": 70,
-      "dataDensity": 23,
-      "formality": 82,
-      "visualComplexity": 39
-    }
+      "minimalism": 68,
+      "corporate": 82,
+      "executive": 93,
+      "modern": 86,
+      "whitespace": 64,
+      "dataDensity": 72,
+      "formality": 84,
+      "visualComplexity": 69
+    },
+    "productionApproved": true,
+    "heroScenarioId": "project",
+    "compositionFamily": "business-case",
+    "visualDirection": "modern-saas",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000020",
@@ -1238,7 +1328,12 @@
       "dataDensity": 17,
       "formality": 84,
       "visualComplexity": 76
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "learning-journey",
+    "visualDirection": "industrial-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000021",
@@ -1300,7 +1395,12 @@
       "dataDensity": 78,
       "formality": 63,
       "visualComplexity": 81
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "roadmap",
+    "visualDirection": "consulting-clean",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000022",
@@ -1360,7 +1460,12 @@
       "dataDensity": 77,
       "formality": 46,
       "visualComplexity": 67
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "operating-model",
+    "visualDirection": "modern-vibrant",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000023",
@@ -1418,7 +1523,12 @@
       "dataDensity": 95,
       "formality": 81,
       "visualComplexity": 72
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "control-room",
+    "visualDirection": "corporate-minimal",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000024",
@@ -1476,12 +1586,17 @@
       "dataDensity": 89,
       "formality": 83,
       "visualComplexity": 66
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "structured-table",
+    "visualDirection": "technical-light",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000025",
-    "title": "Итоги квартала: рост при сохранении маржи",
-    "summary": "KPI-слайд содержит правдоподобные метрики, динамику и объяснение результата. Визуальная логика раскрывает выручка, маржа, удержание и динамика квартала связаны с управленческим выводом и ведёт аудиторию к следующему решению.",
+    "title": "Итоги Q2: рост восстановлен",
+    "summary": "Executive report объединяет четыре KPI, план 480 млн ₽, факт 462 млн ₽, прогноз 495 млн ₽ и объяснение отклонения. Управленческий вывод связывает восстановление роста с конкретными драйверами следующего квартала.",
     "sourceType": "annual-report",
     "sourceLabel": "Открытый первоисточник + оригинальная интерпретация PIP",
     "sourceUrl": "https://www.worldbank.org/en/about/annual-report-2024",
@@ -1489,11 +1604,11 @@
     "sourceTitle": "Annual Report 2024",
     "sourceOrganization": "World Bank",
     "rightsStatus": "public-link-reference-only",
-    "sourceNotes": "Годовой отчёт демонстрирует управленческий ритм: ключевые показатели, динамика и короткий вывод о результате периода.",
-    "sourceAccessCheckedAt": "2026-07-26",
+    "sourceNotes": "Изучен управленческий ритм из ограниченного набора KPI, динамики и короткого объяснения драйверов; показатели относятся к синтетической компании PIP.",
+    "sourceAccessCheckedAt": "2026-08-02",
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "gold",
-    "previewPath": "previews/REF-000025.svg",
+    "qualityTier": "hero",
+    "previewPath": "previews/REF-000025.png",
     "scenarioIds": [
       "report"
     ],
@@ -1508,34 +1623,39 @@
     ],
     "contentTypeIds": [
       "kpi",
-      "cover"
+      "dashboard"
     ],
-    "category": "Итоги периода",
+    "category": "Executive-отчёт периода",
     "tags": [
       "отчёт",
-      "kpi и ключевые цифры",
-      "итоги периода",
-      "выручка, маржа, удержание и динамика квартала связаны с управленческим выводом"
+      "kpi и динамика",
+      "план факт прогноз",
+      "управленческий вывод"
     ],
     "useWhen": [
-      "Нужно объяснить результаты для руководителей подразделений и вывести главный вывод на первый план.",
-      "Материал требует композиции «kpi-экран с ограниченным набором метрик, временным рядом и объяснением драйвера.».",
-      "Факты и показатели готовы к обсуждению в сценарии «Отчёт»."
+      "Нужен законченный high-fidelity слайд для сценария «report».",
+      "Требуется ясный управленческий вывод, реалистичный контент и следующий шаг.",
+      "Смысловые параметры запроса совпадают с назначением композиции."
     ],
     "avoidWhen": [
-      "Решение ещё нельзя подкрепить проверенными фактами или согласованными допущениями.",
-      "Аудитории нужен подробный рабочий документ вместо самостоятельного презентационного слайда."
+      "Тип контента не совпадает и не является совместимым fallback.",
+      "Красивый визуал не должен заменять более точное смысловое решение."
     ],
     "designDna": {
-      "minimalism": 60,
-      "corporate": 89,
-      "executive": 60,
-      "modern": 50,
-      "whitespace": 63,
-      "dataDensity": 26,
-      "formality": 95,
-      "visualComplexity": 24
-    }
+      "minimalism": 66,
+      "corporate": 91,
+      "executive": 94,
+      "modern": 74,
+      "whitespace": 61,
+      "dataDensity": 82,
+      "formality": 88,
+      "visualComplexity": 77
+    },
+    "productionApproved": true,
+    "heroScenarioId": "report",
+    "compositionFamily": "executive-performance",
+    "visualDirection": "executive-finance",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000026",
@@ -1594,7 +1714,12 @@
       "dataDensity": 87,
       "formality": 96,
       "visualComplexity": 74
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "control-room",
+    "visualDirection": "boardroom-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000027",
@@ -1653,24 +1778,29 @@
       "dataDensity": 81,
       "formality": 80,
       "visualComplexity": 40
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "structured-table",
+    "visualDirection": "technical-light",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000028",
-    "title": "Новый стандарт работы: пять шагов",
-    "summary": "Обучающий процесс показывает содержание шагов и проверяемый результат. Визуальная логика раскрывает каждый шаг содержит действие, инструмент и критерий правильного выполнения и ведёт аудиторию к следующему решению.",
+    "title": "30-дневный маршрут применения навыка",
+    "summary": "Маршрут переводит обучение из знания в рабочую практику за четыре последовательных этапа. Для каждого этапа показаны действие, тренировка, проверка и наблюдаемый результат на рабочем месте.",
     "sourceType": "learning-resource",
     "sourceLabel": "Открытый первоисточник + оригинальная интерпретация PIP",
     "sourceUrl": "https://www.open.edu/openlearn/pathway",
     "sourceBacked": true,
     "sourceTitle": "Pathways to Success",
     "sourceOrganization": "The Open University / OpenLearn",
-    "rightsStatus": "cc-licensed",
-    "sourceNotes": "Учебный путь показывает понятную прогрессию от знакомства с темой к самостоятельному применению.",
-    "sourceAccessCheckedAt": "2026-07-26",
+    "rightsStatus": "public-link-reference-only",
+    "sourceNotes": "Изучена прогрессия от знакомства с принципом к самостоятельному применению и наблюдаемому результату; учебный маршрут и иллюстрация созданы PIP.",
+    "sourceAccessCheckedAt": "2026-08-02",
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "gold",
-    "previewPath": "previews/REF-000028.svg",
+    "qualityTier": "hero",
+    "previewPath": "previews/REF-000028.png",
     "scenarioIds": [
       "training"
     ],
@@ -1684,34 +1814,40 @@
       "modern"
     ],
     "contentTypeIds": [
-      "process"
+      "process",
+      "timeline"
     ],
-    "category": "Процессы и алгоритмы",
+    "category": "Маршрут обучения",
     "tags": [
       "обучение",
-      "процесс или алгоритм",
-      "процессы и алгоритмы",
-      "каждый шаг содержит действие, инструмент и критерий правильного выполнения"
+      "учебный маршрут",
+      "практика на рабочем месте",
+      "проверяемый результат"
     ],
     "useWhen": [
-      "Нужно научить для работников и вывести главный вывод на первый план.",
-      "Материал требует композиции «пошаговый учебный маршрут с действием, инструментом и критерием освоения.».",
-      "Факты и показатели готовы к обсуждению в сценарии «Обучение»."
+      "Нужен законченный high-fidelity слайд для сценария «training».",
+      "Требуется ясный управленческий вывод, реалистичный контент и следующий шаг.",
+      "Смысловые параметры запроса совпадают с назначением композиции."
     ],
     "avoidWhen": [
-      "Решение ещё нельзя подкрепить проверенными фактами или согласованными допущениями.",
-      "Аудитории нужен подробный рабочий документ вместо самостоятельного презентационного слайда."
+      "Тип контента не совпадает и не является совместимым fallback.",
+      "Красивый визуал не должен заменять более точное смысловое решение."
     ],
     "designDna": {
-      "minimalism": 65,
-      "corporate": 53,
-      "executive": 56,
-      "modern": 84,
+      "minimalism": 70,
+      "corporate": 48,
+      "executive": 42,
+      "modern": 90,
       "whitespace": 69,
-      "dataDensity": 54,
-      "formality": 59,
-      "visualComplexity": 71
-    }
+      "dataDensity": 58,
+      "formality": 46,
+      "visualComplexity": 81
+    },
+    "productionApproved": true,
+    "heroScenarioId": "training",
+    "compositionFamily": "illustrated-learning-journey",
+    "visualDirection": "illustrated-learning",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000029",
@@ -1733,7 +1869,8 @@
       "training"
     ],
     "personaIds": [
-      "team"
+      "team",
+      "employees"
     ],
     "goalIds": [
       "teach"
@@ -1769,7 +1906,12 @@
       "dataDensity": 53,
       "formality": 94,
       "visualComplexity": 59
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "phase-plan",
+    "visualDirection": "corporate-minimal",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000030",
@@ -1827,7 +1969,12 @@
       "dataDensity": 66,
       "formality": 54,
       "visualComplexity": 51
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "narrative",
+    "visualDirection": "minimalist-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000031",
@@ -1885,7 +2032,12 @@
       "dataDensity": 65,
       "formality": 56,
       "visualComplexity": 56
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "milestone-path",
+    "visualDirection": "consulting-analytical",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000032",
@@ -1943,7 +2095,12 @@
       "dataDensity": 64,
       "formality": 91,
       "visualComplexity": 61
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "phase-plan",
+    "visualDirection": "boardroom-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000033",
@@ -2000,24 +2157,29 @@
       "dataDensity": 63,
       "formality": 93,
       "visualComplexity": 66
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "option-comparison",
+    "visualDirection": "corporate-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000034",
-    "title": "Бюджет программы: статьи, эффект, контроль",
-    "summary": "Полноценная бюджетная таблица поддерживает решение финансового руководителя. Визуальная логика раскрывает бюджет по статьям показывает сумму, изменение, эффект и владельца контроля и ведёт аудиторию к следующему решению.",
+    "title": "Бюджет 2027: инвестиционный прирост и эффект",
+    "summary": "Waterfall объясняет переход от базы 120 млн ₽ к бюджету 142 млн ₽ и показывает структуру прироста 22 млн ₽. Три сценария, эффект 38 млн ₽, ROI 73%, риски и запрос на решение образуют единый бюджетный тезис.",
     "sourceType": "budget-report",
     "sourceLabel": "Открытый первоисточник + оригинальная интерпретация PIP",
     "sourceUrl": "https://www.gov.uk/government/publications/supporting-documents-for-budget-2025",
     "sourceBacked": true,
     "sourceTitle": "Supporting documents for Budget 2025",
     "sourceOrganization": "HM Treasury",
-    "rightsStatus": "licensed-for-reuse",
-    "sourceNotes": "Бюджетные документы показывают дисциплину раскрытия базы, изменений, итогов и допущений.",
-    "sourceAccessCheckedAt": "2026-07-26",
+    "rightsStatus": "public-link-reference-only",
+    "sourceNotes": "Изучено прозрачное раскрытие базы, изменений, итоговой суммы, сценариев и допущений; бюджетная модель и графическое решение полностью новые.",
+    "sourceAccessCheckedAt": "2026-08-02",
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "gold",
-    "previewPath": "previews/REF-000034.svg",
+    "qualityTier": "hero",
+    "previewPath": "previews/REF-000034.png",
     "scenarioIds": [
       "budget_defense"
     ],
@@ -2031,34 +2193,40 @@
       "executive"
     ],
     "contentTypeIds": [
-      "table"
+      "table",
+      "dashboard"
     ],
-    "category": "Таблицы и матрицы",
+    "category": "Защита бюджета",
     "tags": [
       "защита бюджета",
-      "табличные данные",
-      "таблицы и матрицы",
-      "бюджет по статьям показывает сумму, изменение, эффект и владельца контроля"
+      "финансовый waterfall",
+      "сценарии и эффект",
+      "решение об инвестиции"
     ],
     "useWhen": [
-      "Нужно получить одобрение для финансового руководителя и вывести главный вывод на первый план.",
-      "Материал требует композиции «бюджетная таблица с арифметически согласованными статьями и видимым итогом инвестиции.».",
-      "Факты и показатели готовы к обсуждению в сценарии «Защита бюджета»."
+      "Нужен законченный high-fidelity слайд для сценария «budget_defense».",
+      "Требуется ясный управленческий вывод, реалистичный контент и следующий шаг.",
+      "Смысловые параметры запроса совпадают с назначением композиции."
     ],
     "avoidWhen": [
-      "Решение ещё нельзя подкрепить проверенными фактами или согласованными допущениями.",
-      "Аудитории нужен подробный рабочий документ вместо самостоятельного презентационного слайда."
+      "Тип контента не совпадает и не является совместимым fallback.",
+      "Красивый визуал не должен заменять более точное смысловое решение."
     ],
     "designDna": {
-      "minimalism": 40,
-      "corporate": 54,
-      "executive": 84,
-      "modern": 53,
-      "whitespace": 62,
-      "dataDensity": 83,
-      "formality": 86,
-      "visualComplexity": 58
-    }
+      "minimalism": 62,
+      "corporate": 86,
+      "executive": 96,
+      "modern": 70,
+      "whitespace": 58,
+      "dataDensity": 88,
+      "formality": 91,
+      "visualComplexity": 75
+    },
+    "productionApproved": true,
+    "heroScenarioId": "budget_defense",
+    "compositionFamily": "financial-waterfall",
+    "visualDirection": "consulting-finance",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000035",
@@ -2116,7 +2284,12 @@
       "dataDensity": 56,
       "formality": 88,
       "visualComplexity": 63
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "scenario-cards",
+    "visualDirection": "corporate-minimal",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000036",
@@ -2173,7 +2346,12 @@
       "dataDensity": 55,
       "formality": 57,
       "visualComplexity": 68
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "kpi-scorecard",
+    "visualDirection": "consulting-clean",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000037",
@@ -2238,7 +2416,12 @@
       "dataDensity": 32,
       "formality": 73,
       "visualComplexity": 32
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "editorial-opener",
+    "visualDirection": "minimalist-data",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000038",
@@ -2301,7 +2484,12 @@
       "dataDensity": 93,
       "formality": 85,
       "visualComplexity": 82
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "trend-spotlight",
+    "visualDirection": "boardroom-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000039",
@@ -2365,7 +2553,12 @@
       "dataDensity": 92,
       "formality": 87,
       "visualComplexity": 68
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "executive-dashboard",
+    "visualDirection": "corporate-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000040",
@@ -2429,7 +2622,12 @@
       "dataDensity": 86,
       "formality": 80,
       "visualComplexity": 62
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "decision-matrix",
+    "visualDirection": "consulting-analytical",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000041",
@@ -2493,7 +2691,12 @@
       "dataDensity": 85,
       "formality": 82,
       "visualComplexity": 67
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "financial-waterfall",
+    "visualDirection": "corporate-minimal",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000042",
@@ -2557,7 +2760,12 @@
       "dataDensity": 58,
       "formality": 51,
       "visualComplexity": 53
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "roadmap",
+    "visualDirection": "consulting-clean",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000043",
@@ -2621,7 +2829,12 @@
       "dataDensity": 57,
       "formality": 86,
       "visualComplexity": 75
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "operating-model",
+    "visualDirection": "modern-vibrant",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000044",
@@ -2687,7 +2900,12 @@
       "dataDensity": 51,
       "formality": 79,
       "visualComplexity": 67
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "learning-journey",
+    "visualDirection": "industrial-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000045",
@@ -2751,7 +2969,12 @@
       "dataDensity": 33,
       "formality": 48,
       "visualComplexity": 27
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "narrative",
+    "visualDirection": "modern-saas",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000046",
@@ -2816,7 +3039,12 @@
       "dataDensity": 68,
       "formality": 50,
       "visualComplexity": 60
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "argument-arc",
+    "visualDirection": "consulting-analytical",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000047",
@@ -2882,7 +3110,12 @@
       "dataDensity": 26,
       "formality": 85,
       "visualComplexity": 24
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "statement-slide",
+    "visualDirection": "modern-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000048",
@@ -2946,7 +3179,12 @@
       "dataDensity": 87,
       "formality": 96,
       "visualComplexity": 57
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "structured-table",
+    "visualDirection": "executive-light",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000049",
@@ -3012,7 +3250,12 @@
       "dataDensity": 60,
       "formality": 80,
       "visualComplexity": 79
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "milestone-path",
+    "visualDirection": "corporate-data",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000050",
@@ -3077,7 +3320,12 @@
       "dataDensity": 80,
       "formality": 92,
       "visualComplexity": 71
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "trend-spotlight",
+    "visualDirection": "corporate-minimal",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000051",
@@ -3141,7 +3389,12 @@
       "dataDensity": 53,
       "formality": 61,
       "visualComplexity": 76
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "process-flow",
+    "visualDirection": "modern-saas",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000052",
@@ -3205,7 +3458,12 @@
       "dataDensity": 78,
       "formality": 96,
       "visualComplexity": 81
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "milestone-path",
+    "visualDirection": "consulting-analytical",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000053",
@@ -3270,7 +3528,12 @@
       "dataDensity": 51,
       "formality": 79,
       "visualComplexity": 50
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "trend-spotlight",
+    "visualDirection": "boardroom-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000054",
@@ -3337,7 +3600,12 @@
       "dataDensity": 90,
       "formality": 91,
       "visualComplexity": 78
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "process-flow",
+    "visualDirection": "technical-light",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000055",
@@ -3401,7 +3669,12 @@
       "dataDensity": 63,
       "formality": 60,
       "visualComplexity": 66
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "decision-matrix",
+    "visualDirection": "modern-vibrant",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000056",
@@ -3466,7 +3739,12 @@
       "dataDensity": 88,
       "formality": 95,
       "visualComplexity": 52
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "case-study",
+    "visualDirection": "consulting-story",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000057",
@@ -3527,7 +3805,12 @@
       "dataDensity": 20,
       "formality": 78,
       "visualComplexity": 35
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "keynote-cover",
+    "visualDirection": "minimalist-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000058",
@@ -3586,7 +3869,12 @@
       "dataDensity": 55,
       "formality": 90,
       "visualComplexity": 68
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "metric-story",
+    "visualDirection": "executive-dark",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000059",
@@ -3619,7 +3907,8 @@
       "corporate"
     ],
     "contentTypeIds": [
-      "dashboard"
+      "dashboard",
+      "kpi"
     ],
     "category": "Управленческие dashboards",
     "tags": [
@@ -3646,7 +3935,12 @@
       "dataDensity": 80,
       "formality": 92,
       "visualComplexity": 71
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "control-room",
+    "visualDirection": "corporate-minimal",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000060",
@@ -3668,7 +3962,8 @@
       "sales"
     ],
     "personaIds": [
-      "ceo"
+      "ceo",
+      "client"
     ],
     "goalIds": [
       "approve",
@@ -3704,7 +3999,12 @@
       "dataDensity": 67,
       "formality": 52,
       "visualComplexity": 65
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "option-comparison",
+    "visualDirection": "consulting-clean",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000061",
@@ -3764,7 +4064,12 @@
       "dataDensity": 92,
       "formality": 87,
       "visualComplexity": 51
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "decision-register",
+    "visualDirection": "corporate-data",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000062",
@@ -3823,7 +4128,12 @@
       "dataDensity": 65,
       "formality": 56,
       "visualComplexity": 56
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "phase-plan",
+    "visualDirection": "consulting-story",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000063",
@@ -3882,7 +4192,12 @@
       "dataDensity": 59,
       "formality": 49,
       "visualComplexity": 84
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "process-flow",
+    "visualDirection": "modern-saas",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000064",
@@ -3942,7 +4257,12 @@
       "dataDensity": 58,
       "formality": 74,
       "visualComplexity": 70
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "operating-model",
+    "visualDirection": "technical-dark",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000065",
@@ -4001,7 +4321,12 @@
       "dataDensity": 57,
       "formality": 53,
       "visualComplexity": 58
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "case-study",
+    "visualDirection": "modern-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000066",
@@ -4061,7 +4386,12 @@
       "dataDensity": 56,
       "formality": 55,
       "visualComplexity": 63
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "narrative",
+    "visualDirection": "consulting-clean",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000067",
@@ -4122,7 +4452,12 @@
       "dataDensity": 33,
       "formality": 71,
       "visualComplexity": 27
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "editorial-opener",
+    "visualDirection": "modern-vibrant",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000068",
@@ -4181,7 +4516,12 @@
       "dataDensity": 94,
       "formality": 83,
       "visualComplexity": 60
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "financial-waterfall",
+    "visualDirection": "boardroom-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000069",
@@ -4241,7 +4581,12 @@
       "dataDensity": 67,
       "formality": 85,
       "visualComplexity": 65
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "roadmap",
+    "visualDirection": "corporate-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000070",
@@ -4300,7 +4645,12 @@
       "dataDensity": 61,
       "formality": 96,
       "visualComplexity": 57
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "metric-story",
+    "visualDirection": "corporate-data",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000071",
@@ -4359,7 +4709,12 @@
       "dataDensity": 60,
       "formality": 47,
       "visualComplexity": 79
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "learning-journey",
+    "visualDirection": "modern-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000072",
@@ -4419,7 +4774,12 @@
       "dataDensity": 59,
       "formality": 49,
       "visualComplexity": 67
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "roadmap",
+    "visualDirection": "consulting-clean",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000073",
@@ -4479,7 +4839,12 @@
       "dataDensity": 53,
       "formality": 94,
       "visualComplexity": 59
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "metric-story",
+    "visualDirection": "executive-dark",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000074",
@@ -4540,7 +4905,12 @@
       "dataDensity": 52,
       "formality": 96,
       "visualComplexity": 81
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "learning-journey",
+    "visualDirection": "industrial-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000075",
@@ -4600,7 +4970,12 @@
       "dataDensity": 51,
       "formality": 46,
       "visualComplexity": 50
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "option-comparison",
+    "visualDirection": "modern-saas",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000076",
@@ -4619,7 +4994,8 @@
     "qualityTier": "standard",
     "previewPath": "previews/REF-000076.svg",
     "scenarioIds": [
-      "meeting"
+      "meeting",
+      "speech"
     ],
     "personaIds": [
       "team",
@@ -4660,7 +5036,12 @@
       "dataDensity": 69,
       "formality": 48,
       "visualComplexity": 55
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "argument-arc",
+    "visualDirection": "consulting-analytical",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000077",
@@ -4693,7 +5074,8 @@
       "industrial"
     ],
     "contentTypeIds": [
-      "story"
+      "story",
+      "cover"
     ],
     "category": "Титульные и имиджевые слайды",
     "tags": [
@@ -4720,7 +5102,12 @@
       "dataDensity": 63,
       "formality": 83,
       "visualComplexity": 66
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "case-study",
+    "visualDirection": "modern-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000078",
@@ -4780,7 +5167,12 @@
       "dataDensity": 88,
       "formality": 95,
       "visualComplexity": 69
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "executive-dashboard",
+    "visualDirection": "corporate-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000079",
@@ -4840,7 +5232,12 @@
       "dataDensity": 61,
       "formality": 96,
       "visualComplexity": 57
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "metric-story",
+    "visualDirection": "executive-dark",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000080",
@@ -4901,7 +5298,12 @@
       "dataDensity": 81,
       "formality": 90,
       "visualComplexity": 68
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "financial-waterfall",
+    "visualDirection": "corporate-minimal",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000081",
@@ -4961,7 +5363,12 @@
       "dataDensity": 54,
       "formality": 59,
       "visualComplexity": 54
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "option-comparison",
+    "visualDirection": "consulting-clean",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000082",
@@ -5021,7 +5428,12 @@
       "dataDensity": 53,
       "formality": 61,
       "visualComplexity": 59
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "argument-arc",
+    "visualDirection": "modern-vibrant",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000083",
@@ -5080,7 +5492,12 @@
       "dataDensity": 66,
       "formality": 87,
       "visualComplexity": 51
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "phase-plan",
+    "visualDirection": "corporate-minimal",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000084",
@@ -5140,7 +5557,12 @@
       "dataDensity": 65,
       "formality": 89,
       "visualComplexity": 56
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "narrative",
+    "visualDirection": "corporate-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000085",
@@ -5200,7 +5622,12 @@
       "dataDensity": 28,
       "formality": 58,
       "visualComplexity": 33
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "editorial-opener",
+    "visualDirection": "minimalist-data",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000086",
@@ -5260,7 +5687,12 @@
       "dataDensity": 63,
       "formality": 60,
       "visualComplexity": 66
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "scenario-cards",
+    "visualDirection": "modern-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000087",
@@ -5321,7 +5753,12 @@
       "dataDensity": 57,
       "formality": 76,
       "visualComplexity": 58
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "narrative",
+    "visualDirection": "minimalist-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000088",
@@ -5381,7 +5818,12 @@
       "dataDensity": 56,
       "formality": 78,
       "visualComplexity": 63
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "decision-matrix",
+    "visualDirection": "technical-dark",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000089",
@@ -5441,7 +5883,12 @@
       "dataDensity": 55,
       "formality": 90,
       "visualComplexity": 85
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "learning-journey",
+    "visualDirection": "boardroom-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000090",
@@ -5501,7 +5948,12 @@
       "dataDensity": 94,
       "formality": 83,
       "visualComplexity": 77
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "executive-dashboard",
+    "visualDirection": "executive-light",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000091",
@@ -5561,7 +6013,12 @@
       "dataDensity": 67,
       "formality": 52,
       "visualComplexity": 65
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "milestone-path",
+    "visualDirection": "minimalist-data",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000092",
@@ -5621,7 +6078,12 @@
       "dataDensity": 92,
       "formality": 87,
       "visualComplexity": 68
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "control-room",
+    "visualDirection": "boardroom-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000093",
@@ -5681,7 +6143,12 @@
       "dataDensity": 60,
       "formality": 80,
       "visualComplexity": 62
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "option-comparison",
+    "visualDirection": "corporate-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000094",
@@ -5741,7 +6208,12 @@
       "dataDensity": 85,
       "formality": 82,
       "visualComplexity": 67
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "decision-register",
+    "visualDirection": "corporate-data",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000095",
@@ -5801,7 +6273,12 @@
       "dataDensity": 58,
       "formality": 51,
       "visualComplexity": 53
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "case-study",
+    "visualDirection": "minimalist-keynote",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000096",
@@ -5861,7 +6338,12 @@
       "dataDensity": 83,
       "formality": 86,
       "visualComplexity": 58
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "structured-table",
+    "visualDirection": "executive-light",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000097",
@@ -5927,7 +6409,12 @@
       "dataDensity": 15,
       "formality": 79,
       "visualComplexity": 22
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "editorial-opener",
+    "visualDirection": "minimalist-data",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000098",
@@ -5991,7 +6478,12 @@
       "dataDensity": 95,
       "formality": 81,
       "visualComplexity": 72
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "trend-spotlight",
+    "visualDirection": "boardroom-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000099",
@@ -6056,7 +6548,12 @@
       "dataDensity": 94,
       "formality": 83,
       "visualComplexity": 77
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "executive-dashboard",
+    "visualDirection": "corporate-editorial",
+    "referenceSchemaVersion": 2
   },
   {
     "id": "REF-000100",
@@ -6121,6 +6618,11 @@
       "dataDensity": 88,
       "formality": 95,
       "visualComplexity": 52
-    }
+    },
+    "productionApproved": true,
+    "heroScenarioId": null,
+    "compositionFamily": "decision-matrix",
+    "visualDirection": "consulting-analytical",
+    "referenceSchemaVersion": 2
   }
 ]

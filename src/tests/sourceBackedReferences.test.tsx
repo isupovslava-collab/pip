@@ -18,14 +18,14 @@ describe('Source-backed Gold References', () => {
   it('содержит 24 полные и юридически безопасные source records', () => {
     expect(sourceBacked).toHaveLength(24)
     sourceBacked.forEach((reference) => {
-      expect(reference.qualityTier).toBe('gold')
+      expect(['hero', 'gold']).toContain(reference.qualityTier)
       expect(reference.previewMode).toBe('original_pip_interpretation')
       expect(reference.sourceUrl).toMatch(/^https:\/\//)
       expect(reference.sourceTitle?.length).toBeGreaterThan(4)
       expect(reference.sourceOrganization?.length).toBeGreaterThan(2)
       expect(reference.sourceNotes?.length).toBeGreaterThan(80)
       expect(reference.rightsStatus).toMatch(/^(public-link-reference-only|licensed-for-reuse|public-domain|cc-licensed|unknown-link-only)$/)
-      expect(reference.sourceAccessCheckedAt).toBe('2026-07-26')
+      expect(reference.sourceAccessCheckedAt).toMatch(/^2026-0[78]-\d{2}$/)
     })
   })
 
@@ -33,7 +33,8 @@ describe('Source-backed Gold References', () => {
     goldReferences.forEach((mapping) => {
       const query = controlQueries.find(({ id }) => id === mapping.queryId)
       const reference = references.find(({ id }) => id === mapping.referenceId)
-      expect(mapping).toMatchObject({ sourceBacked: true, qualityTier: 'gold', previewMode: 'original_pip_interpretation' })
+      expect(mapping).toMatchObject({ sourceBacked: true, previewMode: 'original_pip_interpretation' })
+      expect(['hero', 'gold']).toContain(mapping.qualityTier)
       expect(mapping.sourceUrl).toBe(reference?.sourceUrl)
       expect(reference?.sourceBacked).toBe(true)
       expect(query && rankReferences(references, query)[0].id).toBe(mapping.referenceId)
@@ -62,4 +63,3 @@ describe('Source-backed Gold References', () => {
     expect(screen.getByText(/Preview создан PIP/)).toBeInTheDocument()
   })
 })
-

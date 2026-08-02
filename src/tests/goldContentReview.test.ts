@@ -6,10 +6,16 @@ function preview(id: number) {
   return fs.readFileSync(path.resolve('public', 'previews', `REF-${String(id).padStart(6, '0')}.svg`), 'utf8')
 }
 
+function heroSource(folder: string) {
+  return fs.readFileSync(path.resolve('tools', 'hero-references', folder, 'index.html'), 'utf8')
+}
+
 describe('арифметика и содержательность Gold previews', () => {
   it('согласует итог квартальной выручки с четырьмя кварталами', () => {
-    expect(94 + 111 + 128 + 153).toBe(486)
-    expect(preview(25)).toContain('486 млн ₽')
+    expect(-23 + 9 - 4).toBe(-18)
+    expect(462 / 480).toBeCloseTo(0.9625)
+    expect(heroSource('report')).toContain('462')
+    expect(heroSource('report')).toContain('495')
   })
 
   it('согласует cash flow с операционным, инвестиционным и финансовым потоками', () => {
@@ -24,9 +30,10 @@ describe('арифметика и содержательность Gold previews
   })
 
   it('согласует статьи бюджета и эффекта', () => {
-    expect(8.4 + 14.8 + 5.6 + 2.1 + 3.4).toBeCloseTo(34.3)
-    expect(12.1 + 18.6 + 7.4 + 3.8 + 10.8).toBeCloseTo(52.7)
-    expect(preview(34)).toContain('52,7')
+    expect(120 + 18 + 12 + 9 - 17).toBe(142)
+    expect((38 - 22) / 22).toBeCloseTo(0.727)
+    expect(heroSource('budget-defense')).toContain('142')
+    expect(heroSource('budget-defense')).toContain('73%')
   })
 
   it('согласует мост NPV инвестиционного тезиса', () => {
@@ -34,4 +41,3 @@ describe('арифметика и содержательность Gold previews
     expect(preview(36)).toContain('12,6 млн ₽')
   })
 })
-

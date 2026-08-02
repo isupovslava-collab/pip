@@ -22,6 +22,7 @@ for (const hero of manifest) {
   if (!existsSync(previewPath)) { failures.push(`Missing preview ${previewPath}.`); continue }
   if (!allowedRights.has(hero.rightsStatus)) failures.push(`Invalid rightsStatus for ${hero.id}.`)
   if (!hero.sourceUrl || !hero.sourceOrganization || !hero.studied || !hero.createdByPip) failures.push(`Incomplete source record for ${hero.id}.`)
+  if (typeof hero.productionApproved !== 'boolean' || !hero.reviewStatus) failures.push(`Missing Sprint 7 approval metadata for ${hero.id}.`)
   const png = readFileSync(previewPath)
   if (png.toString('ascii', 1, 4) !== 'PNG') failures.push(`${hero.preview} is not PNG.`)
   const width = png.readUInt32BE(16)
@@ -33,11 +34,19 @@ for (const hero of manifest) {
 if (hashes.size !== 8) failures.push(`Expected 8 unique image hashes, found ${hashes.size}.`)
 const gallery = readFileSync(join(root, 'public', 'hero-reference-review.html'), 'utf8')
 for (const hero of manifest) if (!gallery.includes(hero.preview) || !gallery.includes(hero.scenario)) failures.push(`Gallery is missing ${hero.id}.`)
-const productionData = readFileSync(join(root, 'public', 'data', 'references.json'), 'utf8')
-if (productionData.includes('HERO-')) failures.push('Hero References must not be present in production reference data.')
+const productionData = JSON.parse(readFileSync(join(root, 'public', 'data', 'references.json'), 'utf8'))
+const productionHeroes = productionData.filter((reference) => reference.qualityTier === 'hero' && reference.productionApproved)
+if (productionHeroes.length !== 6) failures.push(`Expected 6 production Hero records, found ${productionHeroes.length}.`)
+for (const hero of manifest.filter(({ productionApproved }) => productionApproved)) {
+  const production = productionData.find(({ id }) => id === hero.productionReferenceId)
+  if (!production || production.heroScenarioId !== hero.scenario || !production.previewPath.endsWith('.png')) failures.push(`Production mapping is invalid for ${hero.id}.`)
+}
+for (const hero of manifest.filter(({ productionApproved }) => !productionApproved)) {
+  if (productionData.some(({ heroScenarioId }) => heroScenarioId === hero.scenario)) failures.push(`${hero.scenario} must remain outside production ranking.`)
+}
 
 if (failures.length) {
   for (const failure of failures) console.error(`hero validation: FAIL — ${failure}`)
   process.exit(1)
 }
-console.log('hero validation: PASS (8 sources, 8 unique 16:9 PNG previews, gallery complete, production ranking isolated).')
+console.log('hero validation: PASS (6 approved production Heroes; Meeting/Strategy revised and isolated; 8 unique 16:9 PNG previews).')

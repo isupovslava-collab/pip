@@ -32,8 +32,8 @@ export function TestFeedbackPage() {
       <div className="mt-6 flex flex-wrap gap-3"><button type="button" className="btn-primary" onClick={() => downloadText(`pip-feedback-${date}.json`, exportFeedbackJson(sessions), 'application/json;charset=utf-8')}>Скачать JSON</button><button type="button" className="btn-secondary" onClick={() => downloadText(`pip-feedback-${date}.csv`, exportFeedbackCsv(sessions), 'text/csv;charset=utf-8')}>Скачать CSV</button><button type="button" className="btn-ghost text-red-700" onClick={reset}>Удалить данные тестирования</button></div>
     </div>
 
-    <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {[['Total Sessions', summary.totalSessions], ['Completed Sessions', summary.completedSessions], ['Средняя оценка', summary.averageRating === null ? '—' : `${summary.averageRating.toFixed(1)} / 2`], ['Board additions', summary.boardAdditions.reduce((sum, [, count]) => sum + count, 0)]].map(([label, value]) => <article key={label} className="surface p-5"><p className="text-sm font-semibold text-muted">{label}</p><p className="mt-2 text-3xl font-bold text-navy">{value}</p></article>)}
+    <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+      {[['Total Sessions', summary.totalSessions], ['Completed Sessions', summary.completedSessions], ['Средняя оценка', summary.averageRating === null ? '—' : `${summary.averageRating.toFixed(1)} / 2`], ['Board additions', summary.boardAdditions.reduce((sum, [, count]) => sum + count, 0)], ['Нет подходящего', `${summary.noSuitableCount} · ${Math.round(summary.noSuitableShare * 100)}%`]].map(([label, value]) => <article key={label} className="surface p-5"><p className="text-sm font-semibold text-muted">{label}</p><p className="mt-2 text-3xl font-bold text-navy">{value}</p></article>)}
     </div>
 
     <div className="mt-6 grid gap-5 lg:grid-cols-2">
@@ -46,4 +46,3 @@ export function TestFeedbackPage() {
     </div>
   </section>
 }
-

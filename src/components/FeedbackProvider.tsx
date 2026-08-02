@@ -45,7 +45,8 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       const completed = { ...session, query, results: results.slice(0, 6).map(({ id, score }, index) => ({ referenceId: id, rank: index + 1, score })) }
       return appendEvent(appendEvent(completed, 'wizard_completed'), 'results_viewed')
     }),
-    selectBestReference: (referenceId) => updateActive((session) => appendEvent({ ...session, bestReferenceId: referenceId }, 'best_reference_selected', referenceId)),
+    selectBestReference: (referenceId) => updateActive((session) => appendEvent({ ...session, bestReferenceId: referenceId, noSuitableReference: false }, 'best_reference_selected', referenceId)),
+    selectNoSuitableReference: () => updateActive((session) => appendEvent({ ...session, bestReferenceId: null, noSuitableReference: true }, 'no_suitable_reference_selected')),
     submitCollectionFeedback: (collectionRating, collectionIssues, collectionComment, usableReferenceFound) => updateActive((session) => appendEvent({
       ...session, collectionRating, collectionIssues, collectionComment, usableReferenceFound, completedAt: new Date().toISOString(),
     }, 'collection_feedback_submitted')),
@@ -72,4 +73,3 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
 
   return <FeedbackContext.Provider value={value}>{children}</FeedbackContext.Provider>
 }
-

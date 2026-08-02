@@ -7,10 +7,14 @@ function frequencies(values: string[]) {
 
 export function summarizeFeedback(sessions: FeedbackSession[]) {
   const rated = sessions.filter(({ collectionRating }) => collectionRating)
+  const completed = sessions.filter(({ completedAt }) => completedAt)
+  const noSuitableCount = sessions.filter(({ noSuitableReference }) => noSuitableReference).length
   const ratingValues = { useful: 2, partially_useful: 1, not_useful: 0 }
   return {
     totalSessions: sessions.length,
-    completedSessions: sessions.filter(({ completedAt }) => completedAt).length,
+    completedSessions: completed.length,
+    noSuitableCount,
+    noSuitableShare: completed.length ? noSuitableCount / completed.length : 0,
     averageRating: rated.length ? rated.reduce((sum, session) => sum + ratingValues[session.collectionRating!], 0) / rated.length : null,
     ratings: {
       useful: sessions.filter(({ collectionRating }) => collectionRating === 'useful').length,
@@ -29,4 +33,3 @@ export function summarizeFeedback(sessions: FeedbackSession[]) {
     openedReferences: frequencies(sessions.flatMap(({ events }) => events.filter(({ type }) => type === 'reference_opened').flatMap(({ referenceId }) => referenceId ? [referenceId] : []))),
   }
 }
-

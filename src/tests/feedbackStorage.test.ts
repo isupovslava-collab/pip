@@ -32,8 +32,10 @@ describe('локальное хранение и экспорт feedback', () =>
 
   it('создаёт корректный JSON export', () => {
     const session = createFeedbackSession('2026-08-01T00:00:00.000Z', 'PIP-TEST-00000002')
+    session.noSuitableReference = true
     const exported = exportFeedbackJson([session])
     expect(JSON.parse(exported)).toEqual([session])
+    expect(JSON.parse(exported)[0].noSuitableReference).toBe(true)
     expect(exported.endsWith('\n')).toBe(true)
   })
 
@@ -45,6 +47,7 @@ describe('локальное хранение и экспорт feedback', () =>
     const csv = exportFeedbackCsv([session])
     expect(csv.startsWith('\uFEFFsessionId,')).toBe(true)
     expect(csv).toContain('result6Id,result6Score')
+    expect(csv).toContain('bestReferenceId,noSuitableReference')
     expect(csv).toContain('REF-000018,75')
     expect(csv.trim().split('\r\n')).toHaveLength(2)
   })
@@ -73,6 +76,18 @@ describe('локальное хранение и экспорт feedback', () =>
     clearFeedbackData()
     expect(localStorage.getItem(FEEDBACK_STORAGE_KEY)).toBeNull()
     expect(localStorage.getItem(BOARD_STORAGE_KEY)).toBe(JSON.stringify(['REF-000013']))
+  })
+
+  it('мигрирует старые sessions без очистки localStorage', () => {
+    const legacy = createFeedbackSession('2026-08-01T00:00:00.000Z', 'PIP-TEST-LEGACY01') as Partial<ReturnType<typeof createFeedbackSession>>
+    delete legacy.feedbackSchemaVersion
+    delete legacy.noSuitableReference
+    localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify([legacy]))
+    const restored = readFeedbackSessions()[0]
+    expect(restored.sessionId).toBe('PIP-TEST-LEGACY01')
+    expect(restored.feedbackSchemaVersion).toBe(2)
+    expect(restored.noSuitableReference).toBe(false)
+    expect(localStorage.getItem(FEEDBACK_STORAGE_KEY)).not.toBeNull()
   })
 
   it('не создаёт полей персональных данных', () => {

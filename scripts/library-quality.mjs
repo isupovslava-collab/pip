@@ -33,8 +33,8 @@ function validateData() {
   if (JSON.stringify(actualIds) !== JSON.stringify(expectedIds)) errors.push('Reference IDs must be continuous and ordered from REF-000001 to REF-000100.')
   if (new Set(actualIds).size !== actualIds.length) errors.push('Reference IDs must be unique.')
 
-  const requiredStrings = ['id', 'title', 'summary', 'previewPath', 'category', 'sourceType', 'sourceLabel', 'previewMode', 'qualityTier']
-  const expectedFields = ['id', 'title', 'summary', 'sourceType', 'sourceLabel', 'sourceUrl', 'sourceBacked', 'sourceTitle', 'sourceOrganization', 'rightsStatus', 'sourceNotes', 'sourceAccessCheckedAt', 'previewMode', 'qualityTier', 'previewPath', 'scenarioIds', 'personaIds', 'goalIds', 'styleIds', 'contentTypeIds', 'category', 'tags', 'useWhen', 'avoidWhen', 'designDna'].sort()
+  const requiredStrings = ['id', 'title', 'summary', 'previewPath', 'category', 'sourceType', 'sourceLabel', 'previewMode', 'qualityTier', 'compositionFamily', 'visualDirection']
+  const expectedFields = ['id', 'title', 'summary', 'sourceType', 'sourceLabel', 'sourceUrl', 'sourceBacked', 'sourceTitle', 'sourceOrganization', 'rightsStatus', 'sourceNotes', 'sourceAccessCheckedAt', 'previewMode', 'qualityTier', 'productionApproved', 'heroScenarioId', 'compositionFamily', 'visualDirection', 'referenceSchemaVersion', 'previewPath', 'scenarioIds', 'personaIds', 'goalIds', 'styleIds', 'contentTypeIds', 'category', 'tags', 'useWhen', 'avoidWhen', 'designDna'].sort()
   const arrayRules = {
     scenarioIds: [taxonomy.scenarios, 1, Number.POSITIVE_INFINITY],
     personaIds: [taxonomy.personas, 1, Number.POSITIVE_INFINITY],
@@ -52,8 +52,10 @@ function validateData() {
       if (typeof reference[field] !== 'string' || reference[field].trim() === '') errors.push(`${prefix}: ${field} must be a non-empty string.`)
     })
     if (typeof reference.sourceBacked !== 'boolean') errors.push(`${prefix}: sourceBacked must be boolean.`)
+    if (reference.productionApproved !== true) errors.push(`${prefix}: production library records must be approved.`)
+    if (reference.referenceSchemaVersion !== 2) errors.push(`${prefix}: referenceSchemaVersion must be 2.`)
     if (!previewModes.includes(reference.previewMode)) errors.push(`${prefix}: invalid previewMode.`)
-    if (!['gold', 'standard'].includes(reference.qualityTier)) errors.push(`${prefix}: invalid qualityTier.`)
+    if (!['hero', 'gold', 'standard', 'prototype'].includes(reference.qualityTier)) errors.push(`${prefix}: invalid qualityTier.`)
     if (!new RegExp(`^previews/${reference.id}\\.(svg|png|webp)$`).test(reference.previewPath)) errors.push(`${prefix}: previewPath does not match its ID.`)
     if (reference.sourceBacked) {
       for (const field of ['sourceTitle', 'sourceOrganization', 'sourceUrl', 'rightsStatus', 'sourceNotes', 'sourceAccessCheckedAt']) {
@@ -61,12 +63,12 @@ function validateData() {
       }
       if (!rightsStatuses.includes(reference.rightsStatus)) errors.push(`${prefix}: invalid rightsStatus.`)
       if (!/^https:\/\//.test(reference.sourceUrl ?? '')) errors.push(`${prefix}: sourceUrl must be HTTPS.`)
-      if (reference.qualityTier !== 'gold') errors.push(`${prefix}: source-backed reference must use the gold tier.`)
+      if (!['hero', 'gold'].includes(reference.qualityTier)) errors.push(`${prefix}: source-backed reference must use the hero or gold tier.`)
       if (reference.previewMode !== 'original_pip_interpretation') errors.push(`${prefix}: unlicensed source must use an original PIP interpretation.`)
     } else {
       if (reference.sourceType !== 'synthetic') errors.push(`${prefix}: standard sourceType must be synthetic.`)
       if (reference.sourceUrl !== null || reference.sourceTitle !== null || reference.sourceOrganization !== null || reference.rightsStatus !== null || reference.sourceNotes !== null || reference.sourceAccessCheckedAt !== null) errors.push(`${prefix}: standard source metadata must be null.`)
-      if (reference.qualityTier !== 'standard') errors.push(`${prefix}: non-source-backed reference must use the standard tier.`)
+      if (!['standard', 'prototype'].includes(reference.qualityTier)) errors.push(`${prefix}: non-source-backed reference must use the standard or prototype tier.`)
     }
 
     Object.entries(arrayRules).forEach(([field, [allowed, minimum, maximum]]) => {
@@ -104,6 +106,9 @@ function validateData() {
   if (JSON.stringify(previewFiles) !== JSON.stringify(expectedFiles)) errors.push('public/previews must contain exactly the 100 files declared in metadata.')
   const sourceBacked = references.filter((reference) => reference.sourceBacked)
   if (sourceBacked.length !== 24) errors.push(`Expected 24 source-backed references, received ${sourceBacked.length}.`)
+  const heroes = references.filter((reference) => reference.qualityTier === 'hero')
+  if (heroes.length !== 6) errors.push(`Expected 6 production Hero references, received ${heroes.length}.`)
+  if (new Set(heroes.map(({ heroScenarioId }) => heroScenarioId)).size !== 6) errors.push('Production Hero references must map to six unique scenarios.')
   uniqueThemeCategories().forEach((category) => {
     const count = references.filter((reference) => reference.category === category).length
     if (count < 2) errors.push(`The thematic group “${category}” must contain at least two references.`)

@@ -31,7 +31,7 @@ export function ReferencePage({ references, query }: ReferencePageProps) {
             {score !== undefined && <span className="absolute right-3 top-3 max-w-[calc(100%-1.5rem)] rounded-lg bg-amber px-3 py-1.5 text-sm font-bold text-navy shadow-sm sm:right-4 sm:top-4 sm:rounded-xl sm:px-4 sm:py-2 sm:text-lg">{score}% <span className="text-xs font-medium sm:text-sm">соответствия</span></span>}
           </div>
           <div className="flex min-w-0 flex-col justify-center p-6 sm:p-8 lg:p-9">
-            {reference.sourceBacked && <div className="mb-4 flex flex-wrap gap-2"><span className="rounded-full bg-amber-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-amber-800">Gold Reference</span><span className="rounded-full bg-sky-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-sky-800">Source-backed</span></div>}
+            {reference.sourceBacked && <div className="mb-4 flex flex-wrap gap-2"><span className="rounded-full bg-amber-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-amber-800">{reference.qualityTier === 'hero' ? 'Hero Reference' : 'Gold Reference'}</span><span className="rounded-full bg-sky-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-sky-800">Source-backed</span></div>}
             <p className="eyebrow">{reference.category}</p>
             <h1 className="mt-3 break-words text-3xl font-bold leading-tight tracking-tight text-navy sm:text-4xl">{reference.title}</h1>
             <p className="mt-4 text-base leading-7 text-muted">{reference.summary}</p>
@@ -59,6 +59,7 @@ export function ReferencePage({ references, query }: ReferencePageProps) {
             <a href={reference.sourceUrl} target="_blank" rel="noreferrer" className="btn-primary shrink-0">Открыть первоисточник<Icon name="arrow-right" className="h-4 w-4" /></a>
           </div>
           <p className="mt-5 border-t border-line pt-4 text-sm leading-6 text-muted">Preview создан PIP на основе композиционного принципа открытого источника. Текст, данные и визуальное решение оригинальны; внешний слайд не хранится в библиотеке.</p>
+          <p className="mt-2 text-xs font-medium text-muted">Правовой статус: {reference.rightsStatus}</p>
           {reference.sourceNotes && <p className="mt-3 text-sm leading-6 text-muted">{reference.sourceNotes}</p>}
         </section>
       ) : <p className="mt-5 px-1 text-sm text-muted">Источник: {reference.sourceLabel}</p>}

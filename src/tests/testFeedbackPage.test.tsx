@@ -17,6 +17,12 @@ describe('служебный экран feedback', () => {
     expect(anchorClick).toHaveBeenCalledTimes(2)
   })
 
+  it('показывает метрику отсутствия подходящего результата', () => {
+    render(<TestFeedbackPage />)
+    expect(screen.getByText('Нет подходящего')).toBeInTheDocument()
+    expect(screen.getByText('0 · 0%')).toBeInTheDocument()
+  })
+
   it('запрашивает подтверждение перед reset', () => {
     const confirm = vi.spyOn(window, 'confirm').mockReturnValue(false)
     render(<TestFeedbackPage />)

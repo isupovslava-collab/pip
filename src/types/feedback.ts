@@ -15,6 +15,7 @@ export type FeedbackEventType =
   | 'reference_added_to_board'
   | 'reference_removed_from_board'
   | 'best_reference_selected'
+  | 'no_suitable_reference_selected'
   | 'collection_feedback_submitted'
   | 'reference_feedback_submitted'
 
@@ -38,12 +39,14 @@ export interface FeedbackEvent {
 }
 
 export interface FeedbackSession {
+  feedbackSchemaVersion: number
   sessionId: string
   createdAt: string
   completedAt: string | null
   query: SearchQuery | null
   results: FeedbackResult[]
   bestReferenceId: string | null
+  noSuitableReference: boolean
   collectionRating: CollectionRating | null
   collectionIssues: string[]
   collectionComment: string

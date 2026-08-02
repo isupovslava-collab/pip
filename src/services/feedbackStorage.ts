@@ -6,7 +6,7 @@ export const ACTIVE_SESSION_STORAGE_KEY = 'pipFeedbackActiveSessionId'
 const CSV_HEADERS = [
   'sessionId', 'createdAt', 'scenario', 'persona', 'goal', 'style', 'contentType',
   ...Array.from({ length: 6 }, (_, index) => [`result${index + 1}Id`, `result${index + 1}Score`]).flat(),
-  'bestReferenceId', 'collectionRating', 'usableReferenceFound', 'collectionIssues', 'collectionComment',
+  'bestReferenceId', 'noSuitableReference', 'collectionRating', 'usableReferenceFound', 'collectionIssues', 'collectionComment',
   'boardAddedCount', 'referencePositiveCount', 'referenceNegativeCount',
 ]
 
@@ -16,12 +16,14 @@ export function createSessionId(randomValues: Uint8Array = crypto.getRandomValue
 
 export function createFeedbackSession(now = new Date().toISOString(), sessionId = createSessionId()): FeedbackSession {
   return {
+    feedbackSchemaVersion: 2,
     sessionId,
     createdAt: now,
     completedAt: null,
     query: null,
     results: [],
     bestReferenceId: null,
+    noSuitableReference: false,
     collectionRating: null,
     collectionIssues: [],
     collectionComment: '',
@@ -38,7 +40,11 @@ export function readFeedbackSessions(storage: Storage = localStorage): FeedbackS
     if (!Array.isArray(parsed)) throw new Error('Feedback data must be an array.')
     return parsed.filter((session): session is FeedbackSession => Boolean(
       session && typeof session === 'object' && typeof (session as FeedbackSession).sessionId === 'string',
-    ))
+    )).map((session) => ({
+      ...session,
+      feedbackSchemaVersion: session.feedbackSchemaVersion ?? 2,
+      noSuitableReference: session.noSuitableReference ?? false,
+    }))
   } catch {
     storage.removeItem(FEEDBACK_STORAGE_KEY)
     storage.removeItem(ACTIVE_SESSION_STORAGE_KEY)
@@ -74,6 +80,7 @@ export function exportFeedbackCsv(sessions: FeedbackSession[]): string {
       session.query?.contentTypeId,
       ...resultCells,
       session.bestReferenceId,
+      session.noSuitableReference,
       session.collectionRating,
       session.usableReferenceFound,
       session.collectionIssues.join(' | '),
@@ -90,4 +97,3 @@ export function clearFeedbackData(storage: Storage = localStorage): void {
   storage.removeItem(FEEDBACK_STORAGE_KEY)
   storage.removeItem(ACTIVE_SESSION_STORAGE_KEY)
 }
-

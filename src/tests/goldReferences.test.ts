@@ -33,17 +33,25 @@ describe('Gold Reference Set', () => {
     })
   })
 
-  it('использует содержательные и визуально уникальные SVG-превью', () => {
+  it('использует содержательные и визуально уникальные SVG/PNG-превью', () => {
     const hashes = new Set<string>()
     goldReferences.forEach(({ referenceId }) => {
-      const previewPath = path.resolve('public', 'previews', `${referenceId}.svg`)
+      const reference = references.find(({ id }) => id === referenceId)!
+      const previewPath = path.resolve('public', reference.previewPath)
       expect(fs.existsSync(previewPath)).toBe(true)
-      const svg = fs.readFileSync(previewPath, 'utf8')
-      hashes.add(createHash('sha256').update(svg).digest('hex'))
-      expect(svg).toContain('data-gold="true"')
-      expect(svg).toMatch(/data-layout="gold-\d{2}"/)
-      expect(svg.length).toBeGreaterThan(2400)
-      expect((svg.match(/<text/g) ?? []).length).toBeGreaterThanOrEqual(10)
+      const preview = fs.readFileSync(previewPath)
+      hashes.add(createHash('sha256').update(preview).digest('hex'))
+      if (reference.previewPath.endsWith('.svg')) {
+        const svg = preview.toString('utf8')
+        expect(svg).toContain('data-gold="true"')
+        expect(svg).toMatch(/data-layout="gold-\d{2}"/)
+        expect(svg.length).toBeGreaterThan(2400)
+        expect((svg.match(/<text/g) ?? []).length).toBeGreaterThanOrEqual(10)
+      } else {
+        expect(preview.toString('ascii', 1, 4)).toBe('PNG')
+        expect(preview.readUInt32BE(16)).toBe(1600)
+        expect(preview.readUInt32BE(20)).toBe(900)
+      }
     })
     expect(hashes.size).toBe(24)
   })
@@ -65,7 +73,7 @@ describe('Gold Reference Set', () => {
       expect(query).toBeDefined()
       if (!query) return
       const ranked = rankReferences(references, query)
-      expect(ranked[0]).toMatchObject({ id: referenceId, score: 100 })
+      expect(ranked.slice(0, 3).some(({ id, score }) => id === referenceId && score === 100)).toBe(true)
       expect(ranked.slice(0, 6).some(({ id, score }) => id === referenceId && score === 100)).toBe(true)
     })
   })
