@@ -1,4 +1,5 @@
 import type { FeedbackSession } from '../types/feedback'
+import { FRESH_DISCOVERY_PROMPT_VERSION } from '../lib/freshDiscovery/generateFreshDiscoveryPrompt'
 
 export const FEEDBACK_STORAGE_KEY = 'pipFeedbackSessions'
 export const ACTIVE_SESSION_STORAGE_KEY = 'pipFeedbackActiveSessionId'
@@ -9,7 +10,7 @@ const CSV_HEADERS = [
   'exactResultCount', 'compatibleResultCount', 'fallbackResultCount', 'fallbackShown',
   'bestReferenceId', 'noSuitableReference', 'collectionRating', 'usableReferenceFound', 'collectionIssues', 'collectionComment',
   'boardAddedCount', 'referencePositiveCount', 'referenceNegativeCount', 'intelligenceOpened', 'dataMappingViewed', 'verifiedSourceOpened',
-  'intelligenceHelpful', 'intelligenceComment', 'missingReferenceText', 'freshDiscoveryPromptShown', 'freshDiscoveryPromptCopied', 'freshDiscoveryHelpful',
+  'intelligenceHelpful', 'intelligenceComment', 'missingReferenceText', 'freshDiscoveryPromptVersion', 'freshDiscoveryPromptShown', 'freshDiscoveryPromptCopied', 'freshDiscoveryHelpful',
 ]
 
 export function createSessionId(randomValues: Uint8Array = crypto.getRandomValues(new Uint8Array(4))): string {
@@ -36,6 +37,7 @@ export function createFeedbackSession(now = new Date().toISOString(), sessionId 
     freshDiscoveryPromptShown: false,
     freshDiscoveryPromptCopied: false,
     freshDiscoveryHelpful: null,
+    freshDiscoveryPromptVersion: FRESH_DISCOVERY_PROMPT_VERSION,
     collectionRating: null,
     collectionIssues: [],
     collectionComment: '',
@@ -123,6 +125,7 @@ export function exportFeedbackCsv(sessions: FeedbackSession[]): string {
       session.intelligenceHelpful,
       session.intelligenceComment,
       session.missingReferenceText,
+      session.freshDiscoveryPromptVersion,
       session.freshDiscoveryPromptShown,
       session.freshDiscoveryPromptCopied,
       session.freshDiscoveryHelpful,

@@ -85,6 +85,21 @@ PIP не вызывает внешний AI API, не отправляет по�
 
 Feedback schema v4 сохраняет `fresh_discovery_prompt_shown`, `fresh_discovery_prompt_copied`, оценку полезности в Test Mode и полный обезличенный контекст запроса. Миграция старых sessions выполняется без очистки Inspiration Board и других ключей `localStorage`.
 
+### Prompt v2 · Sprint 8.1.1
+
+По итогам первого A/B-теста baseline заменён на Prompt v2. Версия использует те же пять ответов пользователя и отдельные guidance для восьми content types, но усиливает quality gate:
+
+- до 8 результатов без обязательного заполнения quota;
+- только визуально проверенные конкретные слайды или страницы;
+- обязательные Design Freshness и Screen Suitability;
+- исключение document-like report spreads, мелкого текста, обычных таблиц, стандартных графиков, wireframes и визуально устаревших решений;
+- сначала Exact References, затем только полезные Creative Alternatives;
+- сортировка от самого сильного визуального решения;
+- запрет выдуманных URL, страниц, названий и содержания;
+- запрос preview, когда внешний интерфейс его поддерживает.
+
+Новые sessions и Fresh Discovery events содержат `freshDiscoveryPromptVersion: v2`. Старые записи без поля остаются baseline и не перемаркируются при чтении. Версия включена в JSON/CSV export и агрегируется отдельно в локальном dashboard.
+
 ## Проверка
 
 ```bash

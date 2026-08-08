@@ -11,6 +11,7 @@ export type CollectionRating = (typeof collectionRatings)[number]
 export type UsableReferenceFound = (typeof usableReferenceAnswers)[number]
 export type IntelligenceHelpful = (typeof intelligenceHelpfulAnswers)[number]
 export type FreshDiscoveryHelpful = (typeof freshDiscoveryHelpfulAnswers)[number]
+export type FreshDiscoveryPromptVersion = 'v2'
 export type FeedbackEventType =
   | 'search_started'
   | 'wizard_completed'
@@ -66,6 +67,7 @@ export interface FeedbackEvent {
   goalId?: SearchQuery['goalId']
   styleId?: SearchQuery['styleId']
   contentTypeId?: SearchQuery['contentTypeId']
+  freshDiscoveryPromptVersion?: FreshDiscoveryPromptVersion
 }
 
 export interface FeedbackSession {
@@ -87,6 +89,7 @@ export interface FeedbackSession {
   freshDiscoveryPromptShown: boolean
   freshDiscoveryPromptCopied: boolean
   freshDiscoveryHelpful: FreshDiscoveryHelpful | null
+  freshDiscoveryPromptVersion?: FreshDiscoveryPromptVersion
   collectionRating: CollectionRating | null
   collectionIssues: string[]
   collectionComment: string

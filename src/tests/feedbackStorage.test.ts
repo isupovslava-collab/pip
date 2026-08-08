@@ -38,6 +38,7 @@ describe('локальное хранение и экспорт feedback', () =>
     expect(JSON.parse(exported)).toEqual([session])
     expect(JSON.parse(exported)[0].noSuitableReference).toBe(true)
     expect(JSON.parse(exported)[0].resultContentMatch).toEqual(session.resultContentMatch)
+    expect(JSON.parse(exported)[0].freshDiscoveryPromptVersion).toBe('v2')
     expect(exported.endsWith('\n')).toBe(true)
   })
 
@@ -64,7 +65,8 @@ describe('локальное хранение и экспорт feedback', () =>
     expect(csv).toContain('bestReferenceId,noSuitableReference')
     expect(csv).toContain('intelligenceOpened,dataMappingViewed,verifiedSourceOpened')
     expect(csv).toContain('intelligenceHelpful,intelligenceComment,missingReferenceText')
-    expect(csv).toContain('freshDiscoveryPromptShown,freshDiscoveryPromptCopied,freshDiscoveryHelpful')
+    expect(csv).toContain('freshDiscoveryPromptVersion,freshDiscoveryPromptShown,freshDiscoveryPromptCopied,freshDiscoveryHelpful')
+    expect(csv).toContain(',v2,true,true,yes')
     expect(csv).toContain('Нужен dashboard с восемью KPI')
     expect(csv).toContain('REF-000018,75')
     expect(csv.trim().split('\r\n')).toHaveLength(2)
@@ -101,6 +103,7 @@ describe('локальное хранение и экспорт feedback', () =>
     delete legacy.feedbackSchemaVersion
     delete legacy.noSuitableReference
     delete legacy.resultContentMatch
+    delete legacy.freshDiscoveryPromptVersion
     localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify([legacy]))
     const restored = readFeedbackSessions()[0]
     expect(restored.sessionId).toBe('PIP-TEST-LEGACY01')
@@ -116,6 +119,7 @@ describe('локальное хранение и экспорт feedback', () =>
     expect(restored.freshDiscoveryPromptShown).toBe(false)
     expect(restored.freshDiscoveryPromptCopied).toBe(false)
     expect(restored.freshDiscoveryHelpful).toBeNull()
+    expect(restored.freshDiscoveryPromptVersion).toBeUndefined()
     expect(localStorage.getItem(FEEDBACK_STORAGE_KEY)).not.toBeNull()
   })
 

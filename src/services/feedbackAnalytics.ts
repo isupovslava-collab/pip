@@ -64,6 +64,7 @@ export function summarizeFeedback(sessions: FeedbackSession[]) {
       shown: freshShownSessions.length,
       copied: freshCopiedSessions.length,
       copyRate: freshShownSessions.length ? freshCopiedSessions.length / freshShownSessions.length : 0,
+      byVersion: frequencies(freshShownSessions.map(({ freshDiscoveryPromptVersion }) => freshDiscoveryPromptVersion ?? 'baseline')),
       byContentType: frequencies(freshCopiedSessions.flatMap(({ query }) => query ? [query.contentTypeId] : [])),
       byScenario: frequencies(freshCopiedSessions.flatMap(({ query }) => query ? [query.scenarioId] : [])),
       helpfulYes: sessions.filter(({ freshDiscoveryHelpful }) => freshDiscoveryHelpful === 'yes').length,

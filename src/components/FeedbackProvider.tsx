@@ -4,6 +4,7 @@ import { ACTIVE_SESSION_STORAGE_KEY, clearFeedbackData, createFeedbackSession, r
 import { FEEDBACK_COMMENT_MAX_LENGTH, type FeedbackEventType, type FeedbackSession, type ReferenceFeedback } from '../types/feedback'
 import { summarizeContentMatches } from '../services/rankReferences'
 import type { SearchQuery } from '../types/reference'
+import { FRESH_DISCOVERY_PROMPT_VERSION } from '../lib/freshDiscovery/generateFreshDiscoveryPrompt'
 
 function appendEvent(session: FeedbackSession, type: FeedbackEventType, referenceId?: string): FeedbackSession {
   const timestamp = new Date().toISOString()
@@ -18,7 +19,8 @@ function appendFreshDiscoveryEvent(session: FeedbackSession, type: 'fresh_discov
     ...session,
     freshDiscoveryPromptShown: session.freshDiscoveryPromptShown || type === 'fresh_discovery_prompt_shown',
     freshDiscoveryPromptCopied: session.freshDiscoveryPromptCopied || type === 'fresh_discovery_prompt_copied',
-    events: [...session.events, { type, timestamp: new Date().toISOString(), ...query }],
+    freshDiscoveryPromptVersion: FRESH_DISCOVERY_PROMPT_VERSION,
+    events: [...session.events, { type, timestamp: new Date().toISOString(), ...query, freshDiscoveryPromptVersion: FRESH_DISCOVERY_PROMPT_VERSION }],
   }
 }
 

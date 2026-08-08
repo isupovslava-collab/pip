@@ -26,6 +26,7 @@ describe('feedback analytics', () => {
     const shown = createFeedbackSession('2026-08-08T00:00:00.000Z', 'PIP-TEST-FRESH-A')
     shown.query = { scenarioId: 'sales', personaId: 'client', goalId: 'approve', styleId: 'modern', contentTypeId: 'comparison' }
     shown.freshDiscoveryPromptShown = true
+    delete shown.freshDiscoveryPromptVersion
     const copied = createFeedbackSession('2026-08-08T00:01:00.000Z', 'PIP-TEST-FRESH-B')
     copied.query = { scenarioId: 'report', personaId: 'ceo', goalId: 'explain_results', styleId: 'executive', contentTypeId: 'dashboard' }
     copied.freshDiscoveryPromptShown = true
@@ -35,5 +36,6 @@ describe('feedback analytics', () => {
     expect(summary).toMatchObject({ shown: 2, copied: 1, copyRate: 0.5, helpfulYes: 1, helpfulMaybe: 0, helpfulNo: 0 })
     expect(summary.byContentType).toEqual([['dashboard', 1]])
     expect(summary.byScenario).toEqual([['report', 1]])
+    expect(summary.byVersion).toEqual([['baseline', 1], ['v2', 1]])
   })
 })

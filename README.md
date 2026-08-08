@@ -2,7 +2,7 @@
 
 PIP помогает подобрать несколько вариантов дизайна для одного конкретного типа слайда с учетом задачи, аудитории, ожидаемого результата и визуального направления.
 
-**Статус:** MVP v0.8.1 — Product Approval Gate + Fresh Discovery Pilot
+**Статус:** MVP v0.8.1.1 — Fresh Discovery Prompt v2
 
 **Сайт:** https://isupovslava-collab.github.io/pip/
 
@@ -13,6 +13,8 @@ Sprint 7.1 однозначно фиксирует текущий режим к�
 Sprint 8 добавляет независимый Verified Source Layer и Presentation Intelligence Pilot, не меняя ranking. Проверено 8 из целевых 24 внешних источников — по одному на каждый тип слайда; оставшийся gap опубликован честно. Slide Anatomy и Data Mapping доступны для шести production Hero. Internal review: `#/test-reference-review`.
 
 Sprint 8.1 разделяет Source Verification и PIP Product Approval. Только `source_verified + pip_approved` получает production-badge: одобрены SRC-0001 и SRC-0006. После Top 6 доступен Fresh Discovery Prompt Pilot для самостоятельного поиска свежих внешних референсов; ranking не изменён, внешние AI API не подключены. Feedback schema v4 сохраняет показы, копирования и оценку полезности prompt без потери существующих данных `localStorage`.
+
+Sprint 8.1.1 обновляет Fresh Discovery до Prompt v2 по результатам A/B-теста. Генератор ищет до восьми визуально сильных screen-suitable примеров, не заполняет quota слабыми результатами, требует визуальной проверки конкретной страницы и разделяет Exact References и Creative Alternatives. События, sessions и JSON/CSV export маркируются `freshDiscoveryPromptVersion: v2`; ranking и остальные продуктовые контуры не менялись.
 
 ## Что проверяет MVP
 
