@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-08-08T03:42:36.627Z",
+  "targetPerContentType": 3,
+  "targetTotal": 24,
+  "total": 16,
+  "candidate": 0,
+  "sourceFound": 4,
+  "verified": 8,
+  "rejected": 4,
+  "uniqueOrganizations": 5,
+  "uniquePresentations": 6,
+  "rights": {
+    "public-domain": 0,
+    "cc-by": 0,
+    "cc-by-sa": 0,
+    "cc-by-nc": 0,
+    "explicit-permission": 2,
+    "official-embed": 0,
+    "link-only-no-local-copy": 6,
+    "unclear": 0
+  },
+  "origins": {
+    "manual": 8,
+    "gemini": 2,
+    "genspark": 2,
+    "perplexity": 2
+  },
+  "coverage": [
+    {
+      "contentTypeId": "kpi",
+      "candidateCount": 1,
+      "sourceFoundCount": 0,
+      "verifiedCount": 1,
+      "rejectedCount": 0,
+      "gapToTarget3": 2
+    },
+    {
+      "contentTypeId": "comparison",
+      "candidateCount": 2,
+      "sourceFoundCount": 0,
+      "verifiedCount": 1,
+      "rejectedCount": 1,
+      "gapToTarget3": 2
+    },
+    {
+      "contentTypeId": "timeline",
+      "candidateCount": 2,
+      "sourceFoundCount": 0,
+      "verifiedCount": 1,
+      "rejectedCount": 1,
+      "gapToTarget3": 2
+    },
+    {
+      "contentTypeId": "process",
+      "candidateCount": 3,
+      "sourceFoundCount": 2,
+      "verifiedCount": 1,
+      "rejectedCount": 0,
+      "gapToTarget3": 2
+    },
+    {
+      "contentTypeId": "dashboard",
+      "candidateCount": 1,
+      "sourceFoundCount": 0,
+      "verifiedCount": 1,
+      "rejectedCount": 0,
+      "gapToTarget3": 2
+    },
+    {
+      "contentTypeId": "cover",
+      "candidateCount": 1,
+      "sourceFoundCount": 0,
+      "verifiedCount": 1,
+      "rejectedCount": 0,
+      "gapToTarget3": 2
+    },
+    {
+      "contentTypeId": "story",
+      "candidateCount": 3,
+      "sourceFoundCount": 1,
+      "verifiedCount": 1,
+      "rejectedCount": 1,
+      "gapToTarget3": 2
+    },
+    {
+      "contentTypeId": "table",
+      "candidateCount": 3,
+      "sourceFoundCount": 1,
+      "verifiedCount": 1,
+      "rejectedCount": 1,
+      "gapToTarget3": 2
+    }
+  ]
+}

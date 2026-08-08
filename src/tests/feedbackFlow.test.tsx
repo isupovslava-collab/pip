@@ -6,6 +6,7 @@ import referencesData from '../../public/data/references.json'
 import { FeedbackProvider } from '../components/FeedbackProvider'
 import { CollectionFeedback } from '../components/CollectionFeedback'
 import { InspirationBoardProvider } from '../components/InspirationBoardProvider'
+import { MissingReferencePrompt } from '../components/MissingReferencePrompt'
 import { TestModeBanner } from '../components/TestModeBanner'
 import { useFeedback } from '../hooks/useFeedback'
 import { useInspirationBoard } from '../hooks/useInspirationBoard'
@@ -29,6 +30,8 @@ function FeedbackFixture() {
     <output aria-label="events">{feedback.activeSession?.events.map(({ type }) => type).join(',') ?? ''}</output>
     <output aria-label="content-matches">{feedback.activeSession?.resultContentMatch.map(({ matchType }) => matchType).join(',') ?? ''}</output>
     <output aria-label="fallback-event">{JSON.stringify(feedback.activeSession?.events.find(({ type }) => type === 'content_type_fallback_shown') ?? null)}</output>
+    <output aria-label="missing-reference">{feedback.activeSession?.missingReferenceText ?? ''}</output>
+    <output aria-label="intelligence-helpful">{feedback.activeSession?.intelligenceHelpful ?? ''}</output>
     <output aria-label="board">{board.ids.join(',')}</output>
     <button onClick={feedback.startSession}>start</button>
     <button onClick={() => feedback.completeWizard(query, results)}>complete</button>
@@ -38,8 +41,11 @@ function FeedbackFixture() {
     <button onClick={() => feedback.selectBestReference('REF-000013')}>best-13</button>
     <button onClick={() => feedback.selectBestReference('REF-000014')}>best-14</button>
     <button onClick={feedback.selectNoSuitableReference}>no-suitable</button>
+    <button onClick={() => feedback.submitIntelligenceFeedback('REF-000013', 'helpful', 'Понятное объяснение')}>intelligence-feedback</button>
+    <button onClick={() => feedback.logEvent('reference_intelligence_opened', 'REF-000013')}>intelligence-open</button>
     <button onClick={() => { board.add('REF-000015'); feedback.recordBoardAction('REF-000015', true) }}>board-add</button>
     <CollectionFeedback testMode />
+    <MissingReferencePrompt />
   </>
 }
 
@@ -102,6 +108,27 @@ describe('feedback session flow', () => {
     await user.click(screen.getByRole('button', { name: 'board-add' }))
     expect(screen.getByLabelText('best')).toHaveTextContent('REF-000013')
     expect(screen.getByLabelText('board')).toHaveTextContent('REF-000015')
+  })
+
+  it('показывает missing-reference prompt только после no-suitable и сохраняет текст', async () => {
+    const user = userEvent.setup(); renderFeedback(); await startCompletedSession(user)
+    expect(screen.queryByRole('heading', { name: 'Какого референса вам не хватило?' })).not.toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'no-suitable' }))
+    const input = screen.getByRole('textbox', { name: /Описание/ })
+    await user.type(input, 'Dashboard с восемью KPI и пояснением отклонений')
+    await user.click(screen.getByRole('button', { name: 'Сохранить ответ' }))
+    expect(screen.getByLabelText('missing-reference')).toHaveTextContent('Dashboard с восемью KPI')
+    expect(screen.getByLabelText('events')).toHaveTextContent('missing_reference_prompt_shown')
+    expect(screen.getByLabelText('events')).toHaveTextContent('missing_reference_submitted')
+  })
+
+  it('сохраняет feedback по intelligence и события просмотра', async () => {
+    const user = userEvent.setup(); renderFeedback(); await startCompletedSession(user)
+    await user.click(screen.getByRole('button', { name: 'intelligence-open' }))
+    await user.click(screen.getByRole('button', { name: 'intelligence-feedback' }))
+    expect(screen.getByLabelText('intelligence-helpful')).toHaveTextContent('helpful')
+    expect(screen.getByLabelText('events')).toHaveTextContent('reference_intelligence_opened')
+    expect(screen.getByLabelText('events')).toHaveTextContent('intelligence_feedback_submitted')
   })
 
   it('восстанавливает активную сессию после remount', async () => {

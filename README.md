@@ -2,13 +2,15 @@
 
 PIP помогает подобрать несколько вариантов дизайна для одного конкретного типа слайда с учетом задачи, аудитории, ожидаемого результата и визуального направления.
 
-**Статус:** MVP v0.7.1 — Single Slide Mode
+**Статус:** MVP v0.8 — Single Slide Mode + Verified Reference Core Pilot
 
 **Сайт:** https://isupovslava-collab.github.io/pip/
 
 **Hero Review Gallery:** https://isupovslava-collab.github.io/pip/hero-reference-review.html
 
 Sprint 7.1 однозначно фиксирует текущий режим как подбор одного слайда. Пятый шаг выбирает конкретный тип, exact matches доминируют в Top 6, близкие форматы ограничены и помечены. Библиотека остаётся равной 100 records; шесть approved Hero неизменны, Meeting v2 и Strategy v2 остаются review-only.
+
+Sprint 8 добавляет независимый Verified Source Layer и Presentation Intelligence Pilot, не меняя ranking. Проверено 8 из целевых 24 внешних источников — по одному на каждый тип слайда; оставшийся gap опубликован честно. Slide Anatomy и Data Mapping доступны для шести production Hero. Internal review: `#/test-reference-review`.
 
 ## Что проверяет MVP
 
@@ -29,6 +31,9 @@ Sprint проверяет, может ли пользователь без об�
 - локальный журнал событий и служебный dashboard с экспортом JSON/CSV;
 - адаптивный русскоязычный интерфейс;
 - публикация на GitHub Pages.
+- отдельный реестр candidate / source_found / verified / rejected источников с семью gate-проверками;
+- Slide Anatomy и Data Mapping для шести production Hero;
+- prompt «Какого референса вам не хватило?» после выбора «Нет подходящего результата»;
 
 ## Технологии
 
@@ -53,6 +58,9 @@ npm run generate:hero-references
 npm run validate:hero-references
 npm run report:diversity
 npm run validate:content-precision
+npm run validate:verified-references
+npm run report:verified-coverage
+npm run validate:reference-intelligence
 npm run lint
 npm run test
 npm run build
@@ -68,7 +76,9 @@ Production-сборка создается в папке `dist`.
 
 Текущие квоты опубликованы в `docs/library-coverage.md`, правила сопровождения — в `docs/reference-library-guidelines.md`, карта источников и адаптаций — в `docs/source-backed-gold-map.md`, а контактный лист визуального контроля — в `public/gold-contact-sheet.html`.
 
-Пилот запускается по адресу `#/search?test=1`. Локальный dashboard доступен только по прямому адресу `#/test-feedback` и намеренно не добавлен в навигацию. Инструкция модератора находится в `docs/user-testing-guide.md`, правила текущего режима — в `docs/single-slide-mode.md`, будущий режим структуры — только в `docs/presentation-structure-mode-roadmap.md`, а замечание к homepage hero — в `docs/product-design-backlog.md`.
+Архитектура Verified Source Layer, схема статусов, права, текущие gaps и Intelligence Pilot описаны в `docs/verified-reference-core.md`. Воспроизводимые отчёты находятся в `reports/verified-reference-coverage.md`, `reports/verified-reference-coverage.json` и `reports/rejected-reference-report.json`.
+
+Пилот запускается по адресу `#/search?test=1`. Локальный dashboard доступен только по прямому адресу `#/test-feedback`, а реестр источников — `#/test-reference-review`; оба экрана намеренно не добавлены в основную навигацию. Инструкция модератора находится в `docs/user-testing-guide.md`, правила текущего режима — в `docs/single-slide-mode.md`, будущий режим структуры — только в `docs/presentation-structure-mode-roadmap.md`, а замечание к homepage hero — в `docs/product-design-backlog.md`.
 
 Чтобы добавить новый референс:
 

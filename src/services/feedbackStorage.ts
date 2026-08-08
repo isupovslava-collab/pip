@@ -8,7 +8,8 @@ const CSV_HEADERS = [
   ...Array.from({ length: 6 }, (_, index) => [`result${index + 1}Id`, `result${index + 1}Score`]).flat(),
   'exactResultCount', 'compatibleResultCount', 'fallbackResultCount', 'fallbackShown',
   'bestReferenceId', 'noSuitableReference', 'collectionRating', 'usableReferenceFound', 'collectionIssues', 'collectionComment',
-  'boardAddedCount', 'referencePositiveCount', 'referenceNegativeCount',
+  'boardAddedCount', 'referencePositiveCount', 'referenceNegativeCount', 'intelligenceOpened', 'dataMappingViewed', 'verifiedSourceOpened',
+  'intelligenceHelpful', 'intelligenceComment', 'missingReferenceText',
 ]
 
 export function createSessionId(randomValues: Uint8Array = crypto.getRandomValues(new Uint8Array(4))): string {
@@ -17,7 +18,7 @@ export function createSessionId(randomValues: Uint8Array = crypto.getRandomValue
 
 export function createFeedbackSession(now = new Date().toISOString(), sessionId = createSessionId()): FeedbackSession {
   return {
-    feedbackSchemaVersion: 2,
+    feedbackSchemaVersion: 3,
     sessionId,
     createdAt: now,
     completedAt: null,
@@ -26,6 +27,12 @@ export function createFeedbackSession(now = new Date().toISOString(), sessionId 
     resultContentMatch: [],
     bestReferenceId: null,
     noSuitableReference: false,
+    missingReferenceText: '',
+    intelligenceOpened: false,
+    dataMappingViewed: false,
+    verifiedSourceOpened: false,
+    intelligenceHelpful: null,
+    intelligenceComment: '',
     collectionRating: null,
     collectionIssues: [],
     collectionComment: '',
@@ -44,9 +51,15 @@ export function readFeedbackSessions(storage: Storage = localStorage): FeedbackS
       session && typeof session === 'object' && typeof (session as FeedbackSession).sessionId === 'string',
     )).map((session) => ({
       ...session,
-      feedbackSchemaVersion: session.feedbackSchemaVersion ?? 2,
+      feedbackSchemaVersion: 3,
       noSuitableReference: session.noSuitableReference ?? false,
       resultContentMatch: session.resultContentMatch ?? [],
+      missingReferenceText: session.missingReferenceText ?? '',
+      intelligenceOpened: session.intelligenceOpened ?? false,
+      dataMappingViewed: session.dataMappingViewed ?? false,
+      verifiedSourceOpened: session.verifiedSourceOpened ?? false,
+      intelligenceHelpful: session.intelligenceHelpful ?? null,
+      intelligenceComment: session.intelligenceComment ?? '',
     }))
   } catch {
     storage.removeItem(FEEDBACK_STORAGE_KEY)
@@ -98,6 +111,12 @@ export function exportFeedbackCsv(sessions: FeedbackSession[]): string {
       session.boardActions.referencesAdded.length,
       positive,
       negative,
+      session.intelligenceOpened,
+      session.dataMappingViewed,
+      session.verifiedSourceOpened,
+      session.intelligenceHelpful,
+      session.intelligenceComment,
+      session.missingReferenceText,
     ].map(csvCell).join(',')
   })
   return `\uFEFF${CSV_HEADERS.join(',')}\r\n${rows.join('\r\n')}\r\n`

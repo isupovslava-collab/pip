@@ -57,9 +57,9 @@ describe('Source-backed Gold References', () => {
         </InspirationBoardProvider>
       </MemoryRouter>,
     )
-    expect(screen.getByRole('heading', { level: 2, name: 'Первоисточник' })).toBeInTheDocument()
-    expect(screen.getByText(reference.sourceTitle ?? '')).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /Открыть первоисточник/ })).toHaveAttribute('href', reference.sourceUrl)
-    expect(screen.getByText(/Preview создан PIP/)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 2, name: 'Проверенный первоисточник' })).toBeInTheDocument()
+    expect(screen.getByText(/HubSpot Investor Presentation/)).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Открыть первоисточник/ })).toHaveAttribute('href', expect.stringContaining(reference.sourceUrl ?? ''))
+    expect(screen.getByText(/Внешний visual не хранится в PIP/)).toBeInTheDocument()
   })
 })

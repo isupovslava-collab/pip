@@ -16,6 +16,9 @@
     "check:duplicates": "node scripts/library-quality.mjs duplicates",
     "report:diversity": "vitest run src/tests/relevanceDiversity.test.ts --reporter=verbose",
     "validate:content-precision": "vitest run src/tests/contentPrecision.test.ts --reporter=verbose",
+    "validate:verified-references": "node scripts/validate-source-references.mjs",
+    "report:verified-coverage": "node scripts/report-verified-coverage.mjs",
+    "validate:reference-intelligence": "node scripts/validate-reference-intelligence.mjs",
     "lint": "eslint .",
     "test": "vitest run"
   },

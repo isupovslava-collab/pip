@@ -4,10 +4,13 @@ import { BoardButton } from './BoardButton'
 import { Icon } from './Icon'
 import { RecommendationReasons } from './RecommendationReasons'
 import { useFeedback } from '../hooks/useFeedback'
+import { referenceIntelligenceById } from '../data/sourceReferences/reference-intelligence'
+import { sourceReferenceById } from '../data/sourceReferences/source-references'
 
 export function ReferenceCard({ reference, rank, best = false, onSelectBest }: { reference: Reference | RankedReference; rank?: number; best?: boolean; onSelectBest?: (referenceId: string) => void }) {
   const location = useLocation()
   const feedback = useFeedback()
+  const hasVerifiedSource = (referenceIntelligenceById.get(reference.id)?.sourceReferenceIds ?? []).some((sourceId) => sourceReferenceById.get(sourceId)?.verificationStatus === 'verified')
   const ranked = 'score' in reference
   const matchBadge = ranked && reference.contentMatch === 'compatible'
     ? { label: 'Близкий формат', description: 'Добавлен как близкий вариант, потому что точных референсов недостаточно.' }
@@ -28,6 +31,7 @@ export function ReferenceCard({ reference, rank, best = false, onSelectBest }: {
         <div className="flex flex-wrap items-center gap-2">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue">{reference.category}</p>
           {reference.qualityTier === 'hero' ? <span className="rounded-full bg-sky-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-sky-800">Hero Reference</span> : reference.sourceBacked && <span className="rounded-full bg-amber-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-amber-800">Gold · Source-backed</span>}
+          {hasVerifiedSource && <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-emerald-800">Проверенный источник</span>}
           {matchBadge && <span className="rounded-full border border-amber-300 bg-amber-50 px-2.5 py-1 text-[11px] font-bold text-amber-900">{matchBadge.label}<span className="sr-only">. {matchBadge.description}</span></span>}
         </div>
         <h2 className="mt-2 text-xl font-semibold leading-snug tracking-tight text-navy">{reference.title}</h2>

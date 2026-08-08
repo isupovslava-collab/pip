@@ -14,6 +14,8 @@ export function summarizeFeedback(sessions: FeedbackSession[]) {
   const exactCounts = precisionSessions.map(({ resultContentMatch }) => resultContentMatch.filter(({ matchType }) => matchType === 'exact').length)
   const fallbackSessions = precisionSessions.filter(({ resultContentMatch }) => resultContentMatch.some(({ matchType }) => matchType !== 'exact'))
   const ratedFallbackSessions = fallbackSessions.filter(({ collectionRating }) => collectionRating)
+  const missingReferenceSessions = sessions.filter(({ missingReferenceText }) => missingReferenceText)
+  const eventCount = (type: FeedbackSession['events'][number]['type']) => sessions.reduce((count, session) => count + session.events.filter((event) => event.type === type).length, 0)
   return {
     totalSessions: sessions.length,
     completedSessions: completed.length,
@@ -40,5 +42,21 @@ export function summarizeFeedback(sessions: FeedbackSession[]) {
     boardAdditions: frequencies(sessions.flatMap(({ boardActions }) => boardActions.referencesAdded)),
     issues: frequencies(sessions.flatMap(({ collectionIssues }) => collectionIssues)),
     openedReferences: frequencies(sessions.flatMap(({ events }) => events.filter(({ type }) => type === 'reference_opened').flatMap(({ referenceId }) => referenceId ? [referenceId] : []))),
+    intelligence: {
+      openedSessions: sessions.filter(({ intelligenceOpened }) => intelligenceOpened).length,
+      dataMappingViews: eventCount('data_mapping_viewed'),
+      sourceClicks: eventCount('verified_source_opened'),
+      helpful: sessions.filter(({ intelligenceHelpful }) => intelligenceHelpful === 'helpful').length,
+      partiallyHelpful: sessions.filter(({ intelligenceHelpful }) => intelligenceHelpful === 'partially_helpful').length,
+      notHelpful: sessions.filter(({ intelligenceHelpful }) => intelligenceHelpful === 'not_helpful').length,
+      comments: sessions.flatMap(({ intelligenceComment, sessionId }) => intelligenceComment ? [[sessionId, intelligenceComment] as [string, string]] : []),
+    },
+    missingReferences: {
+      submissions: missingReferenceSessions.length,
+      byContentType: frequencies(missingReferenceSessions.flatMap(({ query }) => query ? [query.contentTypeId] : [])),
+      byScenario: frequencies(missingReferenceSessions.flatMap(({ query }) => query ? [query.scenarioId] : [])),
+      byStyle: frequencies(missingReferenceSessions.flatMap(({ query }) => query ? [query.styleId] : [])),
+      raw: missingReferenceSessions.map(({ sessionId, missingReferenceText }) => [sessionId, missingReferenceText] as [string, string]),
+    },
   }
 }

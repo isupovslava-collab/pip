@@ -46,6 +46,12 @@ describe('локальное хранение и экспорт feedback', () =>
     session.query = { scenarioId: 'sales', personaId: 'client', goalId: 'approve', styleId: 'consulting', contentTypeId: 'comparison' }
     session.results = Array.from({ length: 6 }, (_, index) => ({ referenceId: `REF-${String(index + 13).padStart(6, '0')}`, rank: index + 1, score: 100 - index * 5 }))
     session.resultContentMatch = session.results.map(({ referenceId }, index) => ({ referenceId, matchType: index < 4 ? 'exact' : index === 4 ? 'compatible' : 'fallback' }))
+    session.intelligenceOpened = true
+    session.dataMappingViewed = true
+    session.verifiedSourceOpened = true
+    session.intelligenceHelpful = 'helpful'
+    session.intelligenceComment = 'Полезное объяснение'
+    session.missingReferenceText = 'Нужен dashboard с восемью KPI'
     session.collectionComment = 'Полезно, но хочется больше таблиц'
     const csv = exportFeedbackCsv([session])
     expect(csv.startsWith('\uFEFFsessionId,')).toBe(true)
@@ -53,6 +59,9 @@ describe('локальное хранение и экспорт feedback', () =>
     expect(csv).toContain('exactResultCount,compatibleResultCount,fallbackResultCount,fallbackShown')
     expect(csv).toContain(',4,1,1,true,')
     expect(csv).toContain('bestReferenceId,noSuitableReference')
+    expect(csv).toContain('intelligenceOpened,dataMappingViewed,verifiedSourceOpened')
+    expect(csv).toContain('intelligenceHelpful,intelligenceComment,missingReferenceText')
+    expect(csv).toContain('Нужен dashboard с восемью KPI')
     expect(csv).toContain('REF-000018,75')
     expect(csv.trim().split('\r\n')).toHaveLength(2)
   })
@@ -91,9 +100,15 @@ describe('локальное хранение и экспорт feedback', () =>
     localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify([legacy]))
     const restored = readFeedbackSessions()[0]
     expect(restored.sessionId).toBe('PIP-TEST-LEGACY01')
-    expect(restored.feedbackSchemaVersion).toBe(2)
+    expect(restored.feedbackSchemaVersion).toBe(3)
     expect(restored.noSuitableReference).toBe(false)
     expect(restored.resultContentMatch).toEqual([])
+    expect(restored.intelligenceOpened).toBe(false)
+    expect(restored.dataMappingViewed).toBe(false)
+    expect(restored.verifiedSourceOpened).toBe(false)
+    expect(restored.intelligenceHelpful).toBeNull()
+    expect(restored.intelligenceComment).toBe('')
+    expect(restored.missingReferenceText).toBe('')
     expect(localStorage.getItem(FEEDBACK_STORAGE_KEY)).not.toBeNull()
   })
 

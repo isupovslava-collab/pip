@@ -1,6 +1,8 @@
 import { useFeedback } from '../hooks/useFeedback'
 import { summarizeFeedback } from '../services/feedbackAnalytics'
 import { exportFeedbackCsv, exportFeedbackJson } from '../services/feedbackStorage'
+import { sourceReferences } from '../data/sourceReferences/source-references'
+import { countBy, sourceReferenceSummary } from '../lib/referenceVerification/sourceReferenceCoverage'
 
 function downloadText(filename: string, content: string, type: string) {
   const url = URL.createObjectURL(new Blob([content], { type }))
@@ -19,6 +21,8 @@ function FrequencyList({ items, empty = 'Пока нет данных' }: { item
 export function TestFeedbackPage() {
   const { sessions, resetFeedback } = useFeedback()
   const summary = summarizeFeedback(sessions)
+  const sourceSummary = sourceReferenceSummary(sourceReferences)
+  const verifiedSources = sourceReferences.filter(({ verificationStatus }) => verificationStatus === 'verified')
   const date = new Date().toISOString().slice(0, 10)
   const reset = () => {
     if (window.confirm('Удалить все локальные результаты тестирования?')) resetFeedback()
@@ -54,5 +58,36 @@ export function TestFeedbackPage() {
       <section className="surface p-5 sm:p-6"><h2 className="text-xl font-semibold text-navy">Самые частые проблемы</h2><FrequencyList items={summary.issues} /></section>
       <section className="surface p-5 sm:p-6"><h2 className="text-xl font-semibold text-navy">Чаще открывали</h2><FrequencyList items={summary.openedReferences} /></section>
     </div>
+
+    <section className="surface mt-6 p-5 sm:p-7" aria-labelledby="verified-metrics-title">
+      <p className="eyebrow">Verified Source Metrics</p><h2 id="verified-metrics-title" className="mt-2 text-2xl font-semibold text-navy">Состояние source layer</h2>
+      <div className="mt-5 grid gap-3 sm:grid-cols-3">{[['Verified', sourceSummary.verified], ['Source found', sourceSummary.sourceFound], ['Rejected', sourceSummary.rejected]].map(([label, value]) => <article key={label} className="rounded-xl bg-slate-50 p-4"><p className="text-sm font-semibold text-muted">{label}</p><p className="mt-1 text-3xl font-bold text-navy">{value}</p></article>)}</div>
+      <div className="mt-5 grid gap-5 lg:grid-cols-3">
+        <div><h3 className="font-semibold text-navy">По типу слайда</h3><FrequencyList items={countBy(verifiedSources.map(({ primaryContentTypeId }) => primaryContentTypeId))} /></div>
+        <div><h3 className="font-semibold text-navy">По организациям</h3><FrequencyList items={countBy(verifiedSources.map(({ organization }) => organization))} /></div>
+        <div><h3 className="font-semibold text-navy">По правам</h3><FrequencyList items={countBy(verifiedSources.map(({ rightsStatus }) => rightsStatus))} /></div>
+      </div>
+    </section>
+
+    <div className="mt-6 grid gap-5 lg:grid-cols-2">
+      <section className="surface p-5 sm:p-7" aria-labelledby="intelligence-metrics-title">
+        <p className="eyebrow">Intelligence Metrics</p><h2 id="intelligence-metrics-title" className="mt-2 text-2xl font-semibold text-navy">Понимание композиции</h2>
+        <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">{[
+          ['Opened sessions', summary.intelligence.openedSessions], ['Data Mapping views', summary.intelligence.dataMappingViews], ['Source clicks', summary.intelligence.sourceClicks], ['Helpful', summary.intelligence.helpful], ['Partial', summary.intelligence.partiallyHelpful], ['Not helpful', summary.intelligence.notHelpful],
+        ].map(([label, value]) => <article key={label} className="rounded-xl bg-slate-50 p-3"><p className="text-xs font-semibold text-muted">{label}</p><p className="mt-1 text-2xl font-bold text-navy">{value}</p></article>)}</div>
+        <h3 className="mt-5 font-semibold text-navy">Комментарии</h3><TextList items={summary.intelligence.comments} />
+      </section>
+      <section className="surface p-5 sm:p-7" aria-labelledby="missing-metrics-title">
+        <p className="eyebrow">Missing Reference Metrics</p><h2 id="missing-metrics-title" className="mt-2 text-2xl font-semibold text-navy">Чего не хватило</h2>
+        <p className="mt-4 text-4xl font-bold text-navy">{summary.missingReferences.submissions}</p><p className="text-sm text-muted">текстовых ответов</p>
+        <div className="mt-5 grid gap-4 sm:grid-cols-3"><div><h3 className="text-sm font-semibold text-navy">Content type</h3><FrequencyList items={summary.missingReferences.byContentType} /></div><div><h3 className="text-sm font-semibold text-navy">Scenario</h3><FrequencyList items={summary.missingReferences.byScenario} /></div><div><h3 className="text-sm font-semibold text-navy">Style</h3><FrequencyList items={summary.missingReferences.byStyle} /></div></div>
+        <h3 className="mt-5 font-semibold text-navy">Raw text export preview</h3><TextList items={summary.missingReferences.raw} />
+      </section>
+    </div>
   </section>
+}
+
+function TextList({ items }: { items: Array<[string, string]> }) {
+  if (!items.length) return <p className="mt-3 text-sm text-muted">Пока нет данных</p>
+  return <ul className="mt-3 space-y-2">{items.slice(0, 8).map(([id, text]) => <li key={`${id}-${text}`} className="rounded-xl bg-slate-50 px-3 py-2 text-sm leading-6"><strong className="break-all text-navy">{id}</strong><p className="mt-1 break-words text-muted">{text}</p></li>)}</ul>
 }

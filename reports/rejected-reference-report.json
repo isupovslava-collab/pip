@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-08-08T03:42:36.627Z",
+  "rejected": [
+    {
+      "id": "SRC-0013",
+      "source": "https://www.ted.com/speakers/nancy_duarte",
+      "document": null,
+      "page": null,
+      "researchOrigins": [
+        "manual",
+        "gemini"
+      ],
+      "rejectionReason": "source cannot be reliably identified: the lead points to a speaker profile, not a specific presentation page or slide"
+    },
+    {
+      "id": "SRC-0014",
+      "source": "https://www.open.edu/openlearn/education-development/extending-and-developing-your-thinking-skills/content-section-7.4",
+      "document": null,
+      "page": null,
+      "researchOrigins": [
+        "manual",
+        "perplexity"
+      ],
+      "rejectionReason": "visual too weak: the source is a text-led article rather than a professional slide or report-like visual"
+    },
+    {
+      "id": "SRC-0015",
+      "source": "https://www.atlassian.com/team-playbook/examples/making-decisions",
+      "document": null,
+      "page": null,
+      "researchOrigins": [
+        "manual",
+        "genspark"
+      ],
+      "rejectionReason": "wrong source granularity: the URL is an examples index without a verifiable source page or slide"
+    },
+    {
+      "id": "SRC-0016",
+      "source": "https://investor.salesforce.com/events-and-presentations/events/event-details/2022/Salesforce-Investor-Day-2022/default.aspx",
+      "document": null,
+      "page": null,
+      "researchOrigins": [
+        "manual",
+        "gemini"
+      ],
+      "rejectionReason": "source cannot be reliably verified: no stable direct document and no exact page were confirmed"
+    }
+  ]
+}

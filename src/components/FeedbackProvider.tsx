@@ -1,7 +1,7 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { FeedbackContext, type FeedbackContextValue } from '../hooks/useFeedback'
 import { ACTIVE_SESSION_STORAGE_KEY, clearFeedbackData, createFeedbackSession, readFeedbackSessions, writeFeedbackSessions } from '../services/feedbackStorage'
-import type { FeedbackEventType, FeedbackSession, ReferenceFeedback } from '../types/feedback'
+import { FEEDBACK_COMMENT_MAX_LENGTH, type FeedbackEventType, type FeedbackSession, type ReferenceFeedback } from '../types/feedback'
 import { summarizeContentMatches } from '../services/rankReferences'
 
 function appendEvent(session: FeedbackSession, type: FeedbackEventType, referenceId?: string): FeedbackSession {
@@ -67,7 +67,17 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       }
     }),
     selectBestReference: (referenceId) => updateActive((session) => appendEvent({ ...session, bestReferenceId: referenceId, noSuitableReference: false }, 'best_reference_selected', referenceId)),
-    selectNoSuitableReference: () => updateActive((session) => appendEvent({ ...session, bestReferenceId: null, noSuitableReference: true }, 'no_suitable_reference_selected')),
+    selectNoSuitableReference: () => updateActive((session) => appendEvent(appendEvent({ ...session, bestReferenceId: null, noSuitableReference: true }, 'no_suitable_reference_selected'), 'missing_reference_prompt_shown')),
+    submitMissingReferenceFeedback: (text) => updateActive((session) => {
+      const normalized = text.trim().slice(0, FEEDBACK_COMMENT_MAX_LENGTH)
+      if (!normalized) return session
+      return appendEvent({ ...session, missingReferenceText: normalized }, 'missing_reference_submitted')
+    }),
+    submitIntelligenceFeedback: (referenceId, intelligenceHelpful, comment) => updateActive((session) => appendEvent({
+      ...session,
+      intelligenceHelpful,
+      intelligenceComment: comment.trim().slice(0, FEEDBACK_COMMENT_MAX_LENGTH),
+    }, 'intelligence_feedback_submitted', referenceId)),
     submitCollectionFeedback: (collectionRating, collectionIssues, collectionComment, usableReferenceFound) => updateActive((session) => appendEvent({
       ...session, collectionRating, collectionIssues, collectionComment, usableReferenceFound, completedAt: new Date().toISOString(),
     }, 'collection_feedback_submitted')),
@@ -82,7 +92,12 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
         [added ? 'referencesAdded' : 'referencesRemoved']: [...session.boardActions[added ? 'referencesAdded' : 'referencesRemoved'], referenceId],
       },
     }, added ? 'reference_added_to_board' : 'reference_removed_from_board', referenceId)),
-    logEvent: (type, referenceId) => updateActive((session) => appendEvent(session, type, referenceId)),
+    logEvent: (type, referenceId) => updateActive((session) => appendEvent({
+      ...session,
+      intelligenceOpened: session.intelligenceOpened || type === 'reference_intelligence_opened',
+      dataMappingViewed: session.dataMappingViewed || type === 'data_mapping_viewed',
+      verifiedSourceOpened: session.verifiedSourceOpened || type === 'verified_source_opened',
+    }, type, referenceId)),
     resetFeedback: () => {
       clearFeedbackData()
       setSessions([])
