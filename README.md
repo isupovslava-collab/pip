@@ -2,7 +2,7 @@
 
 PIP помогает подобрать несколько вариантов дизайна для одного конкретного типа слайда с учетом задачи, аудитории, ожидаемого результата и визуального направления.
 
-**Статус:** MVP v0.8 — Single Slide Mode + Verified Reference Core Pilot
+**Статус:** MVP v0.8.1 — Product Approval Gate + Fresh Discovery Pilot
 
 **Сайт:** https://isupovslava-collab.github.io/pip/
 
@@ -11,6 +11,8 @@ PIP помогает подобрать несколько вариантов д
 Sprint 7.1 однозначно фиксирует текущий режим как подбор одного слайда. Пятый шаг выбирает конкретный тип, exact matches доминируют в Top 6, близкие форматы ограничены и помечены. Библиотека остаётся равной 100 records; шесть approved Hero неизменны, Meeting v2 и Strategy v2 остаются review-only.
 
 Sprint 8 добавляет независимый Verified Source Layer и Presentation Intelligence Pilot, не меняя ranking. Проверено 8 из целевых 24 внешних источников — по одному на каждый тип слайда; оставшийся gap опубликован честно. Slide Anatomy и Data Mapping доступны для шести production Hero. Internal review: `#/test-reference-review`.
+
+Sprint 8.1 разделяет Source Verification и PIP Product Approval. Только `source_verified + pip_approved` получает production-badge: одобрены SRC-0001 и SRC-0006. После Top 6 доступен Fresh Discovery Prompt Pilot для самостоятельного поиска свежих внешних референсов; ranking не изменён, внешние AI API не подключены. Feedback schema v4 сохраняет показы, копирования и оценку полезности prompt без потери существующих данных `localStorage`.
 
 ## Что проверяет MVP
 
@@ -61,6 +63,9 @@ npm run validate:content-precision
 npm run validate:verified-references
 npm run report:verified-coverage
 npm run validate:reference-intelligence
+npm run validate:product-approval
+npm run report:approved-reference-coverage
+npm run validate:fresh-discovery-prompt
 npm run lint
 npm run test
 npm run build

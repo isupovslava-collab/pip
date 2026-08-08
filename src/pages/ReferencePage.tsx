@@ -13,6 +13,7 @@ import { sourceReferenceById } from '../data/sourceReferences/source-references'
 import { rankReferences } from '../services/rankReferences'
 import type { Reference, SearchQuery } from '../types/reference'
 import { isTestMode } from '../utils/testMode'
+import { isProductionEligibleSourceReference } from '../lib/referenceVerification/productApproval'
 
 interface ReferencePageProps { references: Reference[]; query: SearchQuery | null }
 
@@ -29,7 +30,7 @@ export function ReferencePage({ references, query }: ReferencePageProps) {
   const intelligence = referenceIntelligenceById.get(reference.id)
   const linkedSources = (intelligence?.sourceReferenceIds ?? []).flatMap((sourceId) => {
     const source = sourceReferenceById.get(sourceId)
-    return source ? [source] : []
+    return source && isProductionEligibleSourceReference(source) ? [source] : []
   })
 
   return (
@@ -60,7 +61,7 @@ export function ReferencePage({ references, query }: ReferencePageProps) {
       <div className="surface mt-6 p-3 sm:p-4"><DesignDna values={reference.designDna} /></div>
       {intelligence && isTestMode(location.search) && <IntelligenceFeedbackForm referenceId={reference.id} />}
       <ReferenceFeedbackForm referenceId={reference.id} />
-      {linkedSources.length > 0 ? <VerifiedSourcePanel sources={linkedSources} /> : reference.sourceBacked && reference.sourceUrl ? (
+      {linkedSources.length > 0 ? <VerifiedSourcePanel sources={linkedSources} /> : !intelligence && reference.sourceBacked && reference.sourceUrl ? (
         <section className="surface mt-6 p-5 sm:p-7" aria-labelledby="source-heading">
           <p className="eyebrow">Открытый материал для изучения</p>
           <div className="mt-3 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">

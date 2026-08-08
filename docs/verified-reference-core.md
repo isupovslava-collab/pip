@@ -1,56 +1,99 @@
-# Verified Reference Core и Intelligence Pilot
+# Verified Reference Core, Product Approval Gate и Intelligence Pilot
 
 ## Режим продукта
 
-PIP по-прежнему работает в Single Slide Mode: пользователь выбирает дизайн одного конкретного типа слайда. Sprint 8 не меняет ranking, веса, совместимость типов или состав production-библиотеки из 100 PIP references.
+PIP работает в Single Slide Mode и подбирает дизайн одного конкретного типа слайда. Sprint 8.1 не меняет ranking, веса, матрицу совместимости или состав production-библиотеки из 100 PIP references.
 
-Verified Source Layer — отдельный слой provenance. Он не означает копирование внешнего слайда. PIP хранит metadata, проверенные ссылки, права и изученный композиционный принцип; production preview остаётся оригинальной PIP-интерпретацией с собственными текстом, данными и графикой.
+Verified Reference Core — независимый слой provenance. PIP хранит метаданные, проверенные ссылки, сведения о правах и изученный композиционный принцип; production preview остаётся оригинальной PIP-интерпретацией со своими текстом, данными и графикой.
 
-## Архитектура данных
+## Два независимых gate
 
-- `PipReference` в `public/data/references.json` отвечает за production-подбор, preview и ranking metadata.
-- `SourceReference` в `src/data/sourceReferences` отвечает за внешний документ, конкретную страницу, статус проверки, права и provenance.
-- `SourceVerificationReview` хранит семь независимых gates: source, document, page, visual, content type, scenario и rights.
-- `ReferenceIntelligence` связывается только с явно указанными production references и описывает Slide Anatomy и Data Mapping.
-- Связь `sourceReferenceIds` означает подтверждённый источник композиционного принципа, а не простое визуальное сходство.
+`SourceVerificationReview` отвечает только за инженерную проверку источника: source, document, page, visual, content type, scenario и rights.
 
-Статусы источника:
+Статусы Source Verification:
 
-- `candidate` — исследовательский lead, который ещё не проверен;
-- `source_found` — документ найден, но хотя бы один обязательный gate не завершён;
-- `verified` — все семь gates имеют `pass`;
-- `rejected` — источник рассмотрен и отклонён с сохранённой причиной.
+- `candidate` — исследовательский lead;
+- `source_found` — документ найден, но обязательные gates ещё не завершены;
+- `source_verified` — все семь gates имеют `pass`;
+- `source_rejected` — источник проверен и отклонён с сохранённой причиной.
 
-Автоматического promotion по рабочей ссылке нет. Поле `visualReview: awaiting_po_review` честно отделяет инженерную верификацию от визуального решения Product Owner.
+`PipProductReview` хранит отдельное продуктовое решение Product Owner:
 
-## Права и отображение
+- `awaiting_po_review`;
+- `pip_approved`;
+- `pip_rejected`.
 
-`rightsStatus` описывает только подтверждённый режим использования. Для `explicit-permission` и `official-embed` обязателен `rightsEvidenceUrl`. При `link-only-no-local-copy` внешний thumbnail и внешний slide не сохраняются и не показываются внутри PIP; интерфейс открывает конкретную страницу первоисточника в новой вкладке.
+Обязательные критерии: `semanticFit`, `visualInspiration`, `screenSuitability`, `designFreshness`, дата и заметки Product Owner, а для отклонения — структурированная причина.
 
-Badge «Проверенный источник» разрешён только для `verificationStatus: verified`. `source_found` показывается как продолжающаяся проверка.
+Production eligibility определяется строго как:
 
-## Текущее покрытие
+```text
+sourceVerificationStatus = source_verified
+AND
+pipProductReviewStatus = pip_approved
+```
 
-В Sprint 8 подтверждено 8 из целевых 24 источников: по одному для `kpi`, `comparison`, `timeline`, `process`, `dashboard`, `cover`, `story` и `table`. Недостающие 16 записей не созданы фиктивно и отражены как gap 2/3 по каждому типу. Текущее ядро охватывает 5 организаций, 6 документов и 8 визуальных направлений.
+Рабочая ссылка, успешная source verification или наличие внешнего документа сами по себе не дают production-badge.
 
-Воспроизводимые отчёты:
+## Решения Product Owner Sprint 8.1
 
-- `reports/verified-reference-coverage.md`;
-- `reports/verified-reference-coverage.json`;
+| Source | Source Verification | PIP Product Review | Production |
+| --- | --- | --- | --- |
+| SRC-0001 · HubSpot pricing comparison | source_verified | pip_approved | yes |
+| SRC-0002 · HubSpot unit economics | source_verified | pip_rejected | no |
+| SRC-0003 · TCFD next steps | source_verified | pip_rejected | no |
+| SRC-0004 · HM Treasury options framework | source_verified | pip_rejected | no |
+| SRC-0005 · World Bank financial summary | source_verified | pip_rejected | no |
+| SRC-0006 · NASA strategic plan cover | source_verified | pip_approved | yes |
+| SRC-0007 · World Bank infrastructure spread | source_verified | pip_rejected | no |
+| SRC-0008 · HM Treasury household table | source_verified | pip_rejected | no |
+
+Итого: 8 source verified, 2 PIP approved, 6 PIP rejected и 8 записей awaiting PO review.
+
+## Перепроверка прав SRC-0004
+
+Предыдущая классификация `explicit-permission` была неточной. На странице copyright официального PDF HM Treasury указано, что публикация лицензирована по Open Government Licence v3.0, кроме отдельно оговорённых материалов третьих лиц.
+
+Итоговая классификация:
+
+- `rightsStatus: other-open-licence`;
+- `licenseName: Open Government Licence v3.0`;
+- `rightsEvidenceUrl: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/`;
+- `displayMode: source-link-only`.
+
+Локальная копия внешнего слайда не хранится. Аналогичная корректировка применена к SRC-0008 из того же лицензионного режима.
+
+## Покрытие
+
+Source-verified coverage остаётся 1/3 по каждому из восьми типов. PIP-approved coverage:
+
+- `comparison`: 1/3;
+- `cover`: 1/3;
+- `kpi`, `timeline`, `process`, `dashboard`, `story`, `table`: 0/3.
+
+Отчёты source verification и product approval намеренно разделены:
+
+- `reports/verified-reference-coverage.md` и `.json`;
+- `reports/approved-reference-coverage.md` и `.json`;
 - `reports/rejected-reference-report.json`.
 
-## Intelligence Pilot
+## Fresh Discovery Prompt Pilot
 
-Slide Anatomy и Data Mapping добавлены ровно для шести production Hero: Sales, Speech, Project, Report, Training и Budget Defense. Meeting и Strategy остаются review-only и не подключены. При отсутствии Intelligence обычная detail page продолжает работать.
+После Top 6 пользователь видит компактный блок для поиска свежих внешних референсов. Генератор формирует персонализированный русскоязычный prompt из сценария, аудитории, цели, стиля и типа слайда, добавляет рекомендации конкретного content type и требует официальный источник, конкретную страницу и честное указание непроверенных данных.
 
-Feedback schema v3 сохраняет события открытия Intelligence, просмотра Data Mapping, открытия verified source, оценку полезности, комментарий и описание отсутствующего референса. Миграция выполняется при чтении старых sessions без очистки Inspiration Board или других ключей `localStorage`.
+PIP не вызывает внешний AI API, не отправляет пользовательские данные и не сохраняет найденные visuals. Пользователь копирует prompt и запускает его самостоятельно. Результаты явно не считаются проверенными PIP references.
 
-## Проверка изменений
+Feedback schema v4 сохраняет `fresh_discovery_prompt_shown`, `fresh_discovery_prompt_copied`, оценку полезности в Test Mode и полный обезличенный контекст запроса. Миграция старых sessions выполняется без очистки Inspiration Board и других ключей `localStorage`.
+
+## Проверка
 
 ```bash
 npm run validate:verified-references
 npm run report:verified-coverage
 npm run validate:reference-intelligence
+npm run validate:product-approval
+npm run report:approved-reference-coverage
+npm run validate:fresh-discovery-prompt
 ```
 
-Internal review доступен по `#/test-reference-review`; он содержит фильтры, coverage и семь gates для каждой записи.
+Internal review доступен по `#/test-reference-review`; dashboard с метриками Fresh Discovery — по `#/test-feedback`.

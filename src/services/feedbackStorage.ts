@@ -9,7 +9,7 @@ const CSV_HEADERS = [
   'exactResultCount', 'compatibleResultCount', 'fallbackResultCount', 'fallbackShown',
   'bestReferenceId', 'noSuitableReference', 'collectionRating', 'usableReferenceFound', 'collectionIssues', 'collectionComment',
   'boardAddedCount', 'referencePositiveCount', 'referenceNegativeCount', 'intelligenceOpened', 'dataMappingViewed', 'verifiedSourceOpened',
-  'intelligenceHelpful', 'intelligenceComment', 'missingReferenceText',
+  'intelligenceHelpful', 'intelligenceComment', 'missingReferenceText', 'freshDiscoveryPromptShown', 'freshDiscoveryPromptCopied', 'freshDiscoveryHelpful',
 ]
 
 export function createSessionId(randomValues: Uint8Array = crypto.getRandomValues(new Uint8Array(4))): string {
@@ -18,7 +18,7 @@ export function createSessionId(randomValues: Uint8Array = crypto.getRandomValue
 
 export function createFeedbackSession(now = new Date().toISOString(), sessionId = createSessionId()): FeedbackSession {
   return {
-    feedbackSchemaVersion: 3,
+    feedbackSchemaVersion: 4,
     sessionId,
     createdAt: now,
     completedAt: null,
@@ -33,6 +33,9 @@ export function createFeedbackSession(now = new Date().toISOString(), sessionId 
     verifiedSourceOpened: false,
     intelligenceHelpful: null,
     intelligenceComment: '',
+    freshDiscoveryPromptShown: false,
+    freshDiscoveryPromptCopied: false,
+    freshDiscoveryHelpful: null,
     collectionRating: null,
     collectionIssues: [],
     collectionComment: '',
@@ -51,7 +54,7 @@ export function readFeedbackSessions(storage: Storage = localStorage): FeedbackS
       session && typeof session === 'object' && typeof (session as FeedbackSession).sessionId === 'string',
     )).map((session) => ({
       ...session,
-      feedbackSchemaVersion: 3,
+      feedbackSchemaVersion: 4,
       noSuitableReference: session.noSuitableReference ?? false,
       resultContentMatch: session.resultContentMatch ?? [],
       missingReferenceText: session.missingReferenceText ?? '',
@@ -60,6 +63,9 @@ export function readFeedbackSessions(storage: Storage = localStorage): FeedbackS
       verifiedSourceOpened: session.verifiedSourceOpened ?? false,
       intelligenceHelpful: session.intelligenceHelpful ?? null,
       intelligenceComment: session.intelligenceComment ?? '',
+      freshDiscoveryPromptShown: session.freshDiscoveryPromptShown ?? false,
+      freshDiscoveryPromptCopied: session.freshDiscoveryPromptCopied ?? false,
+      freshDiscoveryHelpful: session.freshDiscoveryHelpful ?? null,
     }))
   } catch {
     storage.removeItem(FEEDBACK_STORAGE_KEY)
@@ -117,6 +123,9 @@ export function exportFeedbackCsv(sessions: FeedbackSession[]): string {
       session.intelligenceHelpful,
       session.intelligenceComment,
       session.missingReferenceText,
+      session.freshDiscoveryPromptShown,
+      session.freshDiscoveryPromptCopied,
+      session.freshDiscoveryHelpful,
     ].map(csvCell).join(',')
   })
   return `\uFEFF${CSV_HEADERS.join(',')}\r\n${rows.join('\r\n')}\r\n`

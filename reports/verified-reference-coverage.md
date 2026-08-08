@@ -13,7 +13,7 @@ Total verified: 8 / 24
 
 Unique organizations: 5
 Unique presentations: 6
-Rights breakdown: public-domain=0, cc-by=0, cc-by-sa=0, cc-by-nc=0, explicit-permission=2, official-embed=0, link-only-no-local-copy=6, unclear=0
+Rights breakdown: public-domain=0, cc-by=0, cc-by-sa=0, cc-by-nc=0, explicit-permission=0, other-open-licence=2, official-embed=0, link-only-no-local-copy=6, unclear=0
 Research origins: manual=8, gemini=2, genspark=2, perplexity=2
 Rejected: 4
 Source found: 4

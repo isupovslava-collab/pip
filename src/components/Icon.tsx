@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-type IconName = 'arrow-left' | 'arrow-right' | 'bookmark' | 'check' | 'edit' | 'insight' | 'sparkles' | 'warning'
+type IconName = 'arrow-left' | 'arrow-right' | 'bookmark' | 'check' | 'copy' | 'edit' | 'insight' | 'sparkles' | 'warning'
 
 interface IconProps {
   name: IconName
@@ -12,6 +12,7 @@ const paths: Record<IconName, ReactNode> = {
   'arrow-right': <><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></>,
   bookmark: <path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-3.6L6 21V4.8Z" />,
   check: <path d="m5 12 4 4L19 6" />,
+  copy: <><rect x="8" y="8" width="11" height="11" rx="2" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" /></>,
   edit: <><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z" /></>,
   insight: <><path d="M4 19V9" /><path d="M10 19V5" /><path d="M16 19v-7" /><path d="M22 19V2" /></>,
   sparkles: <><path d="m12 3-1.1 3.2a4 4 0 0 1-2.5 2.5L5 10l3.4 1.2a4 4 0 0 1 2.5 2.5L12 17l1.1-3.3a4 4 0 0 1 2.5-2.5L19 10l-3.4-1.3a4 4 0 0 1-2.5-2.5Z" /><path d="m19 16-.5 1.4a2 2 0 0 1-1.1 1.1L16 19l1.4.5a2 2 0 0 1 1.1 1.1L19 22l.5-1.4a2 2 0 0 1 1.1-1.1L22 19l-1.4-.5a2 2 0 0 1-1.1-1.1Z" /></>,

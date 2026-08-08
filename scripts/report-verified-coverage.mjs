@@ -8,7 +8,7 @@ const reportsDirectory = path.join(root, 'reports')
 fs.mkdirSync(reportsDirectory, { recursive: true })
 
 const summary = sourceReferenceSummary(sourceReferences)
-const rightsNames = ['public-domain', 'cc-by', 'cc-by-sa', 'cc-by-nc', 'explicit-permission', 'official-embed', 'link-only-no-local-copy', 'unclear']
+const rightsNames = ['public-domain', 'cc-by', 'cc-by-sa', 'cc-by-nc', 'explicit-permission', 'other-open-licence', 'official-embed', 'link-only-no-local-copy', 'unclear']
 const rights = Object.fromEntries(rightsNames.map((name) => [name, summary.rights.find(([key]) => key === name)?.[1] ?? 0]))
 const origins = Object.fromEntries(summary.origins)
 const report = { generatedAt: new Date().toISOString(), targetPerContentType: 3, targetTotal: 24, ...summary, rights, origins }
@@ -30,7 +30,7 @@ const lines = [
   '> Quality gate > quota: every remaining deficit is reported; no record is promoted to verified to fill a quota.',
 ]
 
-const rejected = sourceReferences.filter(({ verificationStatus }) => verificationStatus === 'rejected').map((source) => ({
+const rejected = sourceReferences.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_rejected').map((source) => ({
   id: source.id,
   source: source.primaryUrl,
   document: source.directDocumentUrl,

@@ -6,11 +6,15 @@ import { RecommendationReasons } from './RecommendationReasons'
 import { useFeedback } from '../hooks/useFeedback'
 import { referenceIntelligenceById } from '../data/sourceReferences/reference-intelligence'
 import { sourceReferenceById } from '../data/sourceReferences/source-references'
+import { isProductionEligibleSourceReference } from '../lib/referenceVerification/productApproval'
 
 export function ReferenceCard({ reference, rank, best = false, onSelectBest }: { reference: Reference | RankedReference; rank?: number; best?: boolean; onSelectBest?: (referenceId: string) => void }) {
   const location = useLocation()
   const feedback = useFeedback()
-  const hasVerifiedSource = (referenceIntelligenceById.get(reference.id)?.sourceReferenceIds ?? []).some((sourceId) => sourceReferenceById.get(sourceId)?.verificationStatus === 'verified')
+  const hasVerifiedSource = (referenceIntelligenceById.get(reference.id)?.sourceReferenceIds ?? []).some((sourceId) => {
+    const source = sourceReferenceById.get(sourceId)
+    return source ? isProductionEligibleSourceReference(source) : false
+  })
   const ranked = 'score' in reference
   const matchBadge = ranked && reference.contentMatch === 'compatible'
     ? { label: 'Близкий формат', description: 'Добавлен как близкий вариант, потому что точных референсов недостаточно.' }

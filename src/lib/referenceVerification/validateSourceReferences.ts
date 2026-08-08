@@ -24,7 +24,7 @@ export function validateSourceReferences(sources: SourceReference[], reviews: So
     const review = reviewById.get(source.id)
     if (!review) errors.push(`${source.id}: verification review is missing.`)
 
-    if (source.verificationStatus === 'verified') {
+    if (source.sourceVerificationStatus === 'source_verified') {
       if (source.urlStatus !== 'working') errors.push(`${source.id}: verified URL must be working.`)
       if (source.pageNumber === null && source.slideNumber === null) errors.push(`${source.id}: verified source needs pageNumber or slideNumber.`)
       if (!source.organization.trim()) errors.push(`${source.id}: verified source needs organization.`)
@@ -33,12 +33,13 @@ export function validateSourceReferences(sources: SourceReference[], reviews: So
       if (!review || gateKeys.some((key) => review[key] !== 'pass')) errors.push(`${source.id}: all seven verification gates must pass.`)
     }
     if ((source.rightsStatus === 'explicit-permission' || source.rightsStatus === 'official-embed') && !source.rightsEvidenceUrl) errors.push(`${source.id}: ${source.rightsStatus} requires rightsEvidenceUrl.`)
-    if (source.verificationStatus === 'rejected' && !source.rejectionReason) errors.push(`${source.id}: rejected source needs rejectionReason.`)
+    if (source.rightsStatus === 'other-open-licence' && (!source.rightsEvidenceUrl || !source.licenseName)) errors.push(`${source.id}: other-open-licence requires licenseName and rightsEvidenceUrl.`)
+    if (source.sourceVerificationStatus === 'source_rejected' && !source.rejectionReason) errors.push(`${source.id}: source_rejected needs rejectionReason.`)
   }
 
   for (const duplicateIds of findDuplicateSourcePages(sources)) errors.push(`Duplicate exact source/page: ${duplicateIds.join(', ')}.`)
 
-  const verified = sources.filter(({ verificationStatus }) => verificationStatus === 'verified')
+  const verified = sources.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_verified')
   const presentationCounts = new Map<string, number>()
   const organizationCounts = new Map<string, number>()
   for (const source of verified) {

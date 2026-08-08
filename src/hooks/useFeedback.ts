@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import type { CollectionRating, FeedbackEventType, FeedbackSession, IntelligenceHelpful, ReferenceFeedback, UsableReferenceFound } from '../types/feedback'
+import type { CollectionRating, FeedbackEventType, FeedbackSession, FreshDiscoveryHelpful, IntelligenceHelpful, ReferenceFeedback, UsableReferenceFound } from '../types/feedback'
 import type { RankedReference, SearchQuery } from '../types/reference'
 
 export interface FeedbackContextValue {
@@ -11,6 +11,9 @@ export interface FeedbackContextValue {
   selectNoSuitableReference: () => void
   submitMissingReferenceFeedback: (text: string) => void
   submitIntelligenceFeedback: (referenceId: string, helpful: IntelligenceHelpful, comment: string) => void
+  recordFreshDiscoveryPromptShown: (query: SearchQuery) => void
+  recordFreshDiscoveryPromptCopied: (query: SearchQuery) => void
+  submitFreshDiscoveryFeedback: (helpful: FreshDiscoveryHelpful) => void
   submitCollectionFeedback: (rating: CollectionRating, issues: string[], comment: string, usableReferenceFound: UsableReferenceFound) => void
   submitReferenceFeedback: (feedback: ReferenceFeedback) => void
   recordBoardAction: (referenceId: string, added: boolean) => void
@@ -21,7 +24,7 @@ export interface FeedbackContextValue {
 const noop = () => undefined
 const fallback: FeedbackContextValue = {
   sessions: [], activeSession: null, startSession: () => '', completeWizard: noop, selectBestReference: noop, selectNoSuitableReference: noop,
-  submitMissingReferenceFeedback: noop, submitIntelligenceFeedback: noop, submitCollectionFeedback: noop, submitReferenceFeedback: noop, recordBoardAction: noop, logEvent: noop, resetFeedback: noop,
+  submitMissingReferenceFeedback: noop, submitIntelligenceFeedback: noop, recordFreshDiscoveryPromptShown: noop, recordFreshDiscoveryPromptCopied: noop, submitFreshDiscoveryFeedback: noop, submitCollectionFeedback: noop, submitReferenceFeedback: noop, recordBoardAction: noop, logEvent: noop, resetFeedback: noop,
 }
 
 export const FeedbackContext = createContext<FeedbackContextValue>(fallback)

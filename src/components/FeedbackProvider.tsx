@@ -3,12 +3,23 @@ import { FeedbackContext, type FeedbackContextValue } from '../hooks/useFeedback
 import { ACTIVE_SESSION_STORAGE_KEY, clearFeedbackData, createFeedbackSession, readFeedbackSessions, writeFeedbackSessions } from '../services/feedbackStorage'
 import { FEEDBACK_COMMENT_MAX_LENGTH, type FeedbackEventType, type FeedbackSession, type ReferenceFeedback } from '../types/feedback'
 import { summarizeContentMatches } from '../services/rankReferences'
+import type { SearchQuery } from '../types/reference'
 
 function appendEvent(session: FeedbackSession, type: FeedbackEventType, referenceId?: string): FeedbackSession {
   const timestamp = new Date().toISOString()
   const previous = session.events.at(-1)
   if (previous?.type === type && previous.referenceId === referenceId && Date.parse(timestamp) - Date.parse(previous.timestamp) < 1000) return session
   return { ...session, events: [...session.events, { type, timestamp, ...(referenceId ? { referenceId } : {}) }] }
+}
+
+function appendFreshDiscoveryEvent(session: FeedbackSession, type: 'fresh_discovery_prompt_shown' | 'fresh_discovery_prompt_copied', query: SearchQuery): FeedbackSession {
+  if (session.events.some((event) => event.type === type)) return session
+  return {
+    ...session,
+    freshDiscoveryPromptShown: session.freshDiscoveryPromptShown || type === 'fresh_discovery_prompt_shown',
+    freshDiscoveryPromptCopied: session.freshDiscoveryPromptCopied || type === 'fresh_discovery_prompt_copied',
+    events: [...session.events, { type, timestamp: new Date().toISOString(), ...query }],
+  }
 }
 
 export function FeedbackProvider({ children }: { children: ReactNode }) {
@@ -78,6 +89,9 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       intelligenceHelpful,
       intelligenceComment: comment.trim().slice(0, FEEDBACK_COMMENT_MAX_LENGTH),
     }, 'intelligence_feedback_submitted', referenceId)),
+    recordFreshDiscoveryPromptShown: (query) => updateActive((session) => appendFreshDiscoveryEvent(session, 'fresh_discovery_prompt_shown', query)),
+    recordFreshDiscoveryPromptCopied: (query) => updateActive((session) => appendFreshDiscoveryEvent(session, 'fresh_discovery_prompt_copied', query)),
+    submitFreshDiscoveryFeedback: (freshDiscoveryHelpful) => updateActive((session) => appendEvent({ ...session, freshDiscoveryHelpful }, 'fresh_discovery_feedback_submitted')),
     submitCollectionFeedback: (collectionRating, collectionIssues, collectionComment, usableReferenceFound) => updateActive((session) => appendEvent({
       ...session, collectionRating, collectionIssues, collectionComment, usableReferenceFound, completedAt: new Date().toISOString(),
     }, 'collection_feedback_submitted')),

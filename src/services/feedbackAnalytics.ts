@@ -15,6 +15,8 @@ export function summarizeFeedback(sessions: FeedbackSession[]) {
   const fallbackSessions = precisionSessions.filter(({ resultContentMatch }) => resultContentMatch.some(({ matchType }) => matchType !== 'exact'))
   const ratedFallbackSessions = fallbackSessions.filter(({ collectionRating }) => collectionRating)
   const missingReferenceSessions = sessions.filter(({ missingReferenceText }) => missingReferenceText)
+  const freshShownSessions = sessions.filter(({ freshDiscoveryPromptShown }) => freshDiscoveryPromptShown)
+  const freshCopiedSessions = sessions.filter(({ freshDiscoveryPromptCopied }) => freshDiscoveryPromptCopied)
   const eventCount = (type: FeedbackSession['events'][number]['type']) => sessions.reduce((count, session) => count + session.events.filter((event) => event.type === type).length, 0)
   return {
     totalSessions: sessions.length,
@@ -57,6 +59,16 @@ export function summarizeFeedback(sessions: FeedbackSession[]) {
       byScenario: frequencies(missingReferenceSessions.flatMap(({ query }) => query ? [query.scenarioId] : [])),
       byStyle: frequencies(missingReferenceSessions.flatMap(({ query }) => query ? [query.styleId] : [])),
       raw: missingReferenceSessions.map(({ sessionId, missingReferenceText }) => [sessionId, missingReferenceText] as [string, string]),
+    },
+    freshDiscovery: {
+      shown: freshShownSessions.length,
+      copied: freshCopiedSessions.length,
+      copyRate: freshShownSessions.length ? freshCopiedSessions.length / freshShownSessions.length : 0,
+      byContentType: frequencies(freshCopiedSessions.flatMap(({ query }) => query ? [query.contentTypeId] : [])),
+      byScenario: frequencies(freshCopiedSessions.flatMap(({ query }) => query ? [query.scenarioId] : [])),
+      helpfulYes: sessions.filter(({ freshDiscoveryHelpful }) => freshDiscoveryHelpful === 'yes').length,
+      helpfulMaybe: sessions.filter(({ freshDiscoveryHelpful }) => freshDiscoveryHelpful === 'maybe').length,
+      helpfulNo: sessions.filter(({ freshDiscoveryHelpful }) => freshDiscoveryHelpful === 'no').length,
     },
   }
 }

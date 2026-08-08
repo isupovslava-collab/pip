@@ -19,6 +19,9 @@
     "validate:verified-references": "node scripts/validate-source-references.mjs",
     "report:verified-coverage": "node scripts/report-verified-coverage.mjs",
     "validate:reference-intelligence": "node scripts/validate-reference-intelligence.mjs",
+    "validate:product-approval": "node scripts/validate-product-approval.mjs",
+    "report:approved-reference-coverage": "node scripts/report-approved-reference-coverage.mjs",
+    "validate:fresh-discovery-prompt": "node scripts/validate-fresh-discovery-prompt.mjs",
     "lint": "eslint .",
     "test": "vitest run"
   },

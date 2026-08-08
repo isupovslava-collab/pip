@@ -1,6 +1,7 @@
 import { candidateSourceVerificationReviews, sourceReferenceCandidates } from './source-reference-candidates.ts'
 import { rejectedSourceReferences, rejectedSourceVerificationReviews } from './rejected-source-references.ts'
 import { verifiedSourceReferences, verifiedSourceVerificationReviews } from './verified-source-references.ts'
+export { pipProductReviews, pipProductReviewById } from './pip-product-reviews.ts'
 
 export const sourceReferences = [...verifiedSourceReferences, ...sourceReferenceCandidates, ...rejectedSourceReferences]
 export const sourceVerificationReviews = [...verifiedSourceVerificationReviews, ...candidateSourceVerificationReviews, ...rejectedSourceVerificationReviews]

@@ -1,21 +1,26 @@
 import type { ContentTypeId, GoalId, PersonaId, ScenarioId, StyleId } from './reference'
 
-export const verificationStatuses = ['candidate', 'source_found', 'verified', 'rejected'] as const
-export const sourceRightsStatuses = ['public-domain', 'cc-by', 'cc-by-sa', 'cc-by-nc', 'explicit-permission', 'official-embed', 'link-only-no-local-copy', 'unclear'] as const
+export const sourceVerificationStatuses = ['candidate', 'source_found', 'source_verified', 'source_rejected'] as const
+export const pipProductReviewStatuses = ['awaiting_po_review', 'pip_approved', 'pip_rejected'] as const
+export const sourceRightsStatuses = ['public-domain', 'cc-by', 'cc-by-sa', 'cc-by-nc', 'explicit-permission', 'other-open-licence', 'official-embed', 'link-only-no-local-copy', 'unclear'] as const
 export const sourceDisplayModes = ['source-link-only', 'official-embed', 'attributed-thumbnail', 'local-asset-allowed', 'pip-interpretation-only'] as const
 export const researchOrigins = ['gemini', 'genspark', 'perplexity', 'manual'] as const
 
-export type VerificationStatus = (typeof verificationStatuses)[number]
+export type SourceVerificationStatus = (typeof sourceVerificationStatuses)[number]
+export type PipProductReviewStatus = (typeof pipProductReviewStatuses)[number]
 export type SourceRightsStatus = (typeof sourceRightsStatuses)[number]
 export type SourceDisplayMode = (typeof sourceDisplayModes)[number]
 export type ResearchOrigin = (typeof researchOrigins)[number]
 export type VerificationGate = 'pass' | 'fail'
-export type VisualReview = 'approve' | 'revise' | 'reject' | 'awaiting_po_review'
-export type PipRelevance = 'high' | 'medium' | 'low'
+export type ReviewSignal = 'pass' | 'warning' | 'fail'
+export type DesignFreshness = 'current' | 'still_relevant' | 'dated' | 'not_assessed'
+export type SourceStability = 'high' | 'medium' | 'low' | 'unknown'
+export type ProductRejectionReason = 'visual_too_simple' | 'visually_dated' | 'document_like' | 'screen_unsuitable' | 'semantic_mismatch' | 'low_inspiration' | 'weak_composition' | 'rights_issue' | 'duplicate' | 'other'
 
 export interface SourceReference {
   id: string
-  verificationStatus: VerificationStatus
+  sourceVerificationStatus: SourceVerificationStatus
+  pipProductReviewStatus: PipProductReviewStatus
   presentationTitle: string
   originalSlideTitle: string | null
   curatorLabel: string | null
@@ -40,9 +45,11 @@ export interface SourceReference {
   compositionPrinciple: string
   visualStrength: string
   rightsStatus: SourceRightsStatus
+  licenseName: string | null
   rightsEvidenceUrl: string | null
   reuseRecommendation: string
   displayMode: SourceDisplayMode
+  sourceStability: SourceStability
   researchOrigins: ResearchOrigin[]
   duplicateGroupId: string | null
   verificationNotes: string[]
@@ -58,10 +65,20 @@ export interface SourceVerificationReview {
   contentTypeGate: VerificationGate
   scenarioGate: VerificationGate
   rightsGate: VerificationGate
-  visualReview: VisualReview
-  pipRelevance: PipRelevance
   reviewedAt: string
   notes: string[]
+}
+
+export interface PipProductReview {
+  sourceReferenceId: string
+  semanticFit: ReviewSignal
+  visualInspiration: ReviewSignal
+  screenSuitability: ReviewSignal
+  designFreshness: DesignFreshness
+  pipProductReviewStatus: PipProductReviewStatus
+  poReviewedAt: string | null
+  poNotes: string[]
+  rejectionReasons: ProductRejectionReason[]
 }
 
 export type IntelligenceInputRole =

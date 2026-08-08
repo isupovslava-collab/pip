@@ -10,6 +10,6 @@ if (errors.length) {
 
 console.log('VERIFIED REFERENCE VALIDATION: PASS')
 console.log(`Normalized records: ${sourceReferences.length}`)
-console.log(`Verified: ${sourceReferences.filter(({ verificationStatus }) => verificationStatus === 'verified').length}`)
-console.log(`Source found: ${sourceReferences.filter(({ verificationStatus }) => verificationStatus === 'source_found').length}`)
-console.log(`Rejected: ${sourceReferences.filter(({ verificationStatus }) => verificationStatus === 'rejected').length}`)
+console.log(`Source verified: ${sourceReferences.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_verified').length}`)
+console.log(`Source found: ${sourceReferences.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_found').length}`)
+console.log(`Source rejected: ${sourceReferences.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_rejected').length}`)

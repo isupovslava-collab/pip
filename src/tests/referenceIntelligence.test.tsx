@@ -21,7 +21,7 @@ function renderDetail(referenceId: string) {
 }
 
 describe('Reference Intelligence Pilot', () => {
-  it('содержит Anatomy и Data Mapping ровно для шести production Hero', () => {
+  it('keeps Anatomy and Data Mapping for the six production Heroes', () => {
     expect(referenceIntelligence.map(({ referenceId }) => referenceId)).toEqual([
       'REF-000013', 'REF-000016', 'REF-000019', 'REF-000025', 'REF-000028', 'REF-000034',
     ])
@@ -33,25 +33,29 @@ describe('Reference Intelligence Pilot', () => {
     })
   })
 
-  it('показывает intelligence и verified source без внешнего thumbnail', () => {
+  it('shows a production source only when both gates pass', () => {
     renderDetail('REF-000013')
-    expect(screen.getByRole('heading', { name: 'Почему этот дизайн работает' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'Как применить эту композицию к своим данным' })).toBeInTheDocument()
-    expect(screen.getByText('Проверенный источник')).toBeInTheDocument()
-    expect(screen.getAllByRole('img')).toHaveLength(1)
+    expect(screen.getByText('PIP Approved')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /Открыть первоисточник/ })).toHaveAttribute('href', expect.stringContaining('#page='))
+    expect(screen.getAllByRole('img')).toHaveLength(1)
   })
 
-  it('не выдаёт badge проверки для source_found', () => {
+  it('does not show a production badge for source_found', () => {
     renderDetail('REF-000016')
-    expect(screen.queryByText('Проверенный источник')).not.toBeInTheDocument()
-    expect(screen.getByText(/Источник найден — проверка продолжается/)).toBeInTheDocument()
+    expect(screen.queryByText('PIP Approved')).not.toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: /Открыть первоисточник/ })).not.toBeInTheDocument()
   })
 
-  it('не ломает detail page у референса вне пилота', () => {
+  it('does not show a production badge for source_verified but PIP rejected', () => {
+    renderDetail('REF-000019')
+    expect(screen.queryByText('PIP Approved')).not.toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: /Открыть первоисточник/ })).not.toBeInTheDocument()
+  })
+
+  it('does not break a detail page outside the intelligence pilot', () => {
     const reference = references.find(({ id }) => !referenceIntelligence.some((item) => item.referenceId === id))!
     renderDetail(reference.id)
     expect(screen.getByRole('heading', { level: 1, name: reference.title })).toBeInTheDocument()
-    expect(screen.queryByRole('heading', { name: 'Почему этот дизайн работает' })).not.toBeInTheDocument()
+    expect(screen.queryByText('PIP Approved')).not.toBeInTheDocument()
   })
 })

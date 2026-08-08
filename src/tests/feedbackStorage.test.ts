@@ -52,6 +52,9 @@ describe('локальное хранение и экспорт feedback', () =>
     session.intelligenceHelpful = 'helpful'
     session.intelligenceComment = 'Полезное объяснение'
     session.missingReferenceText = 'Нужен dashboard с восемью KPI'
+    session.freshDiscoveryPromptShown = true
+    session.freshDiscoveryPromptCopied = true
+    session.freshDiscoveryHelpful = 'yes'
     session.collectionComment = 'Полезно, но хочется больше таблиц'
     const csv = exportFeedbackCsv([session])
     expect(csv.startsWith('\uFEFFsessionId,')).toBe(true)
@@ -61,6 +64,7 @@ describe('локальное хранение и экспорт feedback', () =>
     expect(csv).toContain('bestReferenceId,noSuitableReference')
     expect(csv).toContain('intelligenceOpened,dataMappingViewed,verifiedSourceOpened')
     expect(csv).toContain('intelligenceHelpful,intelligenceComment,missingReferenceText')
+    expect(csv).toContain('freshDiscoveryPromptShown,freshDiscoveryPromptCopied,freshDiscoveryHelpful')
     expect(csv).toContain('Нужен dashboard с восемью KPI')
     expect(csv).toContain('REF-000018,75')
     expect(csv.trim().split('\r\n')).toHaveLength(2)
@@ -100,7 +104,7 @@ describe('локальное хранение и экспорт feedback', () =>
     localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify([legacy]))
     const restored = readFeedbackSessions()[0]
     expect(restored.sessionId).toBe('PIP-TEST-LEGACY01')
-    expect(restored.feedbackSchemaVersion).toBe(3)
+    expect(restored.feedbackSchemaVersion).toBe(4)
     expect(restored.noSuitableReference).toBe(false)
     expect(restored.resultContentMatch).toEqual([])
     expect(restored.intelligenceOpened).toBe(false)
@@ -109,6 +113,9 @@ describe('локальное хранение и экспорт feedback', () =>
     expect(restored.intelligenceHelpful).toBeNull()
     expect(restored.intelligenceComment).toBe('')
     expect(restored.missingReferenceText).toBe('')
+    expect(restored.freshDiscoveryPromptShown).toBe(false)
+    expect(restored.freshDiscoveryPromptCopied).toBe(false)
+    expect(restored.freshDiscoveryHelpful).toBeNull()
     expect(localStorage.getItem(FEEDBACK_STORAGE_KEY)).not.toBeNull()
   })
 

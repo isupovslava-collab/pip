@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-08-08T10:43:29.217Z",
+  "targetPerContentType": 3,
+  "targetTotal": 24,
+  "sourceVerified": 8,
+  "pipApproved": 2,
+  "pipRejected": 6,
+  "awaitingPoReview": 8,
+  "approvedOrganizations": 2,
+  "approvedPresentations": 2,
+  "approvedReferenceIds": [
+    "SRC-0001",
+    "SRC-0006"
+  ],
+  "coverage": [
+    {
+      "contentTypeId": "kpi",
+      "sourceVerifiedCount": 1,
+      "pipApprovedCount": 0,
+      "approvedGapToTarget3": 3
+    },
+    {
+      "contentTypeId": "comparison",
+      "sourceVerifiedCount": 1,
+      "pipApprovedCount": 1,
+      "approvedGapToTarget3": 2
+    },
+    {
+      "contentTypeId": "timeline",
+      "sourceVerifiedCount": 1,
+      "pipApprovedCount": 0,
+      "approvedGapToTarget3": 3
+    },
+    {
+      "contentTypeId": "process",
+      "sourceVerifiedCount": 1,
+      "pipApprovedCount": 0,
+      "approvedGapToTarget3": 3
+    },
+    {
+      "contentTypeId": "dashboard",
+      "sourceVerifiedCount": 1,
+      "pipApprovedCount": 0,
+      "approvedGapToTarget3": 3
+    },
+    {
+      "contentTypeId": "cover",
+      "sourceVerifiedCount": 1,
+      "pipApprovedCount": 1,
+      "approvedGapToTarget3": 2
+    },
+    {
+      "contentTypeId": "story",
+      "sourceVerifiedCount": 1,
+      "pipApprovedCount": 0,
+      "approvedGapToTarget3": 3
+    },
+    {
+      "contentTypeId": "table",
+      "sourceVerifiedCount": 1,
+      "pipApprovedCount": 0,
+      "approvedGapToTarget3": 3
+    }
+  ]
+}

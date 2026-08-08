@@ -5,10 +5,12 @@ export const FEEDBACK_COMMENT_MAX_LENGTH = 4000
 export const collectionRatings = ['useful', 'partially_useful', 'not_useful'] as const
 export const usableReferenceAnswers = ['yes', 'probably_yes', 'probably_no', 'no'] as const
 export const intelligenceHelpfulAnswers = ['helpful', 'partially_helpful', 'not_helpful'] as const
+export const freshDiscoveryHelpfulAnswers = ['yes', 'maybe', 'no'] as const
 
 export type CollectionRating = (typeof collectionRatings)[number]
 export type UsableReferenceFound = (typeof usableReferenceAnswers)[number]
 export type IntelligenceHelpful = (typeof intelligenceHelpfulAnswers)[number]
+export type FreshDiscoveryHelpful = (typeof freshDiscoveryHelpfulAnswers)[number]
 export type FeedbackEventType =
   | 'search_started'
   | 'wizard_completed'
@@ -27,6 +29,9 @@ export type FeedbackEventType =
   | 'missing_reference_prompt_shown'
   | 'missing_reference_submitted'
   | 'intelligence_feedback_submitted'
+  | 'fresh_discovery_prompt_shown'
+  | 'fresh_discovery_prompt_copied'
+  | 'fresh_discovery_feedback_submitted'
 
 export type ResultContentMatchType = 'exact' | 'compatible' | 'fallback'
 
@@ -56,6 +61,11 @@ export interface FeedbackEvent {
   exactCount?: number
   compatibleCount?: number
   fallbackCount?: number
+  scenarioId?: SearchQuery['scenarioId']
+  personaId?: SearchQuery['personaId']
+  goalId?: SearchQuery['goalId']
+  styleId?: SearchQuery['styleId']
+  contentTypeId?: SearchQuery['contentTypeId']
 }
 
 export interface FeedbackSession {
@@ -74,6 +84,9 @@ export interface FeedbackSession {
   verifiedSourceOpened: boolean
   intelligenceHelpful: IntelligenceHelpful | null
   intelligenceComment: string
+  freshDiscoveryPromptShown: boolean
+  freshDiscoveryPromptCopied: boolean
+  freshDiscoveryHelpful: FreshDiscoveryHelpful | null
   collectionRating: CollectionRating | null
   collectionIssues: string[]
   collectionComment: string

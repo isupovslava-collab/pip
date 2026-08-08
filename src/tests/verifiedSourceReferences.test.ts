@@ -7,7 +7,7 @@ import { contentTypeIds } from '../types/reference'
 describe('Verified Reference Core', () => {
   it('проходит семь gate-проверок и автоматическую проверку целостности', () => {
     expect(validateSourceReferences(sourceReferences, sourceVerificationReviews)).toEqual([])
-    const verified = sourceReferences.filter(({ verificationStatus }) => verificationStatus === 'verified')
+    const verified = sourceReferences.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_verified')
     expect(verified).toHaveLength(8)
     verified.forEach((source) => {
       const review = sourceVerificationReviews.find(({ sourceReferenceId }) => sourceReferenceId === source.id)
@@ -18,7 +18,6 @@ describe('Verified Reference Core', () => {
       expect(review).toMatchObject({
         sourceGate: 'pass', documentGate: 'pass', pageGate: 'pass', visualGate: 'pass',
         contentTypeGate: 'pass', scenarioGate: 'pass', rightsGate: 'pass',
-        visualReview: 'awaiting_po_review',
       })
     })
   })
@@ -32,9 +31,12 @@ describe('Verified Reference Core', () => {
   it('соблюдает лимиты разнообразия и консервативные права', () => {
     const summary = sourceReferenceSummary(sourceReferences)
     expect(summary).toMatchObject({ total: 16, sourceFound: 4, verified: 8, rejected: 4, uniqueOrganizations: 5, uniquePresentations: 6 })
-    const verified = sourceReferences.filter(({ verificationStatus }) => verificationStatus === 'verified')
+    const verified = sourceReferences.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_verified')
     expect(new Set(verified.map(({ visualDirection }) => visualDirection)).size).toBeGreaterThanOrEqual(6)
-    expect(verified.every(({ rightsStatus }) => ['explicit-permission', 'link-only-no-local-copy'].includes(rightsStatus))).toBe(true)
-    verified.filter(({ rightsStatus }) => rightsStatus === 'explicit-permission').forEach(({ rightsEvidenceUrl }) => expect(rightsEvidenceUrl).toMatch(/^https:\/\//))
+    expect(verified.every(({ rightsStatus }) => ['other-open-licence', 'link-only-no-local-copy'].includes(rightsStatus))).toBe(true)
+    verified.filter(({ rightsStatus }) => rightsStatus === 'other-open-licence').forEach(({ rightsEvidenceUrl, licenseName }) => {
+      expect(rightsEvidenceUrl).toMatch(/^https:\/\//)
+      expect(licenseName).toBe('Open Government Licence v3.0')
+    })
   })
 })

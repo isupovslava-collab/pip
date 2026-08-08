@@ -3,6 +3,7 @@ import { summarizeFeedback } from '../services/feedbackAnalytics'
 import { exportFeedbackCsv, exportFeedbackJson } from '../services/feedbackStorage'
 import { sourceReferences } from '../data/sourceReferences/source-references'
 import { countBy, sourceReferenceSummary } from '../lib/referenceVerification/sourceReferenceCoverage'
+import { isProductionEligibleSourceReference, productApprovalSummary } from '../lib/referenceVerification/productApproval'
 
 function downloadText(filename: string, content: string, type: string) {
   const url = URL.createObjectURL(new Blob([content], { type }))
@@ -22,7 +23,9 @@ export function TestFeedbackPage() {
   const { sessions, resetFeedback } = useFeedback()
   const summary = summarizeFeedback(sessions)
   const sourceSummary = sourceReferenceSummary(sourceReferences)
-  const verifiedSources = sourceReferences.filter(({ verificationStatus }) => verificationStatus === 'verified')
+  const productSummary = productApprovalSummary(sourceReferences)
+  const verifiedSources = sourceReferences.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_verified')
+  const approvedSources = sourceReferences.filter(isProductionEligibleSourceReference)
   const date = new Date().toISOString().slice(0, 10)
   const reset = () => {
     if (window.confirm('Удалить все локальные результаты тестирования?')) resetFeedback()
@@ -61,12 +64,19 @@ export function TestFeedbackPage() {
 
     <section className="surface mt-6 p-5 sm:p-7" aria-labelledby="verified-metrics-title">
       <p className="eyebrow">Verified Source Metrics</p><h2 id="verified-metrics-title" className="mt-2 text-2xl font-semibold text-navy">Состояние source layer</h2>
-      <div className="mt-5 grid gap-3 sm:grid-cols-3">{[['Verified', sourceSummary.verified], ['Source found', sourceSummary.sourceFound], ['Rejected', sourceSummary.rejected]].map(([label, value]) => <article key={label} className="rounded-xl bg-slate-50 p-4"><p className="text-sm font-semibold text-muted">{label}</p><p className="mt-1 text-3xl font-bold text-navy">{value}</p></article>)}</div>
+      <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{[['Source verified', sourceSummary.verified], ['PIP approved', productSummary.pipApproved], ['PIP rejected', productSummary.pipRejected], ['Awaiting PO review', productSummary.awaitingPoReview]].map(([label, value]) => <article key={label} className="rounded-xl bg-slate-50 p-4"><p className="text-sm font-semibold text-muted">{label}</p><p className="mt-1 text-3xl font-bold text-navy">{value}</p></article>)}</div>
       <div className="mt-5 grid gap-5 lg:grid-cols-3">
         <div><h3 className="font-semibold text-navy">По типу слайда</h3><FrequencyList items={countBy(verifiedSources.map(({ primaryContentTypeId }) => primaryContentTypeId))} /></div>
         <div><h3 className="font-semibold text-navy">По организациям</h3><FrequencyList items={countBy(verifiedSources.map(({ organization }) => organization))} /></div>
         <div><h3 className="font-semibold text-navy">По правам</h3><FrequencyList items={countBy(verifiedSources.map(({ rightsStatus }) => rightsStatus))} /></div>
       </div>
+      <div className="mt-5 grid gap-5 lg:grid-cols-2"><div><h3 className="font-semibold text-navy">PIP approved по типу слайда</h3><FrequencyList items={countBy(approvedSources.map(({ primaryContentTypeId }) => primaryContentTypeId))} /></div><div><h3 className="font-semibold text-navy">PIP approved организации</h3><FrequencyList items={countBy(approvedSources.map(({ organization }) => organization))} /></div></div>
+    </section>
+
+    <section className="surface mt-6 p-5 sm:p-7" aria-labelledby="fresh-discovery-metrics-title">
+      <p className="eyebrow">Fresh Discovery Metrics</p><h2 id="fresh-discovery-metrics-title" className="mt-2 text-2xl font-semibold text-navy">Запрос на поиск свежих референсов</h2>
+      <div className="mt-5 grid gap-3 sm:grid-cols-3">{[['Prompt shown', summary.freshDiscovery.shown], ['Prompt copied', summary.freshDiscovery.copied], ['Copy rate', `${Math.round(summary.freshDiscovery.copyRate * 100)}%`]].map(([label, value]) => <article key={label} className="rounded-xl bg-slate-50 p-4"><p className="text-sm font-semibold text-muted">{label}</p><p className="mt-1 text-3xl font-bold text-navy">{value}</p></article>)}</div>
+      <div className="mt-5 grid gap-5 lg:grid-cols-3"><div><h3 className="font-semibold text-navy">Copied by content type</h3><FrequencyList items={summary.freshDiscovery.byContentType} /></div><div><h3 className="font-semibold text-navy">Copied by scenario</h3><FrequencyList items={summary.freshDiscovery.byScenario} /></div><div><h3 className="font-semibold text-navy">Полезность в Test Mode</h3><FrequencyList items={[["Да", summary.freshDiscovery.helpfulYes], ["Возможно", summary.freshDiscovery.helpfulMaybe], ["Нет", summary.freshDiscovery.helpfulNo]]} /></div></div>
     </section>
 
     <div className="mt-6 grid gap-5 lg:grid-cols-2">

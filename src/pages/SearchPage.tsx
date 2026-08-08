@@ -9,6 +9,7 @@ import { Icon } from '../components/Icon'
 import { useFeedback } from '../hooks/useFeedback'
 import { isTestMode } from '../utils/testMode'
 import { MissingReferencePrompt } from '../components/MissingReferencePrompt'
+import { FreshDiscoveryPrompt } from '../components/FreshDiscoveryPrompt'
 
 interface SearchPageProps {
   references: Reference[]
@@ -48,6 +49,7 @@ export function SearchPage({ references, query, setQuery }: SearchPageProps) {
       </div>
       {matchSummary.exactCount < 4 && <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm leading-6 text-amber-950" role="status">Точных вариантов пока немного. Мы добавили несколько близких форматов, которые могут помочь решить вашу задачу.</div>}
       <ResultsGrid references={results} bestReferenceId={feedback.activeSession?.bestReferenceId} onSelectBest={feedback.selectBestReference} />
+      <FreshDiscoveryPrompt query={query} testMode={testMode} />
       <div className="mt-6 flex justify-center"><button type="button" aria-pressed={feedback.activeSession?.noSuitableReference ?? false} onClick={feedback.selectNoSuitableReference} className={`inline-flex min-h-11 items-center justify-center rounded-xl border px-5 py-2.5 text-sm font-semibold transition ${feedback.activeSession?.noSuitableReference ? 'border-navy bg-navy text-white' : 'border-line bg-white text-muted hover:border-navy hover:text-navy'}`}>{feedback.activeSession?.noSuitableReference ? '✓ ' : ''}Нет подходящего варианта</button></div>
       <MissingReferencePrompt />
       <CollectionFeedback testMode={testMode} />

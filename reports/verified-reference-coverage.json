@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T03:42:36.627Z",
+  "generatedAt": "2026-08-08T10:43:27.781Z",
   "targetPerContentType": 3,
   "targetTotal": 24,
   "total": 16,
@@ -14,7 +14,8 @@
     "cc-by": 0,
     "cc-by-sa": 0,
     "cc-by-nc": 0,
-    "explicit-permission": 2,
+    "explicit-permission": 0,
+    "other-open-licence": 2,
     "official-embed": 0,
     "link-only-no-local-copy": 6,
     "unclear": 0

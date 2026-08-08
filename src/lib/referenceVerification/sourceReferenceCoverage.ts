@@ -13,13 +13,13 @@ export interface SourceCoverageRow {
 export function sourceReferenceCoverage(sources: SourceReference[]): SourceCoverageRow[] {
   return contentTypeIds.map((contentTypeId) => {
     const matching = sources.filter((source) => source.primaryContentTypeId === contentTypeId)
-    const verifiedCount = matching.filter(({ verificationStatus }) => verificationStatus === 'verified').length
+    const verifiedCount = matching.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_verified').length
     return {
       contentTypeId,
       candidateCount: matching.length,
-      sourceFoundCount: matching.filter(({ verificationStatus }) => verificationStatus === 'source_found').length,
+      sourceFoundCount: matching.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_found').length,
       verifiedCount,
-      rejectedCount: matching.filter(({ verificationStatus }) => verificationStatus === 'rejected').length,
+      rejectedCount: matching.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_rejected').length,
       gapToTarget3: Math.max(0, 3 - verifiedCount),
     }
   })
@@ -30,13 +30,13 @@ export function countBy<T extends string>(values: T[]): Array<[T, number]> {
 }
 
 export function sourceReferenceSummary(sources: SourceReference[]) {
-  const verified = sources.filter(({ verificationStatus }) => verificationStatus === 'verified')
+  const verified = sources.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_verified')
   return {
     total: sources.length,
-    candidate: sources.filter(({ verificationStatus }) => verificationStatus === 'candidate').length,
-    sourceFound: sources.filter(({ verificationStatus }) => verificationStatus === 'source_found').length,
+    candidate: sources.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'candidate').length,
+    sourceFound: sources.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_found').length,
     verified: verified.length,
-    rejected: sources.filter(({ verificationStatus }) => verificationStatus === 'rejected').length,
+    rejected: sources.filter(({ sourceVerificationStatus }) => sourceVerificationStatus === 'source_rejected').length,
     uniqueOrganizations: new Set(verified.map(({ organization }) => organization)).size,
     uniquePresentations: new Set(verified.map(({ organization, presentationTitle }) => `${organization}|${presentationTitle}`)).size,
     rights: countBy(verified.map(({ rightsStatus }) => rightsStatus as SourceRightsStatus)),
