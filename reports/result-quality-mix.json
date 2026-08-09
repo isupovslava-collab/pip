@@ -1,0 +1,107 @@
+{
+  "report": "RESULT QUALITY MIX",
+  "querySources": [
+    "controlQueries",
+    "contentPrecisionQueries"
+  ],
+  "queriesTested": 48,
+  "topResultsTested": 288,
+  "averageTop6": {
+    "hero": 0.4,
+    "gold": 1.04,
+    "standard": 4.56,
+    "prototype": 0
+  },
+  "totals": {
+    "hero": 19,
+    "gold": 50,
+    "standard": 219,
+    "prototype": 0
+  },
+  "prototypeExposureRate": 0,
+  "heroGoldShare": 0.24,
+  "queriesWithAtLeastFourPrototypeResults": 0,
+  "byContentType": {
+    "comparison": {
+      "queries": 7,
+      "results": 42,
+      "hero": 4,
+      "gold": 3,
+      "standard": 35,
+      "prototype": 0,
+      "prototypeExposureRate": 0,
+      "heroGoldShare": 0.17
+    },
+    "kpi": {
+      "queries": 6,
+      "results": 36,
+      "hero": 4,
+      "gold": 8,
+      "standard": 24,
+      "prototype": 0,
+      "prototypeExposureRate": 0,
+      "heroGoldShare": 0.33
+    },
+    "story": {
+      "queries": 7,
+      "results": 42,
+      "hero": 1,
+      "gold": 13,
+      "standard": 28,
+      "prototype": 0,
+      "prototypeExposureRate": 0,
+      "heroGoldShare": 0.33
+    },
+    "cover": {
+      "queries": 4,
+      "results": 24,
+      "hero": 1,
+      "gold": 4,
+      "standard": 19,
+      "prototype": 0,
+      "prototypeExposureRate": 0,
+      "heroGoldShare": 0.21
+    },
+    "process": {
+      "queries": 6,
+      "results": 36,
+      "hero": 2,
+      "gold": 4,
+      "standard": 30,
+      "prototype": 0,
+      "prototypeExposureRate": 0,
+      "heroGoldShare": 0.17
+    },
+    "timeline": {
+      "queries": 7,
+      "results": 42,
+      "hero": 2,
+      "gold": 9,
+      "standard": 31,
+      "prototype": 0,
+      "prototypeExposureRate": 0,
+      "heroGoldShare": 0.26
+    },
+    "dashboard": {
+      "queries": 5,
+      "results": 30,
+      "hero": 3,
+      "gold": 3,
+      "standard": 24,
+      "prototype": 0,
+      "prototypeExposureRate": 0,
+      "heroGoldShare": 0.2
+    },
+    "table": {
+      "queries": 6,
+      "results": 36,
+      "hero": 2,
+      "gold": 6,
+      "standard": 28,
+      "prototype": 0,
+      "prototypeExposureRate": 0,
+      "heroGoldShare": 0.22
+    }
+  },
+  "limitation": "qualityTier is a maintained metadata taxonomy, not an automated visual-quality judgment; it may not capture every schematic characteristic."
+}

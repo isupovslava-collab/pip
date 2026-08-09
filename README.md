@@ -83,7 +83,7 @@ Production-сборка создается в папке `dist`.
 
 Текущие квоты опубликованы в `docs/library-coverage.md`, правила сопровождения — в `docs/reference-library-guidelines.md`, карта источников и адаптаций — в `docs/source-backed-gold-map.md`, а контактный лист визуального контроля — в `public/gold-contact-sheet.html`.
 
-Архитектура Verified Source Layer, схема статусов, права, текущие gaps и Intelligence Pilot описаны в `docs/verified-reference-core.md`. Воспроизводимые отчёты находятся в `reports/verified-reference-coverage.md`, `reports/verified-reference-coverage.json` и `reports/rejected-reference-report.json`.
+Архитектура Verified Source Layer, схема статусов, права, текущие gaps и Intelligence Pilot описаны в `docs/verified-reference-core.md`. Стратегия компактного Curated Core зафиксирована в `docs/curated-core-strategy.md`. Воспроизводимые отчёты находятся в `reports/verified-reference-coverage.md`, `reports/verified-reference-coverage.json`, `reports/rejected-reference-report.json` и `reports/result-quality-mix.md`; последний обновляется командой `npm run report:result-quality-mix`.
 
 Пилот запускается по адресу `#/search?test=1`. Локальный dashboard доступен только по прямому адресу `#/test-feedback`, а реестр источников — `#/test-reference-review`; оба экрана намеренно не добавлены в основную навигацию. Инструкция модератора находится в `docs/user-testing-guide.md`, правила текущего режима — в `docs/single-slide-mode.md`, будущий режим структуры — только в `docs/presentation-structure-mode-roadmap.md`, а замечание к homepage hero — в `docs/product-design-backlog.md`.
 

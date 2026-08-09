@@ -2,6 +2,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { FeedbackProvider } from '../components/FeedbackProvider'
 import { FreshDiscoveryPrompt } from '../components/FreshDiscoveryPrompt'
+import { FreshDiscoveryProviderSelector } from '../components/FreshDiscoveryProviderSelector'
 import { FRESH_DISCOVERY_PROMPT_VERSION, freshDiscoveryGuidance, generateFreshDiscoveryPrompt } from '../lib/freshDiscovery/generateFreshDiscoveryPrompt'
 import { ACTIVE_SESSION_STORAGE_KEY, FEEDBACK_STORAGE_KEY, createFeedbackSession, readFeedbackSessions } from '../services/feedbackStorage'
 import { contentTypeIds, type SearchQuery } from '../types/reference'
@@ -50,29 +51,30 @@ describe('Fresh Discovery Prompt v2', () => {
     expect(prompt).toContain('не придумывай название или содержание слайда')
   })
 
-  it('previews, copies, disclaims external results, and records v2 once', async () => {
+  it('copies Prompt v2 through provider handoff and records the context once', async () => {
     seedActiveSession()
     const writeText = vi.fn().mockResolvedValue(undefined)
     Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText } })
-    const view = render(<FeedbackProvider><FreshDiscoveryPrompt query={query} testMode /></FeedbackProvider>)
+    const open = vi.spyOn(window, 'open').mockReturnValue({} as Window)
+    render(<FeedbackProvider><FreshDiscoveryPrompt query={query} onOpenProviderSelector={() => undefined} /><FreshDiscoveryProviderSelector query={query} open onClose={() => undefined} testMode /></FeedbackProvider>)
 
-    expect(screen.getByRole('heading', { name: 'Найти ещё свежие референсы' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Где искать свежие референсы?' })).toBeInTheDocument()
     expect(screen.getByText(/не являются проверенными PIP-референсами/)).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'Посмотреть промпт' }))
     expect(screen.getByText(/Сценарий: Продажа/)).toBeInTheDocument()
-    fireEvent.click(screen.getByRole('button', { name: 'Скопировать промпт для AI-поиска' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Выбрать ChatGPT' }))
     await waitFor(() => expect(writeText).toHaveBeenCalledOnce())
     expect(writeText.mock.calls[0][0]).toContain('A. Exact References')
+    expect(open).toHaveBeenCalledWith('https://chatgpt.com/', '_blank', 'noopener,noreferrer')
     expect(screen.getByRole('status')).toHaveTextContent('Промпт скопирован')
-    fireEvent.click(screen.getByRole('button', { name: 'Да' }))
-    view.rerender(<FeedbackProvider><FreshDiscoveryPrompt query={query} testMode /></FeedbackProvider>)
 
     await waitFor(() => {
       const session = readFeedbackSessions()[0]
       expect(session.freshDiscoveryPromptVersion).toBe('v2')
       expect(session.freshDiscoveryPromptShown).toBe(true)
       expect(session.freshDiscoveryPromptCopied).toBe(true)
-      expect(session.freshDiscoveryHelpful).toBe('yes')
+      expect(session.freshDiscoveryProvider).toBe('chatgpt')
+      expect(session.freshDiscoveryProviderOpened).toBe(true)
       expect(session.events.filter(({ type }) => type === 'fresh_discovery_prompt_shown')).toHaveLength(1)
       expect(session.events.filter(({ type }) => type === 'fresh_discovery_prompt_copied')).toHaveLength(1)
       expect(session.events.find(({ type }) => type === 'fresh_discovery_prompt_copied')).toMatchObject({ ...query, freshDiscoveryPromptVersion: 'v2' })

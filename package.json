@@ -22,6 +22,7 @@
     "validate:product-approval": "node scripts/validate-product-approval.mjs",
     "report:approved-reference-coverage": "node scripts/report-approved-reference-coverage.mjs",
     "validate:fresh-discovery-prompt": "node scripts/validate-fresh-discovery-prompt.mjs",
+    "report:result-quality-mix": "node scripts/report-result-quality-mix.mjs",
     "lint": "eslint .",
     "test": "vitest run"
   },

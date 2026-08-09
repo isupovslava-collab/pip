@@ -1,4 +1,5 @@
 import type { SearchQuery } from './reference'
+import type { FreshDiscoveryProviderId } from '../data/freshDiscoveryProviders'
 
 export const FEEDBACK_COMMENT_MAX_LENGTH = 4000
 
@@ -6,11 +7,16 @@ export const collectionRatings = ['useful', 'partially_useful', 'not_useful'] as
 export const usableReferenceAnswers = ['yes', 'probably_yes', 'probably_no', 'no'] as const
 export const intelligenceHelpfulAnswers = ['helpful', 'partially_helpful', 'not_helpful'] as const
 export const freshDiscoveryHelpfulAnswers = ['yes', 'maybe', 'no'] as const
+export const freshDiscoveryUsefulReferenceCounts = ['0', '1_2', '3_4', '5_plus'] as const
+export const freshDiscoveryVisualQualities = ['strong', 'good', 'average', 'weak'] as const
 
 export type CollectionRating = (typeof collectionRatings)[number]
 export type UsableReferenceFound = (typeof usableReferenceAnswers)[number]
 export type IntelligenceHelpful = (typeof intelligenceHelpfulAnswers)[number]
 export type FreshDiscoveryHelpful = (typeof freshDiscoveryHelpfulAnswers)[number]
+export type FreshDiscoveryUsefulReferenceCount = (typeof freshDiscoveryUsefulReferenceCounts)[number]
+export type FreshDiscoveryVisualQuality = (typeof freshDiscoveryVisualQualities)[number]
+export type FreshDiscoveryWouldUseAgain = FreshDiscoveryHelpful
 export type FreshDiscoveryPromptVersion = 'v2'
 export type FeedbackEventType =
   | 'search_started'
@@ -33,6 +39,13 @@ export type FeedbackEventType =
   | 'fresh_discovery_prompt_shown'
   | 'fresh_discovery_prompt_copied'
   | 'fresh_discovery_feedback_submitted'
+  | 'fresh_discovery_provider_selector_opened'
+  | 'fresh_discovery_provider_selected'
+  | 'fresh_discovery_provider_opened'
+  | 'fresh_discovery_provider_open_failed'
+  | 'fresh_discovery_prompt_copy_failed'
+  | 'fresh_discovery_post_search_feedback_submitted'
+  | 'fresh_discovery_test_summary_copied'
 
 export type ResultContentMatchType = 'exact' | 'compatible' | 'fallback'
 
@@ -68,6 +81,12 @@ export interface FeedbackEvent {
   styleId?: SearchQuery['styleId']
   contentTypeId?: SearchQuery['contentTypeId']
   freshDiscoveryPromptVersion?: FreshDiscoveryPromptVersion
+  promptVersion?: FreshDiscoveryPromptVersion
+  provider?: FreshDiscoveryProviderId
+  providerOpened?: boolean
+  usefulReferenceCount?: FreshDiscoveryUsefulReferenceCount | null
+  visualQuality?: FreshDiscoveryVisualQuality | null
+  wouldUseAgain?: FreshDiscoveryWouldUseAgain | null
 }
 
 export interface FeedbackSession {
@@ -90,6 +109,11 @@ export interface FeedbackSession {
   freshDiscoveryPromptCopied: boolean
   freshDiscoveryHelpful: FreshDiscoveryHelpful | null
   freshDiscoveryPromptVersion?: FreshDiscoveryPromptVersion
+  freshDiscoveryProvider: FreshDiscoveryProviderId | null
+  freshDiscoveryProviderOpened: boolean
+  freshDiscoveryUsefulReferenceCount: FreshDiscoveryUsefulReferenceCount | null
+  freshDiscoveryVisualQuality: FreshDiscoveryVisualQuality | null
+  freshDiscoveryWouldUseAgain: FreshDiscoveryWouldUseAgain | null
   collectionRating: CollectionRating | null
   collectionIssues: string[]
   collectionComment: string

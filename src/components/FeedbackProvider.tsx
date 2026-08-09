@@ -5,6 +5,7 @@ import { FEEDBACK_COMMENT_MAX_LENGTH, type FeedbackEventType, type FeedbackSessi
 import { summarizeContentMatches } from '../services/rankReferences'
 import type { SearchQuery } from '../types/reference'
 import { FRESH_DISCOVERY_PROMPT_VERSION } from '../lib/freshDiscovery/generateFreshDiscoveryPrompt'
+import type { FreshDiscoveryProviderId } from '../data/freshDiscoveryProviders'
 
 function appendEvent(session: FeedbackSession, type: FeedbackEventType, referenceId?: string): FeedbackSession {
   const timestamp = new Date().toISOString()
@@ -20,7 +21,30 @@ function appendFreshDiscoveryEvent(session: FeedbackSession, type: 'fresh_discov
     freshDiscoveryPromptShown: session.freshDiscoveryPromptShown || type === 'fresh_discovery_prompt_shown',
     freshDiscoveryPromptCopied: session.freshDiscoveryPromptCopied || type === 'fresh_discovery_prompt_copied',
     freshDiscoveryPromptVersion: FRESH_DISCOVERY_PROMPT_VERSION,
-    events: [...session.events, { type, timestamp: new Date().toISOString(), ...query, freshDiscoveryPromptVersion: FRESH_DISCOVERY_PROMPT_VERSION }],
+    events: [...session.events, { type, timestamp: new Date().toISOString(), ...query, promptVersion: FRESH_DISCOVERY_PROMPT_VERSION, freshDiscoveryPromptVersion: FRESH_DISCOVERY_PROMPT_VERSION }],
+  }
+}
+
+function appendProviderEvent(session: FeedbackSession, type: 'fresh_discovery_provider_selector_opened' | 'fresh_discovery_provider_selected' | 'fresh_discovery_provider_opened' | 'fresh_discovery_provider_open_failed' | 'fresh_discovery_prompt_copy_failed' | 'fresh_discovery_test_summary_copied', query: SearchQuery, provider?: FreshDiscoveryProviderId): FeedbackSession {
+  return {
+    ...session,
+    freshDiscoveryProvider: provider ?? session.freshDiscoveryProvider,
+    freshDiscoveryProviderOpened: type === 'fresh_discovery_provider_opened'
+      ? true
+      : type === 'fresh_discovery_provider_selected' || type === 'fresh_discovery_provider_open_failed'
+        ? false
+        : session.freshDiscoveryProviderOpened,
+    freshDiscoveryPromptVersion: FRESH_DISCOVERY_PROMPT_VERSION,
+    events: [...session.events, {
+      type,
+      timestamp: new Date().toISOString(),
+      ...query,
+      freshDiscoveryPromptVersion: FRESH_DISCOVERY_PROMPT_VERSION,
+      promptVersion: FRESH_DISCOVERY_PROMPT_VERSION,
+      ...(provider ? { provider } : {}),
+      ...(type === 'fresh_discovery_provider_opened' ? { providerOpened: true } : {}),
+      ...(type === 'fresh_discovery_provider_open_failed' ? { providerOpened: false } : {}),
+    }],
   }
 }
 
@@ -93,7 +117,26 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
     }, 'intelligence_feedback_submitted', referenceId)),
     recordFreshDiscoveryPromptShown: (query) => updateActive((session) => appendFreshDiscoveryEvent(session, 'fresh_discovery_prompt_shown', query)),
     recordFreshDiscoveryPromptCopied: (query) => updateActive((session) => appendFreshDiscoveryEvent(session, 'fresh_discovery_prompt_copied', query)),
+    recordFreshDiscoveryProviderEvent: (type, query, provider) => updateActive((session) => appendProviderEvent(session, type, query, provider)),
+    recordFreshDiscoveryTestSummaryCopied: (query, provider) => updateActive((session) => appendProviderEvent(session, 'fresh_discovery_test_summary_copied', query, provider)),
     submitFreshDiscoveryFeedback: (freshDiscoveryHelpful) => updateActive((session) => appendEvent({ ...session, freshDiscoveryHelpful }, 'fresh_discovery_feedback_submitted')),
+    submitFreshDiscoveryPostSearchFeedback: (freshDiscoveryUsefulReferenceCount, freshDiscoveryVisualQuality, freshDiscoveryWouldUseAgain) => updateActive((session) => ({
+      ...session,
+      freshDiscoveryUsefulReferenceCount,
+      freshDiscoveryVisualQuality,
+      freshDiscoveryWouldUseAgain,
+      events: [...session.events, {
+        type: 'fresh_discovery_post_search_feedback_submitted',
+        timestamp: new Date().toISOString(),
+        ...(session.query ?? {}),
+        freshDiscoveryPromptVersion: FRESH_DISCOVERY_PROMPT_VERSION,
+        promptVersion: FRESH_DISCOVERY_PROMPT_VERSION,
+        ...(session.freshDiscoveryProvider ? { provider: session.freshDiscoveryProvider } : {}),
+        usefulReferenceCount: freshDiscoveryUsefulReferenceCount,
+        visualQuality: freshDiscoveryVisualQuality,
+        wouldUseAgain: freshDiscoveryWouldUseAgain,
+      }],
+    })),
     submitCollectionFeedback: (collectionRating, collectionIssues, collectionComment, usableReferenceFound) => updateActive((session) => appendEvent({
       ...session, collectionRating, collectionIssues, collectionComment, usableReferenceFound, completedAt: new Date().toISOString(),
     }, 'collection_feedback_submitted')),

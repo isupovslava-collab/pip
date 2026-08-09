@@ -18,6 +18,11 @@ export function summarizeFeedback(sessions: FeedbackSession[]) {
   const freshShownSessions = sessions.filter(({ freshDiscoveryPromptShown }) => freshDiscoveryPromptShown)
   const freshCopiedSessions = sessions.filter(({ freshDiscoveryPromptCopied }) => freshDiscoveryPromptCopied)
   const eventCount = (type: FeedbackSession['events'][number]['type']) => sessions.reduce((count, session) => count + session.events.filter((event) => event.type === type).length, 0)
+  const providerSelections = sessions.flatMap(({ events }) => events.filter(({ type }) => type === 'fresh_discovery_provider_selected').flatMap(({ provider }) => provider ? [provider] : []))
+  const providerOpened = eventCount('fresh_discovery_provider_opened')
+  const providerOpenFailed = eventCount('fresh_discovery_provider_open_failed')
+  const usefulFeedbackSessions = sessions.filter(({ freshDiscoveryUsefulReferenceCount }) => freshDiscoveryUsefulReferenceCount)
+  const successfulFreshSearches = usefulFeedbackSessions.filter(({ freshDiscoveryUsefulReferenceCount }) => freshDiscoveryUsefulReferenceCount === '3_4' || freshDiscoveryUsefulReferenceCount === '5_plus').length
   return {
     totalSessions: sessions.length,
     completedSessions: completed.length,
@@ -70,6 +75,32 @@ export function summarizeFeedback(sessions: FeedbackSession[]) {
       helpfulYes: sessions.filter(({ freshDiscoveryHelpful }) => freshDiscoveryHelpful === 'yes').length,
       helpfulMaybe: sessions.filter(({ freshDiscoveryHelpful }) => freshDiscoveryHelpful === 'maybe').length,
       helpfulNo: sessions.filter(({ freshDiscoveryHelpful }) => freshDiscoveryHelpful === 'no').length,
+      selectorOpened: eventCount('fresh_discovery_provider_selector_opened'),
+      providerShare: frequencies(providerSelections),
+      providerOpened,
+      providerOpenFailed,
+      providerOpenSuccessRate: providerOpened + providerOpenFailed ? providerOpened / (providerOpened + providerOpenFailed) : 0,
+      promptCopyFailed: eventCount('fresh_discovery_prompt_copy_failed'),
+      postSearchFeedbackSubmitted: eventCount('fresh_discovery_post_search_feedback_submitted'),
+      testSummaryCopied: eventCount('fresh_discovery_test_summary_copied'),
+      usefulReferences: {
+        '0': sessions.filter(({ freshDiscoveryUsefulReferenceCount }) => freshDiscoveryUsefulReferenceCount === '0').length,
+        '1_2': sessions.filter(({ freshDiscoveryUsefulReferenceCount }) => freshDiscoveryUsefulReferenceCount === '1_2').length,
+        '3_4': sessions.filter(({ freshDiscoveryUsefulReferenceCount }) => freshDiscoveryUsefulReferenceCount === '3_4').length,
+        '5_plus': sessions.filter(({ freshDiscoveryUsefulReferenceCount }) => freshDiscoveryUsefulReferenceCount === '5_plus').length,
+      },
+      wouldUseAgain: {
+        yes: sessions.filter(({ freshDiscoveryWouldUseAgain }) => freshDiscoveryWouldUseAgain === 'yes').length,
+        maybe: sessions.filter(({ freshDiscoveryWouldUseAgain }) => freshDiscoveryWouldUseAgain === 'maybe').length,
+        no: sessions.filter(({ freshDiscoveryWouldUseAgain }) => freshDiscoveryWouldUseAgain === 'no').length,
+      },
+      visualQuality: {
+        strong: sessions.filter(({ freshDiscoveryVisualQuality }) => freshDiscoveryVisualQuality === 'strong').length,
+        good: sessions.filter(({ freshDiscoveryVisualQuality }) => freshDiscoveryVisualQuality === 'good').length,
+        average: sessions.filter(({ freshDiscoveryVisualQuality }) => freshDiscoveryVisualQuality === 'average').length,
+        weak: sessions.filter(({ freshDiscoveryVisualQuality }) => freshDiscoveryVisualQuality === 'weak').length,
+      },
+      successfulSearchRate: usefulFeedbackSessions.length ? successfulFreshSearches / usefulFeedbackSessions.length : 0,
     },
   }
 }

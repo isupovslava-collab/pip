@@ -38,4 +38,34 @@ describe('feedback analytics', () => {
     expect(summary.byScenario).toEqual([['report', 1]])
     expect(summary.byVersion).toEqual([['baseline', 1], ['v2', 1]])
   })
+
+  it('aggregates provider handoff and self-reported successful searches', () => {
+    const successful = createFeedbackSession('2026-08-09T00:00:00.000Z', 'PIP-TEST-FRESH25-A')
+    successful.freshDiscoveryProvider = 'chatgpt'
+    successful.freshDiscoveryProviderOpened = true
+    successful.freshDiscoveryUsefulReferenceCount = '3_4'
+    successful.freshDiscoveryVisualQuality = 'good'
+    successful.freshDiscoveryWouldUseAgain = 'yes'
+    successful.events.push(
+      { type: 'fresh_discovery_provider_selector_opened', timestamp: '2026-08-09T00:01:00.000Z' },
+      { type: 'fresh_discovery_provider_selected', timestamp: '2026-08-09T00:01:01.000Z', provider: 'chatgpt' },
+      { type: 'fresh_discovery_provider_opened', timestamp: '2026-08-09T00:01:02.000Z', provider: 'chatgpt', providerOpened: true },
+      { type: 'fresh_discovery_post_search_feedback_submitted', timestamp: '2026-08-09T00:02:00.000Z', provider: 'chatgpt', usefulReferenceCount: '3_4', visualQuality: 'good', wouldUseAgain: 'yes' },
+    )
+    const failed = createFeedbackSession('2026-08-09T01:00:00.000Z', 'PIP-TEST-FRESH25-B')
+    failed.freshDiscoveryProvider = 'gemini'
+    failed.freshDiscoveryUsefulReferenceCount = '1_2'
+    failed.freshDiscoveryWouldUseAgain = 'maybe'
+    failed.events.push(
+      { type: 'fresh_discovery_provider_selected', timestamp: '2026-08-09T01:01:00.000Z', provider: 'gemini' },
+      { type: 'fresh_discovery_provider_open_failed', timestamp: '2026-08-09T01:01:01.000Z', provider: 'gemini', providerOpened: false },
+    )
+    const summary = summarizeFeedback([successful, failed]).freshDiscovery
+    expect(summary.providerShare).toEqual([['chatgpt', 1], ['gemini', 1]])
+    expect(summary.providerOpenSuccessRate).toBe(0.5)
+    expect(summary.successfulSearchRate).toBe(0.5)
+    expect(summary.usefulReferences).toMatchObject({ '1_2': 1, '3_4': 1 })
+    expect(summary.wouldUseAgain).toMatchObject({ yes: 1, maybe: 1, no: 0 })
+    expect(summary.visualQuality.good).toBe(1)
+  })
 })

@@ -107,7 +107,7 @@ describe('локальное хранение и экспорт feedback', () =>
     localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify([legacy]))
     const restored = readFeedbackSessions()[0]
     expect(restored.sessionId).toBe('PIP-TEST-LEGACY01')
-    expect(restored.feedbackSchemaVersion).toBe(4)
+    expect(restored.feedbackSchemaVersion).toBe(5)
     expect(restored.noSuitableReference).toBe(false)
     expect(restored.resultContentMatch).toEqual([])
     expect(restored.intelligenceOpened).toBe(false)
@@ -120,6 +120,11 @@ describe('локальное хранение и экспорт feedback', () =>
     expect(restored.freshDiscoveryPromptCopied).toBe(false)
     expect(restored.freshDiscoveryHelpful).toBeNull()
     expect(restored.freshDiscoveryPromptVersion).toBeUndefined()
+    expect(restored.freshDiscoveryProvider).toBeNull()
+    expect(restored.freshDiscoveryProviderOpened).toBe(false)
+    expect(restored.freshDiscoveryUsefulReferenceCount).toBeNull()
+    expect(restored.freshDiscoveryVisualQuality).toBeNull()
+    expect(restored.freshDiscoveryWouldUseAgain).toBeNull()
     expect(localStorage.getItem(FEEDBACK_STORAGE_KEY)).not.toBeNull()
   })
 

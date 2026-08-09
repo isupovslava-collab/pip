@@ -9,7 +9,9 @@ import { Icon } from '../components/Icon'
 import { useFeedback } from '../hooks/useFeedback'
 import { isTestMode } from '../utils/testMode'
 import { MissingReferencePrompt } from '../components/MissingReferencePrompt'
-import { FreshDiscoveryPrompt } from '../components/FreshDiscoveryPrompt'
+import { FreshDiscoveryPathChoice, FreshDiscoveryPrompt } from '../components/FreshDiscoveryPrompt'
+import { FreshDiscoveryProviderSelector } from '../components/FreshDiscoveryProviderSelector'
+import { useRef, useState } from 'react'
 
 interface SearchPageProps {
   references: Reference[]
@@ -21,6 +23,8 @@ export function SearchPage({ references, query, setQuery }: SearchPageProps) {
   const feedback = useFeedback()
   const location = useLocation()
   const testMode = isTestMode(location.search)
+  const [providerSelectorOpen, setProviderSelectorOpen] = useState(false)
+  const resultsRef = useRef<HTMLDivElement>(null)
   if (!query) return <SearchWizard onStart={feedback.startSession} onSearch={(nextQuery) => {
     const nextResults = rankReferences(references, nextQuery).slice(0, 6)
     feedback.completeWizard(nextQuery, nextResults)
@@ -29,6 +33,14 @@ export function SearchPage({ references, query, setQuery }: SearchPageProps) {
   const results = rankReferences(references, query).slice(0, 6)
   const matchSummary = summarizeContentMatches(results)
   const selectedLabels = [labels.scenario[query.scenarioId], labels.persona[query.personaId], labels.goal[query.goalId], labels.style[query.styleId]]
+  const openProviderSelector = () => {
+    feedback.recordFreshDiscoveryProviderEvent('fresh_discovery_provider_selector_opened', query)
+    setProviderSelectorOpen(true)
+  }
+  const showPipResults = () => {
+    resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    resultsRef.current?.focus({ preventScroll: true })
+  }
 
   return (
     <section aria-labelledby="results-title" aria-live="polite">
@@ -47,12 +59,14 @@ export function SearchPage({ references, query, setQuery }: SearchPageProps) {
           <span className="chip font-semibold"><span className="mr-2 h-1.5 w-1.5 rounded-full bg-amber" />Тип слайда: {labels.contentType[query.contentTypeId]}</span>
         </div>
       </div>
+      <FreshDiscoveryPathChoice onOpenProviderSelector={openProviderSelector} onShowPipResults={showPipResults} />
       {matchSummary.exactCount < 4 && <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm leading-6 text-amber-950" role="status">Точных вариантов пока немного. Мы добавили несколько близких форматов, которые могут помочь решить вашу задачу.</div>}
-      <ResultsGrid references={results} bestReferenceId={feedback.activeSession?.bestReferenceId} onSelectBest={feedback.selectBestReference} />
-      <FreshDiscoveryPrompt query={query} testMode={testMode} />
+      <div ref={resultsRef} tabIndex={-1} aria-label="Варианты из библиотеки PIP"><ResultsGrid references={results} bestReferenceId={feedback.activeSession?.bestReferenceId} onSelectBest={feedback.selectBestReference} /></div>
+      <FreshDiscoveryPrompt query={query} onOpenProviderSelector={openProviderSelector} />
       <div className="mt-6 flex justify-center"><button type="button" aria-pressed={feedback.activeSession?.noSuitableReference ?? false} onClick={feedback.selectNoSuitableReference} className={`inline-flex min-h-11 items-center justify-center rounded-xl border px-5 py-2.5 text-sm font-semibold transition ${feedback.activeSession?.noSuitableReference ? 'border-navy bg-navy text-white' : 'border-line bg-white text-muted hover:border-navy hover:text-navy'}`}>{feedback.activeSession?.noSuitableReference ? '✓ ' : ''}Нет подходящего варианта</button></div>
       <MissingReferencePrompt />
       <CollectionFeedback testMode={testMode} />
+      <FreshDiscoveryProviderSelector open={providerSelectorOpen} onClose={() => setProviderSelectorOpen(false)} query={query} testMode={testMode} />
     </section>
   )
 }
