@@ -12,6 +12,8 @@ export type ContentTypeId = (typeof contentTypeIds)[number]
 export type RightsStatus = 'public-link-reference-only' | 'licensed-for-reuse' | 'public-domain' | 'cc-licensed' | 'unknown-link-only'
 export type PreviewMode = 'original_pip_interpretation' | 'licensed_original_preview'
 export type QualityTier = 'hero' | 'gold' | 'standard' | 'prototype'
+export type CuratedCoreStatus = 'eligible' | 'review_only' | 'excluded'
+export type VisualReferenceQuality = 'premium' | 'good' | 'schematic' | 'prototype' | 'unknown'
 
 export interface SearchQuery {
   scenarioId: ScenarioId
@@ -47,6 +49,10 @@ export interface Reference {
   sourceAccessCheckedAt: string | null
   previewMode: PreviewMode
   qualityTier: QualityTier
+  primaryContentTypeId: ContentTypeId
+  screenSuitable: boolean
+  visualReferenceQuality: VisualReferenceQuality
+  curatedCoreStatus: CuratedCoreStatus
   productionApproved: boolean
   heroScenarioId: ScenarioId | null
   compositionFamily: string

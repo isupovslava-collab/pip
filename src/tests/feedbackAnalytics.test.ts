@@ -36,7 +36,7 @@ describe('feedback analytics', () => {
     expect(summary).toMatchObject({ shown: 2, copied: 1, copyRate: 0.5, helpfulYes: 1, helpfulMaybe: 0, helpfulNo: 0 })
     expect(summary.byContentType).toEqual([['dashboard', 1]])
     expect(summary.byScenario).toEqual([['report', 1]])
-    expect(summary.byVersion).toEqual([['baseline', 1], ['v2', 1]])
+    expect(summary.byVersion).toEqual([['baseline', 1], ['v3', 1]])
   })
 
   it('aggregates provider handoff and self-reported successful searches', () => {
@@ -46,6 +46,8 @@ describe('feedback analytics', () => {
     successful.freshDiscoveryUsefulReferenceCount = '3_4'
     successful.freshDiscoveryVisualQuality = 'good'
     successful.freshDiscoveryWouldUseAgain = 'yes'
+    successful.freshDiscoveryLinkQuality = 'all'
+    successful.freshDiscoveryDiversity = 'diverse'
     successful.events.push(
       { type: 'fresh_discovery_provider_selector_opened', timestamp: '2026-08-09T00:01:00.000Z' },
       { type: 'fresh_discovery_provider_selected', timestamp: '2026-08-09T00:01:01.000Z', provider: 'chatgpt' },
@@ -67,5 +69,7 @@ describe('feedback analytics', () => {
     expect(summary.usefulReferences).toMatchObject({ '1_2': 1, '3_4': 1 })
     expect(summary.wouldUseAgain).toMatchObject({ yes: 1, maybe: 1, no: 0 })
     expect(summary.visualQuality.good).toBe(1)
+    expect(summary.linkQuality.all).toBe(1)
+    expect(summary.diversity.diverse).toBe(1)
   })
 })

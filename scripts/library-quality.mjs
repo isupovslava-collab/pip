@@ -33,8 +33,8 @@ function validateData() {
   if (JSON.stringify(actualIds) !== JSON.stringify(expectedIds)) errors.push('Reference IDs must be continuous and ordered from REF-000001 to REF-000100.')
   if (new Set(actualIds).size !== actualIds.length) errors.push('Reference IDs must be unique.')
 
-  const requiredStrings = ['id', 'title', 'summary', 'previewPath', 'category', 'sourceType', 'sourceLabel', 'previewMode', 'qualityTier', 'compositionFamily', 'visualDirection']
-  const expectedFields = ['id', 'title', 'summary', 'sourceType', 'sourceLabel', 'sourceUrl', 'sourceBacked', 'sourceTitle', 'sourceOrganization', 'rightsStatus', 'sourceNotes', 'sourceAccessCheckedAt', 'previewMode', 'qualityTier', 'productionApproved', 'heroScenarioId', 'compositionFamily', 'visualDirection', 'referenceSchemaVersion', 'previewPath', 'scenarioIds', 'personaIds', 'goalIds', 'styleIds', 'contentTypeIds', 'category', 'tags', 'useWhen', 'avoidWhen', 'designDna'].sort()
+  const requiredStrings = ['id', 'title', 'summary', 'previewPath', 'category', 'sourceType', 'sourceLabel', 'previewMode', 'qualityTier', 'primaryContentTypeId', 'visualReferenceQuality', 'curatedCoreStatus', 'compositionFamily', 'visualDirection']
+  const expectedFields = ['id', 'title', 'summary', 'sourceType', 'sourceLabel', 'sourceUrl', 'sourceBacked', 'sourceTitle', 'sourceOrganization', 'rightsStatus', 'sourceNotes', 'sourceAccessCheckedAt', 'previewMode', 'qualityTier', 'primaryContentTypeId', 'screenSuitable', 'visualReferenceQuality', 'curatedCoreStatus', 'productionApproved', 'heroScenarioId', 'compositionFamily', 'visualDirection', 'referenceSchemaVersion', 'previewPath', 'scenarioIds', 'personaIds', 'goalIds', 'styleIds', 'contentTypeIds', 'category', 'tags', 'useWhen', 'avoidWhen', 'designDna'].sort()
   const arrayRules = {
     scenarioIds: [taxonomy.scenarios, 1, Number.POSITIVE_INFINITY],
     personaIds: [taxonomy.personas, 1, Number.POSITIVE_INFINITY],
@@ -56,6 +56,11 @@ function validateData() {
     if (reference.referenceSchemaVersion !== 2) errors.push(`${prefix}: referenceSchemaVersion must be 2.`)
     if (!previewModes.includes(reference.previewMode)) errors.push(`${prefix}: invalid previewMode.`)
     if (!['hero', 'gold', 'standard', 'prototype'].includes(reference.qualityTier)) errors.push(`${prefix}: invalid qualityTier.`)
+    if (!taxonomy.contentTypes.includes(reference.primaryContentTypeId)) errors.push(`${prefix}: invalid primaryContentTypeId.`)
+    if (!reference.contentTypeIds.includes(reference.primaryContentTypeId)) errors.push(`${prefix}: primaryContentTypeId must be present in contentTypeIds.`)
+    if (typeof reference.screenSuitable !== 'boolean') errors.push(`${prefix}: screenSuitable must be boolean.`)
+    if (!['premium', 'good', 'schematic', 'prototype', 'unknown'].includes(reference.visualReferenceQuality)) errors.push(`${prefix}: invalid visualReferenceQuality.`)
+    if (!['eligible', 'review_only', 'excluded'].includes(reference.curatedCoreStatus)) errors.push(`${prefix}: invalid curatedCoreStatus.`)
     if (!new RegExp(`^previews/${reference.id}\\.(svg|png|webp)$`).test(reference.previewPath)) errors.push(`${prefix}: previewPath does not match its ID.`)
     if (reference.sourceBacked) {
       for (const field of ['sourceTitle', 'sourceOrganization', 'sourceUrl', 'rightsStatus', 'sourceNotes', 'sourceAccessCheckedAt']) {

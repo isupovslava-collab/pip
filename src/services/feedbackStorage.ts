@@ -11,7 +11,7 @@ const CSV_HEADERS = [
   'bestReferenceId', 'noSuitableReference', 'collectionRating', 'usableReferenceFound', 'collectionIssues', 'collectionComment',
   'boardAddedCount', 'referencePositiveCount', 'referenceNegativeCount', 'intelligenceOpened', 'dataMappingViewed', 'verifiedSourceOpened',
   'intelligenceHelpful', 'intelligenceComment', 'missingReferenceText', 'freshDiscoveryPromptVersion', 'freshDiscoveryPromptShown', 'freshDiscoveryPromptCopied', 'freshDiscoveryHelpful',
-  'freshDiscoveryProvider', 'freshDiscoveryProviderOpened', 'freshDiscoveryUsefulReferenceCount', 'freshDiscoveryVisualQuality', 'freshDiscoveryWouldUseAgain',
+  'freshDiscoveryProvider', 'freshDiscoveryProviderOpened', 'freshDiscoveryUsefulReferenceCount', 'freshDiscoveryVisualQuality', 'freshDiscoveryWouldUseAgain', 'freshDiscoveryLinkQuality', 'freshDiscoveryDiversity',
 ]
 
 export function createSessionId(randomValues: Uint8Array = crypto.getRandomValues(new Uint8Array(4))): string {
@@ -20,7 +20,7 @@ export function createSessionId(randomValues: Uint8Array = crypto.getRandomValue
 
 export function createFeedbackSession(now = new Date().toISOString(), sessionId = createSessionId()): FeedbackSession {
   return {
-    feedbackSchemaVersion: 5,
+    feedbackSchemaVersion: 6,
     sessionId,
     createdAt: now,
     completedAt: null,
@@ -44,6 +44,8 @@ export function createFeedbackSession(now = new Date().toISOString(), sessionId 
     freshDiscoveryUsefulReferenceCount: null,
     freshDiscoveryVisualQuality: null,
     freshDiscoveryWouldUseAgain: null,
+    freshDiscoveryLinkQuality: null,
+    freshDiscoveryDiversity: null,
     collectionRating: null,
     collectionIssues: [],
     collectionComment: '',
@@ -62,7 +64,7 @@ export function readFeedbackSessions(storage: Storage = localStorage): FeedbackS
       session && typeof session === 'object' && typeof (session as FeedbackSession).sessionId === 'string',
     )).map((session) => ({
       ...session,
-      feedbackSchemaVersion: 5,
+      feedbackSchemaVersion: 6,
       noSuitableReference: session.noSuitableReference ?? false,
       resultContentMatch: session.resultContentMatch ?? [],
       missingReferenceText: session.missingReferenceText ?? '',
@@ -79,6 +81,8 @@ export function readFeedbackSessions(storage: Storage = localStorage): FeedbackS
       freshDiscoveryUsefulReferenceCount: session.freshDiscoveryUsefulReferenceCount ?? null,
       freshDiscoveryVisualQuality: session.freshDiscoveryVisualQuality ?? null,
       freshDiscoveryWouldUseAgain: session.freshDiscoveryWouldUseAgain ?? null,
+      freshDiscoveryLinkQuality: session.freshDiscoveryLinkQuality ?? null,
+      freshDiscoveryDiversity: session.freshDiscoveryDiversity ?? null,
     }))
   } catch {
     storage.removeItem(FEEDBACK_STORAGE_KEY)
@@ -145,6 +149,8 @@ export function exportFeedbackCsv(sessions: FeedbackSession[]): string {
       session.freshDiscoveryUsefulReferenceCount,
       session.freshDiscoveryVisualQuality,
       session.freshDiscoveryWouldUseAgain,
+      session.freshDiscoveryLinkQuality,
+      session.freshDiscoveryDiversity,
     ].map(csvCell).join(',')
   })
   return `\uFEFF${CSV_HEADERS.join(',')}\r\n${rows.join('\r\n')}\r\n`

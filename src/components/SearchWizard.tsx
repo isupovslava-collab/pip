@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { contentTypes, goals, personas, scenarios, styles } from '../data/dictionaries'
+import { contentTypes, goals, labels, personas, scenarios, styles } from '../data/dictionaries'
 import type { SearchQuery } from '../types/reference'
 import { Icon } from './Icon'
 import { WizardStep } from './WizardStep'
@@ -28,6 +28,12 @@ export function SearchWizard({ initialQuery, onSearch, onStart }: SearchWizardPr
   const [query, setQuery] = useState<Partial<SearchQuery>>(initialQuery ?? {})
   const current = steps[step]
   const selected = query[current.key]
+  const selectedContext = [
+    query.scenarioId ? labels.scenario[query.scenarioId] : null,
+    step >= 2 && query.personaId ? labels.persona[query.personaId] : null,
+    step >= 3 && query.goalId ? labels.goal[query.goalId] : null,
+    step >= 4 && query.styleId ? labels.style[query.styleId] : null,
+  ].filter((value): value is string => Boolean(value))
 
   const reset = () => {
     setQuery({})
@@ -68,6 +74,7 @@ export function SearchWizard({ initialQuery, onSearch, onStart }: SearchWizardPr
             {steps.map((item, index) => <span key={item.key} className={`h-2 rounded-full transition-colors duration-200 ${index <= step ? 'bg-blue' : 'bg-slate-100'}`} />)}
           </div>
         </div>
+        {step > 0 && <section className="mb-7 rounded-2xl border border-sky-100 bg-sky-50/70 p-4" aria-labelledby="selected-context-title"><div className="flex flex-wrap items-center justify-between gap-3"><div><p id="selected-context-title" className="text-sm font-semibold text-navy">Вы уже выбрали:</p><div className="mt-2 flex flex-wrap gap-2">{selectedContext.map((label) => <span key={label} className="chip bg-white">{label}</span>)}</div></div><button type="button" onClick={() => setStep(0)} className="btn-ghost">Изменить</button></div>{step === 4 && <p className="mt-3 text-sm font-semibold text-blue">Сейчас выберите тип слайда</p>}</section>}
         <WizardStep
           title={current.title}
           description={'description' in current ? current.description : undefined}

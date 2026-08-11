@@ -32,6 +32,10 @@ describe('целостность библиотеки', () => {
       reference.goalIds.forEach((id) => expect(goalIds).toContain(id))
       reference.styleIds.forEach((id) => expect(styleIds).toContain(id))
       reference.contentTypeIds.forEach((id) => expect(contentTypeIds).toContain(id))
+      expect(contentTypeIds).toContain(reference.primaryContentTypeId)
+      expect(['eligible', 'review_only', 'excluded']).toContain(reference.curatedCoreStatus)
+      expect(['premium', 'good', 'schematic', 'prototype', 'unknown']).toContain(reference.visualReferenceQuality)
+      expect(typeof reference.screenSuitable).toBe('boolean')
     })
   })
 

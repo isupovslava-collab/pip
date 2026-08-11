@@ -24,7 +24,7 @@ export function ReferencePage({ references, query }: ReferencePageProps) {
   if (!reference) return <EmptyState title="Референс не найден" text="Возможно, ссылка устарела или в адресе есть ошибка." />
 
   const ranked = query ? rankReferences([reference], query)[0] : null
-  const routeState = location.state as { score?: number; reasons?: string[] } | null
+  const routeState = location.state as { score?: number; reasons?: string[]; curatedCore?: boolean } | null
   const score = routeState?.score ?? ranked?.score
   const reasons = routeState?.reasons ?? ranked?.reasons ?? []
   const intelligence = referenceIntelligenceById.get(reference.id)
@@ -40,7 +40,7 @@ export function ReferencePage({ references, query }: ReferencePageProps) {
         <div className="grid lg:grid-cols-[minmax(0,1.35fr)_minmax(360px,0.65fr)]">
           <div className="relative flex min-w-0 items-center overflow-hidden bg-slate-100 p-2 sm:p-4 lg:border-r lg:border-line">
             <img src={`${import.meta.env.BASE_URL}${reference.previewPath}`} alt={`Превью слайда: ${reference.title}`} className="block aspect-video h-auto max-w-full object-contain" />
-            {score !== undefined && <span className="absolute right-3 top-3 max-w-[calc(100%-1.5rem)] rounded-lg bg-amber px-3 py-1.5 text-sm font-bold text-navy shadow-sm sm:right-4 sm:top-4 sm:rounded-xl sm:px-4 sm:py-2 sm:text-lg">{score}% <span className="text-xs font-medium sm:text-sm">соответствия</span></span>}
+            {score !== undefined && !routeState?.curatedCore && <span className="absolute right-3 top-3 max-w-[calc(100%-1.5rem)] rounded-lg bg-amber px-3 py-1.5 text-sm font-bold text-navy shadow-sm sm:right-4 sm:top-4 sm:rounded-xl sm:px-4 sm:py-2 sm:text-lg">{score}% <span className="text-xs font-medium sm:text-sm">соответствия</span></span>}
           </div>
           <div className="flex min-w-0 flex-col justify-center p-6 sm:p-8 lg:p-9">
             {reference.sourceBacked && <div className="mb-4 flex flex-wrap gap-2"><span className="rounded-full bg-amber-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-amber-800">{reference.qualityTier === 'hero' ? 'Hero Reference' : 'Gold Reference'}</span><span className="rounded-full bg-sky-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-sky-800">Source-backed</span></div>}
@@ -53,6 +53,7 @@ export function ReferencePage({ references, query }: ReferencePageProps) {
         </div>
       </div>
       {reasons.length > 0 && <section className="mt-6 rounded-2xl border border-sky-100 bg-sky-50/70 p-5 sm:p-7"><RecommendationReasons reasons={reasons} /></section>}
+      {routeState?.curatedCore && <section className="surface mt-6 p-5 sm:p-7" aria-labelledby="composition-title"><p className="eyebrow">Композиционный принцип</p><h2 id="composition-title" className="mt-2 text-2xl font-semibold text-navy">{reference.compositionFamily}</h2><p className="mt-3 max-w-4xl leading-7 text-muted">{reference.sourceNotes || reference.summary}</p></section>}
       {intelligence && <ReferenceIntelligencePanel intelligence={intelligence} />}
       <div className="mt-6 grid gap-5 lg:grid-cols-2">
         <section className="rounded-2xl border border-emerald-100 bg-emerald-50/60 p-5 sm:p-6"><div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-xl bg-emerald-100 text-success"><Icon name="check" className="h-5 w-5" /></span><h2 className="text-xl font-semibold text-navy">Лучше использовать, когда</h2></div><ul className="mt-5 space-y-3 text-muted">{reference.useWhen.map((item) => <li key={item} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-success" /><span>{item}</span></li>)}</ul></section>

@@ -12,6 +12,8 @@ PIP explicitly rejects “24 at any cost”, “1000 references”, and “X ref
 
 ## Curated Core eligibility
 
+Production selection uses explicit product fields, not an inference from legacy `qualityTier`: `primaryContentTypeId`, `screenSuitable`, `visualReferenceQuality`, and `curatedCoreStatus`. A result is eligible only when its status is `eligible`, quality is `premium`, screen suitability and production approval are true, and the asset is either an approved PIP-original Hero interpretation or a source-backed reference that passes the product gate. Selection is exact on `primaryContentTypeId`, deterministic, composition-aware, and capped at three. Zero, one, or two results are honest valid states.
+
 ### Source-backed references
 
 A source-backed reference enters Curated Core only when both gates pass:
@@ -45,7 +47,7 @@ For each content type, PIP should offer meaningfully different ways to solve the
 
 ## Measurement and decisions
 
-`npm run report:result-quality-mix` measures the current Hero, Gold, Standard, and Prototype mix across existing control and content-precision queries. It reports prototype exposure and Hero + Gold share by content type without changing ranking or data.
+`npm run report:curated-core` measures explicit eligibility and coverage. `npm run report:production-result-quality` executes production selection across control queries and reports the 0/1/2/3 distribution, wrong-type exposure, and non-premium exposure. The legacy `npm run report:result-quality-mix` remains a diagnostic comparison and does not describe production Curated Core.
 
 The `qualityTier` field is maintained metadata, not automated visual truth. The report therefore describes exposure according to the current taxonomy and cannot guarantee that every visually schematic reference is labeled `prototype`. Visual review and Product Owner approval remain required.
 

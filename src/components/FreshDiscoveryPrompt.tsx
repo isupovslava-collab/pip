@@ -36,7 +36,7 @@ export function FreshDiscoveryPrompt({ query, onOpenProviderSelector }: { query:
   }, [query])
 
   return <section className="mt-8 rounded-2xl border border-indigo-100 bg-indigo-50/60 p-5 sm:flex sm:items-center sm:justify-between sm:gap-5 sm:p-6" aria-labelledby="fresh-discovery-repeat-title">
-    <div><p className="eyebrow">Fresh Discovery</p><h2 id="fresh-discovery-repeat-title" className="mt-1 text-xl font-bold text-navy">Нужны дополнительные актуальные примеры?</h2><p className="mt-1 text-sm leading-6 text-muted">Запустите свежий поиск во внешнем AI-сервисе с подготовленным PIP-запросом.</p></div>
+    <div><p className="eyebrow">Fresh Discovery v3</p><h2 id="fresh-discovery-repeat-title" className="mt-1 text-xl font-bold text-navy">Нужны дополнительные актуальные примеры?</h2><p className="mt-1 text-sm leading-6 text-muted">Скопируйте строгий exact-type запрос, затем откройте выбранный AI-сервис.</p></div>
     <button type="button" onClick={onOpenProviderSelector} className="btn-primary mt-4 w-full shrink-0 sm:mt-0 sm:w-auto"><Icon name="sparkles" className="h-4 w-4" />Найти через AI</button>
   </section>
 }

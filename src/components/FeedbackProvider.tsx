@@ -92,6 +92,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
         })),
       }
       const viewed = appendEvent(appendEvent(completed, 'wizard_completed'), 'results_viewed')
+      if (topResults.length <= 3 && topResults.every(({ contentMatch }) => contentMatch === 'exact')) return viewed
       if (counts.exactCount >= 4) return viewed
       return {
         ...viewed,
@@ -120,11 +121,13 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
     recordFreshDiscoveryProviderEvent: (type, query, provider) => updateActive((session) => appendProviderEvent(session, type, query, provider)),
     recordFreshDiscoveryTestSummaryCopied: (query, provider) => updateActive((session) => appendProviderEvent(session, 'fresh_discovery_test_summary_copied', query, provider)),
     submitFreshDiscoveryFeedback: (freshDiscoveryHelpful) => updateActive((session) => appendEvent({ ...session, freshDiscoveryHelpful }, 'fresh_discovery_feedback_submitted')),
-    submitFreshDiscoveryPostSearchFeedback: (freshDiscoveryUsefulReferenceCount, freshDiscoveryVisualQuality, freshDiscoveryWouldUseAgain) => updateActive((session) => ({
+    submitFreshDiscoveryPostSearchFeedback: (freshDiscoveryUsefulReferenceCount, freshDiscoveryVisualQuality, freshDiscoveryWouldUseAgain, freshDiscoveryLinkQuality, freshDiscoveryDiversity) => updateActive((session) => ({
       ...session,
       freshDiscoveryUsefulReferenceCount,
       freshDiscoveryVisualQuality,
       freshDiscoveryWouldUseAgain,
+      freshDiscoveryLinkQuality,
+      freshDiscoveryDiversity,
       events: [...session.events, {
         type: 'fresh_discovery_post_search_feedback_submitted',
         timestamp: new Date().toISOString(),
@@ -135,6 +138,8 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
         usefulReferenceCount: freshDiscoveryUsefulReferenceCount,
         visualQuality: freshDiscoveryVisualQuality,
         wouldUseAgain: freshDiscoveryWouldUseAgain,
+        linkQuality: freshDiscoveryLinkQuality,
+        diversity: freshDiscoveryDiversity,
       }],
     })),
     submitCollectionFeedback: (collectionRating, collectionIssues, collectionComment, usableReferenceFound) => updateActive((session) => appendEvent({

@@ -38,7 +38,7 @@ describe('локальное хранение и экспорт feedback', () =>
     expect(JSON.parse(exported)).toEqual([session])
     expect(JSON.parse(exported)[0].noSuitableReference).toBe(true)
     expect(JSON.parse(exported)[0].resultContentMatch).toEqual(session.resultContentMatch)
-    expect(JSON.parse(exported)[0].freshDiscoveryPromptVersion).toBe('v2')
+    expect(JSON.parse(exported)[0].freshDiscoveryPromptVersion).toBe('v3')
     expect(exported.endsWith('\n')).toBe(true)
   })
 
@@ -66,7 +66,7 @@ describe('локальное хранение и экспорт feedback', () =>
     expect(csv).toContain('intelligenceOpened,dataMappingViewed,verifiedSourceOpened')
     expect(csv).toContain('intelligenceHelpful,intelligenceComment,missingReferenceText')
     expect(csv).toContain('freshDiscoveryPromptVersion,freshDiscoveryPromptShown,freshDiscoveryPromptCopied,freshDiscoveryHelpful')
-    expect(csv).toContain(',v2,true,true,yes')
+    expect(csv).toContain(',v3,true,true,yes')
     expect(csv).toContain('Нужен dashboard с восемью KPI')
     expect(csv).toContain('REF-000018,75')
     expect(csv.trim().split('\r\n')).toHaveLength(2)
@@ -107,7 +107,7 @@ describe('локальное хранение и экспорт feedback', () =>
     localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify([legacy]))
     const restored = readFeedbackSessions()[0]
     expect(restored.sessionId).toBe('PIP-TEST-LEGACY01')
-    expect(restored.feedbackSchemaVersion).toBe(5)
+    expect(restored.feedbackSchemaVersion).toBe(6)
     expect(restored.noSuitableReference).toBe(false)
     expect(restored.resultContentMatch).toEqual([])
     expect(restored.intelligenceOpened).toBe(false)
@@ -125,6 +125,8 @@ describe('локальное хранение и экспорт feedback', () =>
     expect(restored.freshDiscoveryUsefulReferenceCount).toBeNull()
     expect(restored.freshDiscoveryVisualQuality).toBeNull()
     expect(restored.freshDiscoveryWouldUseAgain).toBeNull()
+    expect(restored.freshDiscoveryLinkQuality).toBeNull()
+    expect(restored.freshDiscoveryDiversity).toBeNull()
     expect(localStorage.getItem(FEEDBACK_STORAGE_KEY)).not.toBeNull()
   })
 

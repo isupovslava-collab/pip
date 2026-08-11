@@ -9,6 +9,8 @@ export const intelligenceHelpfulAnswers = ['helpful', 'partially_helpful', 'not_
 export const freshDiscoveryHelpfulAnswers = ['yes', 'maybe', 'no'] as const
 export const freshDiscoveryUsefulReferenceCounts = ['0', '1_2', '3_4', '5_plus'] as const
 export const freshDiscoveryVisualQualities = ['strong', 'good', 'average', 'weak'] as const
+export const freshDiscoveryLinkQualities = ['all', 'most', 'less_than_half', 'none'] as const
+export const freshDiscoveryDiversities = ['diverse', 'some_duplicates', 'too_similar'] as const
 
 export type CollectionRating = (typeof collectionRatings)[number]
 export type UsableReferenceFound = (typeof usableReferenceAnswers)[number]
@@ -16,8 +18,10 @@ export type IntelligenceHelpful = (typeof intelligenceHelpfulAnswers)[number]
 export type FreshDiscoveryHelpful = (typeof freshDiscoveryHelpfulAnswers)[number]
 export type FreshDiscoveryUsefulReferenceCount = (typeof freshDiscoveryUsefulReferenceCounts)[number]
 export type FreshDiscoveryVisualQuality = (typeof freshDiscoveryVisualQualities)[number]
+export type FreshDiscoveryLinkQuality = (typeof freshDiscoveryLinkQualities)[number]
+export type FreshDiscoveryDiversity = (typeof freshDiscoveryDiversities)[number]
 export type FreshDiscoveryWouldUseAgain = FreshDiscoveryHelpful
-export type FreshDiscoveryPromptVersion = 'v2'
+export type FreshDiscoveryPromptVersion = 'v2' | 'v3'
 export type FeedbackEventType =
   | 'search_started'
   | 'wizard_completed'
@@ -87,6 +91,8 @@ export interface FeedbackEvent {
   usefulReferenceCount?: FreshDiscoveryUsefulReferenceCount | null
   visualQuality?: FreshDiscoveryVisualQuality | null
   wouldUseAgain?: FreshDiscoveryWouldUseAgain | null
+  linkQuality?: FreshDiscoveryLinkQuality | null
+  diversity?: FreshDiscoveryDiversity | null
 }
 
 export interface FeedbackSession {
@@ -114,6 +120,8 @@ export interface FeedbackSession {
   freshDiscoveryUsefulReferenceCount: FreshDiscoveryUsefulReferenceCount | null
   freshDiscoveryVisualQuality: FreshDiscoveryVisualQuality | null
   freshDiscoveryWouldUseAgain: FreshDiscoveryWouldUseAgain | null
+  freshDiscoveryLinkQuality: FreshDiscoveryLinkQuality | null
+  freshDiscoveryDiversity: FreshDiscoveryDiversity | null
   collectionRating: CollectionRating | null
   collectionIssues: string[]
   collectionComment: string

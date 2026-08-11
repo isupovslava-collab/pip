@@ -19,11 +19,22 @@ function NewReferenceBoardFixture() {
 }
 
 describe('интерфейс расширенной библиотеки', () => {
-  it('динамически показывает размер библиотеки и сохраняет top-6', () => {
+  it('показывает точный Premium Curated Core без legacy top-6', () => {
     render(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={query} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
-    expect(screen.getByText('Мы подобрали варианты дизайна для выбранного типа слайда и ранжировали их по соответствию вашей задаче.')).toBeInTheDocument()
+    expect(screen.getByText(/Мы показываем только те PIP-референсы, которые точно соответствуют/)).toBeInTheDocument()
     expect(screen.getByText('Тип слайда: Сравнение вариантов')).toBeInTheDocument()
-    expect(screen.getAllByRole('article')).toHaveLength(6)
+    expect(screen.getAllByRole('article')).toHaveLength(2)
+    expect(screen.getAllByText('Эталон PIP')).toHaveLength(2)
+    expect(screen.queryByText(/% соответствия/)).not.toBeInTheDocument()
+  })
+
+  it('честно показывает нулевое и низкое покрытие без fillers', () => {
+    const view = render(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={{ ...query, contentTypeId: 'timeline' }} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
+    expect(screen.getByText('В библиотеке PIP пока нет эталонного варианта для этого типа слайда.')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Найти свежие референсы' })).toBeInTheDocument()
+    view.rerender(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={{ ...query, contentTypeId: 'story' }} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
+    expect(screen.getByText(/Сейчас в PIP есть 1 эталонный вариант/)).toBeInTheDocument()
+    expect(screen.getAllByRole('article')).toHaveLength(1)
   })
 
   it('открывает подробную страницу референса с ID выше REF-000012', () => {

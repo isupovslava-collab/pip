@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import type { CollectionRating, FeedbackEventType, FeedbackSession, FreshDiscoveryHelpful, FreshDiscoveryUsefulReferenceCount, FreshDiscoveryVisualQuality, FreshDiscoveryWouldUseAgain, IntelligenceHelpful, ReferenceFeedback, UsableReferenceFound } from '../types/feedback'
+import type { CollectionRating, FeedbackEventType, FeedbackSession, FreshDiscoveryDiversity, FreshDiscoveryHelpful, FreshDiscoveryLinkQuality, FreshDiscoveryUsefulReferenceCount, FreshDiscoveryVisualQuality, FreshDiscoveryWouldUseAgain, IntelligenceHelpful, ReferenceFeedback, UsableReferenceFound } from '../types/feedback'
 import type { FreshDiscoveryProviderId } from '../data/freshDiscoveryProviders'
 import type { RankedReference, SearchQuery } from '../types/reference'
 
@@ -17,7 +17,7 @@ export interface FeedbackContextValue {
   recordFreshDiscoveryProviderEvent: (type: 'fresh_discovery_provider_selector_opened' | 'fresh_discovery_provider_selected' | 'fresh_discovery_provider_opened' | 'fresh_discovery_provider_open_failed' | 'fresh_discovery_prompt_copy_failed', query: SearchQuery, provider?: FreshDiscoveryProviderId) => void
   recordFreshDiscoveryTestSummaryCopied: (query: SearchQuery, provider: FreshDiscoveryProviderId) => void
   submitFreshDiscoveryFeedback: (helpful: FreshDiscoveryHelpful) => void
-  submitFreshDiscoveryPostSearchFeedback: (usefulReferenceCount: FreshDiscoveryUsefulReferenceCount | null, visualQuality: FreshDiscoveryVisualQuality | null, wouldUseAgain: FreshDiscoveryWouldUseAgain | null) => void
+  submitFreshDiscoveryPostSearchFeedback: (usefulReferenceCount: FreshDiscoveryUsefulReferenceCount | null, visualQuality: FreshDiscoveryVisualQuality | null, wouldUseAgain: FreshDiscoveryWouldUseAgain | null, linkQuality: FreshDiscoveryLinkQuality | null, diversity: FreshDiscoveryDiversity | null) => void
   submitCollectionFeedback: (rating: CollectionRating, issues: string[], comment: string, usableReferenceFound: UsableReferenceFound) => void
   submitReferenceFeedback: (feedback: ReferenceFeedback) => void
   recordBoardAction: (referenceId: string, added: boolean) => void

@@ -12,6 +12,7 @@ import { ReferencePage } from './pages/ReferencePage'
 import { SearchPage } from './pages/SearchPage'
 import { TestFeedbackPage } from './pages/TestFeedbackPage'
 import { TestReferenceReviewPage } from './pages/TestReferenceReviewPage'
+import { CuratedCoreReviewPage } from './pages/CuratedCoreReviewPage'
 import { loadReferences } from './services/loadReferences'
 import type { Reference, SearchQuery } from './types/reference'
 import { isTestMode } from './utils/testMode'
@@ -60,6 +61,7 @@ export default function App() {
                 <Route path="/board" element={<InspirationBoardPage references={references} />} />
                 <Route path="/test-feedback" element={<TestFeedbackPage />} />
                 <Route path="/test-reference-review" element={<TestReferenceReviewPage />} />
+                <Route path="/test-curated-core-review" element={<CuratedCoreReviewPage references={references} />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
             )}

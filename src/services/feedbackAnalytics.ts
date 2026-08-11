@@ -100,6 +100,17 @@ export function summarizeFeedback(sessions: FeedbackSession[]) {
         average: sessions.filter(({ freshDiscoveryVisualQuality }) => freshDiscoveryVisualQuality === 'average').length,
         weak: sessions.filter(({ freshDiscoveryVisualQuality }) => freshDiscoveryVisualQuality === 'weak').length,
       },
+      linkQuality: {
+        all: sessions.filter(({ freshDiscoveryLinkQuality }) => freshDiscoveryLinkQuality === 'all').length,
+        most: sessions.filter(({ freshDiscoveryLinkQuality }) => freshDiscoveryLinkQuality === 'most').length,
+        less_than_half: sessions.filter(({ freshDiscoveryLinkQuality }) => freshDiscoveryLinkQuality === 'less_than_half').length,
+        none: sessions.filter(({ freshDiscoveryLinkQuality }) => freshDiscoveryLinkQuality === 'none').length,
+      },
+      diversity: {
+        diverse: sessions.filter(({ freshDiscoveryDiversity }) => freshDiscoveryDiversity === 'diverse').length,
+        some_duplicates: sessions.filter(({ freshDiscoveryDiversity }) => freshDiscoveryDiversity === 'some_duplicates').length,
+        too_similar: sessions.filter(({ freshDiscoveryDiversity }) => freshDiscoveryDiversity === 'too_similar').length,
+      },
       successfulSearchRate: usefulFeedbackSessions.length ? successfulFreshSearches / usefulFeedbackSessions.length : 0,
     },
   }

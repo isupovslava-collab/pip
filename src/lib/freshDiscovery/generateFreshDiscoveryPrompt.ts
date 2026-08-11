@@ -1,7 +1,8 @@
 import { labels } from '../../data/dictionaries.ts'
 import type { ContentTypeId, SearchQuery } from '../../types/reference.ts'
 
-export const FRESH_DISCOVERY_PROMPT_VERSION = 'v2' as const
+export const FRESH_DISCOVERY_PROMPT_V2_VERSION = 'v2' as const
+export const FRESH_DISCOVERY_PROMPT_VERSION = 'v3' as const
 
 export const freshDiscoveryGuidance: Record<ContentTypeId, string[]> = {
   kpi: ['executive KPI slides', 'plan/fact', 'крупные ключевые метрики', 'динамику + управленческий вывод', '3–6 KPI с сильной визуальной иерархией'],
@@ -14,7 +15,7 @@ export const freshDiscoveryGuidance: Record<ContentTypeId, string[]> = {
   table: ['executive table', 'matrix', 'structured comparison', 'status table', 'decision table', 'screen-first таблицу, читаемую без zoom'],
 }
 
-export function generateFreshDiscoveryPrompt(query: SearchQuery): string {
+export function generateFreshDiscoveryPromptV2(query: SearchQuery): string {
   const guidance = freshDiscoveryGuidance[query.contentTypeId].map((item) => `— ${item};`).join('\n')
   return `Найди в интернете современные и свежие профессиональные референсы конкретных презентационных слайдов для следующей задачи.
 
@@ -92,4 +93,58 @@ B. Creative Alternatives
 — не придумывай название или содержание слайда;
 — если конкретную страницу визуально проверить не удалось, не включай её в основной список;
 — не выдавай template или aggregator за официальный первоисточник.`
+}
+
+export function generateFreshDiscoveryPrompt(query: SearchQuery): string {
+  const guidance = freshDiscoveryGuidance[query.contentTypeId].map((item) => `— ${item}`).join('\n')
+  return `PIP Fresh Discovery v3
+
+Найди в интернете свежие профессиональные референсы конкретных презентационных слайдов для этой задачи.
+
+Контекст:
+— Сценарий: ${labels.scenario[query.scenarioId]}
+— Аудитория: ${labels.persona[query.personaId]}
+— Цель: ${labels.goal[query.goalId]}
+— Стиль: ${labels.style[query.styleId]}
+— Требуемый тип слайда: ${labels.contentType[query.contentTypeId]}
+
+HARD EXACT-TYPE GATE
+В основной shortlist включай только слайды, чей основной тип точно равен «${labels.contentType[query.contentTypeId]}». Не заменяй его титульным, абстрактным, декоративным или просто красивым слайдом. Если точных сильных примеров мало, верни короткий список или честно сообщи, что подтверждённых вариантов нет. Не заполняй квоту нерелевантными результатами.
+
+Ориентиры для этого типа:
+${guidance}
+
+SOURCE QUALITY AND LINK RELIABILITY
+— предпочитай официальные страницы компаний, авторов, конференций и конкретные публичные deck/PDF;
+— открой и проверь каждую ссылку перед включением;
+— ссылка должна вести на конкретную презентацию, документ или страницу автора, а не на поисковую выдачу;
+— не придумывай URL, название, номер страницы, организацию или содержание;
+— если конкретный слайд визуально не проверен, не включай его в shortlist;
+— явно пометь официальный первоисточник и доступность ссылки.
+
+SOURCE DIVERSITY
+Не допускай доминирования одного сайта, автора, бренда или документа. По возможности используй разные первоисточники и организации, но не добавляй слабые результаты ради разнообразия.
+
+COMPOSITION DIVERSITY
+Shortlist должен показывать разные композиционные подходы: например, data-first, editorial, comparison-led, timeline-led, narrative или modular. Не включай несколько почти одинаковых слайдов из одного шаблона, deck или композиционного семейства.
+
+SCREEN SUITABILITY
+Каждый слайд должен читаться без увеличения, иметь ясную иерархию, правдоподобный контент и выглядеть как законченный профессиональный presentation reference. Исключай wireframes, схемы-заготовки, перегруженные страницы отчётов, шаблонные галереи, мокапы и устаревший дизайн.
+
+ABSTRACT FALLBACK PREVENTION
+Не используй абстрактный template, обложку, moodboard, набор фигур или иллюстрацию как замену требуемому типу слайда. Creative alternatives допустимы только вне основного shortlist, с явной маркировкой и только если они решают ту же коммуникационную задачу.
+
+Верни один короткий shortlist без фиксированной квоты. Для каждого результата укажи:
+1. организацию или автора;
+2. название презентации/документа;
+3. конкретный слайд или страницу;
+4. год;
+5. прямую проверенную ссылку;
+6. почему это точный тип;
+7. композиционный принцип;
+8. чем композиция отличается от остальных результатов;
+9. является ли ссылка официальным первоисточником;
+10. статус проверки ссылки: открывается / недоступна.
+
+Сначала покажи только подтверждённые точные результаты. После списка кратко укажи, сколько ссылок проверено, сколько разных источников и сколько разных композиционных семейств найдено. Результаты внешнего AI могут ошибаться: пользователю нужно самостоятельно проверить слайд и первоисточник.`
 }
