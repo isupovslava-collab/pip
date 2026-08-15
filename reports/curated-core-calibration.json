@@ -1,0 +1,63 @@
+{
+  "report": "CURATED CORE CALIBRATION",
+  "totalCandidates": 100,
+  "visualPremium": 6,
+  "typeVerified": 5,
+  "pending": 94,
+  "reclassify": 1,
+  "rejected": 0,
+  "productionEligible": 5,
+  "knownMisclassifications": [
+    {
+      "id": "REF-000019",
+      "currentType": "comparison",
+      "proposedType": "story",
+      "notes": "Strong visual, but this is a business-case argument with project stages rather than a comparison of alternatives."
+    }
+  ],
+  "coverageTargetPerType": 2,
+  "coverageTargetIsBinding": false,
+  "coverageGaps": {
+    "kpi": {
+      "approved": 1,
+      "target": 2,
+      "gap": 1
+    },
+    "comparison": {
+      "approved": 1,
+      "target": 2,
+      "gap": 1
+    },
+    "timeline": {
+      "approved": 0,
+      "target": 2,
+      "gap": 2
+    },
+    "process": {
+      "approved": 1,
+      "target": 2,
+      "gap": 1
+    },
+    "dashboard": {
+      "approved": 0,
+      "target": 2,
+      "gap": 2
+    },
+    "cover": {
+      "approved": 0,
+      "target": 2,
+      "gap": 2
+    },
+    "story": {
+      "approved": 1,
+      "target": 2,
+      "gap": 1
+    },
+    "table": {
+      "approved": 1,
+      "target": 2,
+      "gap": 1
+    }
+  },
+  "compositionDuplicateWarnings": []
+}

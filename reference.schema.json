@@ -8,7 +8,7 @@
   "items": {
     "type": "object",
     "additionalProperties": false,
-    "required": ["id", "title", "summary", "sourceType", "sourceLabel", "sourceUrl", "sourceBacked", "sourceTitle", "sourceOrganization", "rightsStatus", "sourceNotes", "sourceAccessCheckedAt", "previewMode", "qualityTier", "primaryContentTypeId", "screenSuitable", "visualReferenceQuality", "curatedCoreStatus", "productionApproved", "heroScenarioId", "compositionFamily", "visualDirection", "referenceSchemaVersion", "previewPath", "scenarioIds", "personaIds", "goalIds", "styleIds", "contentTypeIds", "category", "tags", "useWhen", "avoidWhen", "designDna"],
+    "required": ["id", "title", "summary", "sourceType", "sourceLabel", "sourceUrl", "sourceBacked", "sourceTitle", "sourceOrganization", "rightsStatus", "sourceNotes", "sourceAccessCheckedAt", "previewMode", "qualityTier", "primaryContentTypeId", "screenSuitable", "visualReferenceQuality", "curatedCoreStatus", "contentTypePoVerificationStatus", "productionApproved", "heroScenarioId", "compositionFamily", "visualDirection", "referenceSchemaVersion", "previewPath", "scenarioIds", "personaIds", "goalIds", "styleIds", "contentTypeIds", "category", "tags", "useWhen", "avoidWhen", "designDna"],
     "properties": {
       "id": { "type": "string", "pattern": "^REF-[0-9]{6}$" },
       "title": { "type": "string", "minLength": 1 },
@@ -28,6 +28,11 @@
       "screenSuitable": { "type": "boolean" },
       "visualReferenceQuality": { "enum": ["premium", "good", "schematic", "prototype", "unknown"] },
       "curatedCoreStatus": { "enum": ["eligible", "review_only", "excluded"] },
+      "contentTypePoVerificationStatus": { "enum": ["verified", "reclassify", "rejected", "pending"] },
+      "contentTypePoVerifiedAt": { "type": "string", "format": "date" },
+      "contentTypePoVerifiedBy": { "enum": ["product_owner"] },
+      "contentTypePoNotes": { "type": "string", "maxLength": 1000 },
+      "proposedPrimaryContentType": { "enum": ["kpi", "comparison", "timeline", "process", "dashboard", "cover", "story", "table"] },
       "productionApproved": { "type": "boolean" },
       "heroScenarioId": { "type": ["string", "null"], "enum": ["sales", "speech", "project", "meeting", "report", "training", "strategy", "budget_defense", null] },
       "compositionFamily": { "type": "string", "minLength": 1 },

@@ -7,6 +7,7 @@ export const MAX_CURATED_CORE_RESULTS = 3
 export function isCuratedCoreEligible(reference: Reference): boolean {
   return reference.curatedCoreStatus === 'eligible'
     && reference.visualReferenceQuality === 'premium'
+    && reference.contentTypePoVerificationStatus === 'verified'
     && reference.screenSuitable
     && reference.productionApproved
     && (reference.previewMode === 'original_pip_interpretation'

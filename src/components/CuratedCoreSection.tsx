@@ -11,13 +11,13 @@ import { Icon } from './Icon'
 export function CuratedCoreSection({ references, query, onOpenFreshDiscovery }: { references: RankedReference[]; query: SearchQuery; onOpenFreshDiscovery: () => void }) {
   if (!references.length) return <section className="surface overflow-hidden p-5 sm:p-7" aria-labelledby="curated-core-title">
     <p className="eyebrow">Premium Curated Core</p><h2 id="curated-core-title" className="mt-2 text-2xl font-bold text-navy">Эталонные варианты PIP</h2>
-    <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:p-6"><h3 className="text-xl font-bold text-navy">В библиотеке PIP пока нет эталонного варианта для этого типа слайда.</h3><p className="mt-2 max-w-3xl leading-7 text-muted">Мы не добавляем слабые или формально похожие варианты ради количества. Используйте Fresh Discovery, чтобы найти актуальные профессиональные примеры.</p><button type="button" onClick={onOpenFreshDiscovery} className="btn-primary mt-5"><Icon name="sparkles" className="h-4 w-4" />Найти свежие референсы</button></div>
+    <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:p-6"><h3 className="text-xl font-bold text-navy">В библиотеке PIP пока нет эталонного варианта для этого типа слайда.</h3><p className="mt-2 max-w-3xl leading-7 text-muted">Мы не добавляем слабые или формально похожие варианты ради количества. Используйте Fresh Discovery, чтобы найти актуальные профессиональные примеры.</p><p className="mt-3 max-w-3xl font-bold leading-7 text-navy">Свежий поиск доступен сразу — PIP подготовит точный запрос под вашу задачу.</p><button type="button" onClick={onOpenFreshDiscovery} className="btn-primary mt-5"><Icon name="sparkles" className="h-4 w-4" />Найти свежие референсы</button></div>
   </section>
 
   return <section aria-labelledby="curated-core-title">
     <div className="mb-5"><p className="eyebrow">Premium Curated Core</p><h2 id="curated-core-title" className="mt-2 text-2xl font-bold text-navy sm:text-3xl">Эталонные варианты PIP</h2><p className="mt-2 max-w-3xl leading-7 text-muted">Небольшая подборка сильных решений, точно соответствующих выбранному типу слайда.</p></div>
     <div className={`grid gap-6 ${references.length === 1 ? 'max-w-3xl' : references.length === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'}`}>{references.map((reference) => <CuratedCoreCard key={reference.id} reference={reference} query={query} />)}</div>
-    {references.length < 3 && <p className="mt-5 rounded-2xl border border-sky-100 bg-sky-50 px-5 py-4 text-sm leading-6 text-navy">Сейчас в PIP {references.length === 1 ? 'есть 1 эталонный вариант' : 'есть 2 эталонных варианта'} для этого типа. Для более широкой подборки используйте Fresh Discovery.</p>}
+    {references.length < 3 && <p className="mt-5 rounded-2xl border border-sky-100 bg-sky-50 px-5 py-4 text-sm font-semibold leading-6 text-navy">{references.length === 1 ? 'Сейчас в PIP есть один эталонный вариант для этого типа слайда. Для большего выбора используйте Fresh Discovery.' : 'Сейчас в PIP есть два эталонных варианта. Для дополнительных свежих примеров используйте Fresh Discovery.'}</p>}
   </section>
 }
 

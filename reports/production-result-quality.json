@@ -3,26 +3,25 @@
   "queriesTested": 24,
   "distribution": {
     "0": 7,
-    "1": 13,
-    "2": 4,
+    "1": 17,
+    "2": 0,
     "3": 0
   },
-  "averageResults": 0.88,
+  "averageResults": 0.71,
   "wrongTypeExposure": 0,
   "nonPremiumExposure": 0,
-  "maxObserved": 2,
+  "typeUnverifiedExposure": 0,
+  "maxObserved": 1,
   "byQuery": [
     {
       "queryId": "sales-client-approval",
       "contentTypeId": "comparison",
-      "count": 2,
+      "count": 1,
       "ids": [
-        "REF-000013",
-        "REF-000019"
+        "REF-000013"
       ],
       "compositionFamilies": [
-        "premium-option-comparison",
-        "business-case"
+        "premium-option-comparison"
       ]
     },
     {
@@ -79,13 +78,11 @@
     {
       "queryId": "project-board-approval",
       "contentTypeId": "comparison",
-      "count": 2,
+      "count": 1,
       "ids": [
-        "REF-000019",
         "REF-000013"
       ],
       "compositionFamilies": [
-        "business-case",
         "premium-option-comparison"
       ]
     },
@@ -211,14 +208,12 @@
     {
       "queryId": "strategy-manager-comparison",
       "contentTypeId": "comparison",
-      "count": 2,
+      "count": 1,
       "ids": [
-        "REF-000013",
-        "REF-000019"
+        "REF-000013"
       ],
       "compositionFamilies": [
-        "premium-option-comparison",
-        "business-case"
+        "premium-option-comparison"
       ]
     },
     {
@@ -235,13 +230,11 @@
     {
       "queryId": "budget-board-decision",
       "contentTypeId": "comparison",
-      "count": 2,
+      "count": 1,
       "ids": [
-        "REF-000019",
         "REF-000013"
       ],
       "compositionFamilies": [
-        "business-case",
         "premium-option-comparison"
       ]
     },

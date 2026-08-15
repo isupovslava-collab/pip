@@ -35,8 +35,18 @@ describe('целостность библиотеки', () => {
       expect(contentTypeIds).toContain(reference.primaryContentTypeId)
       expect(['eligible', 'review_only', 'excluded']).toContain(reference.curatedCoreStatus)
       expect(['premium', 'good', 'schematic', 'prototype', 'unknown']).toContain(reference.visualReferenceQuality)
+      expect(['verified', 'reclassify', 'rejected', 'pending']).toContain(reference.contentTypePoVerificationStatus)
       expect(typeof reference.screenSuitable).toBe('boolean')
     })
+  })
+
+  it('uses an explicit, narrow PO verification migration without auto-verification', () => {
+    const library = references as Reference[]
+    expect(library.filter(({ contentTypePoVerificationStatus }) => contentTypePoVerificationStatus === 'verified').map(({ id }) => id).sort()).toEqual(['REF-000013', 'REF-000016', 'REF-000025', 'REF-000028', 'REF-000034'])
+    expect(library.filter(({ contentTypePoVerificationStatus }) => contentTypePoVerificationStatus === 'reclassify').map(({ id }) => id)).toEqual(['REF-000019'])
+    expect(library.filter(({ contentTypePoVerificationStatus }) => contentTypePoVerificationStatus === 'pending')).toHaveLength(94)
+    const wrongComparison = library.find(({ id }) => id === 'REF-000019')
+    expect(wrongComparison).toMatchObject({ primaryContentTypeId: 'comparison', proposedPrimaryContentType: 'story', curatedCoreStatus: 'review_only' })
   })
 
   it('не использует устаревший сценарий idea_pitch и поддерживает продажи', () => {

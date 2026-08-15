@@ -2,13 +2,12 @@ import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 describe('Curated Core strategy and Result Quality Mix', () => {
-  it('documents the source-backed, PIP-original and prototype gates without quota-first expansion', () => {
+  it('documents independent visual/type gates and non-binding coverage', () => {
     const doc = readFileSync('docs/curated-core-strategy.md', 'utf8')
-    expect(doc).toContain('SOURCE_VERIFIED')
-    expect(doc).toContain('PIP_APPROVED')
-    expect(doc).toContain('high-fidelity')
-    expect(doc).toContain('excluded from Curated Core by default')
-    expect(doc).toContain('rejects “24 at any cost”')
+    expect(doc).toContain('contentTypePoVerificationStatus === verified')
+    expect(doc).toContain('separate, explicit gates')
+    expect(doc).toContain('explicitly non-binding')
+    expect(doc).toContain('Synthetic schematics')
   })
 
   it('publishes a quality-mix report with every tier and content-type breakdown', () => {

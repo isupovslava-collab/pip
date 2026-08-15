@@ -14,6 +14,7 @@ export type PreviewMode = 'original_pip_interpretation' | 'licensed_original_pre
 export type QualityTier = 'hero' | 'gold' | 'standard' | 'prototype'
 export type CuratedCoreStatus = 'eligible' | 'review_only' | 'excluded'
 export type VisualReferenceQuality = 'premium' | 'good' | 'schematic' | 'prototype' | 'unknown'
+export type ContentTypePoVerificationStatus = 'verified' | 'reclassify' | 'rejected' | 'pending'
 
 export interface SearchQuery {
   scenarioId: ScenarioId
@@ -53,6 +54,11 @@ export interface Reference {
   screenSuitable: boolean
   visualReferenceQuality: VisualReferenceQuality
   curatedCoreStatus: CuratedCoreStatus
+  contentTypePoVerificationStatus: ContentTypePoVerificationStatus
+  contentTypePoVerifiedAt?: string
+  contentTypePoVerifiedBy?: 'product_owner'
+  contentTypePoNotes?: string
+  proposedPrimaryContentType?: ContentTypeId
   productionApproved: boolean
   heroScenarioId: ScenarioId | null
   compositionFamily: string

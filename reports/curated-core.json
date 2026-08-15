@@ -1,24 +1,81 @@
 {
   "report": "PREMIUM CURATED CORE",
   "physicalReferences": 100,
-  "eligibleTotal": 6,
+  "eligibleTotal": 5,
+  "poContentTypeVerifiedCount": 5,
+  "pendingTypeVerification": 94,
+  "reclassifyCount": 1,
+  "rejectedCount": 0,
+  "visualPremiumButTypeUnverified": 1,
   "maxProductionResults": 3,
   "exactOnly": true,
   "premiumOnly": true,
+  "poTypeVerifiedOnly": true,
+  "coverageTargetPerType": 2,
+  "coverageTargetIsBinding": false,
   "byContentType": {
-    "kpi": 1,
-    "comparison": 2,
-    "timeline": 0,
-    "process": 1,
-    "dashboard": 0,
-    "cover": 0,
-    "story": 1,
-    "table": 1
+    "kpi": {
+      "exactPremiumVerified": 1,
+      "compositionFamilies": [
+        "executive-performance"
+      ],
+      "target": 2,
+      "targetGap": 1
+    },
+    "comparison": {
+      "exactPremiumVerified": 1,
+      "compositionFamilies": [
+        "premium-option-comparison"
+      ],
+      "target": 2,
+      "targetGap": 1
+    },
+    "timeline": {
+      "exactPremiumVerified": 0,
+      "compositionFamilies": [],
+      "target": 2,
+      "targetGap": 2
+    },
+    "process": {
+      "exactPremiumVerified": 1,
+      "compositionFamilies": [
+        "illustrated-learning-journey"
+      ],
+      "target": 2,
+      "targetGap": 1
+    },
+    "dashboard": {
+      "exactPremiumVerified": 0,
+      "compositionFamilies": [],
+      "target": 2,
+      "targetGap": 2
+    },
+    "cover": {
+      "exactPremiumVerified": 0,
+      "compositionFamilies": [],
+      "target": 2,
+      "targetGap": 2
+    },
+    "story": {
+      "exactPremiumVerified": 1,
+      "compositionFamilies": [
+        "keynote-metaphor"
+      ],
+      "target": 2,
+      "targetGap": 1
+    },
+    "table": {
+      "exactPremiumVerified": 1,
+      "compositionFamilies": [
+        "financial-waterfall"
+      ],
+      "target": 2,
+      "targetGap": 1
+    }
   },
   "eligibleIds": [
     "REF-000013",
     "REF-000016",
-    "REF-000019",
     "REF-000025",
     "REF-000028",
     "REF-000034"

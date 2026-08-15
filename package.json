@@ -24,6 +24,7 @@
     "validate:fresh-discovery-prompt": "node scripts/validate-fresh-discovery-prompt.mjs",
     "report:result-quality-mix": "node scripts/report-result-quality-mix.mjs",
     "report:curated-core": "node scripts/report-curated-core.mjs",
+    "report:curated-core-calibration": "node scripts/report-curated-core-calibration.mjs",
     "report:production-result-quality": "node scripts/report-production-result-quality.mjs",
     "lint": "eslint .",
     "test": "vitest run"

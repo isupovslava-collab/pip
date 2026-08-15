@@ -3,6 +3,7 @@ import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
+const poVerificationMap = JSON.parse(readFileSync(join(root, 'src', 'data', 'curated-core-po-verification-map.json'), 'utf8'))
 
 const familyVariants = {
   kpi: ['kpi-scorecard', 'metric-story', 'trend-spotlight'],
@@ -102,6 +103,7 @@ export function integrateHeroReferences() {
       screenSuitable: false,
       visualReferenceQuality: 'unknown',
       curatedCoreStatus: ['REF-000022', 'REF-000031'].includes(reference.id) ? 'review_only' : 'excluded',
+      contentTypePoVerificationStatus: 'pending',
       heroScenarioId: null,
       compositionFamily: familyVariants[reference.contentTypeIds[0]][index],
       visualDirection: directionVariants[reference.styleIds[0]][index],
@@ -109,6 +111,7 @@ export function integrateHeroReferences() {
     }
     const hero = heroOverrides[reference.id]
     if (!hero) return base
+    const poVerification = poVerificationMap[reference.id]
     copyFileSync(join(root, 'public', 'hero-references', hero.heroFile), join(root, 'public', 'previews', `${reference.id}.png`))
     const replacedSvg = join(root, 'public', 'previews', `${reference.id}.svg`)
     if (existsSync(replacedSvg)) unlinkSync(replacedSvg)
@@ -125,7 +128,12 @@ export function integrateHeroReferences() {
       primaryContentTypeId: hero.contentTypeIds[0],
       screenSuitable: true,
       visualReferenceQuality: 'premium',
-      curatedCoreStatus: 'eligible',
+      curatedCoreStatus: poVerification?.productionEligible ? 'eligible' : 'review_only',
+      contentTypePoVerificationStatus: poVerification?.contentTypePoVerificationStatus ?? 'pending',
+      ...(poVerification?.contentTypePoVerifiedAt ? { contentTypePoVerifiedAt: poVerification.contentTypePoVerifiedAt } : {}),
+      ...(poVerification?.contentTypePoVerifiedBy ? { contentTypePoVerifiedBy: poVerification.contentTypePoVerifiedBy } : {}),
+      ...(poVerification?.contentTypePoNotes ? { contentTypePoNotes: poVerification.contentTypePoNotes } : {}),
+      ...(poVerification?.proposedPrimaryContentType ? { proposedPrimaryContentType: poVerification.proposedPrimaryContentType } : {}),
       productionApproved: true,
       heroScenarioId: hero.scenario,
       referenceSchemaVersion: 2,
