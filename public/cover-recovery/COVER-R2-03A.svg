@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">План роста 2027 — clean large year</title><desc id="desc">PIP-original large year with safe title zone</desc>
+  <defs><linearGradient id="year" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0C5F5B"/><stop offset="1" stop-color="#30A17E"/></linearGradient></defs>
+  <rect width="1600" height="900" fill="#E7F0EC"/>
+  <text x="72" y="96" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="4.2" fill="#276B63">ANNUAL STRATEGY / PIP ORIGINAL</text>
+  <text x="38" y="605" font-family="Arial, sans-serif" font-size="500" font-weight="800" letter-spacing="-35" fill="url(#year)">2027</text>
+  <path d="M0 635H1600V900H0Z" fill="#F7F4EC"/>
+  <text x="84" y="728" font-family="Georgia, serif" font-size="66" font-weight="700" fill="#133A39">План роста</text>
+  <text x="84" y="790" font-family="Arial, sans-serif" font-size="22" fill="#5C6D69">От сильной базы — к новому масштабу</text>
+  <text x="1480" y="725" text-anchor="end" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2.2" fill="#5C6D69">СОВЕТ ДИРЕКТОРОВ</text>
+  <text x="1480" y="790" text-anchor="end" font-family="Arial, sans-serif" font-size="14" fill="#75847F">16.08.2026 · ТОМСК</text>
+  <path d="M1225 753H1480" stroke="#2D8779" stroke-width="4"/>
+</svg>

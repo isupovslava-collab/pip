@@ -31,7 +31,7 @@ No reclassification is auto-approved after a proposed metadata change.
 
 ## Coverage and quality
 
-Seven content types meet the non-binding minimum of two. Cover is the only gap and remains at zero instead of receiving a filler. The separate Cover Recovery Pack contains four review-only PIP-original candidates; it is not part of the 100-reference production dataset.
+Seven content types meet the non-binding minimum of two. Cover is the only gap and remains at zero instead of receiving a filler. Cover Recovery Round 2 contains eight review-only candidates with zero production exposure; it is not part of the 100-reference production dataset.
 
 The production quality report confirms zero wrong-type, non-approved, rejected-schematic, reclassify, and revise exposure across control queries.
 

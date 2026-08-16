@@ -24,7 +24,7 @@ Presentation Intelligence
 
 The authoritative PO map is versioned source data. The internal review route stores local decisions and exports an audit artifact but never mutates production. Reclassification only creates a future candidate; it is not approval.
 
-Cover Recovery is a separate four-item review dataset and route. Its candidates have zero production exposure until an explicit future PO decision is deliberately applied and validated.
+Cover Recovery Round 2 is a separate eight-item review dataset and route: six revised PIP-original candidates, one preserved baseline, and one reclassified existing reference. Lineage and applied PO feedback are explicit. Every candidate has zero production exposure until a future PO decision is deliberately applied and validated.
 
 ## Preserved systems
 
@@ -32,4 +32,4 @@ The 100-reference dataset, legacy diagnostic ranking, Inspiration Board, old sav
 
 ## Roadmap boundary
 
-“Подобрать структуру всей презентации,” Bring Your Reference, uploads, AI analysis, PPTX generation, backend/API work, Fresh Discovery v4, and mass library expansion remain outside Sprint 9.2.
+“Подобрать структуру всей презентации,” Bring Your Reference, uploads, AI analysis, PPTX generation, backend/API work, Fresh Discovery v4, and mass library expansion remain outside Sprint 9.3.

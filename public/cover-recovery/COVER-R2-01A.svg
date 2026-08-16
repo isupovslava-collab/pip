@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Новый масштаб начинается с ясного выбора — image-led editorial</title><desc id="desc">PIP-original atmospheric horizon scene</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6A7E9D"/><stop offset=".48" stop-color="#D5B9A4"/><stop offset="1" stop-color="#1A2536"/></linearGradient>
+    <radialGradient id="sun" cx=".47" cy=".44" r=".52"><stop stop-color="#FFF4D3" stop-opacity=".95"/><stop offset=".32" stop-color="#F3B26D" stop-opacity=".44"/><stop offset="1" stop-color="#D86A49" stop-opacity="0"/></radialGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2A3E4D"/><stop offset="1" stop-color="#091522"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="26"/></filter>
+    <filter id="grain"><feTurbulence baseFrequency=".75" numOctaves="3" seed="17"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .06 0"/></filter>
+    <clipPath id="scene"><rect x="650" width="950" height="900"/></clipPath>
+  </defs>
+  <rect width="1600" height="900" fill="#F3EFE7"/>
+  <g clip-path="url(#scene)">
+    <rect x="650" width="950" height="900" fill="url(#sky)"/>
+    <circle cx="1110" cy="385" r="390" fill="url(#sun)" filter="url(#soft)"/>
+    <path d="M620 700C790 580 915 610 1050 540C1190 468 1340 478 1635 315V900H620Z" fill="#354C59" opacity=".64"/>
+    <path d="M625 790C840 628 1020 714 1220 585C1362 494 1488 500 1630 455V900H625Z" fill="url(#land)"/>
+    <path d="M960 900C1022 763 1084 658 1168 568C1237 494 1305 447 1380 405" fill="none" stroke="#F6D9A5" stroke-width="44" stroke-linecap="round" opacity=".82"/>
+    <path d="M960 900C1022 763 1084 658 1168 568C1237 494 1305 447 1380 405" fill="none" stroke="#FFF8E8" stroke-width="5" stroke-linecap="round" opacity=".72"/>
+    <rect x="650" width="950" height="900" filter="url(#grain)" opacity=".5"/>
+  </g>
+  <text x="92" y="92" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="4" fill="#6D655C">PIP / STRATEGY 2027</text>
+  <text x="92" y="286" font-family="Georgia, serif" font-size="76" font-weight="700" fill="#1A252E">Новый масштаб</text>
+  <text x="92" y="374" font-family="Georgia, serif" font-size="76" font-style="italic" fill="#B9533F">начинается</text>
+  <text x="92" y="462" font-family="Georgia, serif" font-size="76" font-weight="700" fill="#1A252E">с ясного выбора</text>
+  <text x="96" y="550" font-family="Arial, sans-serif" font-size="23" fill="#675F57">Стратегия роста и решений</text>
+  <path d="M96 610H220" stroke="#B9533F" stroke-width="6" stroke-linecap="round"/>
+  <text x="92" y="820" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.4" fill="#766F67">EXECUTIVE SESSION  ·  16.08.2026</text>
+</svg>

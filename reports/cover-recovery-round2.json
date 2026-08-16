@@ -1,0 +1,25 @@
+{
+  "report": "COVER RECOVERY ROUND 2",
+  "totalRound2Candidates": 8,
+  "baseline": 1,
+  "revised": 6,
+  "reclassified": 1,
+  "byVisualFamily": {
+    "atmospheric_abstract": 1,
+    "image_led_editorial": 2,
+    "large_year_editorial": 2,
+    "minimal_statement": 1,
+    "typographic_bold": 2
+  },
+  "productionExposed": 0,
+  "missingAssets": [],
+  "duplicateCompositionWarnings": [],
+  "candidatesReadyForPoReview": 8,
+  "feedbackChecks": {
+    "candidate1FeedbackApplied": true,
+    "candidate2FeedbackApplied": true,
+    "candidate3OverlapFixed": true,
+    "candidate4Preserved": true,
+    "ref000016Included": true
+  }
+}

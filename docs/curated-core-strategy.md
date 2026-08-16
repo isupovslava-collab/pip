@@ -26,6 +26,8 @@ The default desired target is 2–3 approved references per content type with us
 
 The post-round production baseline is 17 references: KPI 3, Comparison 2, Timeline 2, Process 3, Dashboard 2, Cover 0, Story 2, Table 3. Cover therefore remains an honest production gap until a future explicit PO approval.
 
+For Cover, the desired future production mix is image-led/editorial, typography-led, and atmospheric/abstract or large-year. Decorative geometry must earn its place. A Cover candidate cannot be approved if the dominant visual behaves like arbitrary filler rather than a meaningful visual or strong atmospheric treatment.
+
 ## Future candidate intake
 
 A candidate enters PO review only when it looks like a finished slide, is screen suitable, has a plausible exact content type, is not an obvious wireframe, and offers a new composition or a material quality improvement. The intent is to avoid flooding review with low-value synthetic schemes.

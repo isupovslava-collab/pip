@@ -25,7 +25,9 @@ describe('Curated Core calibration reports', () => {
     const scripts = JSON.parse(readFileSync('package.json', 'utf8')).scripts
     expect(scripts['report:curated-core-calibration']).toBe('node scripts/report-curated-core-calibration.mjs')
     expect(scripts['report:po-review-round-1']).toBe('node scripts/report-po-review-round-1.mjs')
+    expect(scripts['report:cover-recovery-round2']).toBe('node scripts/report-cover-recovery-round2.mjs')
     expect(scripts['validate:po-review-decisions']).toBe('node scripts/validate-po-review-decisions.mjs')
+    expect(scripts['validate:cover-candidate-quality']).toBe('node scripts/validate-cover-candidate-quality.mjs')
     expect(readFileSync('scripts/report-curated-core-calibration.mjs', 'utf8')).not.toMatch(/writeFile\([^)]*references\.json/)
   })
 
@@ -34,5 +36,12 @@ describe('Curated Core calibration reports', () => {
     expect(report).toMatchObject({ round: 'sprint-9-1-manual', physicalReferences: 100, approvedTotal: 17, byDisposition: { approved: 17, reclassify: 4, revise_visual: 1, rejected_schematic: 76, rejected_wrong_type: 0, rejected_quality: 1, pending: 1 } })
     expect(report.byType).toEqual({ dashboard: 2, timeline: 2, cover: 0, kpi: 3, comparison: 2, process: 3, story: 2, table: 3 })
     expect(report.reviewEfficiency.interpretation).toContain('not a market KPI')
+  })
+
+  it('publishes the Cover Recovery Round 2 audit', () => {
+    const report = JSON.parse(readFileSync('reports/cover-recovery-round2.json', 'utf8'))
+    expect(report).toMatchObject({ totalRound2Candidates: 8, baseline: 1, revised: 6, reclassified: 1, productionExposed: 0, missingAssets: [], duplicateCompositionWarnings: [], candidatesReadyForPoReview: 8 })
+    expect(Object.keys(report.byVisualFamily)).toHaveLength(5)
+    expect(Object.values(report.feedbackChecks).every(Boolean)).toBe(true)
   })
 })
