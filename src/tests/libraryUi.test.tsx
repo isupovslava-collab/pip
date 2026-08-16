@@ -23,20 +23,20 @@ describe('интерфейс расширенной библиотеки', () =>
     render(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={query} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
     expect(screen.getByText(/Мы показываем только те PIP-референсы, которые точно соответствуют/)).toBeInTheDocument()
     expect(screen.getByText('Тип слайда: Сравнение вариантов')).toBeInTheDocument()
-    expect(screen.getAllByRole('article')).toHaveLength(1)
-    expect(screen.getAllByText('Эталон PIP')).toHaveLength(1)
+    expect(screen.getAllByRole('article')).toHaveLength(2)
+    expect(screen.getAllByText('Эталон PIP')).toHaveLength(2)
     expect(screen.queryByText('Business case проекта Phoenix')).not.toBeInTheDocument()
     expect(screen.queryByText(/% соответствия/)).not.toBeInTheDocument()
   })
 
   it('честно показывает нулевое и низкое покрытие без fillers', () => {
-    const view = render(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={{ ...query, contentTypeId: 'timeline' }} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
+    const view = render(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={{ ...query, contentTypeId: 'cover' }} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
     expect(screen.getByText('В библиотеке PIP пока нет эталонного варианта для этого типа слайда.')).toBeInTheDocument()
     expect(screen.getByText('Свежий поиск доступен сразу — PIP подготовит точный запрос под вашу задачу.')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Найти свежие референсы' })).toBeInTheDocument()
-    view.rerender(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={{ ...query, contentTypeId: 'story' }} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
-    expect(screen.getByText('Сейчас в PIP есть один эталонный вариант для этого типа слайда. Для большего выбора используйте Fresh Discovery.')).toBeInTheDocument()
-    expect(screen.getAllByRole('article')).toHaveLength(1)
+    view.rerender(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={{ ...query, contentTypeId: 'timeline' }} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
+    expect(screen.getByText('Сейчас в PIP есть два эталонных варианта. Для дополнительных свежих примеров используйте Fresh Discovery.')).toBeInTheDocument()
+    expect(screen.getAllByRole('article')).toHaveLength(2)
   })
 
   it('открывает подробную страницу референса с ID выше REF-000012', () => {

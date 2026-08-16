@@ -8,7 +8,7 @@
   "items": {
     "type": "object",
     "additionalProperties": false,
-    "required": ["id", "title", "summary", "sourceType", "sourceLabel", "sourceUrl", "sourceBacked", "sourceTitle", "sourceOrganization", "rightsStatus", "sourceNotes", "sourceAccessCheckedAt", "previewMode", "qualityTier", "primaryContentTypeId", "screenSuitable", "visualReferenceQuality", "curatedCoreStatus", "contentTypePoVerificationStatus", "productionApproved", "heroScenarioId", "compositionFamily", "visualDirection", "referenceSchemaVersion", "previewPath", "scenarioIds", "personaIds", "goalIds", "styleIds", "contentTypeIds", "category", "tags", "useWhen", "avoidWhen", "designDna"],
+    "required": ["id", "title", "summary", "sourceType", "sourceLabel", "sourceUrl", "sourceBacked", "sourceTitle", "sourceOrganization", "rightsStatus", "sourceNotes", "sourceAccessCheckedAt", "previewMode", "qualityTier", "primaryContentTypeId", "screenSuitable", "visualReferenceQuality", "curatedCoreStatus", "contentTypePoVerificationStatus", "poReviewDisposition", "productionApproved", "heroScenarioId", "compositionFamily", "visualDirection", "referenceSchemaVersion", "previewPath", "scenarioIds", "personaIds", "goalIds", "styleIds", "contentTypeIds", "category", "tags", "useWhen", "avoidWhen", "designDna"],
     "properties": {
       "id": { "type": "string", "pattern": "^REF-[0-9]{6}$" },
       "title": { "type": "string", "minLength": 1 },
@@ -33,6 +33,11 @@
       "contentTypePoVerifiedBy": { "enum": ["product_owner"] },
       "contentTypePoNotes": { "type": "string", "maxLength": 1000 },
       "proposedPrimaryContentType": { "enum": ["kpi", "comparison", "timeline", "process", "dashboard", "cover", "story", "table"] },
+      "poReviewDisposition": { "enum": ["approved", "reclassify", "revise_visual", "rejected_schematic", "rejected_wrong_type", "rejected_quality", "pending"] },
+      "poReviewNotes": { "type": "string", "maxLength": 1000 },
+      "poReviewRound": { "enum": ["sprint-9-1-manual"] },
+      "poReviewedAt": { "type": "string", "format": "date" },
+      "poReviewedBy": { "enum": ["product_owner"] },
       "productionApproved": { "type": "boolean" },
       "heroScenarioId": { "type": ["string", "null"], "enum": ["sales", "speech", "project", "meeting", "report", "training", "strategy", "budget_defense", null] },
       "compositionFamily": { "type": "string", "minLength": 1 },

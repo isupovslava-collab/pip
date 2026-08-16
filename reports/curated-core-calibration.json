@@ -1,63 +1,100 @@
 {
   "report": "CURATED CORE CALIBRATION",
   "totalCandidates": 100,
-  "visualPremium": 6,
-  "typeVerified": 5,
-  "pending": 94,
-  "reclassify": 1,
-  "rejected": 0,
-  "productionEligible": 5,
-  "knownMisclassifications": [
+  "productionEligible": 17,
+  "dispositions": {
+    "approved": 17,
+    "reclassify": 4,
+    "revise_visual": 1,
+    "rejected_schematic": 76,
+    "rejected_wrong_type": 0,
+    "rejected_quality": 1,
+    "pending": 1
+  },
+  "reclassificationQueue": [
+    {
+      "id": "REF-000016",
+      "currentType": "story",
+      "proposedType": "cover",
+      "notes": "Strong photographic opening statement; reclassify from Story to Cover and return for review."
+    },
     {
       "id": "REF-000019",
       "currentType": "comparison",
       "proposedType": "story",
-      "notes": "Strong visual, but this is a business-case argument with project stages rather than a comparison of alternatives."
+      "notes": "Strong business-case visual, but one project and its stages are not a comparison of alternatives."
+    },
+    {
+      "id": "REF-000030",
+      "currentType": "story",
+      "proposedType": "process",
+      "notes": "Finished decision algorithm; reclassify from Story to Process and return for review."
+    },
+    {
+      "id": "REF-000032",
+      "currentType": "timeline",
+      "proposedType": null,
+      "notes": "Strong visual but not Timeline. Requires PO reclassification; proposed type intentionally left empty."
     }
   ],
-  "coverageTargetPerType": 2,
-  "coverageTargetIsBinding": false,
+  "reviseQueue": [
+    "REF-000017"
+  ],
   "coverageGaps": {
     "kpi": {
-      "approved": 1,
+      "approved": 3,
       "target": 2,
-      "gap": 1
+      "gap": 0
     },
     "comparison": {
-      "approved": 1,
+      "approved": 2,
       "target": 2,
-      "gap": 1
+      "gap": 0
     },
     "timeline": {
-      "approved": 0,
+      "approved": 2,
       "target": 2,
-      "gap": 2
+      "gap": 0
     },
     "process": {
-      "approved": 1,
+      "approved": 3,
       "target": 2,
-      "gap": 1
+      "gap": 0
     },
     "dashboard": {
-      "approved": 0,
+      "approved": 2,
       "target": 2,
-      "gap": 2
+      "gap": 0
     },
     "cover": {
       "approved": 0,
-      "target": 2,
-      "gap": 2
+      "target": 3,
+      "gap": 3
     },
     "story": {
-      "approved": 1,
+      "approved": 2,
       "target": 2,
-      "gap": 1
+      "gap": 0
     },
     "table": {
-      "approved": 1,
+      "approved": 3,
       "target": 2,
-      "gap": 1
+      "gap": 0
     }
   },
-  "compositionDuplicateWarnings": []
+  "coverageTargetIsBinding": false,
+  "compositionDuplicateWarnings": [
+    {
+      "contentType": "dashboard",
+      "compositionFamily": "control-room"
+    },
+    {
+      "contentType": "story",
+      "compositionFamily": "narrative"
+    },
+    {
+      "contentType": "table",
+      "compositionFamily": "structured-table"
+    }
+  ]
 }

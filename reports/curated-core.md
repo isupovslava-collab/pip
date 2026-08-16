@@ -1,29 +1,26 @@
 # PREMIUM CURATED CORE
 
 Physical references: 100
-Production eligible: 5
-PO content-type verified: 5
-Pending type verification: 94
-Reclassify: 1
-Rejected: 0
-Visual premium but type-unverified: 1
+Production approved total: 17
+Reclassification queue: REF-000016, REF-000019, REF-000030, REF-000032
+Revise queue: REF-000017
+Rejected schematic: 76
+Rejected quality: 1
+Pending: 1
 Maximum production results: 3
-Exact-only: PASS
-Premium-only: PASS
-PO type-verified-only: PASS
-Target 2 per type: aspirational, non-binding
+Exact / Premium / PO type verified / PO approved: PASS
 
-## Coverage
+## Production coverage
 
-| Content type | Exact premium verified | Composition families | Gap to 2 |
-| --- | ---: | --- | ---: |
-| kpi | 1 | executive-performance | 1 |
-| comparison | 1 | premium-option-comparison | 1 |
-| timeline | 0 | none | 2 |
-| process | 1 | illustrated-learning-journey | 1 |
-| dashboard | 0 | none | 2 |
-| cover | 0 | none | 2 |
-| story | 1 | keynote-metaphor | 1 |
-| table | 1 | financial-waterfall | 1 |
+| Type | Approved | Families | Visual directions | Target gap |
+| --- | ---: | --- | --- | ---: |
+| kpi | 3 | executive-performance, kpi-scorecard, trend-spotlight | boardroom-editorial, consulting-clean, executive-finance | 0 |
+| comparison | 2 | option-comparison, premium-option-comparison | corporate-editorial, premium-editorial | 0 |
+| timeline | 2 | phase-plan, roadmap | consulting-clean, corporate-minimal | 0 |
+| process | 3 | illustrated-learning-journey, learning-journey, operating-model | illustrated-learning, industrial-editorial, modern-vibrant | 0 |
+| dashboard | 2 | control-room | boardroom-editorial, corporate-minimal | 0 |
+| cover | 0 | none | none | 3 |
+| story | 2 | narrative | corporate-editorial, modern-saas | 0 |
+| table | 3 | financial-waterfall, structured-table | consulting-finance, technical-light | 0 |
 
-Eligible IDs: REF-000013, REF-000016, REF-000025, REF-000028, REF-000034
+Eligible IDs: REF-000013, REF-000014, REF-000015, REF-000018, REF-000020, REF-000021, REF-000022, REF-000023, REF-000024, REF-000025, REF-000026, REF-000027, REF-000028, REF-000029, REF-000033, REF-000034, REF-000036

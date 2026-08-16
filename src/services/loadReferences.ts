@@ -1,11 +1,12 @@
 import type { Reference } from '../types/reference'
 
-export type StoredReference = Omit<Reference, 'contentTypePoVerificationStatus'> & Partial<Pick<Reference, 'contentTypePoVerificationStatus'>>
+export type StoredReference = Omit<Reference, 'contentTypePoVerificationStatus' | 'poReviewDisposition'> & Partial<Pick<Reference, 'contentTypePoVerificationStatus' | 'poReviewDisposition'>>
 
 export function normalizeReferences(references: StoredReference[]): Reference[] {
   return references.map((reference) => ({
     ...reference,
     contentTypePoVerificationStatus: reference.contentTypePoVerificationStatus ?? 'pending',
+    poReviewDisposition: reference.poReviewDisposition ?? 'pending',
   }))
 }
 

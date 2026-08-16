@@ -7,6 +7,7 @@ import { useFeedback } from '../hooks/useFeedback'
 import { referenceIntelligenceById } from '../data/sourceReferences/reference-intelligence'
 import { sourceReferenceById } from '../data/sourceReferences/source-references'
 import { isProductionEligibleSourceReference } from '../lib/referenceVerification/productApproval'
+import { isCuratedCoreEligible } from '../services/selectCuratedCore'
 
 export function ReferenceCard({ reference, rank, best = false, onSelectBest }: { reference: Reference | RankedReference; rank?: number; best?: boolean; onSelectBest?: (referenceId: string) => void }) {
   const location = useLocation()
@@ -16,6 +17,7 @@ export function ReferenceCard({ reference, rank, best = false, onSelectBest }: {
     return source ? isProductionEligibleSourceReference(source) : false
   })
   const ranked = 'score' in reference
+  const curatedCoreEligible = isCuratedCoreEligible(reference)
   const matchBadge = ranked && reference.contentMatch === 'compatible'
     ? { label: 'Близкий формат', description: 'Добавлен как близкий вариант, потому что точных референсов недостаточно.' }
     : ranked && (reference.contentMatch === 'fallback' || reference.contentMatch === 'incompatible')
@@ -34,7 +36,7 @@ export function ReferenceCard({ reference, rank, best = false, onSelectBest }: {
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex flex-wrap items-center gap-2">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue">{reference.category}</p>
-          {reference.qualityTier === 'hero' ? <span className="rounded-full bg-sky-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-sky-800">Hero Reference</span> : reference.sourceBacked && <span className="rounded-full bg-amber-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-amber-800">Gold · Source-backed</span>}
+          {curatedCoreEligible ? <span className="rounded-full bg-amber-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-amber-800">Premium reference</span> : reference.poReviewDisposition.startsWith('rejected_') && <span className="rounded-full bg-slate-200 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-700">Архивный вариант PIP</span>}
           {hasVerifiedSource && <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-emerald-800">Проверенный источник</span>}
           {matchBadge && <span className="rounded-full border border-amber-300 bg-amber-50 px-2.5 py-1 text-[11px] font-bold text-amber-900">{matchBadge.label}<span className="sr-only">. {matchBadge.description}</span></span>}
         </div>

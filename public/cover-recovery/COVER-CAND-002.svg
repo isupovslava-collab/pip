@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Стратегия без лишнего</title><desc id="desc">PIP-original premium minimal typography cover</desc>
+  <defs><linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0A0A0D"/><stop offset="1" stop-color="#24242B"/></linearGradient></defs>
+  <rect width="1600" height="900" fill="#F4F1E9"/>
+  <path d="M1180 0H1600V900H1000L1288 540Z" fill="url(#ink)"/>
+  <path d="M1370 0H1600V900H1280L1460 530Z" fill="#FF4D39"/>
+  <text x="88" y="90" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="5" fill="#222228">EXECUTIVE OFFSITE / 2027</text>
+  <text x="80" y="330" font-family="Arial, sans-serif" font-size="146" font-weight="900" letter-spacing="-8" fill="#111116">СТРАТЕГИЯ</text>
+  <text x="82" y="470" font-family="Arial, sans-serif" font-size="146" font-weight="900" letter-spacing="-8" fill="#111116">БЕЗ</text>
+  <text x="500" y="470" font-family="Georgia, serif" font-size="142" font-style="italic" fill="#FF4D39">лишнего.</text>
+  <text x="88" y="585" font-family="Arial, sans-serif" font-size="25" fill="#4F4F59">Три решения, которые определят следующий цикл роста</text>
+  <text x="88" y="812" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3" fill="#222228">PIP ORIGINAL  /  BOARD EDITION</text>
+  <text x="1460" y="820" font-family="Arial, sans-serif" font-size="68" font-weight="900" fill="#FFFFFF" text-anchor="middle">01</text>
+</svg>

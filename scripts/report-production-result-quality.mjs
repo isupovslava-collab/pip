@@ -11,11 +11,15 @@ const rows = controlQueries.map((query) => ({ queryId: query.id, contentTypeId: 
 await vite.close()
 const distribution = Object.fromEntries([0, 1, 2, 3].map((count) => [count, rows.filter(({ results }) => results.length === count).length]))
 const allResults = rows.flatMap(({ results }) => results)
+const count = (predicate) => allResults.filter(predicate).length
 const wrongTypeExposure = rows.reduce((total, row) => total + row.results.filter(({ primaryContentTypeId }) => primaryContentTypeId !== row.contentTypeId).length, 0)
-const nonPremiumExposure = allResults.filter(({ visualReferenceQuality, curatedCoreStatus }) => visualReferenceQuality !== 'premium' || curatedCoreStatus !== 'eligible').length
-const typeUnverifiedExposure = allResults.filter(({ contentTypePoVerificationStatus }) => contentTypePoVerificationStatus !== 'verified').length
-const report = { report: 'PRODUCTION RESULT QUALITY', queriesTested: rows.length, distribution, averageResults: Math.round((allResults.length / rows.length) * 100) / 100, wrongTypeExposure, nonPremiumExposure, typeUnverifiedExposure, maxObserved: Math.max(...rows.map(({ results }) => results.length)), byQuery: rows.map(({ queryId, contentTypeId, results }) => ({ queryId, contentTypeId, count: results.length, ids: results.map(({ id }) => id), compositionFamilies: results.map(({ compositionFamily }) => compositionFamily) })) }
-const lines = ['# PRODUCTION RESULT QUALITY', '', `Queries tested: ${report.queriesTested}`, `Average results: ${report.averageResults}`, `Maximum observed: ${report.maxObserved}`, `Wrong-type exposure: ${wrongTypeExposure}`, `Non-premium exposure: ${nonPremiumExposure}`, `Type-unverified exposure: ${typeUnverifiedExposure}`, '', '## Result-count distribution', '', '| Count | Queries |', '| ---: | ---: |', ...Object.entries(distribution).map(([count, queries]) => `| ${count} | ${queries} |`), '']
+const nonPremiumExposure = count(({ visualReferenceQuality }) => visualReferenceQuality !== 'premium')
+const nonApprovedExposure = count(({ poReviewDisposition }) => poReviewDisposition !== 'approved')
+const rejectedSchematicExposure = count(({ poReviewDisposition }) => poReviewDisposition === 'rejected_schematic')
+const reclassifyExposure = count(({ poReviewDisposition }) => poReviewDisposition === 'reclassify')
+const reviseExposure = count(({ poReviewDisposition }) => poReviewDisposition === 'revise_visual')
+const report = { report: 'PRODUCTION RESULT QUALITY', queriesTested: rows.length, distribution, averageResults: Math.round(allResults.length / rows.length * 100) / 100, maxObserved: Math.max(...rows.map(({ results }) => results.length)), wrongTypeExposure, nonPremiumExposure, nonApprovedExposure, rejectedSchematicExposure, reclassifyExposure, reviseExposure, byQuery: rows.map(({ queryId, contentTypeId, results }) => ({ queryId, contentTypeId, count: results.length, ids: results.map(({ id }) => id), compositionFamilies: results.map(({ compositionFamily }) => compositionFamily) })) }
+const lines = ['# PRODUCTION RESULT QUALITY', '', `Queries tested: ${report.queriesTested}`, `Average results: ${report.averageResults}`, `Maximum observed: ${report.maxObserved}`, `Wrong-type exposure: ${wrongTypeExposure}`, `Non-premium exposure: ${nonPremiumExposure}`, `Non-approved exposure: ${nonApprovedExposure}`, `Rejected schematic exposure: ${rejectedSchematicExposure}`, `Reclassify exposure: ${reclassifyExposure}`, `Revise exposure: ${reviseExposure}`, '', '## Result-count distribution', '', '| Count | Queries |', '| ---: | ---: |', ...Object.entries(distribution).map(([resultCount, queries]) => `| ${resultCount} | ${queries} |`), '']
 await mkdir(join(root, 'reports'), { recursive: true })
 await writeFile(join(root, 'reports/production-result-quality.json'), `${JSON.stringify(report, null, 2)}\n`)
 await writeFile(join(root, 'reports/production-result-quality.md'), lines.join('\n'))

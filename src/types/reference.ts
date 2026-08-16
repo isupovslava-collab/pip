@@ -15,6 +15,7 @@ export type QualityTier = 'hero' | 'gold' | 'standard' | 'prototype'
 export type CuratedCoreStatus = 'eligible' | 'review_only' | 'excluded'
 export type VisualReferenceQuality = 'premium' | 'good' | 'schematic' | 'prototype' | 'unknown'
 export type ContentTypePoVerificationStatus = 'verified' | 'reclassify' | 'rejected' | 'pending'
+export type PoReviewDisposition = 'approved' | 'reclassify' | 'revise_visual' | 'rejected_schematic' | 'rejected_wrong_type' | 'rejected_quality' | 'pending'
 
 export interface SearchQuery {
   scenarioId: ScenarioId
@@ -59,6 +60,11 @@ export interface Reference {
   contentTypePoVerifiedBy?: 'product_owner'
   contentTypePoNotes?: string
   proposedPrimaryContentType?: ContentTypeId
+  poReviewDisposition: PoReviewDisposition
+  poReviewNotes?: string
+  poReviewRound?: 'sprint-9-1-manual'
+  poReviewedAt?: string
+  poReviewedBy?: 'product_owner'
   productionApproved: boolean
   heroScenarioId: ScenarioId | null
   compositionFamily: string

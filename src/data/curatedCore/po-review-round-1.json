@@ -1,0 +1,35 @@
+{
+  "round": "sprint-9-1-manual",
+  "reviewedAt": "2026-08-16",
+  "reviewedBy": "product_owner",
+  "decisions": [
+    { "referenceId": "REF-000013", "disposition": "approved", "verifiedContentType": "comparison", "notes": "Three alternatives, common criteria and a recommendation; exact Comparison." },
+    { "referenceId": "REF-000014", "disposition": "approved", "verifiedContentType": "kpi", "notes": "Finished-slide executive economics pattern; exact KPI." },
+    { "referenceId": "REF-000015", "disposition": "approved", "verifiedContentType": "story", "notes": "Problem to change to result narrative; exact Story." },
+    { "referenceId": "REF-000016", "disposition": "reclassify", "verifiedContentType": null, "proposedContentType": "cover", "notes": "Strong photographic opening statement; reclassify from Story to Cover and return for review." },
+    { "referenceId": "REF-000017", "disposition": "revise_visual", "verifiedContentType": "cover", "notes": "Cover type is exact, but the geometric element is schematic and not Premium enough." },
+    { "referenceId": "REF-000018", "disposition": "approved", "verifiedContentType": "story", "notes": "Thesis, supporting moments and conclusion; exact Story." },
+    { "referenceId": "REF-000019", "disposition": "reclassify", "verifiedContentType": null, "proposedContentType": "story", "notes": "Strong business-case visual, but one project and its stages are not a comparison of alternatives." },
+    { "referenceId": "REF-000020", "disposition": "approved", "verifiedContentType": "process", "notes": "Root-cause action logic is a finished exact Process slide." },
+    { "referenceId": "REF-000021", "disposition": "approved", "verifiedContentType": "timeline", "notes": "Explicit 16-week roadmap with milestones; exact Timeline." },
+    { "referenceId": "REF-000022", "disposition": "approved", "verifiedContentType": "process", "notes": "Signal-to-owner operating flow; exact Process." },
+    { "referenceId": "REF-000023", "disposition": "approved", "verifiedContentType": "dashboard", "notes": "KPI, trend and decision panel form a true management Dashboard." },
+    { "referenceId": "REF-000024", "disposition": "approved", "verifiedContentType": "table", "notes": "Technical requirements matrix is the primary communication device; exact Table." },
+    { "referenceId": "REF-000025", "disposition": "approved", "verifiedContentType": "kpi", "notes": "Finished-slide executive performance pattern; exact KPI." },
+    { "referenceId": "REF-000026", "disposition": "approved", "verifiedContentType": "dashboard", "notes": "KPI, plan/fact table and forecast provide a second distinct Dashboard pattern." },
+    { "referenceId": "REF-000027", "disposition": "approved", "verifiedContentType": "table", "notes": "SLA causes and recovery actions are structured as a decision-ready Table." },
+    { "referenceId": "REF-000028", "disposition": "approved", "verifiedContentType": "process", "notes": "Strong editorial learning journey; exact Process despite secondary time markers." },
+    { "referenceId": "REF-000029", "disposition": "approved", "verifiedContentType": "timeline", "notes": "Explicit 30-day learning route; exact Timeline." },
+    { "referenceId": "REF-000030", "disposition": "reclassify", "verifiedContentType": null, "proposedContentType": "process", "notes": "Finished decision algorithm; reclassify from Story to Process and return for review." },
+    { "referenceId": "REF-000031", "disposition": "rejected_quality", "verifiedContentType": "timeline", "notes": "Type is correct, but visual is too simple, contains text overflow and is below Premium quality." },
+    { "referenceId": "REF-000032", "disposition": "reclassify", "verifiedContentType": null, "notes": "Strong visual but not Timeline. Requires PO reclassification; proposed type intentionally left empty." },
+    { "referenceId": "REF-000033", "disposition": "approved", "verifiedContentType": "comparison", "notes": "Three growth scenarios use common decision logic; exact Comparison." },
+    { "referenceId": "REF-000034", "disposition": "approved", "verifiedContentType": "table", "notes": "Financial matrix is the primary device; exact Table." },
+    { "referenceId": "REF-000035", "disposition": "pending", "verifiedContentType": null, "notes": "No authoritative Product Owner decision recorded in Round 1." },
+    { "referenceId": "REF-000036", "disposition": "approved", "verifiedContentType": "kpi", "notes": "ROI, horizon and investment thesis create a distinct exact KPI pattern." }
+  ],
+  "rejectedSchematicReferenceIds": [
+    "REF-000001", "REF-000002", "REF-000003", "REF-000004", "REF-000005", "REF-000006", "REF-000007", "REF-000008", "REF-000009", "REF-000010", "REF-000011", "REF-000012",
+    "REF-000037", "REF-000038", "REF-000039", "REF-000040", "REF-000041", "REF-000042", "REF-000043", "REF-000044", "REF-000045", "REF-000046", "REF-000047", "REF-000048", "REF-000049", "REF-000050", "REF-000051", "REF-000052", "REF-000053", "REF-000054", "REF-000055", "REF-000056", "REF-000057", "REF-000058", "REF-000059", "REF-000060", "REF-000061", "REF-000062", "REF-000063", "REF-000064", "REF-000065", "REF-000066", "REF-000067", "REF-000068", "REF-000069", "REF-000070", "REF-000071", "REF-000072", "REF-000073", "REF-000074", "REF-000075", "REF-000076", "REF-000077", "REF-000078", "REF-000079", "REF-000080", "REF-000081", "REF-000082", "REF-000083", "REF-000084", "REF-000085", "REF-000086", "REF-000087", "REF-000088", "REF-000089", "REF-000090", "REF-000091", "REF-000092", "REF-000093", "REF-000094", "REF-000095", "REF-000096", "REF-000097", "REF-000098", "REF-000099", "REF-000100"
+  ]
+}

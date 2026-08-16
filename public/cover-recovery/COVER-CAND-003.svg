@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">План роста 2027</title><desc id="desc">PIP-original oversized year premium corporate cover</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EAF2F0"/><stop offset="1" stop-color="#C9DBD5"/></linearGradient>
+    <linearGradient id="year" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#0D5C53"/><stop offset="1" stop-color="#27A284"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="32"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M0 775C410 635 755 655 1100 520C1320 434 1490 310 1600 188V900H0Z" fill="#FFFFFF" opacity=".62"/>
+  <path d="M1040 -80C1290 130 1440 340 1630 620" fill="none" stroke="#42C9A5" stroke-width="118" opacity=".22" filter="url(#soft)"/>
+  <text x="70" y="155" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="5" fill="#0D5C53">ANNUAL STRATEGY / PIP ORIGINAL</text>
+  <text x="38" y="655" font-family="Arial, sans-serif" font-size="505" font-weight="900" letter-spacing="-35" fill="url(#year)">2027</text>
+  <rect x="925" y="125" width="585" height="245" rx="4" fill="#082F2B"/>
+  <text x="980" y="205" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4" fill="#8CE4CD">ПЛАН РОСТА</text>
+  <text x="980" y="275" font-family="Georgia, serif" font-size="50" font-weight="700" fill="#FFFFFF">От сильной базы</text>
+  <text x="980" y="335" font-family="Georgia, serif" font-size="50" font-style="italic" fill="#8CE4CD">к новому масштабу</text>
+  <text x="80" y="830" font-family="Arial, sans-serif" font-size="18" fill="#2D5E57">Стратегическая презентация · Совет директоров · 16.08.2026</text>
+</svg>

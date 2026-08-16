@@ -1,83 +1,173 @@
 {
   "report": "PREMIUM CURATED CORE",
   "physicalReferences": 100,
-  "eligibleTotal": 5,
-  "poContentTypeVerifiedCount": 5,
-  "pendingTypeVerification": 94,
-  "reclassifyCount": 1,
-  "rejectedCount": 0,
-  "visualPremiumButTypeUnverified": 1,
+  "productionApprovedTotal": 17,
   "maxProductionResults": 3,
   "exactOnly": true,
   "premiumOnly": true,
   "poTypeVerifiedOnly": true,
-  "coverageTargetPerType": 2,
-  "coverageTargetIsBinding": false,
+  "poApprovedOnly": true,
   "byContentType": {
     "kpi": {
-      "exactPremiumVerified": 1,
+      "approved": 3,
       "compositionFamilies": [
-        "executive-performance"
+        "executive-performance",
+        "kpi-scorecard",
+        "trend-spotlight"
+      ],
+      "visualDirections": [
+        "boardroom-editorial",
+        "consulting-clean",
+        "executive-finance"
       ],
       "target": 2,
-      "targetGap": 1
+      "targetGap": 0
     },
     "comparison": {
-      "exactPremiumVerified": 1,
+      "approved": 2,
       "compositionFamilies": [
+        "option-comparison",
         "premium-option-comparison"
       ],
+      "visualDirections": [
+        "corporate-editorial",
+        "premium-editorial"
+      ],
       "target": 2,
-      "targetGap": 1
+      "targetGap": 0
     },
     "timeline": {
-      "exactPremiumVerified": 0,
-      "compositionFamilies": [],
+      "approved": 2,
+      "compositionFamilies": [
+        "phase-plan",
+        "roadmap"
+      ],
+      "visualDirections": [
+        "consulting-clean",
+        "corporate-minimal"
+      ],
       "target": 2,
-      "targetGap": 2
+      "targetGap": 0
     },
     "process": {
-      "exactPremiumVerified": 1,
+      "approved": 3,
       "compositionFamilies": [
-        "illustrated-learning-journey"
+        "illustrated-learning-journey",
+        "learning-journey",
+        "operating-model"
+      ],
+      "visualDirections": [
+        "illustrated-learning",
+        "industrial-editorial",
+        "modern-vibrant"
       ],
       "target": 2,
-      "targetGap": 1
+      "targetGap": 0
     },
     "dashboard": {
-      "exactPremiumVerified": 0,
-      "compositionFamilies": [],
+      "approved": 2,
+      "compositionFamilies": [
+        "control-room"
+      ],
+      "visualDirections": [
+        "boardroom-editorial",
+        "corporate-minimal"
+      ],
       "target": 2,
-      "targetGap": 2
+      "targetGap": 0
     },
     "cover": {
-      "exactPremiumVerified": 0,
+      "approved": 0,
       "compositionFamilies": [],
-      "target": 2,
-      "targetGap": 2
+      "visualDirections": [],
+      "target": 3,
+      "targetGap": 3
     },
     "story": {
-      "exactPremiumVerified": 1,
+      "approved": 2,
       "compositionFamilies": [
-        "keynote-metaphor"
+        "narrative"
+      ],
+      "visualDirections": [
+        "corporate-editorial",
+        "modern-saas"
       ],
       "target": 2,
-      "targetGap": 1
+      "targetGap": 0
     },
     "table": {
-      "exactPremiumVerified": 1,
+      "approved": 3,
       "compositionFamilies": [
-        "financial-waterfall"
+        "financial-waterfall",
+        "structured-table"
+      ],
+      "visualDirections": [
+        "consulting-finance",
+        "technical-light"
       ],
       "target": 2,
-      "targetGap": 1
+      "targetGap": 0
     }
   },
+  "byCompositionFamily": {
+    "control-room": 2,
+    "executive-performance": 1,
+    "financial-waterfall": 1,
+    "illustrated-learning-journey": 1,
+    "kpi-scorecard": 1,
+    "learning-journey": 1,
+    "narrative": 2,
+    "operating-model": 1,
+    "option-comparison": 1,
+    "phase-plan": 1,
+    "premium-option-comparison": 1,
+    "roadmap": 1,
+    "structured-table": 2,
+    "trend-spotlight": 1
+  },
+  "byVisualDirection": {
+    "boardroom-editorial": 2,
+    "consulting-clean": 2,
+    "consulting-finance": 1,
+    "corporate-editorial": 2,
+    "corporate-minimal": 2,
+    "executive-finance": 1,
+    "illustrated-learning": 1,
+    "industrial-editorial": 1,
+    "modern-saas": 1,
+    "modern-vibrant": 1,
+    "premium-editorial": 1,
+    "technical-light": 2
+  },
+  "reclassificationQueue": [
+    "REF-000016",
+    "REF-000019",
+    "REF-000030",
+    "REF-000032"
+  ],
+  "reviseQueue": [
+    "REF-000017"
+  ],
+  "rejectedSchematicCount": 76,
+  "rejectedQualityCount": 1,
+  "pendingCount": 1,
   "eligibleIds": [
     "REF-000013",
-    "REF-000016",
+    "REF-000014",
+    "REF-000015",
+    "REF-000018",
+    "REF-000020",
+    "REF-000021",
+    "REF-000022",
+    "REF-000023",
+    "REF-000024",
     "REF-000025",
+    "REF-000026",
+    "REF-000027",
     "REF-000028",
-    "REF-000034"
+    "REF-000029",
+    "REF-000033",
+    "REF-000034",
+    "REF-000036"
   ]
 }

@@ -67,9 +67,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000002",
@@ -138,9 +144,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000003",
@@ -209,9 +221,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000004",
@@ -280,9 +298,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000005",
@@ -351,9 +375,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000006",
@@ -423,9 +453,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000007",
@@ -494,9 +530,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000008",
@@ -567,9 +609,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000009",
@@ -638,9 +686,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000010",
@@ -710,9 +764,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000011",
@@ -784,9 +844,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000012",
@@ -859,9 +925,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "cover",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000013",
@@ -931,9 +1003,14 @@
     "visualReferenceQuality": "premium",
     "curatedCoreStatus": "eligible",
     "contentTypePoVerificationStatus": "verified",
-    "contentTypePoVerifiedAt": "2026-08-15",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
     "contentTypePoVerifiedBy": "product_owner",
-    "contentTypePoNotes": "Three alternatives, common criteria and an explicit recommendation make Comparison immediately clear."
+    "contentTypePoNotes": "Three alternatives, common criteria and a recommendation; exact Comparison.",
+    "poReviewNotes": "Three alternatives, common criteria and a recommendation; exact Comparison.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000014",
@@ -1004,10 +1081,18 @@
     "visualDirection": "boardroom-editorial",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Finished-slide executive economics pattern; exact KPI.",
+    "poReviewNotes": "Finished-slide executive economics pattern; exact KPI.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000015",
@@ -1077,10 +1162,18 @@
     "visualDirection": "modern-saas",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Problem to change to result narrative; exact Story.",
+    "poReviewNotes": "Problem to change to result narrative; exact Story.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000016",
@@ -1148,11 +1241,15 @@
     "primaryContentTypeId": "story",
     "screenSuitable": true,
     "visualReferenceQuality": "premium",
-    "curatedCoreStatus": "eligible",
-    "contentTypePoVerificationStatus": "verified",
-    "contentTypePoVerifiedAt": "2026-08-15",
-    "contentTypePoVerifiedBy": "product_owner",
-    "contentTypePoNotes": "Message-led keynote composition is verified as Story rather than Cover."
+    "curatedCoreStatus": "review_only",
+    "contentTypePoVerificationStatus": "reclassify",
+    "poReviewDisposition": "reclassify",
+    "contentTypePoNotes": "Strong photographic opening statement; reclassify from Story to Cover and return for review.",
+    "proposedPrimaryContentType": "cover",
+    "poReviewNotes": "Strong photographic opening statement; reclassify from Story to Cover and return for review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000017",
@@ -1222,9 +1319,17 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "cover",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "visualReferenceQuality": "good",
+    "curatedCoreStatus": "review_only",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "revise_visual",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Cover type is exact, but the geometric element is schematic and not Premium enough.",
+    "poReviewNotes": "Cover type is exact, but the geometric element is schematic and not Premium enough.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000018",
@@ -1295,10 +1400,18 @@
     "visualDirection": "corporate-editorial",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Thesis, supporting moments and conclusion; exact Story.",
+    "poReviewNotes": "Thesis, supporting moments and conclusion; exact Story.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000019",
@@ -1368,8 +1481,13 @@
     "visualReferenceQuality": "premium",
     "curatedCoreStatus": "review_only",
     "contentTypePoVerificationStatus": "reclassify",
-    "contentTypePoNotes": "Strong visual, but this is a business-case argument with project stages rather than a comparison of alternatives.",
-    "proposedPrimaryContentType": "story"
+    "poReviewDisposition": "reclassify",
+    "contentTypePoNotes": "Strong business-case visual, but one project and its stages are not a comparison of alternatives.",
+    "proposedPrimaryContentType": "story",
+    "poReviewNotes": "Strong business-case visual, but one project and its stages are not a comparison of alternatives.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000020",
@@ -1438,10 +1556,18 @@
     "visualDirection": "industrial-editorial",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Root-cause action logic is a finished exact Process slide.",
+    "poReviewNotes": "Root-cause action logic is a finished exact Process slide.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000021",
@@ -1510,10 +1636,18 @@
     "visualDirection": "consulting-clean",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Explicit 16-week roadmap with milestones; exact Timeline.",
+    "poReviewNotes": "Explicit 16-week roadmap with milestones; exact Timeline.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000022",
@@ -1580,10 +1714,18 @@
     "visualDirection": "modern-vibrant",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "review_only",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Signal-to-owner operating flow; exact Process.",
+    "poReviewNotes": "Signal-to-owner operating flow; exact Process.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000023",
@@ -1648,10 +1790,18 @@
     "visualDirection": "corporate-minimal",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "dashboard",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "KPI, trend and decision panel form a true management Dashboard.",
+    "poReviewNotes": "KPI, trend and decision panel form a true management Dashboard.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000024",
@@ -1716,10 +1866,18 @@
     "visualDirection": "technical-light",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "table",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Technical requirements matrix is the primary communication device; exact Table.",
+    "poReviewNotes": "Technical requirements matrix is the primary communication device; exact Table.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000025",
@@ -1789,9 +1947,14 @@
     "visualReferenceQuality": "premium",
     "curatedCoreStatus": "eligible",
     "contentTypePoVerificationStatus": "verified",
-    "contentTypePoVerifiedAt": "2026-08-15",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
     "contentTypePoVerifiedBy": "product_owner",
-    "contentTypePoNotes": "Numbers dominate the hierarchy and form a focused executive KPI structure."
+    "contentTypePoNotes": "Finished-slide executive performance pattern; exact KPI.",
+    "poReviewNotes": "Finished-slide executive performance pattern; exact KPI.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000026",
@@ -1857,10 +2020,18 @@
     "visualDirection": "boardroom-editorial",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "dashboard",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "KPI, plan/fact table and forecast provide a second distinct Dashboard pattern.",
+    "poReviewNotes": "KPI, plan/fact table and forecast provide a second distinct Dashboard pattern.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000027",
@@ -1926,10 +2097,18 @@
     "visualDirection": "technical-light",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "table",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "SLA causes and recovery actions are structured as a decision-ready Table.",
+    "poReviewNotes": "SLA causes and recovery actions are structured as a decision-ready Table.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000028",
@@ -1999,9 +2178,14 @@
     "visualReferenceQuality": "premium",
     "curatedCoreStatus": "eligible",
     "contentTypePoVerificationStatus": "verified",
-    "contentTypePoVerifiedAt": "2026-08-15",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
     "contentTypePoVerifiedBy": "product_owner",
-    "contentTypePoNotes": "The action-and-result sequence is verified as Process; time supports but does not replace the flow."
+    "contentTypePoNotes": "Strong editorial learning journey; exact Process despite secondary time markers.",
+    "poReviewNotes": "Strong editorial learning journey; exact Process despite secondary time markers.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000029",
@@ -2067,10 +2251,18 @@
     "visualDirection": "corporate-minimal",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Explicit 30-day learning route; exact Timeline.",
+    "poReviewNotes": "Explicit 30-day learning route; exact Timeline.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000030",
@@ -2136,9 +2328,16 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "review_only",
+    "contentTypePoVerificationStatus": "reclassify",
+    "poReviewDisposition": "reclassify",
+    "contentTypePoNotes": "Finished decision algorithm; reclassify from Story to Process and return for review.",
+    "proposedPrimaryContentType": "process",
+    "poReviewNotes": "Finished decision algorithm; reclassify from Story to Process and return for review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000031",
@@ -2204,9 +2403,17 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "review_only",
-    "contentTypePoVerificationStatus": "pending"
+    "visualReferenceQuality": "good",
+    "curatedCoreStatus": "excluded",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "rejected_quality",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Type is correct, but visual is too simple, contains text overflow and is below Premium quality.",
+    "poReviewNotes": "Type is correct, but visual is too simple, contains text overflow and is below Premium quality.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000032",
@@ -2272,9 +2479,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "review_only",
+    "contentTypePoVerificationStatus": "reclassify",
+    "poReviewDisposition": "reclassify",
+    "contentTypePoNotes": "Strong visual but not Timeline. Requires PO reclassification; proposed type intentionally left empty.",
+    "poReviewNotes": "Strong visual but not Timeline. Requires PO reclassification; proposed type intentionally left empty.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000033",
@@ -2338,10 +2551,18 @@
     "visualDirection": "corporate-editorial",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Three growth scenarios use common decision logic; exact Comparison.",
+    "poReviewNotes": "Three growth scenarios use common decision logic; exact Comparison.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000034",
@@ -2411,9 +2632,14 @@
     "visualReferenceQuality": "premium",
     "curatedCoreStatus": "eligible",
     "contentTypePoVerificationStatus": "verified",
-    "contentTypePoVerifiedAt": "2026-08-15",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
     "contentTypePoVerifiedBy": "product_owner",
-    "contentTypePoNotes": "The structured financial matrix is the primary device and is verified as Table."
+    "contentTypePoNotes": "Financial matrix is the primary device; exact Table.",
+    "poReviewNotes": "Financial matrix is the primary device; exact Table.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000035",
@@ -2480,8 +2706,11 @@
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
     "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "curatedCoreStatus": "review_only",
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "pending",
+    "contentTypePoNotes": "No authoritative Product Owner decision recorded in Round 1.",
+    "poReviewNotes": "No authoritative Product Owner decision recorded in Round 1."
   },
   {
     "id": "REF-000036",
@@ -2545,10 +2774,18 @@
     "visualDirection": "consulting-clean",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
-    "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-16",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "ROI, horizon and investment thesis create a distinct exact KPI pattern.",
+    "poReviewNotes": "ROI, horizon and investment thesis create a distinct exact KPI pattern.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000037",
@@ -2621,9 +2858,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "cover",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000038",
@@ -2694,9 +2937,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000039",
@@ -2768,9 +3017,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "dashboard",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000040",
@@ -2842,9 +3097,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000041",
@@ -2916,9 +3177,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "table",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000042",
@@ -2990,9 +3257,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000043",
@@ -3064,9 +3337,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000044",
@@ -3140,9 +3419,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000045",
@@ -3214,9 +3499,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000046",
@@ -3289,9 +3580,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000047",
@@ -3365,9 +3662,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "cover",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000048",
@@ -3439,9 +3742,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "table",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000049",
@@ -3515,9 +3824,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000050",
@@ -3590,9 +3905,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000051",
@@ -3664,9 +3985,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000052",
@@ -3738,9 +4065,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000053",
@@ -3813,9 +4146,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000054",
@@ -3890,9 +4229,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000055",
@@ -3964,9 +4309,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000056",
@@ -4039,9 +4390,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000057",
@@ -4110,9 +4467,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "cover",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000058",
@@ -4179,9 +4542,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000059",
@@ -4250,9 +4619,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "dashboard",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000060",
@@ -4319,9 +4694,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000061",
@@ -4389,9 +4770,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "table",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000062",
@@ -4458,9 +4845,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000063",
@@ -4527,9 +4920,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000064",
@@ -4597,9 +4996,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000065",
@@ -4666,9 +5071,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000066",
@@ -4736,9 +5147,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000067",
@@ -4807,9 +5224,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "cover",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000068",
@@ -4876,9 +5299,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "table",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000069",
@@ -4946,9 +5375,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000070",
@@ -5015,9 +5450,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000071",
@@ -5084,9 +5525,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000072",
@@ -5154,9 +5601,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000073",
@@ -5224,9 +5677,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000074",
@@ -5295,9 +5754,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000075",
@@ -5365,9 +5830,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000076",
@@ -5436,9 +5907,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000077",
@@ -5507,9 +5984,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000078",
@@ -5577,9 +6060,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "dashboard",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000079",
@@ -5647,9 +6136,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000080",
@@ -5718,9 +6213,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "table",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000081",
@@ -5788,9 +6289,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000082",
@@ -5858,9 +6365,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000083",
@@ -5927,9 +6440,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000084",
@@ -5997,9 +6516,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000085",
@@ -6067,9 +6592,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "cover",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000086",
@@ -6137,9 +6668,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000087",
@@ -6208,9 +6745,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000088",
@@ -6278,9 +6821,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000089",
@@ -6348,9 +6897,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "process",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000090",
@@ -6418,9 +6973,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "dashboard",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000091",
@@ -6488,9 +7049,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "timeline",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000092",
@@ -6558,9 +7125,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "dashboard",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000093",
@@ -6628,9 +7201,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000094",
@@ -6698,9 +7277,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "table",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000095",
@@ -6768,9 +7353,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "story",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000096",
@@ -6838,9 +7429,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "table",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000097",
@@ -6914,9 +7511,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "cover",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000098",
@@ -6988,9 +7591,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "kpi",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000099",
@@ -7063,9 +7672,15 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "dashboard",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000100",
@@ -7138,8 +7753,14 @@
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "comparison",
     "screenSuitable": false,
-    "visualReferenceQuality": "unknown",
+    "visualReferenceQuality": "schematic",
     "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending"
+    "contentTypePoVerificationStatus": "pending",
+    "poReviewDisposition": "rejected_schematic",
+    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
+    "poReviewRound": "sprint-9-1-manual",
+    "poReviewedAt": "2026-08-16",
+    "poReviewedBy": "product_owner"
   }
 ]

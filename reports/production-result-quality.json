@@ -2,59 +2,72 @@
   "report": "PRODUCTION RESULT QUALITY",
   "queriesTested": 24,
   "distribution": {
-    "0": 7,
-    "1": 17,
-    "2": 0,
-    "3": 0
+    "0": 1,
+    "1": 0,
+    "2": 14,
+    "3": 9
   },
-  "averageResults": 0.71,
+  "averageResults": 2.29,
+  "maxObserved": 3,
   "wrongTypeExposure": 0,
   "nonPremiumExposure": 0,
-  "typeUnverifiedExposure": 0,
-  "maxObserved": 1,
+  "nonApprovedExposure": 0,
+  "rejectedSchematicExposure": 0,
+  "reclassifyExposure": 0,
+  "reviseExposure": 0,
   "byQuery": [
     {
       "queryId": "sales-client-approval",
       "contentTypeId": "comparison",
-      "count": 1,
+      "count": 2,
       "ids": [
-        "REF-000013"
+        "REF-000013",
+        "REF-000033"
       ],
       "compositionFamilies": [
-        "premium-option-comparison"
+        "premium-option-comparison",
+        "option-comparison"
       ]
     },
     {
       "queryId": "sales-ceo-decision",
       "contentTypeId": "kpi",
-      "count": 1,
+      "count": 3,
       "ids": [
+        "REF-000014",
+        "REF-000036",
         "REF-000025"
       ],
       "compositionFamilies": [
+        "trend-spotlight",
+        "kpi-scorecard",
         "executive-performance"
       ]
     },
     {
       "queryId": "sales-client-story",
       "contentTypeId": "story",
-      "count": 1,
+      "count": 2,
       "ids": [
-        "REF-000016"
+        "REF-000015",
+        "REF-000018"
       ],
       "compositionFamilies": [
-        "keynote-metaphor"
+        "narrative",
+        "narrative"
       ]
     },
     {
       "queryId": "speech-employees-inspiration",
       "contentTypeId": "story",
-      "count": 1,
+      "count": 2,
       "ids": [
-        "REF-000016"
+        "REF-000018",
+        "REF-000015"
       ],
       "compositionFamilies": [
-        "keynote-metaphor"
+        "narrative",
+        "narrative"
       ]
     },
     {
@@ -67,185 +80,263 @@
     {
       "queryId": "speech-client-inspiration",
       "contentTypeId": "story",
-      "count": 1,
+      "count": 2,
       "ids": [
-        "REF-000016"
+        "REF-000018",
+        "REF-000015"
       ],
       "compositionFamilies": [
-        "keynote-metaphor"
+        "narrative",
+        "narrative"
       ]
     },
     {
       "queryId": "project-board-approval",
       "contentTypeId": "comparison",
-      "count": 1,
+      "count": 2,
       "ids": [
-        "REF-000013"
+        "REF-000013",
+        "REF-000033"
       ],
       "compositionFamilies": [
-        "premium-option-comparison"
+        "premium-option-comparison",
+        "option-comparison"
       ]
     },
     {
       "queryId": "project-technical-problem",
       "contentTypeId": "process",
-      "count": 1,
+      "count": 3,
       "ids": [
-        "REF-000028"
+        "REF-000020",
+        "REF-000028",
+        "REF-000022"
       ],
       "compositionFamilies": [
-        "illustrated-learning-journey"
+        "learning-journey",
+        "illustrated-learning-journey",
+        "operating-model"
       ]
     },
     {
       "queryId": "project-manager-roadmap",
       "contentTypeId": "timeline",
-      "count": 0,
-      "ids": [],
-      "compositionFamilies": []
+      "count": 2,
+      "ids": [
+        "REF-000021",
+        "REF-000029"
+      ],
+      "compositionFamilies": [
+        "roadmap",
+        "phase-plan"
+      ]
     },
     {
       "queryId": "meeting-team-alignment",
       "contentTypeId": "process",
-      "count": 1,
+      "count": 3,
       "ids": [
-        "REF-000028"
+        "REF-000022",
+        "REF-000028",
+        "REF-000020"
       ],
       "compositionFamilies": [
-        "illustrated-learning-journey"
+        "operating-model",
+        "illustrated-learning-journey",
+        "learning-journey"
       ]
     },
     {
       "queryId": "meeting-manager-decision",
       "contentTypeId": "dashboard",
-      "count": 0,
-      "ids": [],
-      "compositionFamilies": []
+      "count": 2,
+      "ids": [
+        "REF-000023",
+        "REF-000026"
+      ],
+      "compositionFamilies": [
+        "control-room",
+        "control-room"
+      ]
     },
     {
       "queryId": "meeting-technical-alignment",
       "contentTypeId": "table",
-      "count": 1,
+      "count": 3,
       "ids": [
-        "REF-000034"
+        "REF-000024",
+        "REF-000034",
+        "REF-000027"
       ],
       "compositionFamilies": [
-        "financial-waterfall"
+        "structured-table",
+        "financial-waterfall",
+        "structured-table"
       ]
     },
     {
       "queryId": "report-manager-kpi",
       "contentTypeId": "kpi",
-      "count": 1,
+      "count": 3,
       "ids": [
-        "REF-000025"
+        "REF-000025",
+        "REF-000014",
+        "REF-000036"
       ],
       "compositionFamilies": [
-        "executive-performance"
+        "executive-performance",
+        "trend-spotlight",
+        "kpi-scorecard"
       ]
     },
     {
       "queryId": "report-cfo-dashboard",
       "contentTypeId": "dashboard",
-      "count": 0,
-      "ids": [],
-      "compositionFamilies": []
+      "count": 2,
+      "ids": [
+        "REF-000026",
+        "REF-000023"
+      ],
+      "compositionFamilies": [
+        "control-room",
+        "control-room"
+      ]
     },
     {
       "queryId": "report-technical-table",
       "contentTypeId": "table",
-      "count": 1,
+      "count": 3,
       "ids": [
-        "REF-000034"
+        "REF-000027",
+        "REF-000034",
+        "REF-000024"
       ],
       "compositionFamilies": [
-        "financial-waterfall"
+        "structured-table",
+        "financial-waterfall",
+        "structured-table"
       ]
     },
     {
       "queryId": "training-employees-process",
       "contentTypeId": "process",
-      "count": 1,
+      "count": 3,
       "ids": [
-        "REF-000028"
+        "REF-000028",
+        "REF-000020",
+        "REF-000022"
       ],
       "compositionFamilies": [
-        "illustrated-learning-journey"
+        "illustrated-learning-journey",
+        "learning-journey",
+        "operating-model"
       ]
     },
     {
       "queryId": "training-team-timeline",
       "contentTypeId": "timeline",
-      "count": 0,
-      "ids": [],
-      "compositionFamilies": []
+      "count": 2,
+      "ids": [
+        "REF-000029",
+        "REF-000021"
+      ],
+      "compositionFamilies": [
+        "phase-plan",
+        "roadmap"
+      ]
     },
     {
       "queryId": "training-technical-story",
       "contentTypeId": "story",
-      "count": 1,
+      "count": 2,
       "ids": [
-        "REF-000016"
+        "REF-000018",
+        "REF-000015"
       ],
       "compositionFamilies": [
-        "keynote-metaphor"
+        "narrative",
+        "narrative"
       ]
     },
     {
       "queryId": "strategy-ceo-roadmap",
       "contentTypeId": "timeline",
-      "count": 0,
-      "ids": [],
-      "compositionFamilies": []
+      "count": 2,
+      "ids": [
+        "REF-000021",
+        "REF-000029"
+      ],
+      "compositionFamilies": [
+        "roadmap",
+        "phase-plan"
+      ]
     },
     {
       "queryId": "strategy-board-alignment",
       "contentTypeId": "timeline",
-      "count": 0,
-      "ids": [],
-      "compositionFamilies": []
+      "count": 2,
+      "ids": [
+        "REF-000021",
+        "REF-000029"
+      ],
+      "compositionFamilies": [
+        "roadmap",
+        "phase-plan"
+      ]
     },
     {
       "queryId": "strategy-manager-comparison",
       "contentTypeId": "comparison",
-      "count": 1,
+      "count": 2,
       "ids": [
+        "REF-000033",
         "REF-000013"
       ],
       "compositionFamilies": [
+        "option-comparison",
         "premium-option-comparison"
       ]
     },
     {
       "queryId": "budget-cfo-approval",
       "contentTypeId": "table",
-      "count": 1,
+      "count": 3,
       "ids": [
-        "REF-000034"
+        "REF-000034",
+        "REF-000024",
+        "REF-000027"
       ],
       "compositionFamilies": [
-        "financial-waterfall"
+        "financial-waterfall",
+        "structured-table",
+        "structured-table"
       ]
     },
     {
       "queryId": "budget-board-decision",
       "contentTypeId": "comparison",
-      "count": 1,
+      "count": 2,
       "ids": [
+        "REF-000033",
         "REF-000013"
       ],
       "compositionFamilies": [
+        "option-comparison",
         "premium-option-comparison"
       ]
     },
     {
       "queryId": "budget-ceo-kpi",
       "contentTypeId": "kpi",
-      "count": 1,
+      "count": 3,
       "ids": [
+        "REF-000036",
+        "REF-000014",
         "REF-000025"
       ],
       "compositionFamilies": [
+        "kpi-scorecard",
+        "trend-spotlight",
         "executive-performance"
       ]
     }

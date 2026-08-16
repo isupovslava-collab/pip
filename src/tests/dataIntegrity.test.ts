@@ -36,15 +36,17 @@ describe('целостность библиотеки', () => {
       expect(['eligible', 'review_only', 'excluded']).toContain(reference.curatedCoreStatus)
       expect(['premium', 'good', 'schematic', 'prototype', 'unknown']).toContain(reference.visualReferenceQuality)
       expect(['verified', 'reclassify', 'rejected', 'pending']).toContain(reference.contentTypePoVerificationStatus)
+      expect(['approved', 'reclassify', 'revise_visual', 'rejected_schematic', 'rejected_wrong_type', 'rejected_quality', 'pending']).toContain(reference.poReviewDisposition)
       expect(typeof reference.screenSuitable).toBe('boolean')
     })
   })
 
-  it('uses an explicit, narrow PO verification migration without auto-verification', () => {
+  it('uses the explicit PO Round 1 decisions without auto-approval', () => {
     const library = references as Reference[]
-    expect(library.filter(({ contentTypePoVerificationStatus }) => contentTypePoVerificationStatus === 'verified').map(({ id }) => id).sort()).toEqual(['REF-000013', 'REF-000016', 'REF-000025', 'REF-000028', 'REF-000034'])
-    expect(library.filter(({ contentTypePoVerificationStatus }) => contentTypePoVerificationStatus === 'reclassify').map(({ id }) => id)).toEqual(['REF-000019'])
-    expect(library.filter(({ contentTypePoVerificationStatus }) => contentTypePoVerificationStatus === 'pending')).toHaveLength(94)
+    expect(library.filter(({ poReviewDisposition }) => poReviewDisposition === 'approved')).toHaveLength(17)
+    expect(library.filter(({ poReviewDisposition }) => poReviewDisposition === 'reclassify').map(({ id }) => id).sort()).toEqual(['REF-000016', 'REF-000019', 'REF-000030', 'REF-000032'])
+    expect(library.filter(({ poReviewDisposition }) => poReviewDisposition === 'rejected_schematic')).toHaveLength(76)
+    expect(library.filter(({ poReviewDisposition }) => poReviewDisposition === 'pending')).toHaveLength(1)
     const wrongComparison = library.find(({ id }) => id === 'REF-000019')
     expect(wrongComparison).toMatchObject({ primaryContentTypeId: 'comparison', proposedPrimaryContentType: 'story', curatedCoreStatus: 'review_only' })
   })

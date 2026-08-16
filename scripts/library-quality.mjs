@@ -33,9 +33,9 @@ function validateData() {
   if (JSON.stringify(actualIds) !== JSON.stringify(expectedIds)) errors.push('Reference IDs must be continuous and ordered from REF-000001 to REF-000100.')
   if (new Set(actualIds).size !== actualIds.length) errors.push('Reference IDs must be unique.')
 
-  const requiredStrings = ['id', 'title', 'summary', 'previewPath', 'category', 'sourceType', 'sourceLabel', 'previewMode', 'qualityTier', 'primaryContentTypeId', 'visualReferenceQuality', 'curatedCoreStatus', 'contentTypePoVerificationStatus', 'compositionFamily', 'visualDirection']
-  const requiredFields = ['id', 'title', 'summary', 'sourceType', 'sourceLabel', 'sourceUrl', 'sourceBacked', 'sourceTitle', 'sourceOrganization', 'rightsStatus', 'sourceNotes', 'sourceAccessCheckedAt', 'previewMode', 'qualityTier', 'primaryContentTypeId', 'screenSuitable', 'visualReferenceQuality', 'curatedCoreStatus', 'contentTypePoVerificationStatus', 'productionApproved', 'heroScenarioId', 'compositionFamily', 'visualDirection', 'referenceSchemaVersion', 'previewPath', 'scenarioIds', 'personaIds', 'goalIds', 'styleIds', 'contentTypeIds', 'category', 'tags', 'useWhen', 'avoidWhen', 'designDna']
-  const allowedFields = new Set([...requiredFields, 'contentTypePoVerifiedAt', 'contentTypePoVerifiedBy', 'contentTypePoNotes', 'proposedPrimaryContentType'])
+  const requiredStrings = ['id', 'title', 'summary', 'previewPath', 'category', 'sourceType', 'sourceLabel', 'previewMode', 'qualityTier', 'primaryContentTypeId', 'visualReferenceQuality', 'curatedCoreStatus', 'contentTypePoVerificationStatus', 'poReviewDisposition', 'compositionFamily', 'visualDirection']
+  const requiredFields = ['id', 'title', 'summary', 'sourceType', 'sourceLabel', 'sourceUrl', 'sourceBacked', 'sourceTitle', 'sourceOrganization', 'rightsStatus', 'sourceNotes', 'sourceAccessCheckedAt', 'previewMode', 'qualityTier', 'primaryContentTypeId', 'screenSuitable', 'visualReferenceQuality', 'curatedCoreStatus', 'contentTypePoVerificationStatus', 'poReviewDisposition', 'productionApproved', 'heroScenarioId', 'compositionFamily', 'visualDirection', 'referenceSchemaVersion', 'previewPath', 'scenarioIds', 'personaIds', 'goalIds', 'styleIds', 'contentTypeIds', 'category', 'tags', 'useWhen', 'avoidWhen', 'designDna']
+  const allowedFields = new Set([...requiredFields, 'contentTypePoVerifiedAt', 'contentTypePoVerifiedBy', 'contentTypePoNotes', 'proposedPrimaryContentType', 'poReviewNotes', 'poReviewRound', 'poReviewedAt', 'poReviewedBy'])
   const arrayRules = {
     scenarioIds: [taxonomy.scenarios, 1, Number.POSITIVE_INFINITY],
     personaIds: [taxonomy.personas, 1, Number.POSITIVE_INFINITY],
@@ -65,8 +65,13 @@ function validateData() {
     if (!['eligible', 'review_only', 'excluded'].includes(reference.curatedCoreStatus)) errors.push(`${prefix}: invalid curatedCoreStatus.`)
     if (!['verified', 'reclassify', 'rejected', 'pending'].includes(reference.contentTypePoVerificationStatus)) errors.push(`${prefix}: invalid contentTypePoVerificationStatus.`)
     if (reference.contentTypePoVerificationStatus === 'verified' && (reference.contentTypePoVerifiedBy !== 'product_owner' || !/^\d{4}-\d{2}-\d{2}$/.test(reference.contentTypePoVerifiedAt ?? ''))) errors.push(`${prefix}: verified content type requires Product Owner and date.`)
-    if (reference.contentTypePoVerificationStatus === 'reclassify' && (!taxonomy.contentTypes.includes(reference.proposedPrimaryContentType) || reference.proposedPrimaryContentType === reference.primaryContentTypeId)) errors.push(`${prefix}: reclassify requires a different proposedPrimaryContentType.`)
+    if (reference.contentTypePoVerificationStatus === 'reclassify' && reference.proposedPrimaryContentType !== undefined && (!taxonomy.contentTypes.includes(reference.proposedPrimaryContentType) || reference.proposedPrimaryContentType === reference.primaryContentTypeId)) errors.push(`${prefix}: proposedPrimaryContentType must be a different valid type.`)
     if ((reference.contentTypePoNotes?.length ?? 0) > 1000) errors.push(`${prefix}: contentTypePoNotes exceeds 1000 characters.`)
+    if (!['approved', 'reclassify', 'revise_visual', 'rejected_schematic', 'rejected_wrong_type', 'rejected_quality', 'pending'].includes(reference.poReviewDisposition)) errors.push(`${prefix}: invalid poReviewDisposition.`)
+    if ((reference.poReviewNotes?.length ?? 0) > 1000) errors.push(`${prefix}: poReviewNotes exceeds 1000 characters.`)
+    if (reference.poReviewDisposition !== 'pending' && (reference.poReviewRound !== 'sprint-9-1-manual' || reference.poReviewedBy !== 'product_owner' || !/^\d{4}-\d{2}-\d{2}$/.test(reference.poReviewedAt ?? ''))) errors.push(`${prefix}: decided PO review requires round, Product Owner and date.`)
+    if (reference.poReviewDisposition === 'approved' && (reference.contentTypePoVerificationStatus !== 'verified' || reference.visualReferenceQuality !== 'premium' || reference.curatedCoreStatus !== 'eligible')) errors.push(`${prefix}: PO-approved reference must be type verified, premium and eligible.`)
+    if (reference.poReviewDisposition !== 'approved' && reference.curatedCoreStatus === 'eligible') errors.push(`${prefix}: non-approved reference cannot be eligible.`)
     if (!new RegExp(`^previews/${reference.id}\\.(svg|png|webp)$`).test(reference.previewPath)) errors.push(`${prefix}: previewPath does not match its ID.`)
     if (reference.sourceBacked) {
       for (const field of ['sourceTitle', 'sourceOrganization', 'sourceUrl', 'rightsStatus', 'sourceNotes', 'sourceAccessCheckedAt']) {

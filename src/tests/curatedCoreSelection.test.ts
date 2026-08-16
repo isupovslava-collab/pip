@@ -5,11 +5,11 @@ import { contentTypeIds, type ContentTypeId, type Reference, type SearchQuery } 
 
 const references = referencesJson as Reference[]
 const query: SearchQuery = { scenarioId: 'sales', personaId: 'client', goalId: 'approve', styleId: 'consulting', contentTypeId: 'comparison' }
-const make = (id: string, type: ContentTypeId, family: string): Reference => ({ ...references[0], id, title: id, primaryContentTypeId: type, contentTypeIds: [type], compositionFamily: family, curatedCoreStatus: 'eligible', visualReferenceQuality: 'premium', contentTypePoVerificationStatus: 'verified', contentTypePoVerifiedAt: '2026-08-15', contentTypePoVerifiedBy: 'product_owner', screenSuitable: true, productionApproved: true, previewMode: 'original_pip_interpretation', qualityTier: 'hero' })
+const make = (id: string, type: ContentTypeId, family: string): Reference => ({ ...references[0], id, title: id, primaryContentTypeId: type, contentTypeIds: [type], compositionFamily: family, curatedCoreStatus: 'eligible', visualReferenceQuality: 'premium', contentTypePoVerificationStatus: 'verified', contentTypePoVerifiedAt: '2026-08-16', contentTypePoVerifiedBy: 'product_owner', poReviewDisposition: 'approved', poReviewRound: 'sprint-9-1-manual', poReviewedAt: '2026-08-16', poReviewedBy: 'product_owner', screenSuitable: true, productionApproved: true, previewMode: 'original_pip_interpretation', qualityTier: 'hero' })
 
 describe('Premium Curated Core selection', () => {
   it('uses the explicit premium product gate', () => {
-    expect(references.filter(isCuratedCoreEligible).map(({ id }) => id).sort()).toEqual(['REF-000013', 'REF-000016', 'REF-000025', 'REF-000028', 'REF-000034'])
+    expect(references.filter(isCuratedCoreEligible)).toHaveLength(17)
   })
 
   it.each([0, 1, 2, 3, 4])('returns a deterministic maximum of three results from a pool of %i', (count) => {
@@ -49,5 +49,9 @@ describe('Premium Curated Core selection', () => {
   it('does not use proposedPrimaryContentType before explicit verification', () => {
     const proposed = { ...make('PROPOSED', 'story', 'proposal'), contentTypePoVerificationStatus: 'reclassify' as const, proposedPrimaryContentType: 'comparison' as const }
     expect(selectCuratedCore([proposed], query)).toEqual([])
+  })
+
+  it.each(['reclassify', 'revise_visual', 'rejected_schematic', 'rejected_wrong_type', 'rejected_quality', 'pending'] as const)('never exposes PO disposition %s', (poReviewDisposition) => {
+    expect(selectCuratedCore([{ ...make(`PO-${poReviewDisposition}`, 'comparison', poReviewDisposition), poReviewDisposition }], query)).toEqual([])
   })
 })

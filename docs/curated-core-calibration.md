@@ -1,53 +1,44 @@
-# Premium Curated Core Calibration — Sprint 9.1
+# Premium Curated Core Calibration — Sprint 9.2
 
-## Calibration result
+## Applied Product Owner round
 
-Visual quality and content-type exactness are independent Product Owner gates. Six Premium references were audited against the human-first rubric. Five are exact, verified, and production eligible. One remains visually approved but is removed from production pending taxonomy correction.
+The central map `src/data/curatedCore/po-review-round-1.json` covers all 100 legacy references exactly once. It records 17 approved, 4 reclassify, 1 revise_visual, 76 rejected_schematic, 1 rejected_quality, and 1 pending decision.
 
-| Reference | Visual | Current type | Type decision | Proposed type | Composition family | Production |
-| --- | --- | --- | --- | --- | --- | --- |
-| REF-000013 | APPROVE | Comparison | VERIFIED | — | premium-option-comparison confirmed | YES |
-| REF-000016 | APPROVE | Story | VERIFIED | — | keynote-metaphor confirmed | YES |
-| REF-000019 | APPROVE | Comparison | RECLASSIFY | Story | business-case confirmed | NO |
-| REF-000025 | APPROVE | KPI | VERIFIED | — | executive-performance confirmed | YES |
-| REF-000028 | APPROVE | Process | VERIFIED | — | illustrated-learning-journey confirmed | YES |
-| REF-000034 | APPROVE | Table | VERIFIED | — | financial-waterfall confirmed | YES |
+| Type | Approved IDs | Count |
+| --- | --- | ---: |
+| KPI | REF-000014, REF-000025, REF-000036 | 3 |
+| Comparison | REF-000013, REF-000033 | 2 |
+| Timeline | REF-000021, REF-000029 | 2 |
+| Process | REF-000020, REF-000022, REF-000028 | 3 |
+| Dashboard | REF-000023, REF-000026 | 2 |
+| Cover | — | 0 |
+| Story | REF-000015, REF-000018 | 2 |
+| Table | REF-000024, REF-000027, REF-000034 | 3 |
 
-The auditable source of these decisions is `src/data/curated-core-po-verification-map.json`. No title-based or metadata-derived verification is allowed.
+Production total is exactly 17. Every approved reference is Premium, PO type verified, eligible, and protected by the existing source/originality gate.
 
-## Known Comparison correction
+## Non-production queues
 
-`REF-000019`, “Business case проекта Phoenix”, is a strong visual business-case argument with project stages, not a comparison of alternatives. It is preserved as `review_only`, marked `reclassify`, proposed as `story`, and cannot appear for a production Comparison query. `REF-000013` remains the exact Comparison reference because it visibly presents three alternatives, common decision criteria, and a recommendation.
+- `REF-000016`: Story → proposed Cover; reclassify, review_only.
+- `REF-000019`: Comparison → proposed Story; reclassify, review_only.
+- `REF-000030`: Story → proposed Process; reclassify, review_only.
+- `REF-000032`: not Timeline; new type intentionally unset pending PO reclassification.
+- `REF-000017`: exact Cover but visual needs revision; good, review_only.
+- `REF-000031`: exact Timeline but below Premium quality; good, excluded.
+- `REF-000035`: no authoritative Round 1 decision; pending, review_only.
 
-## Coverage after calibration
+No reclassification is auto-approved after a proposed metadata change.
 
-The aspiration is two Premium, exact, PO-verified references per type, with different composition families. This is not a quota: 0 strong is better than 1 weak, and 1 strong is better than 2 mediocre.
+## Coverage and quality
 
-| Type | Approved exact | Gap to aspiration 2 | Priority |
-| --- | ---: | ---: | --- |
-| KPI | 1 | 1 | 2 |
-| Comparison | 1 | 1 | 2 |
-| Timeline | 0 | 2 | 1 |
-| Process | 1 | 1 | 3 |
-| Dashboard | 0 | 2 | 1 |
-| Cover | 0 | 2 | 1 |
-| Story | 1 | 1 | 3 |
-| Table | 1 | 1 | 3 |
+Seven content types meet the non-binding minimum of two. Cover is the only gap and remains at zero instead of receiving a filler. The separate Cover Recovery Pack contains four review-only PIP-original candidates; it is not part of the 100-reference production dataset.
 
-## Candidates awaiting Product Owner review
-
-- `REF-000022` — Process candidate, `review_only`, visual quality `unknown`, type status `pending`.
-- `REF-000031` — Timeline candidate, `review_only`, visual quality `unknown`, type status `pending`.
-- The remaining non-calibrated library records stay `pending`; dataset membership does not imply candidacy or approval.
-
-No new candidate was promoted in Sprint 9.1. Dashboard and Cover therefore remain at zero rather than receiving weak fillers.
-
-## Review workflow
-
-The internal route `#/test-curated-core-review` exposes type and quick filters, current/proposed type, all source/product metadata, local PO notes, actions, same-type comparison for up to three candidates, and JSON export. Local decisions do not mutate source data or production ranking. Exported decisions must be deliberately applied to the explicit map and revalidated.
+The production quality report confirms zero wrong-type, non-approved, rejected-schematic, reclassify, and revise exposure across control queries.
 
 ## Evidence
 
-- `npm run report:curated-core` measures verification and exact coverage.
-- `npm run report:curated-core-calibration` measures statuses, gaps, known misclassifications, and composition duplicates.
-- `npm run report:production-result-quality` proves wrong-type, non-premium, and type-unverified exposure.
+- `npm run validate:po-review-decisions`
+- `npm run report:po-review-round-1`
+- `npm run report:curated-core`
+- `npm run report:curated-core-calibration`
+- `npm run report:production-result-quality`

@@ -3,7 +3,16 @@ import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
-const poVerificationMap = JSON.parse(readFileSync(join(root, 'src', 'data', 'curated-core-po-verification-map.json'), 'utf8'))
+const poRound = JSON.parse(readFileSync(join(root, 'src', 'data', 'curatedCore', 'po-review-round-1.json'), 'utf8'))
+const poDecisionById = new Map([
+  ...poRound.decisions.map((decision) => [decision.referenceId, decision]),
+  ...poRound.rejectedSchematicReferenceIds.map((referenceId) => [referenceId, {
+    referenceId,
+    disposition: 'rejected_schematic',
+    verifiedContentType: null,
+    notes: 'Legacy procedural preview archived after PO Round 1 schematic review.',
+  }]),
+])
 
 const familyVariants = {
   kpi: ['kpi-scorecard', 'metric-story', 'trend-spotlight'],
@@ -86,6 +95,39 @@ function stableIndex(reference) {
   return Number(reference.id.slice(-3)) % 3
 }
 
+function applyPoDecision(reference) {
+  const cleanReference = { ...reference }
+  delete cleanReference.contentTypePoVerifiedAt
+  delete cleanReference.contentTypePoVerifiedBy
+  delete cleanReference.contentTypePoNotes
+  delete cleanReference.proposedPrimaryContentType
+  delete cleanReference.poReviewNotes
+  delete cleanReference.poReviewRound
+  delete cleanReference.poReviewedAt
+  delete cleanReference.poReviewedBy
+  const decision = poDecisionById.get(reference.id) ?? { disposition: 'pending', verifiedContentType: null, notes: 'Awaiting Product Owner review.' }
+  const reviewed = decision.disposition !== 'pending'
+  const approved = decision.disposition === 'approved'
+  const reclassify = decision.disposition === 'reclassify'
+  const revise = decision.disposition === 'revise_visual'
+  const rejectedQuality = decision.disposition === 'rejected_quality'
+  const rejected = decision.disposition.startsWith('rejected_')
+  const typeVerified = Boolean(decision.verifiedContentType) && !reclassify
+  return {
+    ...cleanReference,
+    screenSuitable: approved ? true : cleanReference.screenSuitable,
+    visualReferenceQuality: approved ? 'premium' : revise || rejectedQuality ? 'good' : decision.disposition === 'rejected_schematic' ? 'schematic' : reclassify ? 'premium' : cleanReference.visualReferenceQuality,
+    curatedCoreStatus: approved ? 'eligible' : reclassify || revise || decision.disposition === 'pending' ? 'review_only' : 'excluded',
+    contentTypePoVerificationStatus: typeVerified ? 'verified' : reclassify ? 'reclassify' : rejected ? cleanReference.contentTypePoVerificationStatus : 'pending',
+    ...(typeVerified ? { contentTypePoVerifiedAt: poRound.reviewedAt, contentTypePoVerifiedBy: poRound.reviewedBy } : {}),
+    contentTypePoNotes: decision.notes,
+    ...(decision.proposedContentType ? { proposedPrimaryContentType: decision.proposedContentType } : {}),
+    poReviewDisposition: decision.disposition,
+    poReviewNotes: decision.notes,
+    ...(reviewed ? { poReviewRound: poRound.round, poReviewedAt: poRound.reviewedAt, poReviewedBy: poRound.reviewedBy } : {}),
+  }
+}
+
 export function integrateHeroReferences() {
   const dataPath = join(root, 'public', 'data', 'references.json')
   const references = JSON.parse(readFileSync(dataPath, 'utf8')).map((reference) => {
@@ -104,18 +146,18 @@ export function integrateHeroReferences() {
       visualReferenceQuality: 'unknown',
       curatedCoreStatus: ['REF-000022', 'REF-000031'].includes(reference.id) ? 'review_only' : 'excluded',
       contentTypePoVerificationStatus: 'pending',
+      poReviewDisposition: 'pending',
       heroScenarioId: null,
       compositionFamily: familyVariants[reference.contentTypeIds[0]][index],
       visualDirection: directionVariants[reference.styleIds[0]][index],
       referenceSchemaVersion: 2,
     }
     const hero = heroOverrides[reference.id]
-    if (!hero) return base
-    const poVerification = poVerificationMap[reference.id]
+    if (!hero) return applyPoDecision(base)
     copyFileSync(join(root, 'public', 'hero-references', hero.heroFile), join(root, 'public', 'previews', `${reference.id}.png`))
     const replacedSvg = join(root, 'public', 'previews', `${reference.id}.svg`)
     if (existsSync(replacedSvg)) unlinkSync(replacedSvg)
-    return {
+    return applyPoDecision({
       ...base,
       ...hero,
       heroFile: undefined,
@@ -128,12 +170,9 @@ export function integrateHeroReferences() {
       primaryContentTypeId: hero.contentTypeIds[0],
       screenSuitable: true,
       visualReferenceQuality: 'premium',
-      curatedCoreStatus: poVerification?.productionEligible ? 'eligible' : 'review_only',
-      contentTypePoVerificationStatus: poVerification?.contentTypePoVerificationStatus ?? 'pending',
-      ...(poVerification?.contentTypePoVerifiedAt ? { contentTypePoVerifiedAt: poVerification.contentTypePoVerifiedAt } : {}),
-      ...(poVerification?.contentTypePoVerifiedBy ? { contentTypePoVerifiedBy: poVerification.contentTypePoVerifiedBy } : {}),
-      ...(poVerification?.contentTypePoNotes ? { contentTypePoNotes: poVerification.contentTypePoNotes } : {}),
-      ...(poVerification?.proposedPrimaryContentType ? { proposedPrimaryContentType: poVerification.proposedPrimaryContentType } : {}),
+      curatedCoreStatus: 'review_only',
+      contentTypePoVerificationStatus: 'pending',
+      poReviewDisposition: 'pending',
       productionApproved: true,
       heroScenarioId: hero.scenario,
       referenceSchemaVersion: 2,
@@ -147,7 +186,7 @@ export function integrateHeroReferences() {
         'Тип контента не совпадает и не является совместимым fallback.',
         'Красивый визуал не должен заменять более точное смысловое решение.',
       ],
-    }
+    })
   }, (key, value) => value)
 
   for (const reference of references) {

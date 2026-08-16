@@ -3,31 +3,33 @@
 ## Product path
 
 ```text
-Task Understanding
+Single-slide task understanding
   ↓
 Premium Curated Core
-  - visually premium
-  - PO content-type verified
-  - exact only
-  - 0–3
+  - exact content type
+  - Premium visual quality
+  - PO type verified
+  - PO disposition approved
+  - rights/source gate passed
+  - 0–3 results
   +
-Fresh Discovery
+Fresh Discovery v3
   ↓
 Presentation Intelligence
 ```
 
-The single-slide wizard produces one exact `contentTypeId`. `selectCuratedCore` applies independent visual and Product Owner content-type gates, existing source/product gates, exact primary-content matching, deterministic internal scoring, composition-family diversity, and a maximum of three cards. Zero is a valid honest result. No legacy compatible result, proposed reclassification, pending candidate, or weak filler enters this surface. Internal scores remain diagnostic and are not displayed.
+`selectCuratedCore` is a strict whitelist gate followed by deterministic ordering and composition-family diversity. Zero is a valid result. Proposed reclassifications, pending candidates, archived references, and weak fillers cannot enter production. The results architecture, Fresh Discovery v3 prompt, copy-confirm-open provider handoff, and persistent wizard context remain unchanged.
 
-Fresh Discovery v3 is the breadth and freshness layer. It remains the accepted copy → confirmed → open-provider handoff. External results never enter ranking or the local library automatically, and Sprint 9.1 does not alter provider behavior or prompt architecture.
+## Decision boundary
 
-## Calibration boundary
+The authoritative PO map is versioned source data. The internal review route stores local decisions and exports an audit artifact but never mutates production. Reclassification only creates a future candidate; it is not approval.
 
-The internal review route stores Product Owner decisions locally and exports an auditable JSON artifact. Runtime review actions never mutate the physical library. Applying a decision requires a deliberate source-map change, data regeneration, validation, and another explicit verification step. `proposedPrimaryContentType` is review metadata only.
+Cover Recovery is a separate four-item review dataset and route. Its candidates have zero production exposure until an explicit future PO decision is deliberately applied and validated.
 
 ## Preserved systems
 
-The physical 100-reference dataset, legacy ranking, Inspiration Board, feedback history, Test Mode, dashboard, JSON/CSV export, verified-source layer, Product Approval, Reference Intelligence, old analytics, and missing-reference feedback remain available. Missing verification fields normalize to `pending` without changing Board or analytics keys.
+The 100-reference dataset, legacy diagnostic ranking, Inspiration Board, old saved reference detail access, feedback history and migration, Test Mode, dashboard, analytics, exports, verified-source layer, Product Approval, and Reference Intelligence remain compatible. Excluded saved references remain accessible but are never labelled as an approved PIP standard.
 
-## Future mode
+## Roadmap boundary
 
-“Подобрать структуру всей презентации” remains roadmap-only. It must not reuse single-slide ranking without a separate product model and user evidence. Sprint 10 Intelligence, upload analysis, PPTX, backend/API work, and mass library growth are outside this architecture increment.
+“Подобрать структуру всей презентации,” Bring Your Reference, uploads, AI analysis, PPTX generation, backend/API work, Fresh Discovery v4, and mass library expansion remain outside Sprint 9.2.

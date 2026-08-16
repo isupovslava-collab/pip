@@ -1,0 +1,33 @@
+{
+  "report": "PO REVIEW ROUND 1",
+  "round": "sprint-9-1-manual",
+  "physicalReferences": 100,
+  "approvedTotal": 17,
+  "byType": {
+    "dashboard": 2,
+    "timeline": 2,
+    "cover": 0,
+    "kpi": 3,
+    "comparison": 2,
+    "process": 3,
+    "story": 2,
+    "table": 3
+  },
+  "byDisposition": {
+    "approved": 17,
+    "reclassify": 4,
+    "revise_visual": 1,
+    "rejected_schematic": 76,
+    "rejected_wrong_type": 0,
+    "rejected_quality": 1,
+    "pending": 1
+  },
+  "reviewEfficiency": {
+    "reviewed": 99,
+    "approved": 17,
+    "reclassified": 4,
+    "rejectedSchematic": 76,
+    "rejectedQuality": 1,
+    "interpretation": "Diagnostic of PO review workload only; not a market KPI."
+  }
+}

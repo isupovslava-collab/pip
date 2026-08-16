@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import referencesJson from '../../public/data/references.json'
-import verificationMap from '../data/curated-core-po-verification-map.json'
+import poRound from '../data/curatedCore/po-review-round-1.json'
 import { normalizeReferences, type StoredReference } from '../services/loadReferences'
 import type { Reference } from '../types/reference'
 
@@ -11,16 +11,19 @@ describe('Content Type PO verification migration', () => {
     const source = references[49]
     const legacy = { ...source } as Partial<Reference>
     delete legacy.contentTypePoVerificationStatus
+    delete legacy.poReviewDisposition
     const [normalized] = normalizeReferences([legacy as StoredReference])
     expect(normalized.contentTypePoVerificationStatus).toBe('pending')
+    expect(normalized.poReviewDisposition).toBe('pending')
     expect(normalized.id).toBe(source.id)
     expect(normalized.title).toBe(source.title)
     expect(normalized.scenarioIds).toEqual(source.scenarioIds)
   })
 
-  it('preserves only explicit historical Product Owner decisions', () => {
-    expect(Object.keys(verificationMap).sort()).toEqual(['REF-000013', 'REF-000016', 'REF-000019', 'REF-000025', 'REF-000028', 'REF-000034'])
-    expect(Object.values(verificationMap).filter(({ contentTypePoVerificationStatus }) => contentTypePoVerificationStatus === 'verified')).toHaveLength(5)
-    expect(references.filter(({ contentTypePoVerificationStatus }) => contentTypePoVerificationStatus === 'verified')).toHaveLength(5)
+  it('preserves the explicit Product Owner Round 1 map', () => {
+    expect(poRound.decisions).toHaveLength(24)
+    expect(poRound.rejectedSchematicReferenceIds).toHaveLength(76)
+    expect(new Set([...poRound.decisions.map(({ referenceId }) => referenceId), ...poRound.rejectedSchematicReferenceIds]).size).toBe(100)
+    expect(references.filter(({ poReviewDisposition }) => poReviewDisposition === 'approved')).toHaveLength(17)
   })
 })
