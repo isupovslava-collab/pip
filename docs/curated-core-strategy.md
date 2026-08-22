@@ -37,3 +37,9 @@ A candidate enters PO review only when it looks like a finished slide, is screen
 `#/test-curated-core-review` defaults to Needs PO Attention and separates Production, Reclassification, Revise, Pending, Archive, and All. Decisions and notes are local and exportable. Compare mode supports up to three same-type references and explains the limit.
 
 Reports distinguish production-approved references, composition and direction coverage, reclassification/revise queues, archive dispositions, wrong-type exposure, and PO review workload. Review-efficiency counts are diagnostic only and are not a market KPI.
+
+## Presentation Intelligence relationship
+
+Every one of the 20 approved production references has one Presentation Intelligence V1 record. Intelligence explains the approved pattern after selection; it never acts as a gate, score, ranking weight, or substitute for PO approval. A local Intelligence review status is exportable audit data only and cannot promote, demote, or expose a reference.
+
+The production type mix remains KPI 3, Comparison 2, Timeline 2, Process 3, Dashboard 2, Cover 3, Story 2, and Table 3. No archived, revise, pending, rejected, wrong-type, or schematic record receives Intelligence production exposure.

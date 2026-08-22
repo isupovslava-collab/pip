@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-08-22T10:53:11.644Z",
+  "productionCount": 20,
+  "intelligenceCount": 20,
+  "coverageByType": {
+    "kpi": 3,
+    "comparison": 2,
+    "timeline": 2,
+    "process": 3,
+    "dashboard": 2,
+    "cover": 3,
+    "story": 2,
+    "table": 3
+  },
+  "missing": [],
+  "duplicates": [],
+  "genericWarnings": [],
+  "briefComposerCoverage": 20,
+  "detailPageAvailable": true,
+  "errors": [],
+  "status": "PASS"
+}

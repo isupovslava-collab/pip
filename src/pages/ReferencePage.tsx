@@ -8,7 +8,8 @@ import { Icon } from '../components/Icon'
 import { IntelligenceFeedbackForm } from '../components/IntelligenceFeedbackForm'
 import { ReferenceIntelligencePanel } from '../components/ReferenceIntelligencePanel'
 import { VerifiedSourcePanel } from '../components/VerifiedSourcePanel'
-import { referenceIntelligenceById } from '../data/sourceReferences/reference-intelligence'
+import { referenceIntelligenceById as sourceIntelligenceById } from '../data/sourceReferences/reference-intelligence'
+import { presentationIntelligenceById } from '../data/referenceIntelligence'
 import { sourceReferenceById } from '../data/sourceReferences/source-references'
 import { rankReferences } from '../services/rankReferences'
 import type { Reference, SearchQuery } from '../types/reference'
@@ -25,11 +26,12 @@ export function ReferencePage({ references, query }: ReferencePageProps) {
   if (!reference) return <EmptyState title="Референс не найден" text="Возможно, ссылка устарела или в адресе есть ошибка." />
 
   const ranked = query ? rankReferences([reference], query)[0] : null
-  const routeState = location.state as { score?: number; reasons?: string[]; curatedCore?: boolean } | null
+  const routeState = location.state as { score?: number; reasons?: string[]; curatedCore?: boolean; query?: SearchQuery } | null
   const score = routeState?.score ?? ranked?.score
   const reasons = routeState?.reasons ?? ranked?.reasons ?? []
-  const intelligence = referenceIntelligenceById.get(reference.id)
-  const linkedSources = (intelligence?.sourceReferenceIds ?? []).flatMap((sourceId) => {
+  const intelligence = presentationIntelligenceById.get(reference.id)
+  const sourceIntelligence = sourceIntelligenceById.get(reference.id)
+  const linkedSources = (sourceIntelligence?.sourceReferenceIds ?? []).flatMap((sourceId) => {
     const source = sourceReferenceById.get(sourceId)
     return source && isProductionEligibleSourceReference(source) ? [source] : []
   })
@@ -57,15 +59,15 @@ export function ReferencePage({ references, query }: ReferencePageProps) {
       </div>
       {reasons.length > 0 && <section className="mt-6 rounded-2xl border border-sky-100 bg-sky-50/70 p-5 sm:p-7"><RecommendationReasons reasons={reasons} /></section>}
       {routeState?.curatedCore && <section className="surface mt-6 p-5 sm:p-7" aria-labelledby="composition-title"><p className="eyebrow">Композиционный принцип</p><h2 id="composition-title" className="mt-2 text-2xl font-semibold text-navy">{reference.compositionFamily}</h2><p className="mt-3 max-w-4xl leading-7 text-muted">{reference.sourceNotes || reference.summary}</p></section>}
-      {intelligence && <ReferenceIntelligencePanel intelligence={intelligence} />}
+      {intelligence && curatedCoreEligible && <ReferenceIntelligencePanel intelligence={intelligence} reference={reference} query={routeState?.query ?? query} />}
       <div className="mt-6 grid gap-5 lg:grid-cols-2">
         <section className="rounded-2xl border border-emerald-100 bg-emerald-50/60 p-5 sm:p-6"><div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-xl bg-emerald-100 text-success"><Icon name="check" className="h-5 w-5" /></span><h2 className="text-xl font-semibold text-navy">Лучше использовать, когда</h2></div><ul className="mt-5 space-y-3 text-muted">{reference.useWhen.map((item) => <li key={item} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-success" /><span>{item}</span></li>)}</ul></section>
         <section className="rounded-2xl border border-amber-100 bg-amber-50/60 p-5 sm:p-6"><div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-xl bg-amber-100 text-amber-700"><Icon name="warning" className="h-5 w-5" /></span><h2 className="text-xl font-semibold text-navy">Не лучший выбор, когда</h2></div><ul className="mt-5 space-y-3 text-muted">{reference.avoidWhen.map((item) => <li key={item} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber" /><span>{item}</span></li>)}</ul></section>
       </div>
       <div className="surface mt-6 p-3 sm:p-4"><DesignDna values={reference.designDna} /></div>
-      {intelligence && isTestMode(location.search) && <IntelligenceFeedbackForm referenceId={reference.id} />}
+      {intelligence && curatedCoreEligible && isTestMode(location.search) && <IntelligenceFeedbackForm referenceId={reference.id} />}
       <ReferenceFeedbackForm referenceId={reference.id} />
-      {linkedSources.length > 0 ? <VerifiedSourcePanel sources={linkedSources} /> : !intelligence && reference.sourceBacked && reference.sourceUrl ? (
+      {linkedSources.length > 0 ? <VerifiedSourcePanel sources={linkedSources} /> : !sourceIntelligence && reference.sourceBacked && reference.sourceUrl ? (
         <section className="surface mt-6 p-5 sm:p-7" aria-labelledby="source-heading">
           <p className="eyebrow">Открытый материал для изучения</p>
           <div className="mt-3 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">

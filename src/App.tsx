@@ -14,6 +14,7 @@ import { TestFeedbackPage } from './pages/TestFeedbackPage'
 import { TestReferenceReviewPage } from './pages/TestReferenceReviewPage'
 import { CuratedCoreReviewPage } from './pages/CuratedCoreReviewPage'
 import { CoverRecoveryReviewPage } from './pages/CoverRecoveryReviewPage'
+import { PresentationIntelligenceReviewPage } from './pages/PresentationIntelligenceReviewPage'
 import { loadReferences } from './services/loadReferences'
 import type { Reference, SearchQuery } from './types/reference'
 import { isTestMode } from './utils/testMode'
@@ -64,6 +65,7 @@ export default function App() {
                 <Route path="/test-reference-review" element={<TestReferenceReviewPage />} />
                 <Route path="/test-curated-core-review" element={<CuratedCoreReviewPage references={references} />} />
                 <Route path="/test-cover-recovery-review" element={<CoverRecoveryReviewPage />} />
+                <Route path="/test-intelligence-review" element={<PresentationIntelligenceReviewPage references={references} />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
             )}
