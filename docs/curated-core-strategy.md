@@ -18,15 +18,15 @@ Visual quality, content-type verification, and Product Owner disposition are sep
 
 Missing metadata normalizes to `pending`. Proposed reclassification never affects production. Synthetic schematics, wireframes, generic chart templates, and prototype placeholders are excluded.
 
-The authoritative Sprint 9.2 decision source is `src/data/curatedCore/po-review-round-1.json`. Applying a decision requires changing that map, regenerating metadata, validating it, and committing the result. Review-page local state never changes production.
+The decision history is layered and immutable: `src/data/curatedCore/po-review-round-1.json` preserves the original 100-reference review, while `src/data/curatedCore/cover-round-2-final.json` applies the explicit Cover decisions as an auditable overlay. Applying a decision requires versioned source data, regenerated metadata, validation, and a committed result. Review-page local state never changes production.
 
 ## Coverage policy
 
 The default desired target is 2–3 approved references per content type with useful composition diversity. Cover prefers three strong references because visual diversity matters more for opening slides. These targets are explicitly non-binding: never fill a quota with a schematic, weak filler, or wrong type.
 
-The post-round production baseline is 17 references: KPI 3, Comparison 2, Timeline 2, Process 3, Dashboard 2, Cover 0, Story 2, Table 3. Cover therefore remains an honest production gap until a future explicit PO approval.
+The effective production baseline is 20 references: KPI 3, Comparison 2, Timeline 2, Process 3, Dashboard 2, Cover 3, Story 2, Table 3. Cover is represented by three explicitly approved references from three distinct composition families.
 
-For Cover, the desired future production mix is image-led/editorial, typography-led, and atmospheric/abstract or large-year. Decorative geometry must earn its place. A Cover candidate cannot be approved if the dominant visual behaves like arbitrary filler rather than a meaningful visual or strong atmospheric treatment.
+The approved Cover mix is image-led/editorial, restrained cinematic statement, and typography-led minimal. Decorative geometry must earn its place. The large-year dark candidate remains revision-only until its text block no longer overlaps the digits and a new PO approval is recorded.
 
 ## Future candidate intake
 

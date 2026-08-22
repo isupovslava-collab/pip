@@ -1,12 +1,16 @@
 {
-  "report": "PO REVIEW ROUND 1",
-  "round": "sprint-9-1-manual",
+  "report": "PO REVIEW EFFECTIVE STATE",
+  "round": "sprint-9-1-manual + cover-round-2-final",
+  "roundsApplied": [
+    "sprint-9-1-manual",
+    "cover-round-2-final"
+  ],
   "physicalReferences": 100,
-  "approvedTotal": 17,
+  "approvedTotal": 20,
   "byType": {
     "dashboard": 2,
     "timeline": 2,
-    "cover": 0,
+    "cover": 3,
     "kpi": 3,
     "comparison": 2,
     "process": 3,
@@ -14,19 +18,19 @@
     "table": 3
   },
   "byDisposition": {
-    "approved": 17,
-    "reclassify": 4,
-    "revise_visual": 1,
-    "rejected_schematic": 76,
+    "approved": 20,
+    "reclassify": 3,
+    "revise_visual": 0,
+    "rejected_schematic": 75,
     "rejected_wrong_type": 0,
     "rejected_quality": 1,
     "pending": 1
   },
   "reviewEfficiency": {
     "reviewed": 99,
-    "approved": 17,
-    "reclassified": 4,
-    "rejectedSchematic": 76,
+    "approved": 20,
+    "reclassified": 3,
+    "rejectedSchematic": 75,
     "rejectedQuality": 1,
     "interpretation": "Diagnostic of PO review workload only; not a market KPI."
   }

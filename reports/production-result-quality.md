@@ -1,7 +1,7 @@
 # PRODUCTION RESULT QUALITY
 
 Queries tested: 24
-Average results: 2.29
+Average results: 2.42
 Maximum observed: 3
 Wrong-type exposure: 0
 Non-premium exposure: 0
@@ -14,7 +14,7 @@ Revise exposure: 0
 
 | Count | Queries |
 | ---: | ---: |
-| 0 | 1 |
+| 0 | 0 |
 | 1 | 0 |
 | 2 | 14 |
-| 3 | 9 |
+| 3 | 10 |

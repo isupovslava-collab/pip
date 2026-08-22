@@ -1,4 +1,4 @@
-import type { CoverRecoveryCandidate } from '../data/coverRecoveryCandidates'
+import { coverRound2FinalDecisionLog, type CoverRecoveryCandidate } from '../data/coverRecoveryCandidates'
 
 export const COVER_RECOVERY_REVIEW_STORAGE_KEY = 'pipCoverRecoveryReviewV1'
 export const COVER_RECOVERY_COMMENT_MAX_LENGTH = 1000
@@ -33,10 +33,11 @@ export function writeCoverRecoveryReviews(reviews: Record<string, CoverRecoveryR
 
 export function createCoverRecoveryReviewExport(candidates: CoverRecoveryCandidate[], reviews: Record<string, CoverRecoveryReview>, exportedAt = new Date().toISOString()) {
   return {
-    schemaVersion: 2,
-    reviewRound: 2,
+    schemaVersion: 3,
+    reviewRound: coverRound2FinalDecisionLog.round,
     exportedAt,
-    productionApplied: false,
+    productionApplied: true,
+    authoritativeDecisionLog: coverRound2FinalDecisionLog,
     reviews: candidates.map((candidate) => ({
       ...emptyCoverRecoveryReview(candidate.id),
       ...reviews[candidate.id],
@@ -53,7 +54,8 @@ export function createCoverRecoveryReviewExport(candidates: CoverRecoveryCandida
       poFeedbackApplied: candidate.poFeedbackApplied,
       rationale: candidate.rationale,
       reviewStatus: candidate.reviewStatus,
-      productionExposure: candidate.productionExposure,
+      finalPoDecision: coverRound2FinalDecisionLog.decisions.find(({ candidateId }) => candidateId === candidate.id) ?? null,
+      productionExposure: coverRound2FinalDecisionLog.decisions.some(({ candidateId, decision }) => candidateId === candidate.id && decision === 'approved'),
       comment: (reviews[candidate.id]?.comment ?? '').trim().slice(0, COVER_RECOVERY_COMMENT_MAX_LENGTH),
     })),
   }

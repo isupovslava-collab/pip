@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc" data-gold="true" data-layout="gold-17">
   <title id="title">Следующий рубеж ближе, чем кажется</title><desc id="desc">PIP-original cinematic statement cover</desc>
   <defs>
     <radialGradient id="light" cx="78%" cy="32%" r="70%"><stop stop-color="#69E4FF" stop-opacity=".75"/><stop offset=".3" stop-color="#2958B8" stop-opacity=".42"/><stop offset=".72" stop-color="#0A1538" stop-opacity=".15"/><stop offset="1" stop-color="#050815" stop-opacity="0"/></radialGradient>
@@ -14,10 +14,14 @@
   <path d="M0 780C420 700 820 722 1600 610V900H0Z" fill="#02040C" opacity=".7"/>
   <rect width="1600" height="900" filter="url(#grain)"/>
   <text x="82" y="92" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="5" fill="#8EDFF3">PIP / OPENING STATEMENT</text>
+  <text x="1510" y="88" text-anchor="end" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="3" fill="#C5D6E8">BOARD EDITION</text>
+  <text x="1510" y="116" text-anchor="end" font-family="Arial, sans-serif" font-size="12" letter-spacing="2" fill="#8EA9C5">TOMSK / 2027</text>
   <text x="82" y="320" font-family="Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="-3" fill="#FFFFFF">Следующий рубеж</text>
   <text x="82" y="420" font-family="Georgia, serif" font-size="96" font-style="italic" fill="#8EDFF3">ближе, чем кажется.</text>
   <text x="88" y="520" font-family="Arial, sans-serif" font-size="25" fill="#C5D6E8">Переходим от готовности к уверенному движению вперёд</text>
   <rect x="88" y="592" width="310" height="48" rx="24" fill="#FFFFFF" fill-opacity=".1" stroke="#8EDFF3" stroke-opacity=".45"/>
   <text x="243" y="623" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="3" fill="#DDF8FF" text-anchor="middle">STRATEGY LAUNCH · 2027</text>
   <text x="88" y="832" font-family="Arial, sans-serif" font-size="16" fill="#8EA9C5">16 AUGUST 2026  /  TOMSK</text>
+  <text x="1510" y="802" text-anchor="end" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#8EDFF3">PIP ORIGINAL</text>
+  <text x="1510" y="838" text-anchor="end" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">01</text>
 </svg>

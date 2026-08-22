@@ -6,7 +6,7 @@ import { createServer } from 'vite'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const vite = await createServer({ root, server: { middlewareMode: true }, appType: 'custom', logLevel: 'error' })
-const [{ coverRecoveryRound2Candidates, coverRound1Decisions }, { isCuratedCoreEligible }] = await Promise.all([
+const [{ coverRecoveryRound2Candidates, coverRound1Decisions, coverRound2FinalDecisionLog, coverRound2FinalDecisions }, { isCuratedCoreEligible }] = await Promise.all([
   vite.ssrLoadModule('/src/data/coverRecoveryCandidates.ts'),
   vite.ssrLoadModule('/src/services/selectCuratedCore.ts'),
 ])
@@ -27,10 +27,10 @@ for (const candidate of coverRecoveryRound2Candidates) {
   if (!candidate.title?.trim() || !candidate.rationale?.trim() || !candidate.poFeedbackApplied?.trim()) errors.push(`${candidate.id}: missing title, rationale or applied feedback.`)
   if (!allowedFamilies.has(candidate.visualFamily)) errors.push(`${candidate.id}: invalid visual family.`)
   if (!allowedStatuses.has(candidate.reviewStatus)) errors.push(`${candidate.id}: invalid review status.`)
-  if (candidate.productionExposure !== false || candidate.curatedCoreStatus !== 'review_only') errors.push(`${candidate.id}: production exposure must be false.`)
+  if (candidate.productionExposure !== false || candidate.curatedCoreStatus !== 'review_only') errors.push(`${candidate.id}: candidate audit record must remain isolated from production.`)
   if (candidate.width !== 1600 || candidate.height !== 900) errors.push(`${candidate.id}: metadata must be 1600x900.`)
   if (candidate.origin === 'revised' && (candidate.revisionRound !== 2 || !candidate.parentCandidateId || !round1Ids.has(candidate.parentCandidateId) || !candidate.revisionReason?.trim())) errors.push(`${candidate.id}: invalid Round 2 lineage.`)
-  if (candidate.knownOverlapIssue !== false) errors.push(`${candidate.id}: known overlap issue is unresolved.`)
+  if (candidate.knownOverlapIssue && candidate.id !== 'COVER-R2-03B') errors.push(`${candidate.id}: unexpected overlap issue.`)
   const assetPath = join(root, 'public', candidate.previewPath)
   try {
     await access(assetPath)
@@ -50,9 +50,29 @@ for (const candidate of coverRecoveryRound2Candidates) {
   }
 }
 
-const ref16 = references.find(({ id }) => id === 'REF-000016')
-if (!ref16 || ref16.primaryContentTypeId !== 'story' || ref16.proposedPrimaryContentType !== 'cover' || ref16.poReviewDisposition !== 'reclassify' || isCuratedCoreEligible(ref16)) errors.push('REF-000016 must remain a non-production Story-to-Cover reclassification.')
-if (references.filter(isCuratedCoreEligible).some(({ primaryContentTypeId }) => primaryContentTypeId === 'cover')) errors.push('Cover production count must remain zero.')
+const approvedDecisions = coverRound2FinalDecisions.filter(({ decision }) => decision === 'approved')
+const reviseDecisions = coverRound2FinalDecisions.filter(({ decision }) => decision === 'revise_visual')
+if (coverRound2FinalDecisionLog.round !== 'cover-round-2-final' || coverRound2FinalDecisionLog.reviewedBy !== 'product_owner') errors.push('Final PO audit metadata is invalid.')
+if (coverRound2FinalDecisions.length !== 4 || approvedDecisions.length !== 3 || reviseDecisions.length !== 1) errors.push('Final PO decision set must contain three APPROVE and one REVISE.')
+if (coverRound2FinalDecisions.map(({ rank }) => rank).join(',') !== '1,2,3,4') errors.push('Final PO ranking must be 1–4.')
+if (new Set(approvedDecisions.map(({ productionReferenceId }) => productionReferenceId)).size !== 3 || approvedDecisions.some(({ productionReferenceId }) => !productionReferenceId)) errors.push('Approved candidates require three distinct production mappings.')
+const reviseDecision = reviseDecisions[0]
+if (reviseDecision?.candidateId !== 'COVER-R2-03B' || reviseDecision.productionReferenceId !== null) errors.push('The dark 2027 candidate must remain revision-only.')
+if (!coverRecoveryRound2Candidates.find(({ id }) => id === 'COVER-R2-03B')?.knownOverlapIssue) errors.push('The 2027 overlap issue must remain explicit until revision approval.')
+
+const productionCovers = references.filter((reference) => isCuratedCoreEligible(reference) && reference.primaryContentTypeId === 'cover')
+if (productionCovers.length !== 3) errors.push(`Cover production count must be 3, received ${productionCovers.length}.`)
+const productionCoverIds = new Set(productionCovers.map(({ id }) => id))
+for (const decision of approvedDecisions) {
+  if (!productionCoverIds.has(decision.productionReferenceId)) errors.push(`${decision.candidateId}: production mapping ${decision.productionReferenceId} is not eligible.`)
+  const candidate = coverRecoveryRound2Candidates.find(({ id }) => id === decision.candidateId)
+  const production = references.find(({ id }) => id === decision.productionReferenceId)
+  if (!candidate || !production) continue
+  const candidateHash = createHash('sha256').update(await readFile(join(root, 'public', candidate.previewPath))).digest('hex')
+  const productionHash = createHash('sha256').update(await readFile(join(root, 'public', production.previewPath))).digest('hex')
+  if (candidateHash !== productionHash) errors.push(`${decision.candidateId}: production preview does not match the approved candidate.`)
+}
+if (!productionCovers.find(({ id, title }) => id === 'REF-000016' && title === 'Будущее не случается. Мы переходим в него.')) errors.push('REF-000016 must be the approved primary Cover.')
 
 if (errors.length) {
   console.error(`COVER CANDIDATE QUALITY: FAIL\n${errors.map((error) => `- ${error}`).join('\n')}`)
@@ -61,7 +81,7 @@ if (errors.length) {
 console.log('COVER CANDIDATE QUALITY: PASS')
 console.log(`Round 2 candidates: ${coverRecoveryRound2Candidates.length}`)
 console.log(`Distinct visual families: ${new Set(coverRecoveryRound2Candidates.map(({ visualFamily }) => visualFamily)).size}`)
-console.log('Production exposure: 0')
+console.log('Approved production Cover references: 3')
+console.log('Revision production exposure: 0')
 console.log('Missing assets: 0')
 console.log('Duplicate asset hashes: 0')
-

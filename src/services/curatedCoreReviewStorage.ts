@@ -14,7 +14,7 @@ export interface CuratedCoreReviewDecision {
   proposedContentType?: ContentTypeId
   verifiedContentType?: ContentTypeId
   poReviewDisposition?: PoReviewDisposition
-  round?: 'sprint-9-1-manual'
+  round?: 'sprint-9-1-manual' | 'cover-round-2-final'
   notes: string
   reviewedAt: string
 }

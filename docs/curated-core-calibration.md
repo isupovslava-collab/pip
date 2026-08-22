@@ -1,8 +1,8 @@
-# Premium Curated Core Calibration — Sprint 9.2
+# Premium Curated Core Calibration
 
-## Applied Product Owner round
+## Applied Product Owner rounds
 
-The central map `src/data/curatedCore/po-review-round-1.json` covers all 100 legacy references exactly once. It records 17 approved, 4 reclassify, 1 revise_visual, 76 rejected_schematic, 1 rejected_quality, and 1 pending decision.
+`po-review-round-1.json` preserves the initial decisions for all 100 legacy records. `cover-round-2-final.json` records the later final Cover ranking, three approvals, the exact candidate-to-reference mappings, and one revision without production exposure.
 
 | Type | Approved IDs | Count |
 | --- | --- | ---: |
@@ -11,33 +11,27 @@ The central map `src/data/curatedCore/po-review-round-1.json` covers all 100 leg
 | Timeline | REF-000021, REF-000029 | 2 |
 | Process | REF-000020, REF-000022, REF-000028 | 3 |
 | Dashboard | REF-000023, REF-000026 | 2 |
-| Cover | — | 0 |
+| Cover | REF-000016, REF-000017, REF-000047 | 3 |
 | Story | REF-000015, REF-000018 | 2 |
 | Table | REF-000024, REF-000027, REF-000034 | 3 |
 
-Production total is exactly 17. Every approved reference is Premium, PO type verified, eligible, and protected by the existing source/originality gate.
+Production total is 20. All eight content types meet their non-binding coverage target. Every production reference is Premium, PO type verified, eligible, and protected by the source or approved PIP-original gate.
 
-## Non-production queues
+## Effective non-production queues
 
-- `REF-000016`: Story → proposed Cover; reclassify, review_only.
 - `REF-000019`: Comparison → proposed Story; reclassify, review_only.
 - `REF-000030`: Story → proposed Process; reclassify, review_only.
 - `REF-000032`: not Timeline; new type intentionally unset pending PO reclassification.
-- `REF-000017`: exact Cover but visual needs revision; good, review_only.
 - `REF-000031`: exact Timeline but below Premium quality; good, excluded.
 - `REF-000035`: no authoritative Round 1 decision; pending, review_only.
-
-No reclassification is auto-approved after a proposed metadata change.
-
-## Coverage and quality
-
-Seven content types meet the non-binding minimum of two. Cover is the only gap and remains at zero instead of receiving a filler. Cover Recovery Round 2 contains eight review-only candidates with zero production exposure; it is not part of the 100-reference production dataset.
+- `COVER-R2-03B`: dark large-year Cover; revise visual, no production mapping.
 
 The production quality report confirms zero wrong-type, non-approved, rejected-schematic, reclassify, and revise exposure across control queries.
 
 ## Evidence
 
 - `npm run validate:po-review-decisions`
+- `npm run validate:cover-candidate-quality`
 - `npm run report:po-review-round-1`
 - `npm run report:curated-core`
 - `npm run report:curated-core-calibration`

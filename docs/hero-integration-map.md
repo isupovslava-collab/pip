@@ -5,7 +5,7 @@
 | Scenario | Сохранённый ID | Preview | Metadata и источник | Контрольный запрос | Ожидание |
 |---|---|---|---|---|---|
 | Sales | `REF-000013` | `previews/REF-000013.png` | client / approve / consulting+modern / comparison; HubSpot Investor Presentation | sales/client/approve/consulting/comparison | Top 3 |
-| Speech | `REF-000016` | `previews/REF-000016.png` | employees / inspire / modern / story+cover; TED slide guidance | speech/employees/inspire/modern/story | Top 3 |
+| Speech | `REF-000016` | `previews/REF-000016.png` | employees+board / inspire+align / modern+executive / cover+story; TED slide guidance | primary Cover after Cover Round 2 Final | Top 3 |
 | Project | `REF-000019` | `previews/REF-000019.png` | board / approve / executive / comparison+kpi; HM Treasury business-case guidance | project/board/approve/executive/comparison | Top 3 |
 | Report | `REF-000025` | `previews/REF-000025.png` | manager / explain_results / corporate / kpi+dashboard; World Bank Annual Report | report/manager/explain_results/corporate/kpi | Top 3 |
 | Training | `REF-000028` | `previews/REF-000028.png` | employees / teach / modern / process+timeline; OpenLearn pathway | training/employees/teach/modern/process | Top 3 |

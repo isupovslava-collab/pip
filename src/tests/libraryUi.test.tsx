@@ -29,11 +29,12 @@ describe('интерфейс расширенной библиотеки', () =>
     expect(screen.queryByText(/% соответствия/)).not.toBeInTheDocument()
   })
 
-  it('честно показывает нулевое и низкое покрытие без fillers', () => {
+  it('показывает утверждённое Cover-покрытие и низкое Timeline-покрытие без fillers', () => {
     const view = render(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={{ ...query, contentTypeId: 'cover' }} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
-    expect(screen.getByText('В библиотеке PIP пока нет эталонного варианта для этого типа слайда.')).toBeInTheDocument()
-    expect(screen.getByText('Свежий поиск доступен сразу — PIP подготовит точный запрос под вашу задачу.')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Найти свежие референсы' })).toBeInTheDocument()
+    expect(screen.getByText('Будущее не случается. Мы переходим в него.')).toBeInTheDocument()
+    expect(screen.getByText('Следующий рубеж ближе, чем кажется.')).toBeInTheDocument()
+    expect(screen.getByText('Стратегия без лишнего.')).toBeInTheDocument()
+    expect(screen.getAllByRole('article')).toHaveLength(3)
     view.rerender(<MemoryRouter><InspirationBoardProvider><SearchPage references={library} query={{ ...query, contentTypeId: 'timeline' }} setQuery={vi.fn()} /></InspirationBoardProvider></MemoryRouter>)
     expect(screen.getByText('Сейчас в PIP есть два эталонных варианта. Для дополнительных свежих примеров используйте Fresh Discovery.')).toBeInTheDocument()
     expect(screen.getAllByRole('article')).toHaveLength(2)

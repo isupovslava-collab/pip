@@ -9,7 +9,7 @@ const make = (id: string, type: ContentTypeId, family: string): Reference => ({ 
 
 describe('Premium Curated Core selection', () => {
   it('uses the explicit premium product gate', () => {
-    expect(references.filter(isCuratedCoreEligible)).toHaveLength(17)
+    expect(references.filter(isCuratedCoreEligible)).toHaveLength(20)
   })
 
   it.each([0, 1, 2, 3, 4])('returns a deterministic maximum of three results from a pool of %i', (count) => {

@@ -1,47 +1,25 @@
-# Cover Recovery Round 2
+# Cover Recovery Round 2 — Final PO Decisions
 
 ## Outcome
 
-Round 2 is a human-review shortlist, not a production release. It contains eight candidates across five visual families:
+Product Owner approved three production Covers on 2026-08-22:
 
-- six revised PIP-original covers derived from Candidates 1–3;
-- the unchanged strong baseline `COVER-CAND-004`;
-- `REF-000016` as a reclassified Story → Cover candidate.
+- `REF-000016` — primary Hero cover, image-led editorial;
+- `COVER-CAND-004` → `REF-000017` — restrained secondary cover;
+- `COVER-R2-02A` → `REF-000047` — minimal typography-led cover.
 
-All candidates have `productionExposure: false`. Cover production remains zero.
+`COVER-R2-03B` remains `REVISE`: preserve the dark background and oversized 2027, but move the text block below the year so it does not cover the digits. It has no production mapping and requires separate reapproval after revision.
 
-## Applied Product Owner feedback
+## Production result
 
-Candidate 1 now has an image-led editorial horizon scene and a separate atmospheric light-field version. Both replace random right-side geometry with a purposeful visual anchor.
+Cover coverage is 3/3 across three distinct families: `keynote-photographic-statement`, `cinematic-statement-cover`, and `asymmetric-type-led-cover`. The complete curated core contains 20 production references. Wrong-type, non-Premium, non-approved, rejected, reclassify, and revise exposure remain zero.
 
-Candidate 2 now has a pure-typography cover and a typography-led cover with one integrated light column. Detached decorative geometry was removed.
+The original 8-candidate pack, Round 1 feedback, four final decisions, priorities, PO comments, not-selected variants, and candidate-to-production mappings remain available as versioned audit data.
 
-Candidate 3 retains the large-year principle. Version 3A separates the title into a safe zone; Version 3B uses a deliberate contrast caption plane so the overlap reads as intentional editorial design.
-
-Candidate 4 is preserved unchanged as the preferred Round 1 baseline. `REF-000016` joins the pack without automatic reclassification or approval.
-
-## Cover quality rule
-
-Decorative geometry must earn its place.
-
-A Cover candidate cannot be approved if the dominant visual behaves like arbitrary filler rather than a meaningful visual or strong atmospheric treatment. A title slide must be driven by one clear principle: image-led story, decisive typography, atmospheric depth, large-year/number, or a strong opening statement.
-
-The desired future production mix is at least three approved covers from at least three distinct families:
-
-- image-led/editorial;
-- typography-led;
-- atmospheric/abstract or large-year.
-
-This is aspirational and never justifies a weak filler.
-
-## Review workflow
-
-Open `#/test-cover-recovery-review`. The gallery shows large previews, family, origin, lineage, rationale, applied PO feedback, local notes, and APPROVE / REVISE / REJECT status. Compare Mode supports up to three candidates and explains the 3/3 limit. Export is local-only and includes `productionApplied: false`.
-
-Evidence:
+## Evidence
 
 - `npm run validate:cover-candidate-quality`
+- `npm run validate:po-review-decisions`
 - `npm run report:cover-recovery-round2`
-- `reports/cover-recovery-round2.json`
-- `reports/cover-recovery-round2.md`
-
+- `npm run report:curated-core`
+- `npm run report:production-result-quality`

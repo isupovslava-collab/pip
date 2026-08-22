@@ -62,7 +62,7 @@ export interface Reference {
   proposedPrimaryContentType?: ContentTypeId
   poReviewDisposition: PoReviewDisposition
   poReviewNotes?: string
-  poReviewRound?: 'sprint-9-1-manual'
+  poReviewRound?: 'sprint-9-1-manual' | 'cover-round-2-final'
   poReviewedAt?: string
   poReviewedBy?: 'product_owner'
   productionApproved: boolean

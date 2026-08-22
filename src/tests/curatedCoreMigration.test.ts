@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import referencesJson from '../../public/data/references.json'
+import coverFinalRound from '../data/curatedCore/cover-round-2-final.json'
 import poRound from '../data/curatedCore/po-review-round-1.json'
 import { normalizeReferences, type StoredReference } from '../services/loadReferences'
 import type { Reference } from '../types/reference'
@@ -24,6 +25,8 @@ describe('Content Type PO verification migration', () => {
     expect(poRound.decisions).toHaveLength(24)
     expect(poRound.rejectedSchematicReferenceIds).toHaveLength(76)
     expect(new Set([...poRound.decisions.map(({ referenceId }) => referenceId), ...poRound.rejectedSchematicReferenceIds]).size).toBe(100)
-    expect(references.filter(({ poReviewDisposition }) => poReviewDisposition === 'approved')).toHaveLength(17)
+    expect(references.filter(({ poReviewDisposition }) => poReviewDisposition === 'approved')).toHaveLength(20)
+    expect(coverFinalRound.decisions.filter(({ decision }) => decision === 'approved')).toHaveLength(3)
+    expect(coverFinalRound.decisions.filter(({ decision }) => decision === 'revise_visual')).toHaveLength(1)
   })
 })

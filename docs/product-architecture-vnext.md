@@ -22,9 +22,9 @@ Presentation Intelligence
 
 ## Decision boundary
 
-The authoritative PO map is versioned source data. The internal review route stores local decisions and exports an audit artifact but never mutates production. Reclassification only creates a future candidate; it is not approval.
+Authoritative PO decisions are versioned source data. Round 1 remains untouched as history; the Cover Round 2 Final log overlays three approvals and one revision. The internal review route stores local notes and exports an audit artifact but never mutates production. Reclassification or revision alone never creates production exposure.
 
-Cover Recovery Round 2 is a separate eight-item review dataset and route: six revised PIP-original candidates, one preserved baseline, and one reclassified existing reference. Lineage and applied PO feedback are explicit. Every candidate has zero production exposure until a future PO decision is deliberately applied and validated.
+Cover Recovery Round 2 remains a separate eight-item audit dataset and route. Three approved candidate assets are deliberately materialized under stable library IDs `REF-000016`, `REF-000017`, and `REF-000047`; the physical library remains 100 records. `COVER-R2-03B` stays revision-only with no production mapping.
 
 ## Preserved systems
 

@@ -8,8 +8,9 @@ const contentTypes = ['dashboard', 'timeline', 'cover', 'kpi', 'comparison', 'pr
 const byType = Object.fromEntries(contentTypes.map((type) => [type, references.filter(({ poReviewDisposition, primaryContentTypeId }) => poReviewDisposition === 'approved' && primaryContentTypeId === type).length]))
 const byDisposition = Object.fromEntries(['approved', 'reclassify', 'revise_visual', 'rejected_schematic', 'rejected_wrong_type', 'rejected_quality', 'pending'].map((disposition) => [disposition, references.filter(({ poReviewDisposition }) => poReviewDisposition === disposition).length]))
 const report = {
-  report: 'PO REVIEW ROUND 1',
-  round: 'sprint-9-1-manual',
+  report: 'PO REVIEW EFFECTIVE STATE',
+  round: 'sprint-9-1-manual + cover-round-2-final',
+  roundsApplied: ['sprint-9-1-manual', 'cover-round-2-final'],
   physicalReferences: references.length,
   approvedTotal: byDisposition.approved,
   byType,
@@ -24,7 +25,8 @@ const report = {
   },
 }
 const lines = [
-  '# PO REVIEW ROUND 1', '',
+  '# PO REVIEW EFFECTIVE STATE', '',
+  'Applied audit rounds: sprint-9-1-manual, cover-round-2-final', '',
   ...contentTypes.map((type) => `${type[0].toUpperCase()}${type.slice(1)}: ${byType[type]}`),
   `Total approved: ${report.approvedTotal}`, '',
   `Reclassify: ${byDisposition.reclassify}`,

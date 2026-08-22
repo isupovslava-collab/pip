@@ -1,19 +1,22 @@
 # Cover Recovery Pack
 
-## Boundary
+## Final state
 
-Cover has zero approved production references. Round 2 contains eight isolated review candidates: six PIP-original revisions, the preserved strong baseline, and `REF-000016` as a Story-to-Cover reclassification. They are reviewed at `#/test-cover-recovery-review`, do not extend the 100-reference library, and cannot enter production ranking.
+The eight-item Round 2 pack remains an immutable candidate and lineage audit. The authoritative final decision log is `src/data/curatedCore/cover-round-2-final.json`.
 
-| Candidate group | Visual family | Role |
-| --- | --- | --- |
-| COVER-R2-01A / 01B | image_led_editorial / atmospheric_abstract | meaningful horizon scene and immersive light field |
-| COVER-R2-02A / 02B | typographic_bold | pure typography and typography with one controlled accent |
-| COVER-R2-03A / 03B | large_year_editorial | clean safe-zone year and intentional editorial overlap |
-| COVER-CAND-004 | minimal_statement | preserved strongest Round 1 baseline |
-| REF-000016 | image_led_editorial | reclassified existing PIP opening statement |
+| Rank | Candidate | Decision | Priority | Production mapping |
+| ---: | --- | --- | --- | --- |
+| 1 | REF-000016 · Будущее не случается. Мы переходим в него. | APPROVE | Primary / Hero cover | REF-000016 |
+| 2 | COVER-CAND-004 · Следующий рубеж ближе, чем кажется. | APPROVE | Secondary cover | REF-000017 |
+| 3 | COVER-R2-02A · Стратегия без лишнего. | APPROVE | Secondary / Minimal cover | REF-000047 |
+| 4 | COVER-R2-03B · 2027 | REVISE | Not production-ready | none |
 
-Every generated preview is 1600×900, self-contained, brand neutral, and built with project-native vector, gradient, texture, typography, and light treatments. There are no downloaded slides, external logos, third-party fonts, or copied corporate graphics. `REF-000016` reuses its existing verified local PIP preview.
+The approved assets are materialized under stable `REF-*` IDs, so the physical library remains exactly 100 records. Every production Cover is Premium, PO type verified, PO approved, screen suitable, and assigned a distinct composition family.
 
-Initial state is always `review_only` with `productionExposure: false`. The gallery stores five PO answers locally, compares up to three candidates, and exports Round 2 lineage and review data with `productionApplied: false`. APPROVE / REVISE / REJECT decisions are not auto-applied.
+The dark large-year candidate retains `productionExposure: false`. Its overlap issue is explicit: the text block must move below the digits, and a future revision requires a separate PO approval.
 
-Quality checks cover explicit 16:9 dimensions, lineage, distinct assets, readable text, missing assets, clipping/overflow, and zero production exposure. Final promotion requires a future explicit Product Owner decision and another validated commit. Decorative geometry must earn its place.
+## Review and audit
+
+`#/test-cover-recovery-review` shows final APPROVE / REVISE statuses, rank, priority, exact production mapping, PO rationale, preview, lineage, local notes, and comparison for up to three candidates. Export schema v3 includes the immutable final decision log and local review notes; `productionApplied` is true only for the three approved mappings.
+
+The remaining four Round 2 variants are retained as `NOT SELECTED` audit records and have no production exposure.

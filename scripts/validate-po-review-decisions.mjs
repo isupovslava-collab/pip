@@ -3,15 +3,21 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const [references, round] = await Promise.all([
+const [references, round, coverFinalRound] = await Promise.all([
   readFile(join(root, 'public/data/references.json'), 'utf8').then(JSON.parse),
   readFile(join(root, 'src/data/curatedCore/po-review-round-1.json'), 'utf8').then(JSON.parse),
+  readFile(join(root, 'src/data/curatedCore/cover-round-2-final.json'), 'utf8').then(JSON.parse),
 ])
 const referenceById = new Map(references.map((reference) => [reference.id, reference]))
-const decisions = [
+const round1Decisions = [
   ...round.decisions,
   ...round.rejectedSchematicReferenceIds.map((referenceId) => ({ referenceId, disposition: 'rejected_schematic' })),
 ]
+const effectiveDecisionById = new Map(round1Decisions.map((decision) => [decision.referenceId, decision]))
+for (const decision of coverFinalRound.decisions.filter(({ decision, productionReferenceId }) => decision === 'approved' && productionReferenceId)) {
+  effectiveDecisionById.set(decision.productionReferenceId, { referenceId: decision.productionReferenceId, disposition: 'approved', verifiedContentType: 'cover', notes: decision.notes })
+}
+const decisions = [...effectiveDecisionById.values()]
 const errors = []
 const ids = decisions.map(({ referenceId }) => referenceId)
 if (new Set(ids).size !== ids.length) errors.push('PO map contains duplicate reference IDs.')
@@ -29,12 +35,14 @@ for (const reference of references) {
   if (reference.curatedCoreStatus === 'eligible' && reference.poReviewDisposition === 'pending') errors.push(`${reference.id}: production reference cannot be pending.`)
 }
 
-const expected = { kpi: 3, comparison: 2, timeline: 2, process: 3, dashboard: 2, cover: 0, story: 2, table: 3 }
+const expected = { kpi: 3, comparison: 2, timeline: 2, process: 3, dashboard: 2, cover: 3, story: 2, table: 3 }
 for (const [type, count] of Object.entries(expected)) {
   const actual = references.filter(({ poReviewDisposition, primaryContentTypeId }) => poReviewDisposition === 'approved' && primaryContentTypeId === type).length
   if (actual !== count) errors.push(`${type}: expected ${count} approved, received ${actual}.`)
 }
-if (references.filter(({ poReviewDisposition }) => poReviewDisposition === 'approved').length !== 17) errors.push('Expected exactly 17 PO-approved references.')
+if (references.filter(({ poReviewDisposition }) => poReviewDisposition === 'approved').length !== 20) errors.push('Expected exactly 20 PO-approved references.')
+const revision = coverFinalRound.decisions.find(({ decision }) => decision === 'revise_visual')
+if (revision?.candidateId !== 'COVER-R2-03B' || revision.productionReferenceId !== null) errors.push('Cover revision candidate must remain outside production.')
 
 if (errors.length) {
   console.error(`PO REVIEW DECISIONS: FAIL\n${errors.map((error) => `- ${error}`).join('\n')}`)
@@ -42,7 +50,8 @@ if (errors.length) {
 }
 console.log('PO REVIEW DECISIONS: PASS')
 console.log('Mapped references: 100')
-console.log('Approved production references: 17')
-console.log('Reclassification queue: 4')
-console.log('Revise visual: 1')
-console.log('Rejected schematic archive: 76')
+console.log('Approved production references: 20')
+console.log('Cover production references: 3')
+console.log('Reclassification queue: 3')
+console.log('Cover revision candidates outside production: 1')
+console.log('Rejected schematic archive: 75')

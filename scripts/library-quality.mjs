@@ -69,7 +69,7 @@ function validateData() {
     if ((reference.contentTypePoNotes?.length ?? 0) > 1000) errors.push(`${prefix}: contentTypePoNotes exceeds 1000 characters.`)
     if (!['approved', 'reclassify', 'revise_visual', 'rejected_schematic', 'rejected_wrong_type', 'rejected_quality', 'pending'].includes(reference.poReviewDisposition)) errors.push(`${prefix}: invalid poReviewDisposition.`)
     if ((reference.poReviewNotes?.length ?? 0) > 1000) errors.push(`${prefix}: poReviewNotes exceeds 1000 characters.`)
-    if (reference.poReviewDisposition !== 'pending' && (reference.poReviewRound !== 'sprint-9-1-manual' || reference.poReviewedBy !== 'product_owner' || !/^\d{4}-\d{2}-\d{2}$/.test(reference.poReviewedAt ?? ''))) errors.push(`${prefix}: decided PO review requires round, Product Owner and date.`)
+    if (reference.poReviewDisposition !== 'pending' && (!['sprint-9-1-manual', 'cover-round-2-final'].includes(reference.poReviewRound) || reference.poReviewedBy !== 'product_owner' || !/^\d{4}-\d{2}-\d{2}$/.test(reference.poReviewedAt ?? ''))) errors.push(`${prefix}: decided PO review requires an authoritative round, Product Owner and date.`)
     if (reference.poReviewDisposition === 'approved' && (reference.contentTypePoVerificationStatus !== 'verified' || reference.visualReferenceQuality !== 'premium' || reference.curatedCoreStatus !== 'eligible')) errors.push(`${prefix}: PO-approved reference must be type verified, premium and eligible.`)
     if (reference.poReviewDisposition !== 'approved' && reference.curatedCoreStatus === 'eligible') errors.push(`${prefix}: non-approved reference cannot be eligible.`)
     if (!new RegExp(`^previews/${reference.id}\\.(svg|png|webp)$`).test(reference.previewPath)) errors.push(`${prefix}: previewPath does not match its ID.`)
@@ -82,9 +82,13 @@ function validateData() {
       if (!['hero', 'gold'].includes(reference.qualityTier)) errors.push(`${prefix}: source-backed reference must use the hero or gold tier.`)
       if (reference.previewMode !== 'original_pip_interpretation') errors.push(`${prefix}: unlicensed source must use an original PIP interpretation.`)
     } else {
-      if (reference.sourceType !== 'synthetic') errors.push(`${prefix}: standard sourceType must be synthetic.`)
-      if (reference.sourceUrl !== null || reference.sourceTitle !== null || reference.sourceOrganization !== null || reference.rightsStatus !== null || reference.sourceNotes !== null || reference.sourceAccessCheckedAt !== null) errors.push(`${prefix}: standard source metadata must be null.`)
-      if (!['standard', 'prototype'].includes(reference.qualityTier)) errors.push(`${prefix}: non-source-backed reference must use the standard or prototype tier.`)
+      const approvedPipOriginal = reference.sourceType === 'pip-original'
+        && reference.previewMode === 'original_pip_interpretation'
+        && ['hero', 'gold'].includes(reference.qualityTier)
+        && reference.poReviewDisposition === 'approved'
+      if (!approvedPipOriginal && reference.sourceType !== 'synthetic') errors.push(`${prefix}: non-source-backed reference must be synthetic or an approved PIP-original.`)
+      if (reference.sourceUrl !== null || reference.sourceTitle !== null || reference.sourceOrganization !== null || reference.rightsStatus !== null || reference.sourceAccessCheckedAt !== null || !approvedPipOriginal && reference.sourceNotes !== null) errors.push(`${prefix}: non-source-backed source metadata is invalid.`)
+      if (!approvedPipOriginal && !['standard', 'prototype'].includes(reference.qualityTier)) errors.push(`${prefix}: synthetic non-source-backed reference must use the standard or prototype tier.`)
     }
 
     Object.entries(arrayRules).forEach(([field, [allowed, minimum, maximum]]) => {

@@ -1,7 +1,7 @@
 {
   "report": "PREMIUM CURATED CORE",
   "physicalReferences": 100,
-  "productionApprovedTotal": 17,
+  "productionApprovedTotal": 20,
   "maxProductionResults": 3,
   "exactOnly": true,
   "premiumOnly": true,
@@ -77,11 +77,19 @@
       "targetGap": 0
     },
     "cover": {
-      "approved": 0,
-      "compositionFamilies": [],
-      "visualDirections": [],
+      "approved": 3,
+      "compositionFamilies": [
+        "asymmetric-type-led-cover",
+        "cinematic-statement-cover",
+        "keynote-photographic-statement"
+      ],
+      "visualDirections": [
+        "cinematic-opening-statement",
+        "emotional-image-led-opening",
+        "pure-editorial-typography"
+      ],
       "target": 3,
-      "targetGap": 3
+      "targetGap": 0
     },
     "story": {
       "approved": 2,
@@ -110,10 +118,13 @@
     }
   },
   "byCompositionFamily": {
+    "asymmetric-type-led-cover": 1,
+    "cinematic-statement-cover": 1,
     "control-room": 2,
     "executive-performance": 1,
     "financial-waterfall": 1,
     "illustrated-learning-journey": 1,
+    "keynote-photographic-statement": 1,
     "kpi-scorecard": 1,
     "learning-journey": 1,
     "narrative": 2,
@@ -127,34 +138,36 @@
   },
   "byVisualDirection": {
     "boardroom-editorial": 2,
+    "cinematic-opening-statement": 1,
     "consulting-clean": 2,
     "consulting-finance": 1,
     "corporate-editorial": 2,
     "corporate-minimal": 2,
+    "emotional-image-led-opening": 1,
     "executive-finance": 1,
     "illustrated-learning": 1,
     "industrial-editorial": 1,
     "modern-saas": 1,
     "modern-vibrant": 1,
     "premium-editorial": 1,
+    "pure-editorial-typography": 1,
     "technical-light": 2
   },
   "reclassificationQueue": [
-    "REF-000016",
     "REF-000019",
     "REF-000030",
     "REF-000032"
   ],
-  "reviseQueue": [
-    "REF-000017"
-  ],
-  "rejectedSchematicCount": 76,
+  "reviseQueue": [],
+  "rejectedSchematicCount": 75,
   "rejectedQualityCount": 1,
   "pendingCount": 1,
   "eligibleIds": [
     "REF-000013",
     "REF-000014",
     "REF-000015",
+    "REF-000016",
+    "REF-000017",
     "REF-000018",
     "REF-000020",
     "REF-000021",
@@ -168,6 +181,7 @@
     "REF-000029",
     "REF-000033",
     "REF-000034",
-    "REF-000036"
+    "REF-000036",
+    "REF-000047"
   ]
 }

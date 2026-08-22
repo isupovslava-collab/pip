@@ -1,23 +1,17 @@
 {
   "report": "CURATED CORE CALIBRATION",
   "totalCandidates": 100,
-  "productionEligible": 17,
+  "productionEligible": 20,
   "dispositions": {
-    "approved": 17,
-    "reclassify": 4,
-    "revise_visual": 1,
-    "rejected_schematic": 76,
+    "approved": 20,
+    "reclassify": 3,
+    "revise_visual": 0,
+    "rejected_schematic": 75,
     "rejected_wrong_type": 0,
     "rejected_quality": 1,
     "pending": 1
   },
   "reclassificationQueue": [
-    {
-      "id": "REF-000016",
-      "currentType": "story",
-      "proposedType": "cover",
-      "notes": "Strong photographic opening statement; reclassify from Story to Cover and return for review."
-    },
     {
       "id": "REF-000019",
       "currentType": "comparison",
@@ -37,9 +31,7 @@
       "notes": "Strong visual but not Timeline. Requires PO reclassification; proposed type intentionally left empty."
     }
   ],
-  "reviseQueue": [
-    "REF-000017"
-  ],
+  "reviseQueue": [],
   "coverageGaps": {
     "kpi": {
       "approved": 3,
@@ -67,9 +59,9 @@
       "gap": 0
     },
     "cover": {
-      "approved": 0,
+      "approved": 3,
       "target": 3,
-      "gap": 3
+      "gap": 0
     },
     "story": {
       "approved": 2,

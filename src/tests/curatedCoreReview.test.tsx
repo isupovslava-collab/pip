@@ -13,9 +13,9 @@ describe('Premium Curated Core Review v3', () => {
     const user = userEvent.setup()
     render(<CuratedCoreReviewPage references={references} />)
     expect(screen.getByRole('heading', { level: 1, name: 'Premium Curated Core Review v3' })).toBeInTheDocument()
-    expect(screen.getByText('REF-000016')).toBeInTheDocument()
+    expect(screen.getByText('REF-000019')).toBeInTheDocument()
     expect(screen.queryByText('REF-000001')).not.toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Открыть отдельную gallery' })).toHaveAttribute('href', '#/test-cover-recovery-review')
+    expect(screen.getByRole('link', { name: 'Открыть финальный audit' })).toHaveAttribute('href', '#/test-cover-recovery-review')
     expect(screen.getAllByText('Current primary type').length).toBeGreaterThan(0)
     expect(screen.getAllByText('Proposed type').length).toBeGreaterThan(0)
     expect(screen.getAllByText('Type PO verification').length).toBeGreaterThan(0)
@@ -45,21 +45,21 @@ describe('Premium Curated Core Review v3', () => {
 
   it('preserves Product Owner notes locally', async () => {
     const user = userEvent.setup()
-    const reference = references.find(({ id }) => id === 'REF-000016')!
+    const reference = references.find(({ id }) => id === 'REF-000019')!
     render(<CuratedCoreReviewPage references={[reference]} />)
-    const notes = screen.getByLabelText('PO notes REF-000016')
+    const notes = screen.getByLabelText('PO notes REF-000019')
     await user.clear(notes)
     await user.type(notes, 'Нужна проверка типа')
-    expect(JSON.parse(localStorage.getItem(CURATED_CORE_REVIEW_STORAGE_KEY) ?? '{}')['REF-000016']).toMatchObject({ contentTypeDecision: 'reclassify', poReviewDisposition: 'reclassify', notes: 'Нужна проверка типа' })
+    expect(JSON.parse(localStorage.getItem(CURATED_CORE_REVIEW_STORAGE_KEY) ?? '{}')['REF-000019']).toMatchObject({ contentTypeDecision: 'reclassify', poReviewDisposition: 'reclassify', notes: 'Нужна проверка типа' })
   })
 
   it('separates Production, Revise and Archive dispositions', async () => {
     const user = userEvent.setup()
     render(<CuratedCoreReviewPage references={references} />)
     await user.click(screen.getByRole('button', { name: 'Production' }))
-    expect(screen.getAllByText('Production exposure').length).toBe(17)
+    expect(screen.getAllByText('Production exposure').length).toBe(20)
     await user.click(screen.getByRole('button', { name: 'Revise' }))
-    expect(screen.getByText('REF-000017')).toBeInTheDocument()
+    expect(screen.queryByText('REF-000017')).not.toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: 'Rejected / Archive' }))
     expect(screen.getByText('REF-000001')).toBeInTheDocument()
     expect(screen.getByText('REF-000031')).toBeInTheDocument()

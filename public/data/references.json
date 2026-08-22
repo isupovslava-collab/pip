@@ -1177,8 +1177,8 @@
   },
   {
     "id": "REF-000016",
-    "title": "Перемены: переход к будущему",
-    "summary": "Один сильный keynote-тезис превращает изменение в понятный переход от привычного состояния к новой возможности. Оригинальная световая метафора поддерживает выступление и оставляет пространство для голоса спикера.",
+    "title": "Будущее не случается. Мы переходим в него.",
+    "summary": "Главный Hero cover PIP: эмоциональный мост превращает переход к будущему в мгновенно считываемый визуальный тезис и задаёт сильное открытие презентации.",
     "sourceType": "presentation-guidance",
     "sourceLabel": "Открытый первоисточник + оригинальная интерпретация PIP",
     "sourceUrl": "https://www.ted.com/participate/organize-a-local-tedx-event/tedx-organizer-guide/speakers-program/prepare-your-speaker/create-prepare-slides",
@@ -1192,69 +1192,74 @@
     "qualityTier": "hero",
     "previewPath": "previews/REF-000016.png",
     "scenarioIds": [
-      "speech"
+      "speech",
+      "strategy"
     ],
     "personaIds": [
-      "employees"
+      "employees",
+      "board"
     ],
     "goalIds": [
-      "inspire"
+      "inspire",
+      "align"
     ],
     "styleIds": [
-      "modern"
+      "modern",
+      "executive"
     ],
     "contentTypeIds": [
-      "story",
-      "cover"
+      "cover",
+      "story"
     ],
-    "category": "Keynote о переменах",
+    "category": "Hero cover о переходе к будущему",
     "tags": [
-      "выступление",
-      "история изменений",
-      "эмоциональная метафора",
+      "hero cover",
+      "будущее",
+      "эмоциональный визуальный символ",
       "keynote"
     ],
     "useWhen": [
-      "Нужен законченный high-fidelity слайд для сценария «speech».",
-      "Требуется ясный управленческий вывод, реалистичный контент и следующий шаг.",
-      "Смысловые параметры запроса совпадают с назначением композиции."
+      "Нужен законченный high-fidelity титульный слайд с одной мгновенно считываемой идеей.",
+      "Выбран content type Cover и визуальное направление соответствует роли обложки.",
+      "Нужен утверждённый Product Owner вариант без схематичного filler."
     ],
     "avoidWhen": [
-      "Тип контента не совпадает и не является совместимым fallback.",
-      "Красивый визуал не должен заменять более точное смысловое решение."
+      "Нужен содержательный KPI, процесс, таблица, dashboard, сравнение или timeline.",
+      "Титульный слайд не должен заменять точное совпадение другого content type."
     ],
     "designDna": {
-      "minimalism": 94,
-      "corporate": 45,
-      "executive": 68,
-      "modern": 92,
-      "whitespace": 91,
-      "dataDensity": 12,
-      "formality": 54,
-      "visualComplexity": 76
+      "minimalism": 88,
+      "corporate": 62,
+      "executive": 78,
+      "modern": 94,
+      "whitespace": 84,
+      "dataDensity": 10,
+      "formality": 68,
+      "visualComplexity": 88
     },
     "productionApproved": true,
     "heroScenarioId": "speech",
-    "compositionFamily": "keynote-metaphor",
-    "visualDirection": "bold-keynote",
+    "compositionFamily": "keynote-photographic-statement",
+    "visualDirection": "emotional-image-led-opening",
     "referenceSchemaVersion": 2,
-    "primaryContentTypeId": "story",
+    "primaryContentTypeId": "cover",
     "screenSuitable": true,
     "visualReferenceQuality": "premium",
-    "curatedCoreStatus": "review_only",
-    "contentTypePoVerificationStatus": "reclassify",
-    "poReviewDisposition": "reclassify",
-    "contentTypePoNotes": "Strong photographic opening statement; reclassify from Story to Cover and return for review.",
-    "proposedPrimaryContentType": "cover",
-    "poReviewNotes": "Strong photographic opening statement; reclassify from Story to Cover and return for review.",
-    "poReviewRound": "sprint-9-1-manual",
-    "poReviewedAt": "2026-08-16",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-22",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Это лучший вариант. Сильный визуальный символ, мост в будущее считывается сразу, есть эмоция, смысл и вау-эффект. Это главный production candidate для content type Cover.",
+    "poReviewNotes": "Это лучший вариант. Сильный визуальный символ, мост в будущее считывается сразу, есть эмоция, смысл и вау-эффект. Это главный production candidate для content type Cover.",
+    "poReviewRound": "cover-round-2-final",
+    "poReviewedAt": "2026-08-22",
     "poReviewedBy": "product_owner"
   },
   {
     "id": "REF-000017",
-    "title": "Один ориентир. Одна команда.",
-    "summary": "Полноценный титульный слайд создаёт фокус без имитации графика или dashboard. Визуальная логика раскрывает сильный образ будущего и короткий манифест для общего выравнивания и ведёт аудиторию к следующему решению.",
+    "title": "Следующий рубеж ближе, чем кажется.",
+    "summary": "Сдержанный деловой cover создаёт уверенное открытие через короткий тезис, контролируемый свет и спокойную композицию без декоративного шума.",
     "sourceType": "public-talk",
     "sourceLabel": "Открытый первоисточник + оригинальная интерпретация PIP",
     "sourceUrl": "https://www.ted.com/speakers/nancy_duarte",
@@ -1269,66 +1274,74 @@
     "previewPath": "previews/REF-000017.svg",
     "scenarioIds": [
       "speech",
+      "strategy",
+      "project",
       "sales"
     ],
     "personaIds": [
       "board",
+      "ceo",
+      "manager",
       "employees",
       "client"
     ],
     "goalIds": [
-      "align"
+      "align",
+      "inspire",
+      "approve"
     ],
     "styleIds": [
       "minimal",
+      "executive",
+      "corporate",
       "modern"
     ],
     "contentTypeIds": [
       "cover"
     ],
-    "category": "Титульные и имиджевые слайды",
+    "category": "Сдержанный деловой cover",
     "tags": [
-      "выступление",
-      "титульный слайд",
-      "титульные и имиджевые слайды",
-      "сильный образ будущего и короткий манифест для общего выравнивания"
+      "secondary cover",
+      "деловой титульный слайд",
+      "сдержанный стиль",
+      "открывающий тезис"
     ],
     "useWhen": [
-      "Нужно согласовать позиции для правления и вывести главный вывод на первый план.",
-      "Материал требует композиции «keynote-композиция с чередованием «сейчас» и «может быть» и ясной кульминацией.».",
-      "Факты и показатели готовы к обсуждению в сценарии «Выступление»."
+      "Нужен законченный high-fidelity титульный слайд с одной мгновенно считываемой идеей.",
+      "Выбран content type Cover и визуальное направление соответствует роли обложки.",
+      "Нужен утверждённый Product Owner вариант без схематичного filler."
     ],
     "avoidWhen": [
-      "Решение ещё нельзя подкрепить проверенными фактами или согласованными допущениями.",
-      "Аудитории нужен подробный рабочий документ вместо самостоятельного презентационного слайда."
+      "Нужен содержательный KPI, процесс, таблица, dashboard, сравнение или timeline.",
+      "Титульный слайд не должен заменять точное совпадение другого content type."
     ],
     "designDna": {
-      "minimalism": 83,
-      "corporate": 68,
-      "executive": 50,
-      "modern": 95,
-      "whitespace": 81,
-      "dataDensity": 25,
-      "formality": 64,
-      "visualComplexity": 29
+      "minimalism": 92,
+      "corporate": 82,
+      "executive": 90,
+      "modern": 78,
+      "whitespace": 89,
+      "dataDensity": 8,
+      "formality": 86,
+      "visualComplexity": 64
     },
     "productionApproved": true,
     "heroScenarioId": null,
-    "compositionFamily": "statement-slide",
-    "visualDirection": "minimalist-keynote",
+    "compositionFamily": "cinematic-statement-cover",
+    "visualDirection": "cinematic-opening-statement",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "cover",
-    "screenSuitable": false,
-    "visualReferenceQuality": "good",
-    "curatedCoreStatus": "review_only",
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
     "contentTypePoVerificationStatus": "verified",
-    "poReviewDisposition": "revise_visual",
-    "contentTypePoVerifiedAt": "2026-08-16",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-22",
     "contentTypePoVerifiedBy": "product_owner",
-    "contentTypePoNotes": "Cover type is exact, but the geometric element is schematic and not Premium enough.",
-    "poReviewNotes": "Cover type is exact, but the geometric element is schematic and not Premium enough.",
-    "poReviewRound": "sprint-9-1-manual",
-    "poReviewedAt": "2026-08-16",
+    "contentTypePoNotes": "Хороший серьёзный деловой титульный слайд. Спокойный, чистый, без лишнего. Подходит как более сдержанный альтернативный cover.",
+    "poReviewNotes": "Хороший серьёзный деловой титульный слайд. Спокойный, чистый, без лишнего. Подходит как более сдержанный альтернативный cover.",
+    "poReviewRound": "cover-round-2-final",
+    "poReviewedAt": "2026-08-22",
     "poReviewedBy": "product_owner"
   },
   {
@@ -3592,84 +3605,86 @@
   },
   {
     "id": "REF-000047",
-    "title": "Ценность решения: операционные риски",
-    "summary": "Обещание ценности раскрыто через результат для аудитории, отличие и подтверждение эффекта. В центре решения — операционные риски, а структура помогает перейти от фактов к следующему действию без лишних деталей.",
-    "sourceType": "synthetic",
-    "sourceLabel": "Демонстрационный референс PIP",
+    "title": "Стратегия без лишнего.",
+    "summary": "Строгий минималистичный cover использует масштаб, контраст и точную типографику как единственный визуальный аргумент для лаконичного управленческого открытия.",
+    "sourceType": "pip-original",
+    "sourceLabel": "Оригинальный референс PIP",
     "sourceUrl": null,
     "sourceBacked": false,
     "sourceTitle": null,
     "sourceOrganization": null,
     "rightsStatus": null,
-    "sourceNotes": null,
+    "sourceNotes": "Самостоятельная PIP-композиция без сторонних материалов, логотипов и фирменной графики.",
     "sourceAccessCheckedAt": null,
     "previewMode": "original_pip_interpretation",
-    "qualityTier": "standard",
+    "qualityTier": "gold",
     "previewPath": "previews/REF-000047.svg",
     "scenarioIds": [
-      "sales",
-      "strategy"
+      "strategy",
+      "meeting",
+      "speech",
+      "sales"
     ],
     "personaIds": [
+      "board",
       "ceo",
-      "board"
+      "manager"
     ],
     "goalIds": [
-      "approve",
-      "compare_options",
-      "decide",
-      "align"
+      "align",
+      "decide"
     ],
     "styleIds": [
-      "modern",
       "minimal",
-      "industrial"
+      "executive",
+      "modern"
     ],
     "contentTypeIds": [
-      "cover",
-      "story"
+      "cover"
     ],
-    "category": "Ценностное предложение",
+    "category": "Минималистичный стратегический cover",
     "tags": [
-      "продажа",
-      "титульный слайд",
-      "ценностное предложение",
-      "операционные риски"
+      "minimal cover",
+      "стратегия",
+      "чистая типографика",
+      "лаконичный титульный слайд"
     ],
     "useWhen": [
-      "Нужно раскрыть тему «операционные риски» для заказчика на одном содержательном экране.",
-      "Композиция должна помочь получить одобрение и сохранить ясную логику обсуждения.",
-      "Исходные данные по теме «операционные риски» уже проверены и готовы к визуальному обобщению."
+      "Нужен законченный high-fidelity титульный слайд с одной мгновенно считываемой идеей.",
+      "Выбран content type Cover и визуальное направление соответствует роли обложки.",
+      "Нужен утверждённый Product Owner вариант без схематичного filler."
     ],
     "avoidWhen": [
-      "Не подходит, если по теме «операционные риски» ещё нет согласованных фактов и вывода.",
-      "Не использовать, когда аудитории требуется полный документ, а не формат «титульный слайд»."
+      "Нужен содержательный KPI, процесс, таблица, dashboard, сравнение или timeline.",
+      "Титульный слайд не должен заменять точное совпадение другого content type."
     ],
     "designDna": {
-      "minimalism": 80,
-      "corporate": 73,
-      "executive": 60,
-      "modern": 83,
-      "whitespace": 85,
-      "dataDensity": 26,
-      "formality": 85,
-      "visualComplexity": 24
+      "minimalism": 98,
+      "corporate": 70,
+      "executive": 88,
+      "modern": 82,
+      "whitespace": 95,
+      "dataDensity": 6,
+      "formality": 84,
+      "visualComplexity": 34
     },
     "productionApproved": true,
     "heroScenarioId": null,
-    "compositionFamily": "statement-slide",
-    "visualDirection": "modern-editorial",
+    "compositionFamily": "asymmetric-type-led-cover",
+    "visualDirection": "pure-editorial-typography",
     "referenceSchemaVersion": 2,
     "primaryContentTypeId": "cover",
-    "screenSuitable": false,
-    "visualReferenceQuality": "schematic",
-    "curatedCoreStatus": "excluded",
-    "contentTypePoVerificationStatus": "pending",
-    "poReviewDisposition": "rejected_schematic",
-    "contentTypePoNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
-    "poReviewNotes": "Legacy procedural preview archived after PO Round 1 schematic review.",
-    "poReviewRound": "sprint-9-1-manual",
-    "poReviewedAt": "2026-08-16",
+    "screenSuitable": true,
+    "visualReferenceQuality": "premium",
+    "curatedCoreStatus": "eligible",
+    "contentTypePoVerificationStatus": "verified",
+    "poReviewDisposition": "approved",
+    "contentTypePoVerifiedAt": "2026-08-22",
+    "contentTypePoVerifiedBy": "product_owner",
+    "contentTypePoNotes": "Хороший чистый минималистичный титульный слайд. Подходит как строгий лаконичный вариант.",
+    "poReviewNotes": "Хороший чистый минималистичный титульный слайд. Подходит как строгий лаконичный вариант.",
+    "poReviewRound": "cover-round-2-final",
+    "poReviewedAt": "2026-08-22",
     "poReviewedBy": "product_owner"
   },
   {

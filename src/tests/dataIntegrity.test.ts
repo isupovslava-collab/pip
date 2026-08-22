@@ -41,12 +41,13 @@ describe('целостность библиотеки', () => {
     })
   })
 
-  it('uses the explicit PO Round 1 decisions without auto-approval', () => {
+  it('uses the effective PO decisions with three approved Cover references', () => {
     const library = references as Reference[]
-    expect(library.filter(({ poReviewDisposition }) => poReviewDisposition === 'approved')).toHaveLength(17)
-    expect(library.filter(({ poReviewDisposition }) => poReviewDisposition === 'reclassify').map(({ id }) => id).sort()).toEqual(['REF-000016', 'REF-000019', 'REF-000030', 'REF-000032'])
-    expect(library.filter(({ poReviewDisposition }) => poReviewDisposition === 'rejected_schematic')).toHaveLength(76)
+    expect(library.filter(({ poReviewDisposition }) => poReviewDisposition === 'approved')).toHaveLength(20)
+    expect(library.filter(({ poReviewDisposition }) => poReviewDisposition === 'reclassify').map(({ id }) => id).sort()).toEqual(['REF-000019', 'REF-000030', 'REF-000032'])
+    expect(library.filter(({ poReviewDisposition }) => poReviewDisposition === 'rejected_schematic')).toHaveLength(75)
     expect(library.filter(({ poReviewDisposition }) => poReviewDisposition === 'pending')).toHaveLength(1)
+    expect(library.filter(({ primaryContentTypeId, poReviewDisposition }) => primaryContentTypeId === 'cover' && poReviewDisposition === 'approved').map(({ id }) => id).sort()).toEqual(['REF-000016', 'REF-000017', 'REF-000047'])
     const wrongComparison = library.find(({ id }) => id === 'REF-000019')
     expect(wrongComparison).toMatchObject({ primaryContentTypeId: 'comparison', proposedPrimaryContentType: 'story', curatedCoreStatus: 'review_only' })
   })

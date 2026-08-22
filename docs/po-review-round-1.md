@@ -4,7 +4,7 @@ Round: `sprint-9-1-manual`
 
 Authoritative map: `src/data/curatedCore/po-review-round-1.json`
 
-The map records an explicit outcome for all 100 legacy references and is the only source used by the integration script. It contains 17 approved, 4 reclassify, 1 revise_visual, 76 rejected_schematic, 1 rejected_quality, and 1 pending. No title, tier, or previous eligibility flag can infer approval.
+The map records the original outcome for all 100 legacy references: 17 approved, 4 reclassify, 1 revise_visual, 76 rejected_schematic, 1 rejected_quality, and 1 pending. It remains immutable historical evidence. Effective production state also applies the later `cover-round-2-final.json` overlay; no title, tier, or previous eligibility flag can infer approval.
 
 Approved production IDs:
 
@@ -15,8 +15,8 @@ Approved production IDs:
 - Process: REF-000020, REF-000022, REF-000028
 - Story: REF-000015, REF-000018
 - Table: REF-000024, REF-000027, REF-000034
-- Cover: none
+- Cover: none in Round 1; three approvals are recorded in the later Cover Round 2 Final audit.
 
 Reclassification requires a second PO review after metadata correction. `REF-000032` intentionally has no proposed type because the evidence does not justify guessing. Review notes and timestamps remain auditable in data and in the JSON export.
 
-`reports/po-review-round-1.json` and `.md` contain the machine-readable and human-readable audit. PO Review Efficiency is a diagnostic of review workload, not a market KPI.
+`reports/po-review-round-1.json` and `.md` now show the effective state after both audit rounds and list both applied round IDs. The raw Round 1 JSON remains the historical snapshot. PO Review Efficiency is a diagnostic of review workload, not a market KPI.

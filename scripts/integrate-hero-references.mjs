@@ -4,15 +4,30 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const poRound = JSON.parse(readFileSync(join(root, 'src', 'data', 'curatedCore', 'po-review-round-1.json'), 'utf8'))
+const coverFinalRound = JSON.parse(readFileSync(join(root, 'src', 'data', 'curatedCore', 'cover-round-2-final.json'), 'utf8'))
 const poDecisionById = new Map([
-  ...poRound.decisions.map((decision) => [decision.referenceId, decision]),
+  ...poRound.decisions.map((decision) => [decision.referenceId, { ...decision, round: poRound.round, reviewedAt: poRound.reviewedAt, reviewedBy: poRound.reviewedBy }]),
   ...poRound.rejectedSchematicReferenceIds.map((referenceId) => [referenceId, {
     referenceId,
     disposition: 'rejected_schematic',
     verifiedContentType: null,
     notes: 'Legacy procedural preview archived after PO Round 1 schematic review.',
+    round: poRound.round,
+    reviewedAt: poRound.reviewedAt,
+    reviewedBy: poRound.reviewedBy,
   }]),
 ])
+for (const decision of coverFinalRound.decisions.filter(({ decision, productionReferenceId }) => decision === 'approved' && productionReferenceId)) {
+  poDecisionById.set(decision.productionReferenceId, {
+    referenceId: decision.productionReferenceId,
+    disposition: 'approved',
+    verifiedContentType: 'cover',
+    notes: decision.notes,
+    round: coverFinalRound.round,
+    reviewedAt: coverFinalRound.reviewedAt,
+    reviewedBy: coverFinalRound.reviewedBy,
+  })
+}
 
 const familyVariants = {
   kpi: ['kpi-scorecard', 'metric-story', 'trend-spotlight'],
@@ -91,6 +106,38 @@ const heroOverrides = {
   },
 }
 
+const coverOverrides = {
+  'REF-000016': {
+    title: 'Будущее не случается. Мы переходим в него.',
+    summary: 'Главный Hero cover PIP: эмоциональный мост превращает переход к будущему в мгновенно считываемый визуальный тезис и задаёт сильное открытие презентации.',
+    category: 'Hero cover о переходе к будущему',
+    scenarioIds: ['speech', 'strategy'], personaIds: ['employees', 'board'], goalIds: ['inspire', 'align'], styleIds: ['modern', 'executive'], contentTypeIds: ['cover', 'story'],
+    tags: ['hero cover', 'будущее', 'эмоциональный визуальный символ', 'keynote'], compositionFamily: 'keynote-photographic-statement', visualDirection: 'emotional-image-led-opening',
+    designDna: { minimalism: 88, corporate: 62, executive: 78, modern: 94, whitespace: 84, dataDensity: 10, formality: 68, visualComplexity: 88 },
+    qualityTier: 'hero', heroScenarioId: 'speech',
+  },
+  'REF-000017': {
+    coverFile: 'COVER-CAND-004.svg',
+    title: 'Следующий рубеж ближе, чем кажется.',
+    summary: 'Сдержанный деловой cover создаёт уверенное открытие через короткий тезис, контролируемый свет и спокойную композицию без декоративного шума.',
+    category: 'Сдержанный деловой cover',
+    scenarioIds: ['speech', 'strategy', 'project', 'sales'], personaIds: ['board', 'ceo', 'manager', 'employees', 'client'], goalIds: ['align', 'inspire', 'approve'], styleIds: ['minimal', 'executive', 'corporate', 'modern'], contentTypeIds: ['cover'],
+    tags: ['secondary cover', 'деловой титульный слайд', 'сдержанный стиль', 'открывающий тезис'], compositionFamily: 'cinematic-statement-cover', visualDirection: 'cinematic-opening-statement',
+    designDna: { minimalism: 92, corporate: 82, executive: 90, modern: 78, whitespace: 89, dataDensity: 8, formality: 86, visualComplexity: 64 },
+    qualityTier: 'gold', heroScenarioId: null,
+  },
+  'REF-000047': {
+    coverFile: 'COVER-R2-02A.svg',
+    title: 'Стратегия без лишнего.',
+    summary: 'Строгий минималистичный cover использует масштаб, контраст и точную типографику как единственный визуальный аргумент для лаконичного управленческого открытия.',
+    category: 'Минималистичный стратегический cover', sourceType: 'pip-original', sourceLabel: 'Оригинальный референс PIP', sourceUrl: null, sourceBacked: false, sourceTitle: null, sourceOrganization: null, rightsStatus: null, sourceNotes: 'Самостоятельная PIP-композиция без сторонних материалов, логотипов и фирменной графики.', sourceAccessCheckedAt: null,
+    scenarioIds: ['strategy', 'meeting', 'speech', 'sales'], personaIds: ['board', 'ceo', 'manager'], goalIds: ['align', 'decide'], styleIds: ['minimal', 'executive', 'modern'], contentTypeIds: ['cover'],
+    tags: ['minimal cover', 'стратегия', 'чистая типографика', 'лаконичный титульный слайд'], compositionFamily: 'asymmetric-type-led-cover', visualDirection: 'pure-editorial-typography',
+    designDna: { minimalism: 98, corporate: 70, executive: 88, modern: 82, whitespace: 95, dataDensity: 6, formality: 84, visualComplexity: 34 },
+    qualityTier: 'gold', heroScenarioId: null,
+  },
+}
+
 function stableIndex(reference) {
   return Number(reference.id.slice(-3)) % 3
 }
@@ -119,12 +166,12 @@ function applyPoDecision(reference) {
     visualReferenceQuality: approved ? 'premium' : revise || rejectedQuality ? 'good' : decision.disposition === 'rejected_schematic' ? 'schematic' : reclassify ? 'premium' : cleanReference.visualReferenceQuality,
     curatedCoreStatus: approved ? 'eligible' : reclassify || revise || decision.disposition === 'pending' ? 'review_only' : 'excluded',
     contentTypePoVerificationStatus: typeVerified ? 'verified' : reclassify ? 'reclassify' : rejected ? cleanReference.contentTypePoVerificationStatus : 'pending',
-    ...(typeVerified ? { contentTypePoVerifiedAt: poRound.reviewedAt, contentTypePoVerifiedBy: poRound.reviewedBy } : {}),
+    ...(typeVerified ? { contentTypePoVerifiedAt: decision.reviewedAt ?? poRound.reviewedAt, contentTypePoVerifiedBy: decision.reviewedBy ?? poRound.reviewedBy } : {}),
     contentTypePoNotes: decision.notes,
     ...(decision.proposedContentType ? { proposedPrimaryContentType: decision.proposedContentType } : {}),
     poReviewDisposition: decision.disposition,
     poReviewNotes: decision.notes,
-    ...(reviewed ? { poReviewRound: poRound.round, poReviewedAt: poRound.reviewedAt, poReviewedBy: poRound.reviewedBy } : {}),
+    ...(reviewed ? { poReviewRound: decision.round ?? poRound.round, poReviewedAt: decision.reviewedAt ?? poRound.reviewedAt, poReviewedBy: decision.reviewedBy ?? poRound.reviewedBy } : {}),
   }
 }
 
@@ -153,40 +200,72 @@ export function integrateHeroReferences() {
       referenceSchemaVersion: 2,
     }
     const hero = heroOverrides[reference.id]
-    if (!hero) return applyPoDecision(base)
-    copyFileSync(join(root, 'public', 'hero-references', hero.heroFile), join(root, 'public', 'previews', `${reference.id}.png`))
-    const replacedSvg = join(root, 'public', 'previews', `${reference.id}.svg`)
-    if (existsSync(replacedSvg)) unlinkSync(replacedSvg)
-    return applyPoDecision({
-      ...base,
-      ...hero,
-      heroFile: undefined,
-      sourceLabel: 'Открытый первоисточник + оригинальная интерпретация PIP',
-      sourceBacked: true,
-      rightsStatus: 'public-link-reference-only',
-      sourceAccessCheckedAt: '2026-08-02',
-      previewMode: 'original_pip_interpretation',
-      qualityTier: 'hero',
-      primaryContentTypeId: hero.contentTypeIds[0],
-      screenSuitable: true,
-      visualReferenceQuality: 'premium',
-      curatedCoreStatus: 'review_only',
-      contentTypePoVerificationStatus: 'pending',
-      poReviewDisposition: 'pending',
-      productionApproved: true,
-      heroScenarioId: hero.scenario,
-      referenceSchemaVersion: 2,
-      previewPath: `previews/${reference.id}.png`,
-      useWhen: [
-        `Нужен законченный high-fidelity слайд для сценария «${hero.scenario}».`,
-        'Требуется ясный управленческий вывод, реалистичный контент и следующий шаг.',
-        'Смысловые параметры запроса совпадают с назначением композиции.',
-      ],
-      avoidWhen: [
-        'Тип контента не совпадает и не является совместимым fallback.',
-        'Красивый визуал не должен заменять более точное смысловое решение.',
-      ],
-    })
+    let integrated = base
+    if (hero) {
+      copyFileSync(join(root, 'public', 'hero-references', hero.heroFile), join(root, 'public', 'previews', `${reference.id}.png`))
+      const replacedSvg = join(root, 'public', 'previews', `${reference.id}.svg`)
+      if (existsSync(replacedSvg)) unlinkSync(replacedSvg)
+      integrated = {
+        ...base,
+        ...hero,
+        heroFile: undefined,
+        sourceLabel: 'Открытый первоисточник + оригинальная интерпретация PIP',
+        sourceBacked: true,
+        rightsStatus: 'public-link-reference-only',
+        sourceAccessCheckedAt: '2026-08-02',
+        previewMode: 'original_pip_interpretation',
+        qualityTier: 'hero',
+        primaryContentTypeId: hero.contentTypeIds[0],
+        screenSuitable: true,
+        visualReferenceQuality: 'premium',
+        curatedCoreStatus: 'review_only',
+        contentTypePoVerificationStatus: 'pending',
+        poReviewDisposition: 'pending',
+        productionApproved: true,
+        heroScenarioId: hero.scenario,
+        referenceSchemaVersion: 2,
+        previewPath: `previews/${reference.id}.png`,
+        useWhen: [
+          `Нужен законченный high-fidelity слайд для сценария «${hero.scenario}».`,
+          'Требуется ясный управленческий вывод, реалистичный контент и следующий шаг.',
+          'Смысловые параметры запроса совпадают с назначением композиции.',
+        ],
+        avoidWhen: [
+          'Тип контента не совпадает и не является совместимым fallback.',
+          'Красивый визуал не должен заменять более точное смысловое решение.',
+        ],
+      }
+    }
+    const cover = coverOverrides[reference.id]
+    if (cover) {
+      const extension = cover.coverFile?.split('.').at(-1) ?? integrated.previewPath.split('.').at(-1)
+      if (cover.coverFile) copyFileSync(join(root, 'public', 'cover-recovery', cover.coverFile), join(root, 'public', 'previews', `${reference.id}.${extension}`))
+      integrated = {
+        ...integrated,
+        ...cover,
+        coverFile: undefined,
+        previewMode: 'original_pip_interpretation',
+        primaryContentTypeId: 'cover',
+        screenSuitable: true,
+        visualReferenceQuality: 'premium',
+        curatedCoreStatus: 'review_only',
+        contentTypePoVerificationStatus: 'pending',
+        poReviewDisposition: 'pending',
+        productionApproved: true,
+        referenceSchemaVersion: 2,
+        previewPath: `previews/${reference.id}.${extension}`,
+        useWhen: [
+          'Нужен законченный high-fidelity титульный слайд с одной мгновенно считываемой идеей.',
+          'Выбран content type Cover и визуальное направление соответствует роли обложки.',
+          'Нужен утверждённый Product Owner вариант без схематичного filler.',
+        ],
+        avoidWhen: [
+          'Нужен содержательный KPI, процесс, таблица, dashboard, сравнение или timeline.',
+          'Титульный слайд не должен заменять точное совпадение другого content type.',
+        ],
+      }
+    }
+    return applyPoDecision(integrated)
   }, (key, value) => value)
 
   for (const reference of references) {
@@ -226,7 +305,7 @@ export function integrateHeroReferences() {
   })
   const mappingSource = mappingLines.join('\n').replace("qualityTier: 'gold'", "qualityTier: 'hero' | 'gold'")
   writeFileSync(mappingPath, mappingSource)
-  console.log('hero integration: PASS (6 approved Hero previews mapped to existing IDs; library remains 100 records).')
+  console.log('hero integration: PASS (6 approved Heroes and 3 approved Cover references mapped to existing IDs; library remains 100 records).')
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) integrateHeroReferences()
